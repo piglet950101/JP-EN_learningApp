@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "source": "Appli開発［foxgold共有］\\First Stage 音声",
+  "count": 43,
+  "entries": {
+    "113": {
+      "file": "0113.wav",
+      "word": "fertile",
+      "source_ext": "wav"
+    },
+    "1260": {
+      "file": "1260.mp3",
+      "word": "plow/plough",
+      "source_ext": "mp3"
+    },
+    "1262": {
+      "file": "1262.mp3",
+      "word": "clue",
+      "source_ext": "mp3"
+    },
+    "144": {
+      "file": "0144.mp4",
+      "word": "transfer",
+      "source_ext": "mp4"
+    },
+    "1449": {
+      "file": "1449.mp3",
+      "word": "status",
+      "source_ext": "mp3"
+    },
+    "1453": {
+      "file": "1453.mp4",
+      "word": "transplant",
+      "source_ext": "mp4"
+    },
+    "1476": {
+      "file": "1476.mp4",
+      "word": "conduct",
+      "source_ext": "mp4"
+    },
+    "1487": {
+      "file": "1487.mp4",
+      "word": "resume",
+      "source_ext": "mp4"
+    },
+    "1611": {
+      "file": "1611.mp4",
+      "word": "insult",
+      "source_ext": "mp4"
+    },
+    "162": {
+      "file": "0162.mp4",
+      "word": "export",
+      "source_ext": "mp4"
+    },
+    "163": {
+      "file": "0163.mp4",
+      "word": "transport",
+      "source_ext": "mp4"
+    },
+    "1638": {
+      "file": "1638.wav",
+      "word": "suggest",
+      "source_ext": "wav"
+    },
+    "1660": {
+      "file": "1660.wav",
+      "word": "affluent",
+      "source_ext": "wav"
+    },
+    "1673": {
+      "file": "1673.wav",
+      "word": "transform",
+      "source_ext": "wav"
+    },
+    "1682": {
+      "file": "1682.mp4",
+      "word": "cleanly",
+      "source_ext": "mp4"
+    },
+    "1778": {
+      "file": "1778.wav",
+      "word": "depend",
+      "source_ext": "wav"
+    },
+    "1829": {
+      "file": "1829.wav",
+      "word": "upset",
+      "source_ext": "wav"
+    },
+    "1958": {
+      "file": "1958.mp3",
+      "word": "desert",
+      "source_ext": "mp3"
+    },
+    "1997": {
+      "file": "1997.mp3",
+      "word": "bow",
+      "source_ext": "mp3"
+    },
+    "201": {
+      "file": "0201.wav",
+      "word": "hostile",
+      "source_ext": "wav"
+    },
+    "2089": {
+      "file": "2089.wav",
+      "word": "poor",
+      "source_ext": "wav"
+    },
+    "2142": {
+      "file": "2142.mp3",
+      "word": "discourse",
+      "source_ext": "mp3"
+    },
+    "2189": {
+      "file": "2189.mp3",
+      "word": "glacier",
+      "source_ext": "mp3"
+    },
+    "242": {
+      "file": "0242.mp4",
+      "word": "wind",
+      "source_ext": "mp4"
+    },
+    "383": {
+      "file": "0383.mp3",
+      "word": "suspect",
+      "source_ext": "mp3"
+    },
+    "48": {
+      "file": "0048.mp4",
+      "word": "record",
+      "source_ext": "mp4"
+    },
+    "500": {
+      "file": "0500.wav",
+      "word": "extract",
+      "source_ext": "wav"
+    },
+    "513": {
+      "file": "0513.mp3",
+      "word": "abuse",
+      "source_ext": "mp3"
+    },
+    "514": {
+      "file": "0514.mp3",
+      "word": "use",
+      "source_ext": "mp3"
+    },
+    "525": {
+      "file": "0525.wav",
+      "word": "dictate",
+      "source_ext": "wav"
+    },
+    "563": {
+      "file": "0563.mp4",
+      "word": "via",
+      "source_ext": "mp4"
+    },
+    "566": {
+      "file": "0566.mp3",
+      "word": "compound",
+      "source_ext": "mp3"
+    },
+    "586": {
+      "file": "0586.mp4",
+      "word": "contest",
+      "source_ext": "mp4"
+    },
+    "746": {
+      "file": "0746.mp3",
+      "word": "permit",
+      "source_ext": "mp3"
+    },
+    "755": {
+      "file": "0755.mp4",
+      "word": "emit",
+      "source_ext": "mp4"
+    },
+    "789": {
+      "file": "0789.wav",
+      "word": "address",
+      "source_ext": "wav"
+    },
+    "824": {
+      "file": "0824.mp3",
+      "word": "minute",
+      "source_ext": "mp3"
+    },
+    "841": {
+      "file": "0841.wav",
+      "word": "incline",
+      "source_ext": "wav"
+    },
+    "845": {
+      "file": "0845.wav",
+      "word": "object",
+      "source_ext": "wav"
+    },
+    "849": {
+      "file": "0849.mp3",
+      "word": "refugee",
+      "source_ext": "mp3"
+    },
+    "927": {
+      "file": "0927.mp3",
+      "word": "invalid",
+      "source_ext": "mp3"
+    },
+    "97": {
+      "file": "0097.wav",
+      "word": "diversity",
+      "source_ext": "wav"
+    },
+    "98": {
+      "file": "0098.wav",
+      "word": "diversion",
+      "source_ext": "wav"
+    }
+  }
+}

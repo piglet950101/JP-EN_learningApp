@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "source": "発音訂正.docx (落合理事長, 2026-06-30)",
+  "notes": [
+    "Each entry: id -> {hint?, note?, optional?}.",
+    "'hint' is the desired pronunciation (typically katakana). When present,",
+    "the app speaks this instead of the raw English word; katakana hints",
+    "automatically switch the TTS engine to Japanese voice for accuracy.",
+    "'note' captures requests we can't yet render reliably (accent shifts,",
+    "multi-pronunciation sequences) — kept for future SSML / recorded-audio",
+    "support. 'optional' = true means 'できれば' (apply if possible)."
+  ],
+
+  "overrides": {
+    "97":   {"word": "diversity", "hint": "ダイヴァースィティ", "optional": true},
+    "98":   {"word": "diversion",  "hint": "ダイヴァージョン",  "optional": true},
+    "113":  {"word": "fertile",    "hint": "ファータイル",       "optional": true},
+    "242":  {"word": "wind",       "hint": "ワインド"},
+    "513":  {"word": "abuse",      "hint": "アビューズ"},
+    "514":  {"word": "use",        "hint": "ユーズ"},
+    "563":  {"word": "via",        "hint": "ヴァイア"},
+    "755":  {"word": "emit",       "hint": "イミット"},
+    "824":  {"word": "minute",     "hint": "マイニュート"},
+    "1449": {"word": "status",     "hint": "ステイタス"},
+    "1638": {"word": "suggest",    "hint": "サヂェスト"},
+    "1682": {"word": "cleanly",    "hint": "クレンリー"},
+    "2189": {"word": "glacier",    "hint": "グラシャー", "optional": true},
+
+    "_accent_shifts_not_yet_applied": {
+      "_comment": "Stress-only corrections — TTS engines need SSML <prosody>/<emphasis> or IPA <phoneme> to convey these reliably. For v1 these stay at the default TTS pronunciation; recommend recorded-audio override later.",
+      "ids": [500, 566, 586, 582, 746, 789, 841, 849, 1476, 1572, 1611, 1660, 1673, 2142, 2151]
+    },
+    "_multi_pronunciation_not_yet_applied": {
+      "_comment": "Plays two pronunciations in sequence — needs a small extension to the TTS service (queue + delay).",
+      "ids": [383, 1958, 1997]
+    },
+    "_other_special_cases": {
+      "1260": "plow/plough → 発音1回 (TTS reads the slash; need to strip slash variants before speaking)"
+    }
+  }
+}

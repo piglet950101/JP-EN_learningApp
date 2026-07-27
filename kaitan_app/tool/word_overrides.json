@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "source": "Client feedback 2026-07-27 (POS / miscellaneous field corrections not yet reflected in the source Excel).",
+  "overrides": {
+    "1886": {
+      "word": "devoid",
+      "field": "pos",
+      "new_pos_raw": "形",
+      "note": "Client asked to change 他→形 (transitive verb → adjective). Not yet updated in vol.2 Excel."
+    }
+  }
+}

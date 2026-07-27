@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "source": "docx: First Stage 訂正.docx (2026-07-20) — squared items where Excel bold does not match the required rendering",
+  "overrides": {
+    "33": {
+      "word": "concern",
+      "mnemonic_type": "ゴロ",
+      "runs": [
+        {"text": "concerned は「", "bold": false},
+        {"text": "［", "bold": false},
+        {"text": "関する", "bold": true},
+        {"text": "］", "bold": false},
+        {"text": "ん", "bold": true},
+        {"text": "だ", "bold": false},
+        {"text": "」", "bold": false}
+      ]
+    },
+    "74": {
+      "word": "incessant",
+      "mnemonic_type": "ゴロ",
+      "runs": [
+        {"text": "院生さんと", "bold": true},
+        {"text": "は、[絶え間ぬ]研究", "bold": false}
+      ]
+    },
+    "99": {
+      "word": "obstinate",
+      "mnemonic_type": "ゴロ",
+      "runs": [
+        {"text": "虻捨てないと", "bold": true},
+        {"text": "は［がんこな］子", "bold": false}
+      ]
+    },
+    "100": {
+      "word": "abstain",
+      "mnemonic_type": "ゴロ",
+      "runs": [
+        {"text": "虻捨てん", "bold": true},
+        {"text": "子と遊ぶの［控える］", "bold": false}
+      ]
+    },
+    "907": {
+      "word": "nuclear",
+      "mnemonic_type": "セットフレーズ",
+      "runs": [
+        {"text": "a nuclear weapon 核兵器\na nuclear family 核家族", "bold": false}
+      ]
+    }
+  }
+}

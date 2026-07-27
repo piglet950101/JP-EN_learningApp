@@ -1,0 +1,101 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Android Gradle / local
+/android/.gradle/
+/android/local.properties
+/android/**/*.iml
+/android/captures/
+
+# Release signing (Phase 2: NEVER commit keystore or key credentials)
+/android/key.properties
+/android/app/*.jks
+/android/app/*.keystore
+/android/app/upload-keystore.jks
+*.jks
+*.keystore
+
+# iOS placeholders (added when Mac build environment is set up)
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/flutter_export_environment.sh
+/ios/Runner/GeneratedPluginRegistrant.*
+/ios/Pods/
+/ios/.symlinks/
+/ios/Podfile.lock
+
+# Python tooling under tool/
+tool/__pycache__/
+tool/**/*.pyc
+tool/.pytest_cache/
+tool/.venv/
+tool/venv/
+
+# Editor / OS clutter
+.vscode/*.log
+*.bak
+*.orig
+Thumbs.db
+
+# Local scratch / experimentation (kept out of the tree)
+scratch/
+tmp/
+*.local.*
+
+# Backup / snapshot archives (never belong in git — regenerable state)
+# The prefix-match forms catch files like `.dart_tool.rar` that just share
+# a prefix with an ignored directory (`.dart_tool/`) but slip through the
+# folder rule because they are files, not directories.
+*.rar
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+.dart_tool.*
+build.*
+!build.gradle
+!build.gradle.kts

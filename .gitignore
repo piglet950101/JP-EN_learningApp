@@ -1,0 +1,12 @@
+# Workspace-root .gitignore: everything is ignored EXCEPT the code and docs.
+# The nested kaitan_app/.gitignore still governs the Flutter project's own
+# per-file ignores; this file only controls what is visible at the root.
+
+# Ignore everything at the root by default
+/*
+
+# Then re-include the things we DO want tracked
+!/.gitignore
+!/README.md
+!/kaitan_app/
+!/docs/
