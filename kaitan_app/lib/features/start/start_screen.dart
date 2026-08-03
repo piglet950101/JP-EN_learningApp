@@ -22,6 +22,11 @@ class StartScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final lapsAsync = ref.watch(lapCountProvider(kStageFirst));
+    final ssLapsAsync = ref.watch(lapCountProvider(kStageSecond));
+    final isUnlocked = ref.watch(unlockedProvider).maybeWhen(
+          data: (v) => v,
+          orElse: () => false,
+        );
     return Scaffold(
       // Bright, warm gradient background — replaces the flat white.
       body: Container(
@@ -134,20 +139,53 @@ class StartScreen extends ConsumerWidget {
                         const SizedBox(height: 28),
                         _StageCard(
                           label: 'Second Stage',
-                          subtitle: '2番目の意味・派生語・反対語',
-                          enabled: false,
-                          comingSoon: true,
+                          subtitle: '派生・類義・反意・活用ドリル',
+                          enabled: isUnlocked,
+                          locked: !isUnlocked,
                           onTap: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Second Stage は準備中です'),
-                                duration: Duration(seconds: 2),
-                              ),
-                            );
+                            if (isUnlocked) {
+                              context.push('/range?stage=second');
+                            } else {
+                              context.push('/unlock');
+                            }
                           },
                         ),
                         const SizedBox(height: 10),
-                        const _StarRow(silver: 0, gold: 0),
+                        ssLapsAsync.when(
+                          loading: () => const _StarRow(silver: 0, gold: 0),
+                          error: (_, _) => const _StarRow(silver: 0, gold: 0),
+                          data: (laps) => Column(
+                            children: [
+                              _StarRow(
+                                silver: _silvers(laps),
+                                gold: _golds(laps),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                '$laps回転',
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  color: Color(0xFF4A5568),
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 28),
+                        _StageCard(
+                          label: 'ビデオ解説',
+                          subtitle: '46 ブロック分の暗記用ビデオ',
+                          enabled: isUnlocked,
+                          locked: !isUnlocked,
+                          onTap: () {
+                            if (isUnlocked) {
+                              context.push('/videos');
+                            } else {
+                              context.push('/unlock');
+                            }
+                          },
+                        ),
                       ],
                     ),
                     // ── Bottom note ────────────────────────────────────
@@ -182,14 +220,14 @@ class _StageCard extends StatelessWidget {
   final String label;
   final String subtitle;
   final bool enabled;
-  final bool comingSoon;
+  final bool locked;
   final VoidCallback onTap;
   const _StageCard({
     required this.label,
     required this.subtitle,
     required this.onTap,
     this.enabled = true,
-    this.comingSoon = false,
+    this.locked = false,
   });
 
   @override
@@ -243,21 +281,10 @@ class _StageCard extends StatelessWidget {
                                 fontWeight: FontWeight.w800,
                                 color: fg,
                               )),
-                          if (comingSoon) ...[
+                          if (locked) ...[
                             const SizedBox(width: 8),
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 8, vertical: 2),
-                              decoration: BoxDecoration(
-                                color: Colors.white.withValues(alpha: 0.25),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: const Text('準備中',
-                                  style: TextStyle(
-                                      fontSize: 11,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700)),
-                            ),
+                            const Icon(Icons.lock_outline_rounded,
+                                color: Colors.white70, size: 18),
                           ],
                         ],
                       ),
@@ -271,7 +298,12 @@ class _StageCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                Icon(Icons.arrow_forward_rounded, color: fg, size: 28),
+                Icon(
+                    locked
+                        ? Icons.lock_outline_rounded
+                        : Icons.arrow_forward_rounded,
+                    color: fg,
+                    size: 28),
               ],
             ),
           ),

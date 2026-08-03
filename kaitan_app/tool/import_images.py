@@ -63,7 +63,10 @@ PER_BLOCK_FILE_RE = re.compile(
     r"^[ⅡⅠⅢⅣⅤⅥⅦⅧⅨⅩ]\s*[-–]\s*(\d+)\s*\.(jpe?g|png)$",
     re.IGNORECASE,
 )
-MAX_ID = 2201  # 1..2201 inclusive
+# 医系ブロック (2026-07-27): filenames are "{id}{word}.png" — digits immediately
+# followed by the English word with no separator, e.g. "2202pneumonia.png".
+MEDICAL_FILE_RE = re.compile(r"^(\d{4})[A-Za-z].*\.(png|jpe?g)$", re.IGNORECASE)
+MAX_ID = 2267  # 1..2267 (vol.1: 1..1100, vol.2: 1101..2201, vol.3 医系: 2202..2267)
 
 
 # ── discovery ───────────────────────────────────────────────────────────
@@ -99,6 +102,30 @@ def _discover_flat():
                 by_id[gid] = img
         for gid in sorted(by_id):
             yield gid, by_id[gid], "flat"
+
+
+def _discover_medical():
+    """Yield (global_id, source_path, 'medical') for the vol.3 medical
+    vocabulary folder. Naming convention (client-provided 2026-07-27):
+        医系単語2202-2267Second Stage画像/{id}{word}.png
+    e.g. 2202pneumonia.png. IDs 2202..2267 accepted."""
+    for folder in sorted(SRC_PARENT.iterdir()):
+        if not folder.is_dir():
+            continue
+        if not folder.name.startswith("医系単語"):
+            continue
+        for img in sorted(folder.iterdir()):
+            if not img.is_file():
+                continue
+            m = MEDICAL_FILE_RE.match(img.name)
+            if not m:
+                print(f"  skip (medical: bad name): {img.name}")
+                continue
+            gid = int(m.group(1))
+            if not (2202 <= gid <= 2267):
+                print(f"  skip (medical: id out of range 2202..2267): {img.name}")
+                continue
+            yield gid, img, "medical"
 
 
 def _discover_per_block():
@@ -146,6 +173,10 @@ def discover_sources():
     for gid, path, layout in _discover_flat():
         if gid in chosen and chosen[gid][1] == "per_block":
             flat_overrides += 1
+        chosen[gid] = (path, layout)
+    # Medical (vol.3, 2202..2267) — separate folder & naming, no collisions with
+    # vol.1/2 flat layout (which is capped at 2201).
+    for gid, path, layout in _discover_medical():
         chosen[gid] = (path, layout)
 
     if flat_overrides:

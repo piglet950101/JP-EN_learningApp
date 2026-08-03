@@ -1007,12 +1007,325 @@ class StageProgressCompanion extends UpdateCompanion<StageProgressData> {
   }
 }
 
+class $AppStateTable extends AppState
+    with TableInfo<$AppStateTable, AppStateData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $AppStateTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(1),
+  );
+  static const VerificationMeta _unlockedAtMeta = const VerificationMeta(
+    'unlockedAt',
+  );
+  @override
+  late final GeneratedColumn<int> unlockedAt = GeneratedColumn<int>(
+    'unlocked_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _unlockCodeHashMeta = const VerificationMeta(
+    'unlockCodeHash',
+  );
+  @override
+  late final GeneratedColumn<String> unlockCodeHash = GeneratedColumn<String>(
+    'unlock_code_hash',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    unlockedAt,
+    unlockCodeHash,
+    updatedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'app_state';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<AppStateData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('unlocked_at')) {
+      context.handle(
+        _unlockedAtMeta,
+        unlockedAt.isAcceptableOrUnknown(data['unlocked_at']!, _unlockedAtMeta),
+      );
+    }
+    if (data.containsKey('unlock_code_hash')) {
+      context.handle(
+        _unlockCodeHashMeta,
+        unlockCodeHash.isAcceptableOrUnknown(
+          data['unlock_code_hash']!,
+          _unlockCodeHashMeta,
+        ),
+      );
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  AppStateData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return AppStateData(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      unlockedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unlocked_at'],
+      ),
+      unlockCodeHash: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}unlock_code_hash'],
+      ),
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+    );
+  }
+
+  @override
+  $AppStateTable createAlias(String alias) {
+    return $AppStateTable(attachedDatabase, alias);
+  }
+}
+
+class AppStateData extends DataClass implements Insertable<AppStateData> {
+  final int id;
+  final int? unlockedAt;
+  final String? unlockCodeHash;
+  final DateTime updatedAt;
+  const AppStateData({
+    required this.id,
+    this.unlockedAt,
+    this.unlockCodeHash,
+    required this.updatedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || unlockedAt != null) {
+      map['unlocked_at'] = Variable<int>(unlockedAt);
+    }
+    if (!nullToAbsent || unlockCodeHash != null) {
+      map['unlock_code_hash'] = Variable<String>(unlockCodeHash);
+    }
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    return map;
+  }
+
+  AppStateCompanion toCompanion(bool nullToAbsent) {
+    return AppStateCompanion(
+      id: Value(id),
+      unlockedAt: unlockedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(unlockedAt),
+      unlockCodeHash: unlockCodeHash == null && nullToAbsent
+          ? const Value.absent()
+          : Value(unlockCodeHash),
+      updatedAt: Value(updatedAt),
+    );
+  }
+
+  factory AppStateData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return AppStateData(
+      id: serializer.fromJson<int>(json['id']),
+      unlockedAt: serializer.fromJson<int?>(json['unlockedAt']),
+      unlockCodeHash: serializer.fromJson<String?>(json['unlockCodeHash']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'unlockedAt': serializer.toJson<int?>(unlockedAt),
+      'unlockCodeHash': serializer.toJson<String?>(unlockCodeHash),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+    };
+  }
+
+  AppStateData copyWith({
+    int? id,
+    Value<int?> unlockedAt = const Value.absent(),
+    Value<String?> unlockCodeHash = const Value.absent(),
+    DateTime? updatedAt,
+  }) => AppStateData(
+    id: id ?? this.id,
+    unlockedAt: unlockedAt.present ? unlockedAt.value : this.unlockedAt,
+    unlockCodeHash: unlockCodeHash.present
+        ? unlockCodeHash.value
+        : this.unlockCodeHash,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
+  AppStateData copyWithCompanion(AppStateCompanion data) {
+    return AppStateData(
+      id: data.id.present ? data.id.value : this.id,
+      unlockedAt: data.unlockedAt.present
+          ? data.unlockedAt.value
+          : this.unlockedAt,
+      unlockCodeHash: data.unlockCodeHash.present
+          ? data.unlockCodeHash.value
+          : this.unlockCodeHash,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('AppStateData(')
+          ..write('id: $id, ')
+          ..write('unlockedAt: $unlockedAt, ')
+          ..write('unlockCodeHash: $unlockCodeHash, ')
+          ..write('updatedAt: $updatedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, unlockedAt, unlockCodeHash, updatedAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is AppStateData &&
+          other.id == this.id &&
+          other.unlockedAt == this.unlockedAt &&
+          other.unlockCodeHash == this.unlockCodeHash &&
+          other.updatedAt == this.updatedAt);
+}
+
+class AppStateCompanion extends UpdateCompanion<AppStateData> {
+  final Value<int> id;
+  final Value<int?> unlockedAt;
+  final Value<String?> unlockCodeHash;
+  final Value<DateTime> updatedAt;
+  const AppStateCompanion({
+    this.id = const Value.absent(),
+    this.unlockedAt = const Value.absent(),
+    this.unlockCodeHash = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+  });
+  AppStateCompanion.insert({
+    this.id = const Value.absent(),
+    this.unlockedAt = const Value.absent(),
+    this.unlockCodeHash = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+  });
+  static Insertable<AppStateData> custom({
+    Expression<int>? id,
+    Expression<int>? unlockedAt,
+    Expression<String>? unlockCodeHash,
+    Expression<DateTime>? updatedAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (unlockedAt != null) 'unlocked_at': unlockedAt,
+      if (unlockCodeHash != null) 'unlock_code_hash': unlockCodeHash,
+      if (updatedAt != null) 'updated_at': updatedAt,
+    });
+  }
+
+  AppStateCompanion copyWith({
+    Value<int>? id,
+    Value<int?>? unlockedAt,
+    Value<String?>? unlockCodeHash,
+    Value<DateTime>? updatedAt,
+  }) {
+    return AppStateCompanion(
+      id: id ?? this.id,
+      unlockedAt: unlockedAt ?? this.unlockedAt,
+      unlockCodeHash: unlockCodeHash ?? this.unlockCodeHash,
+      updatedAt: updatedAt ?? this.updatedAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (unlockedAt.present) {
+      map['unlocked_at'] = Variable<int>(unlockedAt.value);
+    }
+    if (unlockCodeHash.present) {
+      map['unlock_code_hash'] = Variable<String>(unlockCodeHash.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('AppStateCompanion(')
+          ..write('id: $id, ')
+          ..write('unlockedAt: $unlockedAt, ')
+          ..write('unlockCodeHash: $unlockCodeHash, ')
+          ..write('updatedAt: $updatedAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$ProgressDb extends GeneratedDatabase {
   _$ProgressDb(QueryExecutor e) : super(e);
   $ProgressDbManager get managers => $ProgressDbManager(this);
   late final $WordProgressTable wordProgress = $WordProgressTable(this);
   late final $BlockStateTable blockState = $BlockStateTable(this);
   late final $StageProgressTable stageProgress = $StageProgressTable(this);
+  late final $AppStateTable appState = $AppStateTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -1021,6 +1334,7 @@ abstract class _$ProgressDb extends GeneratedDatabase {
     wordProgress,
     blockState,
     stageProgress,
+    appState,
   ];
 }
 
@@ -1596,6 +1910,185 @@ typedef $$StageProgressTableProcessedTableManager =
       StageProgressData,
       PrefetchHooks Function()
     >;
+typedef $$AppStateTableCreateCompanionBuilder =
+    AppStateCompanion Function({
+      Value<int> id,
+      Value<int?> unlockedAt,
+      Value<String?> unlockCodeHash,
+      Value<DateTime> updatedAt,
+    });
+typedef $$AppStateTableUpdateCompanionBuilder =
+    AppStateCompanion Function({
+      Value<int> id,
+      Value<int?> unlockedAt,
+      Value<String?> unlockCodeHash,
+      Value<DateTime> updatedAt,
+    });
+
+class $$AppStateTableFilterComposer
+    extends Composer<_$ProgressDb, $AppStateTable> {
+  $$AppStateTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unlockedAt => $composableBuilder(
+    column: $table.unlockedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get unlockCodeHash => $composableBuilder(
+    column: $table.unlockCodeHash,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$AppStateTableOrderingComposer
+    extends Composer<_$ProgressDb, $AppStateTable> {
+  $$AppStateTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unlockedAt => $composableBuilder(
+    column: $table.unlockedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get unlockCodeHash => $composableBuilder(
+    column: $table.unlockCodeHash,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$AppStateTableAnnotationComposer
+    extends Composer<_$ProgressDb, $AppStateTable> {
+  $$AppStateTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get unlockedAt => $composableBuilder(
+    column: $table.unlockedAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get unlockCodeHash => $composableBuilder(
+    column: $table.unlockCodeHash,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+}
+
+class $$AppStateTableTableManager
+    extends
+        RootTableManager<
+          _$ProgressDb,
+          $AppStateTable,
+          AppStateData,
+          $$AppStateTableFilterComposer,
+          $$AppStateTableOrderingComposer,
+          $$AppStateTableAnnotationComposer,
+          $$AppStateTableCreateCompanionBuilder,
+          $$AppStateTableUpdateCompanionBuilder,
+          (
+            AppStateData,
+            BaseReferences<_$ProgressDb, $AppStateTable, AppStateData>,
+          ),
+          AppStateData,
+          PrefetchHooks Function()
+        > {
+  $$AppStateTableTableManager(_$ProgressDb db, $AppStateTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$AppStateTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$AppStateTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$AppStateTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int?> unlockedAt = const Value.absent(),
+                Value<String?> unlockCodeHash = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => AppStateCompanion(
+                id: id,
+                unlockedAt: unlockedAt,
+                unlockCodeHash: unlockCodeHash,
+                updatedAt: updatedAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int?> unlockedAt = const Value.absent(),
+                Value<String?> unlockCodeHash = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => AppStateCompanion.insert(
+                id: id,
+                unlockedAt: unlockedAt,
+                unlockCodeHash: unlockCodeHash,
+                updatedAt: updatedAt,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$AppStateTableProcessedTableManager =
+    ProcessedTableManager<
+      _$ProgressDb,
+      $AppStateTable,
+      AppStateData,
+      $$AppStateTableFilterComposer,
+      $$AppStateTableOrderingComposer,
+      $$AppStateTableAnnotationComposer,
+      $$AppStateTableCreateCompanionBuilder,
+      $$AppStateTableUpdateCompanionBuilder,
+      (
+        AppStateData,
+        BaseReferences<_$ProgressDb, $AppStateTable, AppStateData>,
+      ),
+      AppStateData,
+      PrefetchHooks Function()
+    >;
 
 class $ProgressDbManager {
   final _$ProgressDb _db;
@@ -1606,4 +2099,6 @@ class $ProgressDbManager {
       $$BlockStateTableTableManager(_db, _db.blockState);
   $$StageProgressTableTableManager get stageProgress =>
       $$StageProgressTableTableManager(_db, _db.stageProgress);
+  $$AppStateTableTableManager get appState =>
+      $$AppStateTableTableManager(_db, _db.appState);
 }

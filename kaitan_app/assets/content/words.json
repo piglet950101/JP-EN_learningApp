@@ -2,13 +2,15 @@
   "schema_version": 2,
   "sources": [
     "アプリ基本データ-完成版落合6月1日.xlsx",
-    "アプリ基本データ完成版落合6月13日_vol.2_1101-2201.xlsx"
+    "アプリ基本データ完成版落合6月13日_vol.2_1101-2201.xlsx",
+    "アプリ基本データSecond Stage医系66.xlsx"
   ],
-  "count": 2201,
+  "count": 2267,
   "stats": {
     "vol_counts": {
       "1": 1100,
-      "2": 1101
+      "2": 1101,
+      "3": 66
     },
     "blocks_present": [
       1,
@@ -56,7 +58,8 @@
       43,
       44,
       45,
-      46
+      46,
+      47
     ],
     "block_word_counts": {
       "1": 48,
@@ -104,10 +107,11 @@
       "43": 48,
       "44": 48,
       "45": 48,
-      "46": 45
+      "46": 45,
+      "47": 66
     },
     "meaning_mode_counts": {
-      "single": 2114,
+      "single": 2180,
       "both_required": 6,
       "either_ok": 81
     },
@@ -126,7 +130,8 @@
       "カタカナ",
       "ゴロ",
       "セットフレーズ",
-      "語源"
+      "語源",
+      "語源／カタカナ"
     ],
     "warnings_count": 0
   },
@@ -87684,6 +87689,2505 @@
         }
       ],
       "image_filename": "2201.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2202,
+      "vol": 3,
+      "block": 47,
+      "word": "pneumonia",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "肺炎"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "入門には",
+              "bold": true
+            },
+            {
+              "text": "まず［肺炎］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Pneumonia is an infection that inflames the air sacs in one or both lungs.",
+      "example_ja": "肺炎とは、片方または両方の肺胞に炎症を引き起こす感染症です。",
+      "examples": [
+        {
+          "en": "Pneumonia is an infection that inflames the air sacs in one or both lungs.",
+          "ja": "肺炎とは、片方または両方の肺胞に炎症を引き起こす感染症です。"
+        }
+      ],
+      "image_filename": "2202.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2203,
+      "vol": 3,
+      "block": 47,
+      "word": "diabetes",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "糖尿病"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "die や bed is",
+              "bold": true
+            },
+            {
+              "text": " ",
+              "bold": false
+            },
+            {
+              "text": "［糖尿病］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Diabetes is a chronic condition characterized by high levels of blood glucose due to insufficient insulin or body resistance.",
+      "example_ja": "糖尿病は、インスリンの不足や抵抗性により血糖値が慢性的に高くなる病気です。",
+      "examples": [
+        {
+          "en": "Diabetes is a chronic condition characterized by high levels of blood glucose due to insufficient insulin or body resistance.",
+          "ja": "糖尿病は、インスリンの不足や抵抗性により血糖値が慢性的に高くなる病気です。"
+        }
+      ],
+      "image_filename": "2203.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2204,
+      "vol": 3,
+      "block": 47,
+      "word": "leukemia",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "白血病"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "あ",
+              "bold": false
+            },
+            {
+              "text": "る～？君は？",
+              "bold": true
+            },
+            {
+              "text": "［白血病］？",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Leukemia is a type of cancer that affects the blood-forming tissues, resulting in an overproduction of abnormal white blood cells.",
+      "example_ja": "白血病は造血組織に発生するがんの一種で、異常な白血球が過剰に作られる病気です。",
+      "examples": [
+        {
+          "en": "Leukemia is a type of cancer that affects the blood-forming tissues, resulting in an overproduction of abnormal white blood cells.",
+          "ja": "白血病は造血組織に発生するがんの一種で、異常な白血球が過剰に作られる病気です。"
+        }
+      ],
+      "image_filename": "2204.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2205,
+      "vol": 3,
+      "block": 47,
+      "word": "ulcer",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "潰瘍"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "あるさ～、",
+              "bold": true
+            },
+            {
+              "text": "［潰瘍］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "An ulcer is a painful sore that develops on the lining of the stomach, small intestine, or digestive tract.",
+      "example_ja": "潰瘍とは、胃、小腸、または消化管の粘膜にできる痛みを伴う傷のことです。",
+      "examples": [
+        {
+          "en": "An ulcer is a painful sore that develops on the lining of the stomach, small intestine, or digestive tract.",
+          "ja": "潰瘍とは、胃、小腸、または消化管の粘膜にできる痛みを伴う傷のことです。"
+        }
+      ],
+      "image_filename": "2205.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2206,
+      "vol": 3,
+      "block": 47,
+      "word": "tuberculosis",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "結核"
+      ],
+      "mnemonics": [
+        {
+          "type": "カタカナ",
+          "runs": [
+            {
+              "text": "ツベルクリン反応",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Tuberculosis is a potentially serious infectious disease that mainly affects the lungs, caused by bacteria.",
+      "example_ja": "結核は主に細菌によって引き起こされ、肺に感染しやすい重篤な感染症です。",
+      "examples": [
+        {
+          "en": "Tuberculosis is a potentially serious infectious disease that mainly affects the lungs, caused by bacteria.",
+          "ja": "結核は主に細菌によって引き起こされ、肺に感染しやすい重篤な感染症です。"
+        }
+      ],
+      "image_filename": "2206.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2207,
+      "vol": 3,
+      "block": 47,
+      "word": "diarrhea",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "下痢"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "ダリア",
+              "bold": true
+            },
+            {
+              "text": "食って［下痢］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Diarrhea is a common digestive issue usually caused by viral or bacterial infection, food intolerance, or stress.",
+      "example_ja": "下痢は、ウイルスや細菌への感染、食物不耐症、ストレスなどによって引き起こされる一般的な消化器症状です。",
+      "examples": [
+        {
+          "en": "Diarrhea is a common digestive issue usually caused by viral or bacterial infection, food intolerance, or stress.",
+          "ja": "下痢は、ウイルスや細菌への感染、食物不耐症、ストレスなどによって引き起こされる一般的な消化器症状です。"
+        }
+      ],
+      "image_filename": "2207.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2208,
+      "vol": 3,
+      "block": 47,
+      "word": "asthma",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "ぜんそく"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "東",
+              "bold": true
+            },
+            {
+              "text": "さんは［ぜんそく］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Asthma is a chronic condition in which the airways narrow, swell, and produce extra mucus.",
+      "example_ja": "喘息は、気道が狭くなり、腫れ、過剰な粘液を分泌する慢性的な病気です。",
+      "examples": [
+        {
+          "en": "Asthma is a chronic condition in which the airways narrow, swell, and produce extra mucus.",
+          "ja": "喘息は、気道が狭くなり、腫れ、過剰な粘液を分泌する慢性的な病気です。"
+        }
+      ],
+      "image_filename": "2208.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2209,
+      "vol": 3,
+      "block": 47,
+      "word": "measles",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "はしか"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "鼻、",
+              "bold": false
+            },
+            {
+              "text": "水ずるず",
+              "bold": true
+            },
+            {
+              "text": "るの［はしか］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Measles is a highly contagious viral infection that spreads through respiratory droplets.",
+      "example_ja": "はしかは、飛沫感染によって非常に広がりやすいウイルス性の感染症です。",
+      "examples": [
+        {
+          "en": "Measles is a highly contagious viral infection that spreads through respiratory droplets.",
+          "ja": "はしかは、飛沫感染によって非常に広がりやすいウイルス性の感染症です。"
+        }
+      ],
+      "image_filename": "2209.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2210,
+      "vol": 3,
+      "block": 47,
+      "word": "syphilis",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "梅毒"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "死比率",
+              "bold": true
+            },
+            {
+              "text": "減った［梅毒］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Syphilis is a bacterial infection usually transmitted by direct contact with a sore during sexual activity.",
+      "example_ja": "梅毒は、主に性的接触によって病変部位と直接接触することで感染する細菌性の感染症です。",
+      "examples": [
+        {
+          "en": "Syphilis is a bacterial infection usually transmitted by direct contact with a sore during sexual activity.",
+          "ja": "梅毒は、主に性的接触によって病変部位と直接接触することで感染する細菌性の感染症です。"
+        }
+      ],
+      "image_filename": "2210.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2211,
+      "vol": 3,
+      "block": 47,
+      "word": "anorexia",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "拒食症"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "あの歴史いや、",
+              "bold": true
+            },
+            {
+              "text": "［拒食症］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Anorexia is an eating disorder characterized by an intense fear of gaining weight and a severely restricted food intake.",
+      "example_ja": "拒食症は、体重増加に対する強い恐怖心と極端な食事制限を特徴とする摂食障害です。",
+      "examples": [
+        {
+          "en": "Anorexia is an eating disorder characterized by an intense fear of gaining weight and a severely restricted food intake.",
+          "ja": "拒食症は、体重増加に対する強い恐怖心と極端な食事制限を特徴とする摂食障害です。"
+        }
+      ],
+      "image_filename": "2211.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2212,
+      "vol": 3,
+      "block": 47,
+      "word": "tumor",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "ガン、腫瘍"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "妻は",
+              "bold": true
+            },
+            {
+              "text": "［ガン］です。",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "A tumor is an abnormal mass of tissue that forms when cells grow and divide more than they should.",
+      "example_ja": "腫瘍とは、細胞が必要以上に増殖・分裂することによって形成される異常な組織の塊のことです。",
+      "examples": [
+        {
+          "en": "A tumor is an abnormal mass of tissue that forms when cells grow and divide more than they should.",
+          "ja": "腫瘍とは、細胞が必要以上に増殖・分裂することによって形成される異常な組織の塊のことです。"
+        }
+      ],
+      "image_filename": "2212.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2213,
+      "vol": 3,
+      "block": 47,
+      "word": "bladder",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "膀胱"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "ブラザー",
+              "bold": true
+            },
+            {
+              "text": "は［膀胱］炎",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "The bladder is a hollow organ that stores urine produced by the kidneys before excretion.",
+      "example_ja": "膀胱は、排出前に腎臓で作られた尿を蓄える袋状の器官です。",
+      "examples": [
+        {
+          "en": "The bladder is a hollow organ that stores urine produced by the kidneys before excretion.",
+          "ja": "膀胱は、排出前に腎臓で作られた尿を蓄える袋状の器官です。"
+        }
+      ],
+      "image_filename": "2213.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2214,
+      "vol": 3,
+      "block": 47,
+      "word": "abdomen",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "腹"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "あ～ぶどううめ～",
+              "bold": true
+            },
+            {
+              "text": "と［腹］いっぱい",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "The abdomen contains essential digestive organs, including the stomach, intestines, liver, and pancreas.",
+      "example_ja": "腹部には、胃、腸、肝臓、膵臓などの重要な消化器系器官が含まれています。",
+      "examples": [
+        {
+          "en": "The abdomen contains essential digestive organs, including the stomach, intestines, liver, and pancreas.",
+          "ja": "腹部には、胃、腸、肝臓、膵臓などの重要な消化器系器官が含まれています。"
+        }
+      ],
+      "image_filename": "2214.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2215,
+      "vol": 3,
+      "block": 47,
+      "word": "torso",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "胴"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "痘瘡",
+              "bold": true
+            },
+            {
+              "text": "になる［胴］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "The torso houses vital thoracic and abdominal organs, providing structural protection and central stability for the body.",
+      "example_ja": "胴体は胸部や腹部の重要器官を収容しており、身体に構造的保護と中心的な安定性を提供しています。",
+      "examples": [
+        {
+          "en": "The torso houses vital thoracic and abdominal organs, providing structural protection and central stability for the body.",
+          "ja": "胴体は胸部や腹部の重要器官を収容しており、身体に構造的保護と中心的な安定性を提供しています。"
+        }
+      ],
+      "image_filename": "2215.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2216,
+      "vol": 3,
+      "block": 47,
+      "word": "smallpox",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "痘瘡、天然痘"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "small ［豆のような］ pox［= pocks あばた］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Smallpox is a contagious viral disease caused by the variola virus, characterized by high fever and severe skin pustules.",
+      "example_ja": "天然痘は天然痘ウイルスによって引き起こされる伝染病で、高熱と重篤な皮膚の発疹・膿疱が特徴です。",
+      "examples": [
+        {
+          "en": "Smallpox is a contagious viral disease caused by the variola virus, characterized by high fever and severe skin pustules.",
+          "ja": "天然痘は天然痘ウイルスによって引き起こされる伝染病で、高熱と重篤な皮膚の発疹・膿疱が特徴です。"
+        }
+      ],
+      "image_filename": "2216.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2217,
+      "vol": 3,
+      "block": 47,
+      "word": "rash",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "発疹"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "ラッシー",
+              "bold": true
+            },
+            {
+              "text": "で［発疹］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "A rash is a noticeable change in the color or texture of the skin, often caused by allergic reactions or infections.",
+      "example_ja": "発疹とは皮膚の色や質感の目立った変化であり、アレルギー反応や感染症によって引き起こされることが多いです。",
+      "examples": [
+        {
+          "en": "A rash is a noticeable change in the color or texture of the skin, often caused by allergic reactions or infections.",
+          "ja": "発疹とは皮膚の色や質感の目立った変化であり、アレルギー反応や感染症によって引き起こされることが多いです。"
+        }
+      ],
+      "image_filename": "2217.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2218,
+      "vol": 3,
+      "block": 47,
+      "word": "cerebrum",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "大脳"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "セレブらも",
+              "bold": true
+            },
+            {
+              "text": "［大脳］検査",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "The cerebrum controls high-level cognitive functions, including reasoning, speech, emotion, and voluntary movement.",
+      "example_ja": "大脳は、推理、言語、感情、随意運動などの高次認知機能を司っています。",
+      "examples": [
+        {
+          "en": "The cerebrum controls high-level cognitive functions, including reasoning, speech, emotion, and voluntary movement.",
+          "ja": "大脳は、推理、言語、感情、随意運動などの高次認知機能を司っています。"
+        }
+      ],
+      "image_filename": "2218.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2219,
+      "vol": 3,
+      "block": 47,
+      "word": "spine",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "背骨、脊柱"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "スッ、パイン",
+              "bold": true
+            },
+            {
+              "text": "の［背骨］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "The spine supports the body's posture and protects the delicate spinal cord inside its bony canal.",
+      "example_ja": "脊柱は身体の姿勢を支え、その骨性の管の内部にある繊細な脊髄を保護しています。",
+      "examples": [
+        {
+          "en": "The spine supports the body's posture and protects the delicate spinal cord inside its bony canal.",
+          "ja": "脊柱は身体の姿勢を支え、その骨性の管の内部にある繊細な脊髄を保護しています。"
+        }
+      ],
+      "image_filename": "2219.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2220,
+      "vol": 3,
+      "block": 47,
+      "word": "pupil",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "瞳"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "pupil［児童（＝目の中の小さい人）］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "The pupil regulates the amount of light entering the eye by contracting in bright light and dilating in the dark.",
+      "example_ja": "瞳孔は、明るい場所では収縮し暗闇では拡大することで、目に入る光の量を調節する働きをしています。",
+      "examples": [
+        {
+          "en": "The pupil regulates the amount of light entering the eye by contracting in bright light and dilating in the dark.",
+          "ja": "瞳孔は、明るい場所では収縮し暗闇では拡大することで、目に入る光の量を調節する働きをしています。"
+        }
+      ],
+      "image_filename": "2220.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2221,
+      "vol": 3,
+      "block": 47,
+      "word": "embryo",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "胎芽"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "陰部利用",
+              "bold": true
+            },
+            {
+              "text": "で［胎芽］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "An embryo represents the early stage of human development, from conception through the eighth week of pregnancy.",
+      "example_ja": "胚芽は、受精から妊娠8週目までのヒトの発育初期段階を指します。",
+      "examples": [
+        {
+          "en": "An embryo represents the early stage of human development, from conception through the eighth week of pregnancy.",
+          "ja": "胚芽は、受精から妊娠8週目までのヒトの発育初期段階を指します。"
+        }
+      ],
+      "image_filename": "2221.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2222,
+      "vol": 3,
+      "block": 47,
+      "word": "fetus",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "胎児"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "日たつ",
+              "bold": true
+            },
+            {
+              "text": "と［胎児］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "A fetus is the developing human organism from the ninth week after fertilization until birth.",
+      "example_ja": "胎児とは、受精後9週目から出生までの発生段階にあるヒトの個体を指します。",
+      "examples": [
+        {
+          "en": "A fetus is the developing human organism from the ninth week after fertilization until birth.",
+          "ja": "胎児とは、受精後9週目から出生までの発生段階にあるヒトの個体を指します。"
+        }
+      ],
+      "image_filename": "2222.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2223,
+      "vol": 3,
+      "block": 47,
+      "word": "appendix",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "虫垂、付録"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "a ［腸へ］ pend［ぶら下がっている］ ix［もの］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "The appendix is a small pouch attached to the cecum that plays a role in gut immunity and gut flora maintenance.",
+      "example_ja": "虫垂は盲腸に付いた小さな嚢状の器官で、腸管免疫や腸内細菌叢の維持に役立っています。",
+      "examples": [
+        {
+          "en": "The appendix is a small pouch attached to the cecum that plays a role in gut immunity and gut flora maintenance.",
+          "ja": "虫垂は盲腸に付いた小さな嚢状の器官で、腸管免疫や腸内細菌叢の維持に役立っています。"
+        }
+      ],
+      "image_filename": "2223.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2224,
+      "vol": 3,
+      "block": 47,
+      "word": "anesthesia",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "麻酔"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "姉、死んじゃう、",
+              "bold": true
+            },
+            {
+              "text": "［麻酔］で",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Anesthesia is a medical treatment that prevents patients from feeling pain during surgical procedures.",
+      "example_ja": "麻酔とは、手術などの処置中に患者が痛みを感じないようにする医療処置のことです。",
+      "examples": [
+        {
+          "en": "Anesthesia is a medical treatment that prevents patients from feeling pain during surgical procedures.",
+          "ja": "麻酔とは、手術などの処置中に患者が痛みを感じないようにする医療処置のことです。"
+        }
+      ],
+      "image_filename": "2224.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2225,
+      "vol": 3,
+      "block": 47,
+      "word": "vomit",
+      "pos_raw": "自",
+      "pos_list": [
+        "自"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "戻す、嘔吐する"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "棒見っと",
+              "bold": true
+            },
+            {
+              "text": "［戻す］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Vomiting is the body's involuntary reflex to expel stomach contents through the mouth in response to irritation or toxins.",
+      "example_ja": "嘔吐は、刺激や毒素に反応して胃の内容物を口から排出する体の不随意な反射作用です。",
+      "examples": [
+        {
+          "en": "Vomiting is the body's involuntary reflex to expel stomach contents through the mouth in response to irritation or toxins.",
+          "ja": "嘔吐は、刺激や毒素に反応して胃の内容物を口から排出する体の不随意な反射作用です。"
+        }
+      ],
+      "image_filename": "2225.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2226,
+      "vol": 3,
+      "block": 47,
+      "word": "euthanasia",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "安楽死"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "許さね～じゃ",
+              "bold": true
+            },
+            {
+              "text": "［安楽死］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Euthanasia refers to the practice of intentionally ending a life to relieve intractable suffering from terminal illness.",
+      "example_ja": "安楽死とは、不治の病による耐え難い苦痛を和らげるために意図的に生命を終絶させる医療行為・選択を指します。",
+      "examples": [
+        {
+          "en": "Euthanasia refers to the practice of intentionally ending a life to relieve intractable suffering from terminal illness.",
+          "ja": "安楽死とは、不治の病による耐え難い苦痛を和らげるために意図的に生命を終絶させる医療行為・選択を指します。"
+        }
+      ],
+      "image_filename": "2226.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2227,
+      "vol": 3,
+      "block": 47,
+      "word": "mumps",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "おたふくかぜ"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "Mom プスッ",
+              "bold": true
+            },
+            {
+              "text": "と［おたふくかぜ］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Mumps is a contagious viral disease caused by the mumps virus, which infects the salivary glands.",
+      "example_ja": "おたふく風邪は、唾液腺に感染するムンプスウイルスによって引き起こされる伝染病です。",
+      "examples": [
+        {
+          "en": "Mumps is a contagious viral disease caused by the mumps virus, which infects the salivary glands.",
+          "ja": "おたふく風邪は、唾液腺に感染するムンプスウイルスによって引き起こされる伝染病です。"
+        }
+      ],
+      "image_filename": "2227.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2228,
+      "vol": 3,
+      "block": 47,
+      "word": "kidney",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "腎臓"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "kid に",
+              "bold": true
+            },
+            {
+              "text": "多い［腎臓］病",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "The kidneys filter metabolic waste and excess fluid from the blood to produce urine and regulate blood pressure.",
+      "example_ja": "腎臓は、血液から代謝老廃物や余分な水分を濾過して尿を生成し、血圧を調節する働きをしています。",
+      "examples": [
+        {
+          "en": "The kidneys filter metabolic waste and excess fluid from the blood to produce urine and regulate blood pressure.",
+          "ja": "腎臓は、血液から代謝老廃物や余分な水分を濾過して尿を生成し、血圧を調節する働きをしています。"
+        }
+      ],
+      "image_filename": "2228.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2229,
+      "vol": 3,
+      "block": 47,
+      "word": "concussion",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "脳震盪"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "con［完全に］ cussion［ 叩かれること］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "A concussion is a traumatic brain injury caused by a bump, blow, or jolt to the head that temporarily alters brain function.",
+      "example_ja": "脳震盪（のうしんとう）は、頭部への衝突や打撲、大きな衝撃によって脳機能が一時的に阻害される外傷性脳損傷です。",
+      "examples": [
+        {
+          "en": "A concussion is a traumatic brain injury caused by a bump, blow, or jolt to the head that temporarily alters brain function.",
+          "ja": "脳震盪（のうしんとう）は、頭部への衝突や打撲、大きな衝撃によって脳機能が一時的に阻害される外傷性脳損傷です。"
+        }
+      ],
+      "image_filename": "2229.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2230,
+      "vol": 3,
+      "block": 47,
+      "word": "control",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "対照（群）、抑制"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "実験の結果を比較するために操作をコントロールしてあるもの",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "In clinical trials, a control group serves as a baseline comparison to evaluate the effectiveness of a new treatment.",
+      "example_ja": "臨床試験において対照群は、新しい治療法の効果を評価するための基準比較対象として機能します。",
+      "examples": [
+        {
+          "en": "In clinical trials, a control group serves as a baseline comparison to evaluate the effectiveness of a new treatment.",
+          "ja": "臨床試験において対照群は、新しい治療法の効果を評価するための基準比較対象として機能します。"
+        }
+      ],
+      "image_filename": "2230.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2231,
+      "vol": 3,
+      "block": 47,
+      "word": "surrogate",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "代理母"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "去ろう、ゲート",
+              "bold": true
+            },
+            {
+              "text": "の［代理母］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "A surrogate mother carries and delivers a child for individuals or couples who are unable to conceive naturally.",
+      "example_ja": "代理母は、自然妊娠が困難な個人や夫婦に代わって子供を妊娠・出産します。",
+      "examples": [
+        {
+          "en": "A surrogate mother carries and delivers a child for individuals or couples who are unable to conceive naturally.",
+          "ja": "代理母は、自然妊娠が困難な個人や夫婦に代わって子供を妊娠・出産します。"
+        }
+      ],
+      "image_filename": "2231.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2232,
+      "vol": 3,
+      "block": 47,
+      "word": "womb",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "子宮"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "う～む、",
+              "bold": true
+            },
+            {
+              "text": "［子宮］で産～む",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "The womb is the muscular organ where a fertilized egg implants and develops into a baby during pregnancy.",
+      "example_ja": "子宮は、受精卵が着床し妊娠期間を通じて赤ちゃんへと発育する筋肉質の器官です。",
+      "examples": [
+        {
+          "en": "The womb is the muscular organ where a fertilized egg implants and develops into a baby during pregnancy.",
+          "ja": "子宮は、受精卵が着床し妊娠期間を通じて赤ちゃんへと発育する筋肉質の器官です。"
+        }
+      ],
+      "image_filename": "2232.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2233,
+      "vol": 3,
+      "block": 47,
+      "word": "urinate",
+      "pos_raw": "自",
+      "pos_list": [
+        "自"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "放尿する"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "有利ね、と",
+              "bold": true
+            },
+            {
+              "text": "［放尿する］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "To urinate is the physiological process of discharging liquid waste stored in the bladder from the body.",
+      "example_ja": "排尿するとは、膀胱に蓄積された液体老廃物を体外へ排出する生理的プロセスです。",
+      "examples": [
+        {
+          "en": "To urinate is the physiological process of discharging liquid waste stored in the bladder from the body.",
+          "ja": "排尿するとは、膀胱に蓄積された液体老廃物を体外へ排出する生理的プロセスです。"
+        }
+      ],
+      "image_filename": "2233.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2234,
+      "vol": 3,
+      "block": 47,
+      "word": "demographics",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "人口統計"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "demo［民衆を］ graphics［グラフにしたもの］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Demographics involve statistical data relating to population characteristics such as age, gender, and income.",
+      "example_ja": "人口統計とは、年齢、性別、収入などの集団の特性に関する統計データを指します。",
+      "examples": [
+        {
+          "en": "Demographics involve statistical data relating to population characteristics such as age, gender, and income.",
+          "ja": "人口統計とは、年齢、性別、収入などの集団の特性に関する統計データを指します。"
+        }
+      ],
+      "image_filename": "2234.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2235,
+      "vol": 3,
+      "block": 47,
+      "word": "pathogen",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "病原菌"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "パスじゃん",
+              "bold": true
+            },
+            {
+              "text": "［病原菌］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "A pathogen is a biological agent, such as a bacterium or virus, that causes disease in its host.",
+      "example_ja": "病原体とは、宿主に病気を引き起こす細菌やウイルスなどの生物学的要因のことです。",
+      "examples": [
+        {
+          "en": "A pathogen is a biological agent, such as a bacterium or virus, that causes disease in its host.",
+          "ja": "病原体とは、宿主に病気を引き起こす細菌やウイルスなどの生物学的要因のことです。"
+        }
+      ],
+      "image_filename": "2235.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2236,
+      "vol": 3,
+      "block": 47,
+      "word": "in vitro fertilization",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "体外受精"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "in［中］ vitro［ガラス（ビードロ）］ fertilization［受精］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "In vitro fertilization is an assisted reproductive technology where an egg is fertilized by sperm outside the body in a laboratory setting.",
+      "example_ja": "体外受精とは、実験室環境で卵子と精子を体外で受精させる高度生殖医療技術です。",
+      "examples": [
+        {
+          "en": "In vitro fertilization is an assisted reproductive technology where an egg is fertilized by sperm outside the body in a laboratory setting.",
+          "ja": "体外受精とは、実験室環境で卵子と精子を体外で受精させる高度生殖医療技術です。"
+        }
+      ],
+      "image_filename": "2236.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2237,
+      "vol": 3,
+      "block": 47,
+      "word": "dementia",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "認知症"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "de［衰える］ mentia［=mental  頭が］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Dementia is a progressive neurological syndrome characterized by impairment of memory, reasoning, and cognitive abilities.",
+      "example_ja": "認知症は、記憶、推理力、認知機能の低下を特徴とする進行性の神経症候群です。",
+      "examples": [
+        {
+          "en": "Dementia is a progressive neurological syndrome characterized by impairment of memory, reasoning, and cognitive abilities.",
+          "ja": "認知症は、記憶、推理力、認知機能の低下を特徴とする進行性の神経症候群です。"
+        }
+      ],
+      "image_filename": "2237.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2238,
+      "vol": 3,
+      "block": 47,
+      "word": "catalyst",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "触媒"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "［触媒］",
+              "bold": false
+            },
+            {
+              "text": "語る人",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "example_en": "A catalyst is a substance that accelerates the rate of a chemical reaction without being permanently consumed itself.",
+      "example_ja": "触媒とは、それ自体は永久に消費されることなく、化学反応の速度を促進させる物質です。",
+      "examples": [
+        {
+          "en": "A catalyst is a substance that accelerates the rate of a chemical reaction without being permanently consumed itself.",
+          "ja": "触媒とは、それ自体は永久に消費されることなく、化学反応の速度を促進させる物質です。"
+        }
+      ],
+      "image_filename": "2238.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2239,
+      "vol": 3,
+      "block": 47,
+      "word": "membrane",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "細胞膜"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "面、brain",
+              "bold": true
+            },
+            {
+              "text": " のは［細胞膜］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "A cell membrane forms a selective barrier that regulates the movement of substances into and out of the cell.",
+      "example_ja": "細胞膜は、細胞内への物質の出入りを調節する選択的障壁を形成しています。",
+      "examples": [
+        {
+          "en": "A cell membrane forms a selective barrier that regulates the movement of substances into and out of the cell.",
+          "ja": "細胞膜は、細胞内への物質の出入りを調節する選択的障壁を形成しています。"
+        }
+      ],
+      "image_filename": "2239.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2240,
+      "vol": 3,
+      "block": 47,
+      "word": "pancreas",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "膵臓"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "パンくれやす",
+              "bold": true
+            },
+            {
+              "text": "という[膵臓]",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "The pancreas produces essential digestive enzymes and hormones like insulin that regulate blood glucose levels.",
+      "example_ja": "膵臓は、重要な消化酵素や血糖値を調節するインスリンなどのホルモンを分泌します。",
+      "examples": [
+        {
+          "en": "The pancreas produces essential digestive enzymes and hormones like insulin that regulate blood glucose levels.",
+          "ja": "膵臓は、重要な消化酵素や血糖値を調節するインスリンなどのホルモンを分泌します。"
+        }
+      ],
+      "image_filename": "2240.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2241,
+      "vol": 3,
+      "block": 47,
+      "word": "obstetrician",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "産科医"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "おんぶして鳥さん、",
+              "bold": true
+            },
+            {
+              "text": "［産科医］へ",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "An obstetrician is a physician who specializes in pregnancy, childbirth, and postpartum care.",
+      "example_ja": "産科医とは、妊娠、分娩、および産後のケアを専門とする医師のことです。",
+      "examples": [
+        {
+          "en": "An obstetrician is a physician who specializes in pregnancy, childbirth, and postpartum care.",
+          "ja": "産科医とは、妊娠、分娩、および産後のケアを専門とする医師のことです。"
+        }
+      ],
+      "image_filename": "2241.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2242,
+      "vol": 3,
+      "block": 47,
+      "word": "gynecology",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "婦人科医学"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "gyneco［ヴァヂャイナの］ logy［医学］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Gynecology is the branch of medicine focused on the diagnosis and treatment of conditions affecting the female reproductive system.",
+      "example_ja": "婦人科学とは、女性生殖器系に影響を与える疾患の診断と治療に特化した医学分野です。",
+      "examples": [
+        {
+          "en": "Gynecology is the branch of medicine focused on the diagnosis and treatment of conditions affecting the female reproductive system.",
+          "ja": "婦人科学とは、女性生殖器系に影響を与える疾患の診断と治療に特化した医学分野です。"
+        }
+      ],
+      "image_filename": "2242.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2243,
+      "vol": 3,
+      "block": 47,
+      "word": "hemophilia",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "血友病"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "hemo［血を］ philia［愛する］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Hemophilia is an inherited genetic disorder that impairs the body's ability to produce blood clotting factors.",
+      "example_ja": "血友病は、体内で血液凝固因子を作る能力が障害される遺伝性疾患です。",
+      "examples": [
+        {
+          "en": "Hemophilia is an inherited genetic disorder that impairs the body's ability to produce blood clotting factors.",
+          "ja": "血友病は、体内で血液凝固因子を作る能力が障害される遺伝性疾患です。"
+        }
+      ],
+      "image_filename": "2243.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2244,
+      "vol": 3,
+      "block": 47,
+      "word": "hemorrhage",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "大量出血"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "hemo［血が］ rage［暴れる］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "A hemorrhage is a rapid and profuse loss of blood from damaged blood vessels.",
+      "example_ja": "大出血とは、損傷した血管からの急速かつ大量の血液喪失のことです。",
+      "examples": [
+        {
+          "en": "A hemorrhage is a rapid and profuse loss of blood from damaged blood vessels.",
+          "ja": "大出血とは、損傷した血管からの急速かつ大量の血液喪失のことです。"
+        }
+      ],
+      "image_filename": "2244.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2245,
+      "vol": 3,
+      "block": 47,
+      "word": "pediatrician",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "小児科医"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "pedia［子供・教育］ trician［内科医(physician)］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "A pediatrician specializes in providing medical care for infants, children, and adolescents.",
+      "example_ja": "小児科医は、乳幼児、小児、および思春期の子供たちの医療ケアを専門とします。",
+      "examples": [
+        {
+          "en": "A pediatrician specializes in providing medical care for infants, children, and adolescents.",
+          "ja": "小児科医は、乳幼児、小児、および思春期の子供たちの医療ケアを専門とします。"
+        }
+      ],
+      "image_filename": "2245.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2246,
+      "vol": 3,
+      "block": 47,
+      "word": "hepatitis",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "肝炎"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "ひっぱたいたす",
+              "bold": true
+            },
+            {
+              "text": "［肝炎］を",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Hepatitis is an inflammatory condition of the liver, commonly caused by viral infections, alcohol exposure, or toxins.",
+      "example_ja": "肝炎とは肝臓の炎症性疾患であり、一般にウイルス感染、アルコール摂取、または毒素によって引き起こされます。",
+      "examples": [
+        {
+          "en": "Hepatitis is an inflammatory condition of the liver, commonly caused by viral infections, alcohol exposure, or toxins.",
+          "ja": "肝炎とは肝臓の炎症性疾患であり、一般にウイルス感染、アルコール摂取、または毒素によって引き起こされます。"
+        }
+      ],
+      "image_filename": "2246.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2247,
+      "vol": 3,
+      "block": 47,
+      "word": "phobia",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "恐怖症"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "フォービいや！",
+              "bold": true
+            },
+            {
+              "text": "と［恐怖症］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "A phobia is an irrational, intense, and persistent fear of a specific object, situation, or activity.",
+      "example_ja": "恐怖症とは、特定の対象、状況、または活動に対する不合理で強烈かつ持続的な恐れのことです。",
+      "examples": [
+        {
+          "en": "A phobia is an irrational, intense, and persistent fear of a specific object, situation, or activity.",
+          "ja": "恐怖症とは、特定の対象、状況、または活動に対する不合理で強烈かつ持続的な恐れのことです。"
+        }
+      ],
+      "image_filename": "2247.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2248,
+      "vol": 3,
+      "block": 47,
+      "word": "hippocampus",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "海馬、タツノオトシゴ"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "hippo［馬］ campus［モンスター］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "The hippocampus is a complex structure in the brain essential for memory consolidation and spatial navigation.",
+      "example_ja": "海馬は、記憶の定着や空間ナビゲーションに不可欠な脳の複雑な構造です。",
+      "examples": [
+        {
+          "en": "The hippocampus is a complex structure in the brain essential for memory consolidation and spatial navigation.",
+          "ja": "海馬は、記憶の定着や空間ナビゲーションに不可欠な脳の複雑な構造です。"
+        }
+      ],
+      "image_filename": "2248.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2249,
+      "vol": 3,
+      "block": 47,
+      "word": "dermatology",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "皮膚病学"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "達磨と老人",
+              "bold": true
+            },
+            {
+              "text": "が［皮膚病学］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Dermatology is the medical specialty concerned with the diagnosis and treatment of skin, hair, and nail conditions.",
+      "example_ja": "皮膚病学とは、皮膚、毛髪、爪の疾患の診断と治療を扱う専門医学分野です。",
+      "examples": [
+        {
+          "en": "Dermatology is the medical specialty concerned with the diagnosis and treatment of skin, hair, and nail conditions.",
+          "ja": "皮膚病学とは、皮膚、毛髪、爪の疾患の診断と治療を扱う専門医学分野です。"
+        }
+      ],
+      "image_filename": "2249.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2250,
+      "vol": 3,
+      "block": 47,
+      "word": "hypodermic",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "皮下注射"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "hypo［下］ dermic［皮膚］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "A hypodermic needle is a hollow needle commonly used with a syringe to inject substances into the body.",
+      "example_ja": "皮下注射針は、体内に薬品等を注入するために注射筒とともに用いられる中空の針です。",
+      "examples": [
+        {
+          "en": "A hypodermic needle is a hollow needle commonly used with a syringe to inject substances into the body.",
+          "ja": "皮下注射針は、体内に薬品等を注入するために注射筒とともに用いられる中空の針です。"
+        }
+      ],
+      "image_filename": "2250.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2251,
+      "vol": 3,
+      "block": 47,
+      "word": "hypnotism",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "催眠術"
+      ],
+      "mnemonics": [
+        {
+          "type": "カタカナ",
+          "runs": [
+            {
+              "text": "ヒプノセラピー",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Hypnotism involves inducing a trance-like state of heightened focus and suggestibility for therapeutic purposes.",
+      "example_ja": "催眠とは、治療目的で高度な集中と被暗示性を高めたトランス状態を誘導することを指します。",
+      "examples": [
+        {
+          "en": "Hypnotism involves inducing a trance-like state of heightened focus and suggestibility for therapeutic purposes.",
+          "ja": "催眠とは、治療目的で高度な集中と被暗示性を高めたトランス状態を誘導することを指します。"
+        }
+      ],
+      "image_filename": "2251.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2252,
+      "vol": 3,
+      "block": 47,
+      "word": "insomnia",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "不眠症"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "院僧むにゃ～",
+              "bold": true
+            },
+            {
+              "text": "と［不眠症］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Insomnia is a sleep disorder characterized by persistent difficulty falling or staying asleep despite adequate opportunity.",
+      "example_ja": "不眠症とは、十分な機会があるにもかかわらず、入眠や睡眠維持が持続的に困難になる睡眠障害です。",
+      "examples": [
+        {
+          "en": "Insomnia is a sleep disorder characterized by persistent difficulty falling or staying asleep despite adequate opportunity.",
+          "ja": "不眠症とは、十分な機会があるにもかかわらず、入眠や睡眠維持が持続的に困難になる睡眠障害です。"
+        }
+      ],
+      "image_filename": "2252.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2253,
+      "vol": 3,
+      "block": 47,
+      "word": "hominid",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "ヒト科"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "homin［ヒト］ id［に属するもの］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "A hominid refers to any member of the biological family Hominidae, including modern humans, extinct human ancestors, and great apes.",
+      "example_ja": "ヒト科とは、現代のヒト、絶滅した人類の祖先、および大型類人猿を含むヒト科生物全般を指します。",
+      "examples": [
+        {
+          "en": "A hominid refers to any member of the biological family Hominidae, including modern humans, extinct human ancestors, and great apes.",
+          "ja": "ヒト科とは、現代のヒト、絶滅した人類の祖先、および大型類人猿を含むヒト科生物全般を指します。"
+        }
+      ],
+      "image_filename": "2253.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2254,
+      "vol": 3,
+      "block": 47,
+      "word": "incubator",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "保育器"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "in［中］ cube［箱の］ tor［で育てるもの］と考える",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "An incubator provides a controlled environment with optimal temperature and humidity for premature infants.",
+      "example_ja": "保育器は、未熟児のために最適化された温度や湿度を維持する制御装置です。",
+      "examples": [
+        {
+          "en": "An incubator provides a controlled environment with optimal temperature and humidity for premature infants.",
+          "ja": "保育器は、未熟児のために最適化された温度や湿度を維持する制御装置です。"
+        }
+      ],
+      "image_filename": "2254.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2255,
+      "vol": 3,
+      "block": 47,
+      "word": "longevity",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "長寿"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "long［長い］ evity［年齢］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Longevity refers to long life duration or the length of an individual's lifespan.",
+      "example_ja": "長寿とは、長い生命持続期間、または個体の寿命の長さを指します。",
+      "examples": [
+        {
+          "en": "Longevity refers to long life duration or the length of an individual's lifespan.",
+          "ja": "長寿とは、長い生命持続期間、または個体の寿命の長さを指します。"
+        }
+      ],
+      "image_filename": "2255.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2256,
+      "vol": 3,
+      "block": 47,
+      "word": "obese",
+      "pos_raw": "形",
+      "pos_list": [
+        "形"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "肥満の"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "OBっす、",
+              "bold": true
+            },
+            {
+              "text": "と［肥満の］人",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Being obese means having an excessive accumulation of body fat that presents a risk to health.",
+      "example_ja": "肥満であるとは、健康リスクをもたらす過剰な体脂肪の蓄積がある状態を意味します。",
+      "examples": [
+        {
+          "en": "Being obese means having an excessive accumulation of body fat that presents a risk to health.",
+          "ja": "肥満であるとは、健康リスクをもたらす過剰な体脂肪の蓄積がある状態を意味します。"
+        }
+      ],
+      "image_filename": "2256.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2257,
+      "vol": 3,
+      "block": 47,
+      "word": "physiology",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "生理学"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "physio［体］ logy［学］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Physiology is the branch of biology that deals with the normal functions of living organisms and their parts.",
+      "example_ja": "生理学とは、生物およびその構成部分の正常な機能を研究する生物学の一分野です。",
+      "examples": [
+        {
+          "en": "Physiology is the branch of biology that deals with the normal functions of living organisms and their parts.",
+          "ja": "生理学とは、生物およびその構成部分の正常な機能を研究する生物学の一分野です。"
+        }
+      ],
+      "image_filename": "2257.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2258,
+      "vol": 3,
+      "block": 47,
+      "word": "suffocate",
+      "pos_raw": "他",
+      "pos_list": [
+        "他"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "窒息させる"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "サーファーを毛糸",
+              "bold": true
+            },
+            {
+              "text": "で［窒息させる］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "To suffocate means to die or cause death from being unable to breathe oxygen.",
+      "example_ja": "窒息する（させる）とは、酸素を吸入できなくなることによって死亡する、あるいは死に至らしめることを意味します。",
+      "examples": [
+        {
+          "en": "To suffocate means to die or cause death from being unable to breathe oxygen.",
+          "ja": "窒息する（させる）とは、酸素を吸入できなくなることによって死亡する、あるいは死に至らしめることを意味します。"
+        }
+      ],
+      "image_filename": "2258.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2259,
+      "vol": 3,
+      "block": 47,
+      "word": "helix",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "らせん"
+      ],
+      "mnemonics": [
+        {
+          "type": "カタカナ",
+          "runs": [
+            {
+              "text": "ヘリコプターがらせんを描く",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "A helix is a three-dimensional spiral shape, commonly exemplified by the double helix structure of DNA.",
+      "example_ja": "らせんとは立体的な渦巻き形状のことで、代表的な例としてDNAの「二重らせん構造」が知られています。",
+      "examples": [
+        {
+          "en": "A helix is a three-dimensional spiral shape, commonly exemplified by the double helix structure of DNA.",
+          "ja": "らせんとは立体的な渦巻き形状のことで、代表的な例としてDNAの「二重らせん構造」が知られています。"
+        }
+      ],
+      "image_filename": "2259.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2260,
+      "vol": 3,
+      "block": 47,
+      "word": "chromosome",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "染色体"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源",
+          "runs": [
+            {
+              "text": "chromo［色］ some［体］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "A chromosome is a thread-like structure of nucleic acids and protein found in the cell nucleus, carrying genetic information in the form of genes.",
+      "example_ja": "染色体とは細胞核内に存在する核酸とタンパク質からなる糸状の構造体で、遺伝子の形で遺伝情報を担っています。",
+      "examples": [
+        {
+          "en": "A chromosome is a thread-like structure of nucleic acids and protein found in the cell nucleus, carrying genetic information in the form of genes.",
+          "ja": "染色体とは細胞核内に存在する核酸とタンパク質からなる糸状の構造体で、遺伝子の形で遺伝情報を担っています。"
+        }
+      ],
+      "image_filename": "2260.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2261,
+      "vol": 3,
+      "block": 47,
+      "word": "enzyme",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "酵素"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "洗剤も",
+              "bold": true
+            },
+            {
+              "text": "［酵素］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "An enzyme is a protein catalyst that speeds up specific biochemical reactions inside living organisms.",
+      "example_ja": "酵素とは、生物の体内で特定の生化学反応を促進・加水分解するタンパク質性の触媒です。",
+      "examples": [
+        {
+          "en": "An enzyme is a protein catalyst that speeds up specific biochemical reactions inside living organisms.",
+          "ja": "酵素とは、生物の体内で特定の生化学反応を促進・加水分解するタンパク質性の触媒です。"
+        }
+      ],
+      "image_filename": "2261.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2262,
+      "vol": 3,
+      "block": 47,
+      "word": "optical",
+      "pos_raw": "形",
+      "pos_list": [
+        "形"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "視覚の"
+      ],
+      "mnemonics": [
+        {
+          "type": "語源／カタカナ",
+          "runs": [
+            {
+              "text": "opti［見る］ cal［形容詞語尾］",
+              "bold": false
+            }
+          ]
+        },
+        {
+          "type": "語源／カタカナ",
+          "runs": [
+            {
+              "text": "コンタクトのオプティ",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Optical properties relate to sight, vision, or the behavior and properties of light.",
+      "example_ja": "光学の（視覚の）とは、視覚や光の性質・挙動に関連する特性を表します。",
+      "examples": [
+        {
+          "en": "Optical properties relate to sight, vision, or the behavior and properties of light.",
+          "ja": "光学の（視覚の）とは、視覚や光の性質・挙動に関連する特性を表します。"
+        }
+      ],
+      "image_filename": "2262.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2263,
+      "vol": 3,
+      "block": 47,
+      "word": "endemic",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "風土病"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "縁で三日",
+              "bold": true
+            },
+            {
+              "text": "［風土病］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "An endemic disease is one that is constantly present in a specific population or geographic area.",
+      "example_ja": "風土病とは、特定の集団や地域において常時存在する病気を指します。",
+      "examples": [
+        {
+          "en": "An endemic disease is one that is constantly present in a specific population or geographic area.",
+          "ja": "風土病とは、特定の集団や地域において常時存在する病気を指します。"
+        }
+      ],
+      "image_filename": "2263.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2264,
+      "vol": 3,
+      "block": 47,
+      "word": "inoculate",
+      "pos_raw": "他",
+      "pos_list": [
+        "他"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "予防接種する"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "犬をくれと［",
+              "bold": true
+            },
+            {
+              "text": "予防接種］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "To inoculate means to introduce a vaccine or pathogen into an organism to produce immunity against a disease.",
+      "example_ja": "予防接種をするとは、病気に対する免疫を獲得させるために、ワクチンや弱毒病原体を体内に導入することを意味します。",
+      "examples": [
+        {
+          "en": "To inoculate means to introduce a vaccine or pathogen into an organism to produce immunity against a disease.",
+          "ja": "予防接種をするとは、病気に対する免疫を獲得させるために、ワクチンや弱毒病原体を体内に導入することを意味します。"
+        }
+      ],
+      "image_filename": "2264.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2265,
+      "vol": 3,
+      "block": 47,
+      "word": "venom",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "毒液"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "ベー、飲む",
+              "bold": true
+            },
+            {
+              "text": "な［毒液］",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "Venom is a poisonous fluid secreted by animals such as snakes, scorpions, and spiders, injected via a bite or sting.",
+      "example_ja": "毒液とは、ヘビ、サソリ、クモなどの動物が分泌し、噛んだり刺したりすることで注入される有毒な液体です。",
+      "examples": [
+        {
+          "en": "Venom is a poisonous fluid secreted by animals such as snakes, scorpions, and spiders, injected via a bite or sting.",
+          "ja": "毒液とは、ヘビ、サソリ、クモなどの動物が分泌し、噛んだり刺したりすることで注入される有毒な液体です。"
+        }
+      ],
+      "image_filename": "2265.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2266,
+      "vol": 3,
+      "block": 47,
+      "word": "fungus",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "ポリープ、菌類"
+      ],
+      "mnemonics": [
+        {
+          "type": "ゴロ",
+          "runs": [
+            {
+              "text": "ファン、ガス",
+              "bold": true
+            },
+            {
+              "text": "で［ポリープ］検査",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "A fungus is a spore-producing eukaryotic organism, including molds, yeasts, and mushrooms.",
+      "example_ja": "真菌とは、カビ、酵母、キノコなどを含む胞子を形成する真核生物のことです。",
+      "examples": [
+        {
+          "en": "A fungus is a spore-producing eukaryotic organism, including molds, yeasts, and mushrooms.",
+          "ja": "真菌とは、カビ、酵母、キノコなどを含む胞子を形成する真核生物のことです。"
+        }
+      ],
+      "image_filename": "2266.webp",
+      "pronunciation_hint": null
+    },
+    {
+      "id": 2267,
+      "vol": 3,
+      "block": 47,
+      "word": "bowel",
+      "pos_raw": "名",
+      "pos_list": [
+        "名"
+      ],
+      "meaning_mode": "single",
+      "meanings": [
+        "腸"
+      ],
+      "mnemonics": [
+        {
+          "type": "イメージ",
+          "runs": [
+            {
+              "text": "バールが腸に入ってる",
+              "bold": false
+            }
+          ]
+        }
+      ],
+      "example_en": "The bowel is responsible for digesting food, absorbing nutrients, and eliminating solid waste.",
+      "example_ja": "腸は、食物の消化、栄養の吸収、および固形老廃物の排出を担当する器官です。",
+      "examples": [
+        {
+          "en": "The bowel is responsible for digesting food, absorbing nutrients, and eliminating solid waste.",
+          "ja": "腸は、食物の消化、栄養の吸収、および固形老廃物の排出を担当する器官です。"
+        }
+      ],
+      "image_filename": "2267.webp",
       "pronunciation_hint": null
     }
   ]

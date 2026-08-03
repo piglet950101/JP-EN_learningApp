@@ -64,6 +64,8 @@ const List<Block> kAllBlocks = [
   Block(no: 44, vol: 2, firstId: 2061, lastId: 2108),
   Block(no: 45, vol: 2, firstId: 2109, lastId: 2156),
   Block(no: 46, vol: 2, firstId: 2157, lastId: 2201), // 45 words
+  // vol.3 medical block (client 2026-07-13; 66 words)
+  Block(no: 47, vol: 3, firstId: 2202, lastId: 2267),
 ];
 
 List<Block> blocksOfVol(int vol) =>

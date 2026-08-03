@@ -16,32 +16,33 @@ void main() {
     repo = await WordRepository.loadFromAsset();
   });
 
-  test('bundled dataset contains all 2,201 words (vol.1 + vol.2)', () {
-    expect(repo.count, 2201,
-        reason: 'Both vols must be merged; regression to vol.1-only is forbidden');
+  test('bundled dataset contains all 2,267 words (vol.1 + vol.2 + vol.3 医系)', () {
+    // Phase 2 (2026-08-03): vol.3 医系ブロック added (66 words, block 47).
+    expect(repo.count, 2267,
+        reason: 'vol.1 + vol.2 + vol.3 (medical block) must all be present');
   });
 
-  test('every ID 1..2201 is present, no duplicates, no gaps', () {
-    for (var id = 1; id <= 2201; id++) {
+  test('every ID 1..2267 is present, no duplicates, no gaps', () {
+    for (var id = 1; id <= 2267; id++) {
       expect(repo.byId(id), isNotNull, reason: 'missing id $id');
     }
   });
 
-  test('all 46 blocks present', () {
+  test('all 47 blocks present (46 core + 47 医系)', () {
     final blocks = repo.allBlocks();
-    expect(blocks, equals([for (var b = 1; b <= 46; b++) b]));
+    expect(blocks, equals([for (var b = 1; b <= 47; b++) b]));
   });
 
-  test('block counts match the spec (48 each except 23=44 and 46=45)', () {
-    for (var b = 1; b <= 46; b++) {
-      final expected = (b == 23) ? 44 : (b == 46) ? 45 : 48;
+  test('block counts match the spec (48 each except 23=44, 46=45, 47=66)', () {
+    for (var b = 1; b <= 47; b++) {
+      final expected = (b == 23) ? 44 : (b == 46) ? 45 : (b == 47) ? 66 : 48;
       expect(repo.byBlock(b).length, expected,
           reason: 'block $b should have $expected words');
     }
   });
 
-  test('vol.1 = blocks 1..23 with IDs 1..1100; vol.2 = 24..46 / 1101..2201',
-      () {
+  test('vol.1 = blocks 1..23 / IDs 1..1100; vol.2 = 24..46 / 1101..2201; '
+      'vol.3 医系 = block 47 / 2202..2267', () {
     for (final w in [repo.byId(1)!, repo.byId(1100)!]) {
       expect(w.vol, 1);
       expect(w.block, inInclusiveRange(1, 23));
@@ -50,11 +51,15 @@ void main() {
       expect(w.vol, 2);
       expect(w.block, inInclusiveRange(24, 46));
     }
+    for (final w in [repo.byId(2202)!, repo.byId(2267)!]) {
+      expect(w.vol, 3);
+      expect(w.block, 47);
+    }
   });
 
   test('no word is missing essential fields', () {
     var emptyWord = 0, emptyMeaning = 0, emptyExampleEn = 0, emptyExampleJa = 0;
-    for (var id = 1; id <= 2201; id++) {
+    for (var id = 1; id <= 2267; id++) {
       final w = repo.byId(id)!;
       if (w.word.isEmpty) emptyWord++;
       if (w.meanings.isEmpty) emptyMeaning++;
@@ -86,7 +91,7 @@ void main() {
 
   test('dual-meaning POS convention (名2 / 名(2)) is preserved', () {
     var bothRequired = 0, eitherOk = 0;
-    for (var id = 1; id <= 2201; id++) {
+    for (var id = 1; id <= 2267; id++) {
       final w = repo.byId(id)!;
       if (w.meaningMode == MeaningMode.bothRequired) bothRequired++;
       if (w.meaningMode == MeaningMode.eitherOk) eitherOk++;

@@ -52,7 +52,24 @@ class StageProgress extends Table {
   Set<Column> get primaryKey => {stage};
 }
 
-@DriftDatabase(tables: [WordProgress, BlockState, StageProgress])
+/// Global app state — single-row table (id=1). Added in schemaVersion 2
+/// (2026-08-03) to hold the trial-unlock timestamp.
+class AppState extends Table {
+  @override
+  String get tableName => 'app_state';
+
+  IntColumn get id => integer().withDefault(const Constant(1))();
+  // epoch seconds; null means the app is still in trial (未アンロック) mode.
+  IntColumn get unlockedAt => integer().nullable()();
+  // HMAC of the unlock code that was accepted (audit trail, not a re-verify key).
+  TextColumn get unlockCodeHash => text().nullable()();
+  DateTimeColumn get updatedAt => dateTime().withDefault(currentDateAndTime)();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+@DriftDatabase(tables: [WordProgress, BlockState, StageProgress, AppState])
 class ProgressDb extends _$ProgressDb {
   ProgressDb(super.e);
 
@@ -63,7 +80,25 @@ class ProgressDb extends _$ProgressDb {
   ProgressDb.memory() : super(NativeDatabase.memory());
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
+
+  @override
+  MigrationStrategy get migration => MigrationStrategy(
+        onCreate: (m) async {
+          await m.createAll();
+          await into(appState).insert(
+            AppStateCompanion.insert(id: const Value(1)),
+          );
+        },
+        onUpgrade: (m, from, to) async {
+          if (from < 2) {
+            await m.createTable(appState);
+            await into(appState).insert(
+              AppStateCompanion.insert(id: const Value(1)),
+            );
+          }
+        },
+      );
 }
 
 LazyDatabase _openDefault() {

@@ -11,7 +11,8 @@ import '../../data/block.dart';
 import '../../data/progress/progress_repository.dart';
 
 class RangeScreen extends ConsumerStatefulWidget {
-  const RangeScreen({super.key});
+  final String stage;
+  const RangeScreen({super.key, this.stage = kStageFirst});
 
   @override
   ConsumerState<RangeScreen> createState() => _RangeScreenState();
@@ -40,18 +41,19 @@ class _RangeScreenState extends ConsumerState<RangeScreen> {
 
   Future<void> _reset() async {
     setState(() => _selected.clear());
+    final stage = widget.stage;
     // Also clear persistence for the entire stage (acts as "demo reset").
     final repo = ref.read(progressRepoProvider);
     await repo.resetBlocks(
-      kStageFirst,
+      stage,
       kAllBlocks.map((b) => b.no),
       (no) {
         final b = kAllBlocks.firstWhere((x) => x.no == no);
         return [for (var id = b.firstId; id <= b.lastId; id++) id];
       },
     );
-    ref.invalidate(blockStatusesProvider(kStageFirst));
-    ref.invalidate(lapCountProvider(kStageFirst));
+    ref.invalidate(blockStatusesProvider(stage));
+    ref.invalidate(lapCountProvider(stage));
   }
 
   Future<void> _start({required bool excludeFirstOk}) async {
@@ -65,11 +67,21 @@ class _RangeScreenState extends ConsumerState<RangeScreen> {
         ids.add(id);
       }
     }
+    // Second Stage: keep only headwords that carry at least 1 SS entry,
+    // EXCEPT the vol.3 medical block (47) which is FS-style content and
+    // has no SS entries by design — those must still be included.
+    List<int> effectiveIds = ids;
+    if (widget.stage == kStageSecond) {
+      final ssRepo = await ref.read(secondStageRepoProvider.future);
+      effectiveIds = ids
+          .where((id) => id >= 2202 || ssRepo.hasEntriesForWord(id))
+          .toList();
+    }
     ref.read(pendingSessionArgsProvider.notifier).value = PendingSessionArgs(
-      wordIds: ids,
+      wordIds: effectiveIds,
       selectedBlocks: Set.of(sorted),
       excludeFirstOk: excludeFirstOk,
-      stage: kStageFirst,
+      stage: widget.stage,
     );
     // SessionScreen reads pendingSessionArgsProvider in initState.
     if (mounted) context.push('/session');
@@ -77,11 +89,18 @@ class _RangeScreenState extends ConsumerState<RangeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final statusesAsync = ref.watch(blockStatusesProvider(kStageFirst));
+    final stage = widget.stage;
+    final isSecond = stage == kStageSecond;
+    final statusesAsync = ref.watch(blockStatusesProvider(stage));
+    // For Second Stage, gray out blocks that have no SS entries (currently
+    // covers exactly one: the medical block 47, which is FS-style content).
+    final ssRepoAsync = ref.watch(secondStageRepoProvider);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('範囲指定 / First Stage'),
+        title: Text(isSecond
+            ? '範囲指定 / Second Stage'
+            : '範囲指定 / First Stage'),
         backgroundColor: Colors.white,
         foregroundColor: const Color(0xFF2b6cb0),
         elevation: 0,
@@ -90,7 +109,14 @@ class _RangeScreenState extends ConsumerState<RangeScreen> {
         child: statusesAsync.when(
           loading: () => const Center(child: CircularProgressIndicator()),
           error: (e, _) => Center(child: Text('エラー: $e')),
-          data: (statuses) => Column(
+          data: (statuses) {
+            final ssBlocks = isSecond
+                ? ssRepoAsync.maybeWhen(
+                    data: (r) => r.allBlocks().toSet(),
+                    orElse: () => <int>{},
+                  )
+                : null;
+            return Column(
             children: [
               Expanded(
                 child: SingleChildScrollView(
@@ -106,6 +132,7 @@ class _RangeScreenState extends ConsumerState<RangeScreen> {
                         vol: 1,
                         selected: _selected,
                         statuses: statuses,
+                        enabledBlocks: ssBlocks,
                         onTap: _toggle,
                       ),
                       const SizedBox(height: 8),
@@ -117,8 +144,29 @@ class _RangeScreenState extends ConsumerState<RangeScreen> {
                         vol: 2,
                         selected: _selected,
                         statuses: statuses,
+                        enabledBlocks: ssBlocks,
                         onTap: _toggle,
                       ),
+                      // vol.3 medical block (single block, only rendered for
+                      // Second Stage — First Stage users reach it via the
+                      // regular vol.1/2 grid; the medical block is added to
+                      // Second Stage so learners see it inside the SS screen).
+                      if (isSecond) ...[
+                        const SizedBox(height: 8),
+                        _VolHeader(
+                          title: '快単 vol.3 医系（第47ブロック）',
+                          onSelectAll: () => _selectVol(3),
+                        ),
+                        _BlockGrid(
+                          vol: 3,
+                          selected: _selected,
+                          statuses: statuses,
+                          // Medical block is FS-content in the SS screen;
+                          // treat it as always enabled.
+                          enabledBlocks: null,
+                          onTap: _toggle,
+                        ),
+                      ],
                       const SizedBox(height: 16),
                     ],
                   ),
@@ -132,7 +180,8 @@ class _RangeScreenState extends ConsumerState<RangeScreen> {
                 onExcludeFirstOk: () => _start(excludeFirstOk: true),
               ),
             ],
-          ),
+            );
+          },
         ),
       ),
     );
@@ -179,11 +228,13 @@ class _BlockGrid extends StatelessWidget {
   final int vol;
   final Set<int> selected;
   final Map<int, String> statuses;
+  final Set<int>? enabledBlocks; // null = all enabled
   final void Function(int) onTap;
   const _BlockGrid({
     required this.vol,
     required this.selected,
     required this.statuses,
+    required this.enabledBlocks,
     required this.onTap,
   });
 
@@ -204,10 +255,15 @@ class _BlockGrid extends StatelessWidget {
         final b = blocks[i];
         final isSel = selected.contains(b.no);
         final isDone = statuses[b.no] == 'completed';
+        final isEnabled = enabledBlocks == null || enabledBlocks!.contains(b.no);
         Color bg;
         Color fg;
         BorderSide border;
-        if (isSel) {
+        if (!isEnabled) {
+          bg = const Color(0xFFF5F5F5);
+          fg = Colors.black38;
+          border = const BorderSide(color: Color(0xFFE0E0E0), width: 1);
+        } else if (isSel) {
           bg = const Color(0xFF2b6cb0);
           fg = Colors.white;
           border = BorderSide.none;
@@ -222,7 +278,7 @@ class _BlockGrid extends StatelessWidget {
         }
         return InkWell(
           borderRadius: BorderRadius.circular(8),
-          onTap: () => onTap(b.no),
+          onTap: isEnabled ? () => onTap(b.no) : null,
           child: Container(
             decoration: BoxDecoration(
               color: bg,

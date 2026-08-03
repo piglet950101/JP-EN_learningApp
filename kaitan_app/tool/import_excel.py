@@ -78,6 +78,17 @@ def _pick_vol2_source() -> Path | None:
         "*1101-2201*.xlsx",
     ])
 
+
+def _pick_vol3_source() -> Path | None:
+    """Vol.3 = medical vocabulary block (words 2202..2267, block=47).
+    Requested 2026-07-13, delivered 2026-08-02. Optional — returns None if
+    the file has not been delivered yet."""
+    return _pick_newest([
+        "*医系66*.xlsx",
+        "*医系*.xlsx",
+        "*2202-2267*.xlsx",
+    ])
+
 POS_BASE = {"他","自","名","形","副","前","接","間"}
 
 POS_RE = re.compile(r"^(?P<base>[他自名形副前接間]+)(?P<paren>\(?\d?\)?)$")
@@ -207,10 +218,17 @@ def parse_mnemonics(type_field: str, text_runs):
 def block_of(id_int: int) -> int:
     if id_int <= 1100:
         return math.ceil(id_int / 48)
-    return 23 + math.ceil((id_int - 1100) / 48)
+    if id_int <= 2201:
+        return 23 + math.ceil((id_int - 1100) / 48)
+    # vol.3 医系ブロック (2202-2267): single block, №47.
+    return 47
 
 def vol_of(id_int: int) -> int:
-    return 1 if id_int <= 1100 else 2
+    if id_int <= 1100:
+        return 1
+    if id_int <= 2201:
+        return 2
+    return 3
 
 def _parse_sheet(ws, source_label: str, warnings: list[str]) -> list[dict]:
     """Parse one sheet (9-col schema). Returns a list of record dicts.
@@ -305,24 +323,36 @@ def main():
     else:
         print("(no vol.2 master found — vol.1 only)")
 
+    vol3 = _pick_vol3_source()
+    if vol3 is not None:
+        sources.append(("vol.3", vol3))
+    else:
+        print("(no vol.3 medical master found — vol.1+vol.2 only)")
+
     all_records: list[dict] = []
     warnings: list[str] = []
     used_files: list[str] = []
     for label, path in sources:
         print(f"{label}: {path.name}")
         used_files.append(path.name)
-        # rich_text=True preserves character-level bold for mnemonic text.
         wb = openpyxl.load_workbook(path, data_only=True, rich_text=True)
-        prefer = ["快単vol.1"] if label == "vol.1" else ["快単vol.2"]
-        ws = _pick_sheet(wb, prefer)
+        prefer_map = {
+            "vol.1": ["快単vol.1"],
+            "vol.2": ["快単vol.2"],
+            "vol.3": ["医系単語66", "医系"],
+        }
+        ws = _pick_sheet(wb, prefer_map.get(label, []))
         recs = _parse_sheet(ws, label, warnings)
-        # Sanity: vol.1 records should be id 1..1100, vol.2 1101..2201.
-        if label == "vol.1":
-            recs = [r for r in recs if 1 <= r["id"] <= 1100]
-        else:
-            recs = [r for r in recs if 1101 <= r["id"] <= 2201]
+        # ID-range guardrails per vol.
+        id_ranges = {
+            "vol.1": (1, 1100),
+            "vol.2": (1101, 2201),
+            "vol.3": (2202, 2267),
+        }
+        lo, hi = id_ranges[label]
+        recs = [r for r in recs if lo <= r["id"] <= hi]
         all_records += recs
-        print(f"  parsed {len(recs)} records")
+        print(f"  parsed {len(recs)} records (id range {lo}..{hi})")
 
     # Sort by id and de-dup (last-write-wins; vol.2 file shouldn't overlap
     # vol.1 but we de-dup defensively).

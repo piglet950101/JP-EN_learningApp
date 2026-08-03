@@ -47,6 +47,10 @@ class SessionController extends Notifier<SessionState> {
   Set<int> _selectedBlocks = const {};
   final Map<int, AnswerResult> _firstRound = {}; // captured during round 1
 
+  /// Which stage the current session belongs to (read by the SessionScreen
+  /// to decide FS vs SS rendering).
+  String get currentStage => _stage;
+
   @override
   SessionState build() {
     return const SessionState(

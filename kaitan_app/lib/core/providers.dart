@@ -9,9 +9,15 @@ import 'package:go_router/go_router.dart';
 
 import '../data/progress/progress_db.dart';
 import '../data/progress/progress_repository.dart';
+import '../data/second_stage.dart';
+import '../data/trial/unlock_verifier.dart';
+import '../data/video.dart';
 import '../features/range_select/range_screen.dart';
 import '../features/session/presentation/session_screen.dart';
 import '../features/start/start_screen.dart';
+import '../features/trial/presentation/unlock_screen.dart';
+import '../features/videos/presentation/video_detail_screen.dart';
+import '../features/videos/presentation/video_list_screen.dart';
 
 /// Word IDs that have a bundled illustration. Built at app start by reading
 /// `assets/images/manifest.json` (produced by `tool/import_images.py`).
@@ -97,13 +103,41 @@ final pendingSessionArgsProvider =
     NotifierProvider<PendingSessionArgsNotifier, PendingSessionArgs?>(
         PendingSessionArgsNotifier.new);
 
+/// Bundled Second Stage entries. Empty repo when the asset is absent (dev).
+final secondStageRepoProvider =
+    FutureProvider<SecondStageRepository>((ref) async {
+  return SecondStageRepository.loadFromAsset();
+});
+
+/// Bundled 46 Vimeo video entries (blocks 1-46).
+final videoRepoProvider = FutureProvider<VideoRepository>((ref) async {
+  return VideoRepository.loadFromAsset();
+});
+
+/// Trial-unlock state, refreshable after `recordUnlock`.
+final unlockedProvider = FutureProvider<bool>((ref) async {
+  return ref.watch(progressRepoProvider).isUnlocked();
+});
+
+final unlockVerifierProvider =
+    Provider<UnlockVerifier>((ref) => const UnlockVerifier());
+
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     initialLocation: '/',
     routes: [
       GoRoute(path: '/', builder: (c, s) => const StartScreen()),
-      GoRoute(path: '/range', builder: (c, s) => const RangeScreen()),
+      GoRoute(path: '/range', builder: (c, s) {
+        final stageParam = s.uri.queryParameters['stage'] ?? kStageFirst;
+        return RangeScreen(stage: stageParam);
+      }),
       GoRoute(path: '/session', builder: (c, s) => const SessionScreen()),
+      GoRoute(path: '/unlock', builder: (c, s) => const UnlockScreen()),
+      GoRoute(path: '/videos', builder: (c, s) => const VideoListScreen()),
+      GoRoute(path: '/videos/:block', builder: (c, s) {
+        final block = int.parse(s.pathParameters['block']!);
+        return VideoDetailScreen(block: block);
+      }),
     ],
   );
 });

@@ -6,6 +6,7 @@ import 'package:drift/drift.dart';
 import 'progress_db.dart';
 
 const String kStageFirst = 'first';
+const String kStageSecond = 'second';
 
 class ProgressRepository {
   ProgressRepository(this._db);
@@ -153,5 +154,32 @@ class ProgressRepository {
         updatedAt: Value(now),
       ));
     }
+  }
+
+  // ── app_state (trial unlock) ────────────────────────────────────────
+
+  /// Epoch-seconds when the trial was unlocked, or null if still trial.
+  Future<int?> unlockedAt() async {
+    final row = await (_db.select(_db.appState)
+          ..where((t) => t.id.equals(1)))
+        .getSingleOrNull();
+    return row?.unlockedAt;
+  }
+
+  Future<bool> isUnlocked() async => (await unlockedAt()) != null;
+
+  /// Persist an unlock. `codeHash` is a short HMAC value kept for audit —
+  /// it is NOT re-verified on subsequent launches (the presence of a non-null
+  /// unlockedAt is sufficient).
+  Future<void> recordUnlock({required String codeHash}) async {
+    final now = DateTime.now();
+    await _db.into(_db.appState).insertOnConflictUpdate(
+          AppStateCompanion.insert(
+            id: const Value(1),
+            unlockedAt: Value(now.millisecondsSinceEpoch ~/ 1000),
+            unlockCodeHash: Value(codeHash),
+            updatedAt: Value(now),
+          ),
+        );
   }
 }

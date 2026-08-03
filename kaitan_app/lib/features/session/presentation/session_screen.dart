@@ -8,7 +8,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/providers.dart';
+import '../../../data/progress/progress_repository.dart';
 import '../../../data/word.dart';
+import '../../second_stage/presentation/ss_session_view.dart';
 import '../domain/engine.dart';
 import 'session_controller.dart';
 import 'text_format.dart';
@@ -164,6 +166,17 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                 ? _Phase.complete
                 : (session.roundComplete ? _Phase.roundResult : _phase);
 
+            // Stage + block-47 dispatch: Second Stage uses the SS renderer
+            // for headwords that have SS entries. The vol.3 medical block
+            // (47) falls back to the First Stage flashcard renderer even
+            // when the user reached it via the Second Stage screen — its
+            // content is FS-shaped by client design.
+            final ctrl = ref.read(sessionControllerProvider.notifier);
+            final stage = ctrl.currentStage;
+            final useSs = stage == kStageSecond &&
+                session.currentWordId != null &&
+                session.currentWordId! < 2202;
+
             switch (effectivePhase) {
               case _Phase.question:
                 final word = repo.byId(session.currentWordId!);
@@ -174,6 +187,15 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                 WidgetsBinding.instance.addPostFrameCallback((_) {
                   if (mounted) _speakIfNew(word);
                 });
+                if (useSs) {
+                  return _SsQuestionWrapper(
+                    headword: word,
+                    session: session,
+                    onTapAnswer: () =>
+                        setState(() => _phase = _Phase.answer),
+                    onRetire: _onRetire,
+                  );
+                }
                 return _QuestionView(
                   word: word,
                   session: session,
@@ -189,6 +211,15 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                 final word = repo.byId(session.currentWordId!);
                 if (word == null) {
                   return const Center(child: Text('単語データが見つかりません'));
+                }
+                if (useSs) {
+                  return _SsAnswerWrapper(
+                    headword: word,
+                    session: session,
+                    onOk: () => _answer(AnswerResult.ok),
+                    onRecheck: () => _answer(AnswerResult.recheck),
+                    onRetire: _onRetire,
+                  );
                 }
                 final imageIds =
                     ref.watch(imageManifestProvider).value ?? const <int>{};
@@ -931,4 +962,81 @@ class _CounterBar extends StatelessWidget {
                   color: color ?? Colors.black87)),
         ],
       );
+}
+
+// ─── Second Stage wrappers ────────────────────────────────────────────
+// These bridge the shared SessionScreen dispatch loop to the SS view
+// widgets, resolving the current headword's SS entries through the SS
+// repository.
+
+class _SsQuestionWrapper extends ConsumerWidget {
+  final Word headword;
+  final SessionState session;
+  final VoidCallback onTapAnswer;
+  final VoidCallback onRetire;
+  const _SsQuestionWrapper({
+    required this.headword,
+    required this.session,
+    required this.onTapAnswer,
+    required this.onRetire,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final ssAsync = ref.watch(secondStageRepoProvider);
+    return ssAsync.when(
+      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (e, _) => Center(child: Text('SSデータ読込エラー: $e')),
+      data: (repo) {
+        final entries = repo.byWordId(headword.id);
+        if (entries.isEmpty) {
+          // Defensive: should have been filtered out at range-select time.
+          return const Center(
+              child: Text('関連問題がありません（設定エラー）'));
+        }
+        return SsQuestionView(
+          headword: headword,
+          entries: entries,
+          session: session,
+          onTapAnswer: onTapAnswer,
+          onRetire: onRetire,
+        );
+      },
+    );
+  }
+}
+
+class _SsAnswerWrapper extends ConsumerWidget {
+  final Word headword;
+  final SessionState session;
+  final VoidCallback onOk;
+  final VoidCallback onRecheck;
+  final VoidCallback onRetire;
+  const _SsAnswerWrapper({
+    required this.headword,
+    required this.session,
+    required this.onOk,
+    required this.onRecheck,
+    required this.onRetire,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final ssAsync = ref.watch(secondStageRepoProvider);
+    return ssAsync.when(
+      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (e, _) => Center(child: Text('SSデータ読込エラー: $e')),
+      data: (repo) {
+        final entries = repo.byWordId(headword.id);
+        return SsAnswerView(
+          headword: headword,
+          entries: entries,
+          session: session,
+          onOk: onOk,
+          onRecheck: onRecheck,
+          onRetire: onRetire,
+        );
+      },
+    );
+  }
 }
