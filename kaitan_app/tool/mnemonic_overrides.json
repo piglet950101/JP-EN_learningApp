@@ -45,6 +45,22 @@
       "runs": [
         {"text": "a nuclear weapon 核兵器\na nuclear family 核家族", "bold": false}
       ]
+    },
+    "28": {
+      "word": "prone",
+      "mnemonic_type": "ゴロ",
+      "runs": [
+        {"text": "ポロン", "bold": true},
+        {"text": "と［しがちである］", "bold": false}
+      ]
+    },
+    "29": {
+      "word": "prompt",
+      "mnemonic_type": "ゴロ",
+      "runs": [
+        {"text": "ポロン、ぷっと", "bold": true},
+        {"text": "され［すばやく］戻す", "bold": false}
+      ]
     }
   }
 }

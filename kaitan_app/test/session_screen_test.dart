@@ -20,6 +20,10 @@ class _NoopTts implements TtsService {
   Future<void> init() async {}
   @override
   Future<void> speak(String text, {String? pronunciationHint, int? wordId}) async {}
+  @override
+  Future<void> speakAnswer(String raw) async {}
+  @override
+  Future<void> speakSequence(List<String> answers) async {}
 }
 
 void main() {

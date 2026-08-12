@@ -44,11 +44,13 @@ class SsQuestionView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final hideMeaning = _shouldHideHeadwordMeaning(entries);
     return Column(
       children: [
         _SsTopBar(round: session.round, no: headword.id, onRetire: onRetire),
         _Headword(
           headword: headword,
+          hideMeaning: hideMeaning,
           onSpeak: () => ref.read(ttsProvider).speak(
                 headword.word,
                 pronunciationHint: headword.pronunciationHint,
@@ -58,25 +60,19 @@ class SsQuestionView extends ConsumerWidget {
         const Divider(height: 1),
         Expanded(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                for (final e in entries)
-                  _EntryRow.hidden(entry: e),
-                const SizedBox(height: 16),
-                Text(
-                  '${entries.length} 個の関連問題',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 12, color: Colors.black45),
-                ),
+                for (final e in entries) _EntryRow.hidden(entry: e),
               ],
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(24, 8, 24, 16),
+          padding: const EdgeInsets.fromLTRB(12, 8, 12, 16),
           child: SizedBox(
+            width: double.infinity,
             height: 72,
             child: FilledButton(
               onPressed: onTapAnswer,
@@ -86,7 +82,7 @@ class SsQuestionView extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(12)),
               ),
               child: const Text('意味・答え',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800)),
             ),
           ),
         ),
@@ -95,7 +91,7 @@ class SsQuestionView extends ConsumerWidget {
   }
 }
 
-class SsAnswerView extends ConsumerWidget {
+class SsAnswerView extends ConsumerStatefulWidget {
   final Word headword;
   final List<SecondStageEntry> entries;
   final SessionState session;
@@ -114,12 +110,42 @@ class SsAnswerView extends ConsumerWidget {
   });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<SsAnswerView> createState() => _SsAnswerViewState();
+}
+
+class _SsAnswerViewState extends ConsumerState<SsAnswerView> {
+  bool _autoPlayed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    // Auto-play the answer audio sequence once when the view mounts.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || _autoPlayed) return;
+      _autoPlayed = true;
+      final speakable = widget.entries
+          .where((e) => e.ttsEnabled && e.answer.trim().isNotEmpty)
+          .map((e) => e.answer)
+          .toList();
+      if (speakable.isNotEmpty) {
+        ref.read(ttsProvider).speakSequence(speakable);
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final ref = this.ref;
+    final headword = widget.headword;
+    final entries = widget.entries;
+    final session = widget.session;
+    final hideMeaning = _shouldHideHeadwordMeaning(entries);
     return Column(
       children: [
-        _SsTopBar(round: session.round, no: headword.id, onRetire: onRetire),
+        _SsTopBar(round: session.round, no: headword.id, onRetire: widget.onRetire),
         _Headword(
           headword: headword,
+          hideMeaning: hideMeaning,
           onSpeak: () => ref.read(ttsProvider).speak(
                 headword.word,
                 pronunciationHint: headword.pronunciationHint,
@@ -129,7 +155,7 @@ class SsAnswerView extends ConsumerWidget {
         const Divider(height: 1),
         Expanded(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -137,7 +163,7 @@ class SsAnswerView extends ConsumerWidget {
                   _EntryRow.revealed(
                     entry: e,
                     onSpeak: e.ttsEnabled && e.answer.isNotEmpty
-                        ? () => ref.read(ttsProvider).speak(e.answer)
+                        ? () => ref.read(ttsProvider).speakAnswer(e.answer)
                         : null,
                   ),
               ],
@@ -152,7 +178,7 @@ class SsAnswerView extends ConsumerWidget {
                 child: SizedBox(
                   height: 72,
                   child: OutlinedButton(
-                    onPressed: onRecheck,
+                    onPressed: widget.onRecheck,
                     style: OutlinedButton.styleFrom(
                       foregroundColor: const Color(0xFFD53F8C),
                       side: const BorderSide(
@@ -171,7 +197,7 @@ class SsAnswerView extends ConsumerWidget {
                 child: SizedBox(
                   height: 72,
                   child: FilledButton(
-                    onPressed: onOk,
+                    onPressed: widget.onOk,
                     style: FilledButton.styleFrom(
                       backgroundColor: const Color(0xFF38A169),
                       shape: RoundedRectangleBorder(
@@ -193,6 +219,16 @@ class SsAnswerView extends ConsumerWidget {
 }
 
 // ─── Common pieces ────────────────────────────────────────────────────
+
+/// True when at least one SS entry asks the meaning of the headword (relation
+/// starts with `意`). In that case the meaning shown under the headword
+/// would spoil the answer (0005 appear spec 2026-08-04 ④).
+bool _shouldHideHeadwordMeaning(List<SecondStageEntry> entries) {
+  for (final e in entries) {
+    if (e.baseCategory == SsRelationCategory.meaning) return true;
+  }
+  return false;
+}
 
 class _SsTopBar extends StatelessWidget {
   final int round;
@@ -246,8 +282,13 @@ class _SsTopBar extends StatelessWidget {
 
 class _Headword extends StatelessWidget {
   final Word headword;
+  final bool hideMeaning;
   final VoidCallback onSpeak;
-  const _Headword({required this.headword, required this.onSpeak});
+  const _Headword({
+    required this.headword,
+    required this.onSpeak,
+    this.hideMeaning = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -269,14 +310,17 @@ class _Headword extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _MiniPosBadge(headword.posRaw),
-              const SizedBox(width: 10),
-              Flexible(
-                child: Text(
-                  headword.meanings.join('、'),
-                  style: const TextStyle(fontSize: 16, color: Colors.black87),
-                  textAlign: TextAlign.center,
+              if (!hideMeaning) ...[
+                const SizedBox(width: 10),
+                Flexible(
+                  child: Text(
+                    headword.meanings.join('、'),
+                    style:
+                        const TextStyle(fontSize: 16, color: Colors.black87),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-              ),
+              ],
               const SizedBox(width: 10),
               IconButton(
                 onPressed: onSpeak,
@@ -326,109 +370,151 @@ class _EntryRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _RelationChip(entry.relation),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+    final cat = SsRelationCategory.categoryOf(entry.relation);
+    final rest = _promptRest(entry.relation, cat);
+    // Free-form long prompts (rest != null && length > 3) span the full
+    // width beneath the chip — 0015 encourage / 0006 apparent / 0036
+    // literature all fall in this bucket.
+    final wide = rest != null && rest.length > 3;
+
+    if (wide) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                if (showAnswer) ...[
-                  Text(
-                    entry.answer,
+                _CategoryChip(cat: cat, label: cat ?? entry.relation),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    rest,
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
-                      color: Color(0xFFC53030),
+                      color: Colors.black87,
+                      height: 1.25,
                     ),
                   ),
-                  if ((entry.answerMeaning ?? '').isNotEmpty)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 2),
-                      child: Text(
-                        entry.answerMeaning!,
-                        style: const TextStyle(
-                            fontSize: 14, color: Colors.black87),
-                      ),
-                    ),
-                ] else
-                  Container(
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFF7FAFC),
-                      border: Border.all(
-                          color: const Color(0xFFCBD5E0), width: 1),
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    alignment: Alignment.center,
-                    child: const Text('？',
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.black38,
-                            fontWeight: FontWeight.w700)),
-                  ),
+                ),
               ],
             ),
-          ),
+            const SizedBox(height: 8),
+            _answerOrPlaceholder(context),
+          ],
+        ),
+      );
+    }
+    // Compact row: chip + answer/placeholder side-by-side.
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _CategoryChip(cat: cat, label: cat ?? entry.relation),
+          const SizedBox(width: 12),
+          Expanded(child: _answerOrPlaceholder(context)),
           if (showAnswer && onSpeak != null)
             IconButton(
               onPressed: onSpeak,
               icon: const Icon(Icons.volume_up_outlined),
-              iconSize: 20,
+              iconSize: 22,
               color: const Color(0xFF2b6cb0),
               padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+              constraints: const BoxConstraints(minWidth: 36, minHeight: 36),
             ),
         ],
       ),
     );
   }
+
+  Widget _answerOrPlaceholder(BuildContext context) {
+    if (!showAnswer) {
+      return Container(
+        height: 48,
+        decoration: BoxDecoration(
+          color: const Color(0xFFF7FAFC),
+          border: Border.all(color: const Color(0xFFCBD5E0), width: 1),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        alignment: Alignment.center,
+        child: const Text('？',
+            style: TextStyle(
+                fontSize: 24,
+                color: Colors.black38,
+                fontWeight: FontWeight.w700)),
+      );
+    }
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                entry.answer,
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w800,
+                  color: Color(0xFFC53030),
+                  height: 1.2,
+                ),
+              ),
+              if ((entry.answerMeaning ?? '').isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.only(top: 2),
+                  child: Text(
+                    entry.answerMeaning!,
+                    style: const TextStyle(
+                        fontSize: 15, color: Colors.black87),
+                  ),
+                ),
+            ],
+          ),
+        ),
+        if (onSpeak != null)
+          IconButton(
+            onPressed: onSpeak,
+            icon: const Icon(Icons.volume_up_outlined),
+            iconSize: 22,
+            color: const Color(0xFF2b6cb0),
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(minWidth: 36, minHeight: 36),
+          ),
+      ],
+    );
+  }
+
+  static String? _promptRest(String relation, String? cat) {
+    if (cat == null || relation == cat) return null;
+    final rest = relation.substring(cat.length).trim();
+    return rest.isEmpty ? null : rest;
+  }
 }
 
-class _RelationChip extends StatelessWidget {
-  final String relation;
-  const _RelationChip(this.relation);
+class _CategoryChip extends StatelessWidget {
+  final String? cat;
+  final String label;
+  const _CategoryChip({required this.cat, required this.label});
   @override
   Widget build(BuildContext context) {
-    final cat = SsRelationCategory.categoryOf(relation);
-    // Chip is compact — 44dp wide, so free-form long labels wrap below via
-    // a secondary line beneath the base code.
-    final base = cat ?? relation;
-    final rest = cat == null || relation == cat ? null : relation.substring(cat.length).trim();
-    return ConstrainedBox(
-      constraints: const BoxConstraints(minWidth: 48, maxWidth: 96),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-            decoration: BoxDecoration(
-              color: _chipColor(cat),
-              borderRadius: BorderRadius.circular(6),
-            ),
-            child: Text(
-              base,
-              style: const TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w800,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          if (rest != null && rest.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.only(top: 2),
-              child: Text(
-                rest,
-                style: const TextStyle(fontSize: 11, color: Colors.black54),
-              ),
-            ),
-        ],
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      decoration: BoxDecoration(
+        color: _chipColor(cat),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Text(
+        label,
+        style: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w800,
+          color: Colors.white,
+          height: 1.0,
+        ),
       ),
     );
   }
@@ -440,7 +526,7 @@ class _RelationChip extends StatelessWidget {
       case SsRelationCategory.nounForm:
       case SsRelationCategory.advForm:
       case SsRelationCategory.verbForm:
-        return const Color(0xFF3182CE); // 派生系・類義
+        return const Color(0xFF3182CE);
       case SsRelationCategory.antonym:
         return const Color(0xFFDD6B20);
       case SsRelationCategory.setPhrase:
@@ -456,7 +542,7 @@ class _RelationChip extends StatelessWidget {
       case SsRelationCategory.meaning:
         return const Color(0xFFD53F8C);
       default:
-        return const Color(0xFF718096); // free-form
+        return const Color(0xFF718096);
     }
   }
 }

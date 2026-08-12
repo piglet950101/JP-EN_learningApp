@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:webview_flutter_android/webview_flutter_android.dart';
 
 import '../../../core/providers.dart';
 import '../../../data/block.dart';
@@ -28,15 +29,50 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
   WebViewController? _controller;
   bool _loadError = false;
 
+  /// Vimeo's embed player rejects the default Android WebView UA in some
+  /// scenarios (particularly on private/unlisted videos). Presenting as
+  /// a stock mobile Chrome makes the embed permission checks pass.
+  static const _mobileUa =
+      'Mozilla/5.0 (Linux; Android 13; SM-S916U) AppleWebKit/537.36 '
+      '(KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.36';
+
+  /// The client-supplied embed_url is `player.vimeo.com/video/{id}?h={hash}`.
+  /// We append typical mobile-embed params to keep the chrome minimal +
+  /// prevent autoplay (which triggers extra permission handshakes).
+  String _fullEmbedUrl(String embedUrl) {
+    final sep = embedUrl.contains('?') ? '&' : '?';
+    return '$embedUrl${sep}autoplay=0&title=0&byline=0&portrait=0'
+        '&dnt=1&transparent=0';
+  }
+
   void _initController(String embedUrl) {
     if (_controller != null) return;
     final c = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..setBackgroundColor(const Color(0x00000000))
+      ..setBackgroundColor(const Color(0xFF000000))
+      ..setUserAgent(_mobileUa)
       ..setNavigationDelegate(NavigationDelegate(
-        onWebResourceError: (_) => setState(() => _loadError = true),
-      ))
-      ..loadRequest(Uri.parse(embedUrl));
+        onWebResourceError: (err) {
+          // Ignore sub-resource errors — only mark the whole load as failed
+          // when the main frame itself fails. Vimeo pulls a lot of assets;
+          // some ad/tracking pixels can 404 without breaking the player.
+          if (err.isForMainFrame ?? true) {
+            if (mounted) setState(() => _loadError = true);
+          }
+        },
+        onPageFinished: (_) {
+          if (mounted && _loadError) setState(() => _loadError = false);
+        },
+      ));
+    // Android-specific: allow inline media playback without user gesture.
+    if (c.platform is AndroidWebViewController) {
+      (c.platform as AndroidWebViewController)
+          .setMediaPlaybackRequiresUserGesture(false);
+    }
+    c.loadRequest(
+      Uri.parse(_fullEmbedUrl(embedUrl)),
+      headers: const {'Referer': 'https://vimeo.com/'},
+    );
     _controller = c;
   }
 

@@ -173,18 +173,17 @@ class StartScreen extends ConsumerWidget {
                           ),
                         ),
                         const SizedBox(height: 28),
+                        // Video card: even in trial mode, the user can enter
+                        // the list to view the first 2 blocks' videos (spec
+                        // 2026-08-04 ②). The list itself locks blocks 3-46.
                         _StageCard(
                           label: 'ビデオ解説',
-                          subtitle: '46 ブロック分の暗記用ビデオ',
-                          enabled: isUnlocked,
-                          locked: !isUnlocked,
-                          onTap: () {
-                            if (isUnlocked) {
-                              context.push('/videos');
-                            } else {
-                              context.push('/unlock');
-                            }
-                          },
+                          subtitle: isUnlocked
+                              ? '46 ブロック分の暗記用ビデオ'
+                              : '体験版：ブロック1〜2のみ視聴可能',
+                          enabled: true,
+                          locked: false,
+                          onTap: () => context.push('/videos'),
                         ),
                       ],
                     ),

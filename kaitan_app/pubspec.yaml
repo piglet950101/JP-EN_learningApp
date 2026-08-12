@@ -44,6 +44,7 @@ dependencies:
   flutter_tts: ^4.2.5
   audioplayers: ^6.1.0
   webview_flutter: ^4.10.0
+  webview_flutter_android: ^4.0.0
   crypto: ^3.0.6
   connectivity_plus: ^6.1.0
   collection: ^1.19.1

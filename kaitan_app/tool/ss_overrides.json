@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "source": "docx: アプリ直し 8. 9.docx (2026-08-04) — Second Stage entry restructures + typo fixes",
+  "notes": [
+    "Each key is a Phase 1 word_id (as string).",
+    "Value is a list of entries that REPLACE all existing SS entries for that word_id.",
+    "Each replacement entry mirrors the second_stage.json entry shape but without an id (assigned by the applier)."
+  ],
+  "overrides": {
+    "102": [
+      {"relation": "名", "answer": "sustenance", "answer_meaning": "生計（生命）の維持", "tts_enabled": true},
+      {"relation": "形", "answer": "sustainable", "answer_meaning": "持続可能な", "tts_enabled": true}
+    ]
+  }
+}

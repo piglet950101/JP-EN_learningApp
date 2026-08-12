@@ -12,12 +12,26 @@
 // (see core/providers.dart). `speak()` accepts an optional wordId so the
 // caller doesn't have to know the manifest layout.
 
+import 'dart:async';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
 abstract class TtsService {
   Future<void> init();
   Future<void> speak(String text, {String? pronunciationHint, int? wordId});
+
+  /// Speak an SS answer string, cleaning it before speaking:
+  ///   • strips a leading POS marker like "[自]" / "[他]" / "[名]" ...
+  ///   • strips trailing "(...)" parenthetical placeholders (e.g. "(to 人 for 事)")
+  ///   • splits "lay > laid > laid" style conjugation triples on `>` and
+  ///     speaks each in sequence with a short pause (no `>` uttered).
+  /// If the cleaned string is empty (e.g. only `[自]` was there), this is a no-op.
+  Future<void> speakAnswer(String raw);
+
+  /// Speak several SS answers back-to-back with a short pause between,
+  /// used by the ⑦' auto-play when the answer view opens.
+  Future<void> speakSequence(List<String> answers);
 }
 
 class FlutterTtsService implements TtsService {
@@ -78,5 +92,63 @@ class FlutterTtsService implements TtsService {
       return;
     }
     await _tts.speak(text);
+  }
+
+  @override
+  Future<void> speakAnswer(String raw) async {
+    if (!_ready) await init();
+    await _tts.stop();
+    final words = _splitAnswerForSpeech(raw);
+    if (words.isEmpty) return;
+    for (var i = 0; i < words.length; i++) {
+      if (i > 0) await Future<void>.delayed(const Duration(milliseconds: 350));
+      await _speakOneAndWait(words[i]);
+    }
+  }
+
+  @override
+  Future<void> speakSequence(List<String> answers) async {
+    if (!_ready) await init();
+    for (var i = 0; i < answers.length; i++) {
+      if (i > 0) await Future<void>.delayed(const Duration(milliseconds: 550));
+      await speakAnswer(answers[i]);
+    }
+  }
+
+  Future<void> _speakOneAndWait(String s) async {
+    // flutter_tts's speak() returns immediately once queued. We attach a
+    // completion handler so `await` resolves when audio actually finishes.
+    final completer = Completer<void>();
+    _tts.setCompletionHandler(() {
+      if (!completer.isCompleted) completer.complete();
+    });
+    _tts.setErrorHandler((_) {
+      if (!completer.isCompleted) completer.complete();
+    });
+    await _tts.speak(s);
+    // Guard against a stuck utterance (some Android voices misbehave).
+    await completer.future
+        .timeout(const Duration(seconds: 6), onTimeout: () {});
+  }
+
+  /// Splits an SS answer string into utterable words:
+  ///   • strips a leading POS marker `[自]`, `［自］`, `他`, etc.
+  ///   • drops any `(...)` / `（...）` parenthetical
+  ///   • splits on `>` (conjugation triples: `lay > laid > laid`)
+  static final RegExp _leadingPosRe = RegExp(
+    r'^\s*[［\[][^］\]]{1,4}[］\]]\s*',
+  );
+  static final RegExp _parensRe = RegExp(r'[(（][^)）]*[)）]');
+  static final RegExp _conjSep = RegExp(r'\s*>\s*');
+  static List<String> _splitAnswerForSpeech(String raw) {
+    var s = raw;
+    s = s.replaceFirst(_leadingPosRe, '');
+    s = s.replaceAll(_parensRe, '');
+    s = s.trim();
+    if (s.isEmpty) return const [];
+    if (s.contains('>')) {
+      return s.split(_conjSep).map((p) => p.trim()).where((p) => p.isNotEmpty).toList();
+    }
+    return [s];
   }
 }
