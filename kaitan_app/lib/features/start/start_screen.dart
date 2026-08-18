@@ -55,25 +55,43 @@ class StartScreen extends ConsumerWidget {
                     Column(
                       children: [
                         const SizedBox(height: 32),
-                        // Title with playful warmth.
-                        Text(
-                          '快単',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 64,
-                            fontWeight: FontWeight.w900,
-                            color: const Color(0xFF2b6cb0),
-                            letterSpacing: 2,
-                            shadows: [
-                              Shadow(
-                                color: const Color(0xFF2b6cb0).withValues(alpha: 0.15),
-                                offset: const Offset(0, 4),
-                                blurRadius: 12,
-                              ),
-                            ],
+                        // Product title — 快単パーフェクト (large) with the
+                        // grade range beneath in a smaller weight
+                        // (client 2026-08-15 ③). FittedBox keeps the long
+                        // title on one line on narrow devices.
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            '快単パーフェクト',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 46,
+                              fontWeight: FontWeight.w900,
+                              color: const Color(0xFF2b6cb0),
+                              letterSpacing: 1,
+                              shadows: [
+                                Shadow(
+                                  color: const Color(0xFF2b6cb0)
+                                      .withValues(alpha: 0.15),
+                                  offset: const Offset(0, 4),
+                                  blurRadius: 12,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                        const SizedBox(height: 4),
+                        const SizedBox(height: 2),
+                        const Text(
+                          '［2級〜準1級］',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                            color: Color(0xFF2b6cb0),
+                            letterSpacing: 1,
+                          ),
+                        ),
+                        const SizedBox(height: 6),
                         const Text(
                           '英単語記憶アプリ',
                           textAlign: TextAlign.center,
@@ -190,7 +208,7 @@ class StartScreen extends ConsumerWidget {
                     const Padding(
                       padding: EdgeInsets.only(top: 16, bottom: 8),
                       child: Text(
-                        '快単 © 一般社団法人KAI',
+                        '快単パーフェクト © 一般社団法人KAI',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 11,

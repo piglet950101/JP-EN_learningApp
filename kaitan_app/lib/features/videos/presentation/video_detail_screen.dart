@@ -1,11 +1,23 @@
 // Video detail — embedded Vimeo WebView player for one block.
 //
-// Below the 16:9 player, a small info row shows the block's headword-id
-// range and a shortcut button that jumps into that block's First Stage
-// learning flow.
+// Portrait layout: 16:9 player at the top, an info strip, and a shortcut
+// button that jumps into that block's First Stage learning flow.
+//
+// Fullscreen (client 2026-08-15 ②): the client's videos are genuine 16:9
+// landscape, so in portrait they can only ever occupy ~56% of the screen
+// width in height. Tapping 全画面 rotates to landscape and lets the player
+// fill the display, matching the YouTube viewing experience.
+//
+// Implementation note: fullscreen is a STATE TOGGLE on this same page, not
+// a pushed route. webview_flutter allows only one mounted WebViewWidget per
+// controller, and a pushed route would keep the old one alive underneath —
+// so re-laying-out in place is both simpler and keeps playback position.
+// (Android's webview_flutter also does not expose onShowCustomView, so
+// Vimeo's own HTML5 fullscreen button cannot be used.)
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -28,6 +40,7 @@ class VideoDetailScreen extends ConsumerStatefulWidget {
 class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
   WebViewController? _controller;
   bool _loadError = false;
+  bool _fullscreen = false;
 
   /// Vimeo's embed player rejects the default Android WebView UA in some
   /// scenarios (particularly on private/unlisted videos). Presenting as
@@ -35,6 +48,18 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
   static const _mobileUa =
       'Mozilla/5.0 (Linux; Android 13; SM-S916U) AppleWebKit/537.36 '
       '(KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.36';
+
+  @override
+  void dispose() {
+    // Always hand the device back in portrait with the system bars restored,
+    // even if the user backs out while still in fullscreen.
+    SystemChrome.setPreferredOrientations(const [
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    super.dispose();
+  }
 
   /// The client-supplied embed_url is `player.vimeo.com/video/{id}?h={hash}`.
   /// We append typical mobile-embed params to keep the chrome minimal +
@@ -76,9 +101,27 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
     _controller = c;
   }
 
+  Future<void> _enterFullscreen() async {
+    setState(() => _fullscreen = true);
+    await SystemChrome.setPreferredOrientations(const [
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);
+    await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  }
+
+  Future<void> _exitFullscreen() async {
+    await SystemChrome.setPreferredOrientations(const [
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    if (mounted) setState(() => _fullscreen = false);
+  }
+
   Future<void> _startLearning(BuildContext context) async {
-    final blockDef =
-        kAllBlocks.firstWhere((b) => b.no == widget.block, orElse: () => kAllBlocks.first);
+    final blockDef = kAllBlocks
+        .firstWhere((b) => b.no == widget.block, orElse: () => kAllBlocks.first);
     final ids = [
       for (var id = blockDef.firstId; id <= blockDef.lastId; id++) id
     ];
@@ -94,6 +137,77 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
   @override
   Widget build(BuildContext context) {
     final videosAsync = ref.watch(videoRepoProvider);
+    return videosAsync.when(
+      loading: () => const Scaffold(
+        backgroundColor: Colors.white,
+        body: Center(child: CircularProgressIndicator()),
+      ),
+      error: (e, _) => Scaffold(
+        backgroundColor: Colors.white,
+        body: Center(child: Text('動画情報の読込エラー: $e')),
+      ),
+      data: (repo) {
+        final v = repo.byBlock(widget.block);
+        if (v == null) {
+          return Scaffold(
+            backgroundColor: Colors.white,
+            appBar: AppBar(title: Text('第${widget.block}ブロック 解説')),
+            body: const Center(
+                child: Text('このブロックの動画は登録されていません。')),
+          );
+        }
+        _initController(v.embedUrl);
+        return _fullscreen ? _buildFullscreen() : _buildPortrait(v);
+      },
+    );
+  }
+
+  // ── Fullscreen (landscape) ─────────────────────────────────────────
+
+  Widget _buildFullscreen() {
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        // Hardware/gesture back exits fullscreen instead of leaving the page.
+        if (!didPop) _exitFullscreen();
+      },
+      child: Scaffold(
+        backgroundColor: Colors.black,
+        body: Stack(
+          children: [
+            Positioned.fill(
+              child: _loadError
+                  ? const _PlayerError()
+                  : WebViewWidget(controller: _controller!),
+            ),
+            // Exit control — kept small and translucent so it never covers
+            // the video content.
+            Positioned(
+              top: 8,
+              right: 8,
+              child: SafeArea(
+                child: Material(
+                  color: Colors.black54,
+                  shape: const CircleBorder(),
+                  child: IconButton(
+                    onPressed: _exitFullscreen,
+                    icon: const Icon(Icons.fullscreen_exit_rounded),
+                    color: Colors.white,
+                    iconSize: 28,
+                    tooltip: '全画面を終了',
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // ── Portrait ───────────────────────────────────────────────────────
+
+  Widget _buildPortrait(VideoEntry v) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -102,18 +216,10 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
         elevation: 0,
         title: Text('第${widget.block}ブロック 解説'),
       ),
-      body: videosAsync.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('動画情報の読込エラー: $e')),
-        data: (repo) {
-          final v = repo.byBlock(widget.block);
-          if (v == null) {
-            return const Center(
-                child: Text('この block の動画は登録されていません。'));
-          }
-          _initController(v.embedUrl);
-          return SafeArea(
-            child: Column(
+      body: SafeArea(
+        child: Column(
+          children: [
+            Stack(
               children: [
                 AspectRatio(
                   aspectRatio: 16 / 9,
@@ -121,31 +227,75 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
                       ? const _PlayerError()
                       : WebViewWidget(controller: _controller!),
                 ),
-                _InfoStrip(video: v),
-                const Spacer(),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 24, vertical: 16),
-                  child: SizedBox(
-                    height: 56,
-                    child: FilledButton.icon(
-                      onPressed: () => _startLearning(context),
-                      icon: const Icon(Icons.school_outlined),
-                      label: const Text('このブロックの学習を始める',
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w700)),
-                      style: FilledButton.styleFrom(
-                        backgroundColor: const Color(0xFF2b6cb0),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12)),
-                      ),
+                // Fullscreen affordance, bottom-right of the player.
+                Positioned(
+                  right: 6,
+                  bottom: 6,
+                  child: Material(
+                    color: Colors.black54,
+                    shape: const CircleBorder(),
+                    child: IconButton(
+                      onPressed: _enterFullscreen,
+                      icon: const Icon(Icons.fullscreen_rounded),
+                      color: Colors.white,
+                      iconSize: 26,
+                      tooltip: '全画面で見る',
                     ),
                   ),
                 ),
               ],
             ),
-          );
-        },
+            // Prominent full-width hint — the client specifically asked how
+            // to make the video bigger, so the affordance is spelled out
+            // rather than relying on the icon alone.
+            InkWell(
+              onTap: _enterFullscreen,
+              child: Container(
+                width: double.infinity,
+                color: const Color(0xFFE6F4FF),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 16, vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.screen_rotation_rounded,
+                        size: 18, color: Color(0xFF2b6cb0)),
+                    SizedBox(width: 8),
+                    Text(
+                      'タップすると全画面（横向き）で大きく見られます',
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF1A365D),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            _InfoStrip(video: v),
+            const Spacer(),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+              child: SizedBox(
+                height: 56,
+                child: FilledButton.icon(
+                  onPressed: () => _startLearning(context),
+                  icon: const Icon(Icons.school_outlined),
+                  label: const Text('このブロックの学習を始める',
+                      style: TextStyle(
+                          fontSize: 15, fontWeight: FontWeight.w700)),
+                  style: FilledButton.styleFrom(
+                    backgroundColor: const Color(0xFF2b6cb0),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
