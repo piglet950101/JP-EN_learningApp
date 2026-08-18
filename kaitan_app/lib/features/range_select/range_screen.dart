@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/providers.dart';
+import '../../core/trial_policy.dart';
 import '../../data/block.dart';
 import '../../data/progress/progress_repository.dart';
 
@@ -31,9 +32,10 @@ class _RangeScreenState extends ConsumerState<RangeScreen> {
     });
   }
 
-  void _selectVol(int vol) {
+  void _selectVol(int vol, {Set<int>? enabledBlocks}) {
     setState(() {
       for (final b in blocksOfVol(vol)) {
+        if (enabledBlocks != null && !enabledBlocks.contains(b.no)) continue;
         _selected.add(b.no);
       }
     });
@@ -95,6 +97,10 @@ class _RangeScreenState extends ConsumerState<RangeScreen> {
     // For Second Stage, gray out blocks that have no SS entries (currently
     // covers exactly one: the medical block 47, which is FS-style content).
     final ssRepoAsync = ref.watch(secondStageRepoProvider);
+    final isUnlocked = ref.watch(unlockedProvider).maybeWhen(
+          data: (v) => v,
+          orElse: () => false,
+        );
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -110,14 +116,27 @@ class _RangeScreenState extends ConsumerState<RangeScreen> {
           loading: () => const Center(child: CircularProgressIndicator()),
           error: (e, _) => Center(child: Text('エラー: $e')),
           data: (statuses) {
+            // Second Stage: only blocks that carry SS entries are selectable.
             final ssBlocks = isSecond
                 ? ssRepoAsync.maybeWhen(
                     data: (r) => r.allBlocks().toSet(),
                     orElse: () => <int>{},
                   )
                 : null;
+            // Trial mode (client 2026-08-14): BOTH First and Second Stage
+            // expose blocks 1..kTrialBlockMax only.
+            final Set<int>? trialBlocks =
+                isUnlocked ? null : trialBlockSet();
+            // Intersect the two gates when both apply.
+            Set<int>? effectiveEnabled;
+            if (ssBlocks != null && trialBlocks != null) {
+              effectiveEnabled = ssBlocks.intersection(trialBlocks);
+            } else {
+              effectiveEnabled = ssBlocks ?? trialBlocks;
+            }
             return Column(
             children: [
+              if (!isUnlocked) const _TrialRangeBanner(),
               Expanded(
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -126,25 +145,25 @@ class _RangeScreenState extends ConsumerState<RangeScreen> {
                     children: [
                       _VolHeader(
                         title: '快単 vol.1（ブロック 1–23）',
-                        onSelectAll: () => _selectVol(1),
+                        onSelectAll: () => _selectVol(1, enabledBlocks: effectiveEnabled),
                       ),
                       _BlockGrid(
                         vol: 1,
                         selected: _selected,
                         statuses: statuses,
-                        enabledBlocks: ssBlocks,
+                        enabledBlocks: effectiveEnabled,
                         onTap: _toggle,
                       ),
                       const SizedBox(height: 8),
                       _VolHeader(
                         title: '快単 vol.2（ブロック 24–46）',
-                        onSelectAll: () => _selectVol(2),
+                        onSelectAll: () => _selectVol(2, enabledBlocks: effectiveEnabled),
                       ),
                       _BlockGrid(
                         vol: 2,
                         selected: _selected,
                         statuses: statuses,
-                        enabledBlocks: ssBlocks,
+                        enabledBlocks: effectiveEnabled,
                         onTap: _toggle,
                       ),
                       // vol.3 medical block (single block, only rendered for
@@ -198,6 +217,28 @@ class _RangeScreenState extends ConsumerState<RangeScreen> {
 }
 
 // ─── Sub-widgets ──────────────────────────────────────────────────────
+
+class _TrialRangeBanner extends StatelessWidget {
+  const _TrialRangeBanner();
+  @override
+  Widget build(BuildContext context) => Container(
+        color: const Color(0xFFE6F4FF),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        child: Row(
+          children: const [
+            Icon(Icons.info_outline_rounded,
+                color: Color(0xFF2b6cb0), size: 20),
+            SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                kTrialBannerLearn,
+                style: TextStyle(fontSize: 13, color: Color(0xFF1A365D)),
+              ),
+            ),
+          ],
+        ),
+      );
+}
 
 class _VolHeader extends StatelessWidget {
   final String title;

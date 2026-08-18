@@ -138,7 +138,7 @@ class _UnlockScreenState extends ConsumerState<UnlockScreen> {
         ),
         const Spacer(),
         const Text(
-          '（コードをお持ちでない場合は、体験版として最初の3ブロックまでご利用いただけます。）',
+          '（コードをお持ちでない場合は、体験版として各ステージのブロック1〜2をご利用いただけます。）',
           style: TextStyle(fontSize: 11, color: Colors.black45),
           textAlign: TextAlign.center,
         ),

@@ -1,15 +1,52 @@
 {
   "schema_version": 1,
-  "source": "docx: アプリ直し 8. 9.docx (2026-08-04) — Second Stage entry restructures + typo fixes",
+  "source": "docx: アプリ直し8. 12.docx (2026-08-12) + アプリ直し 8. 9.docx (2026-08-04)",
   "notes": [
     "Each key is a Phase 1 word_id (as string).",
     "Value is a list of entries that REPLACE all existing SS entries for that word_id.",
-    "Each replacement entry mirrors the second_stage.json entry shape but without an id (assigned by the applier)."
+    "Each replacement entry: relation / answer / answer_meaning / tts_enabled."
   ],
   "overrides": {
+    "5": [
+      {"relation": "意２", "answer": "現れる、見える", "answer_meaning": null, "tts_enabled": false},
+      {"relation": "名", "answer": "appearance", "answer_meaning": "出現、外見", "tts_enabled": true}
+    ],
+    "33": [
+      {"relation": "意２", "answer": "関する、心配させる", "answer_meaning": null, "tts_enabled": false},
+      {"relation": "名", "answer": "concern", "answer_meaning": "心配、関心事", "tts_enabled": true}
+    ],
+    "50": [
+      {"relation": "名", "answer": "distinction", "answer_meaning": "相違、名声、特徴", "tts_enabled": true},
+      {"relation": "セ 善と悪を区別する", "answer": "distinguish good from evil", "answer_meaning": "distinguish (/tell) A from B  A と B を区別する", "tts_enabled": true}
+    ],
+    "59": [
+      {"relation": "活", "answer": "mean > meant > meant", "answer_meaning": null, "tts_enabled": true},
+      {"relation": "意 形1〜2", "answer": "卑しい、意地悪な", "answer_meaning": null, "tts_enabled": false},
+      {"relation": "意 名1〜2", "answer": "中間、平均", "answer_meaning": null, "tts_enabled": false},
+      {"relation": "意 他2", "answer": "意味する、意図する", "answer_meaning": null, "tts_enabled": false}
+    ],
     "102": [
-      {"relation": "名", "answer": "sustenance", "answer_meaning": "生計（生命）の維持", "tts_enabled": true},
+      {"relation": "名", "answer": "sustenance", "answer_meaning": "生計(生命)の維持", "tts_enabled": true},
       {"relation": "形", "answer": "sustainable", "answer_meaning": "持続可能な", "tts_enabled": true}
+    ],
+    "146": [
+      {"relation": "熟", "answer": "refer to", "answer_meaning": "~を参照する、~に言及する", "tts_enabled": true},
+      {"relation": "名", "answer": "reference", "answer_meaning": "参照、言及", "tts_enabled": true}
+    ],
+    "178": [
+      {"relation": "名", "answer": "conspiracy", "answer_meaning": "陰謀", "tts_enabled": true}
+    ],
+    "187": [
+      {"relation": "類", "answer": "gift", "answer_meaning": "才能「(天からの)贈り物」", "tts_enabled": true}
+    ],
+    "190": [
+      {"relation": "名", "answer": "variety", "answer_meaning": "多様性、変化", "tts_enabled": true},
+      {"relation": "名にする", "answer": "diversify", "answer_meaning": "多様化する", "tts_enabled": true},
+      {"relation": "形", "answer": "various", "answer_meaning": "様々な", "tts_enabled": true},
+      {"relation": "意 invariably", "answer": "invariably", "answer_meaning": "変わることなく = always", "tts_enabled": true}
+    ],
+    "83": [
+      {"relation": "意 amiable", "answer": "amiable", "answer_meaning": "愛想よい「笑み溢るとは愛想よい」", "tts_enabled": true}
     ]
   }
 }

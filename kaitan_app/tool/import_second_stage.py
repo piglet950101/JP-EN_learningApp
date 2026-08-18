@@ -69,13 +69,21 @@ def _pick(patterns: list[str]) -> Path | None:
 
 
 def parse_ss_sheet(ws, source_label: str, warnings: list[str]) -> list[dict]:
-    """Parse an SS sheet. Returns list of raw entry dicts (no id yet)."""
+    """Parse an SS sheet. Returns list of raw entry dicts (no id yet).
+
+    Client 2026-08-12 #4 (Pattern B): when a row has an answer but the
+    `問題` (relation) column is empty, the client's Excel convention is
+    that this row inherits the RELATION of the previous entry for the
+    SAME headword. In the old app that appeared as `■` — we now
+    materialize the inherited relation so the same chip shows twice.
+    """
     entries: list[dict] = []
     current_block: int | None = None
     current_word_id: int | None = None
     current_word: str | None = None
     current_pos: str | None = None
     current_meaning: str | None = None
+    last_relation_by_word: dict[int, str] = {}
 
     for row_idx, row in enumerate(ws.iter_rows(min_row=2, values_only=True), start=2):
         b_cell = row[0] if len(row) > 0 else None
@@ -122,6 +130,15 @@ def parse_ss_sheet(ws, source_label: str, warnings: list[str]) -> list[dict]:
             warnings.append(
                 f"{source_label} row {row_idx} word_id={current_word_id}: entry without block"
             )
+
+        # Pattern B: inherit relation from previous entry for this word if blank.
+        if rel is None or rel == "":
+            inherited = last_relation_by_word.get(current_word_id)
+            if inherited is not None:
+                rel = inherited
+        # Track this row's relation for the NEXT blank-relation row of same word.
+        if rel is not None and rel != "":
+            last_relation_by_word[current_word_id] = rel
 
         entries.append({
             "block": current_block,

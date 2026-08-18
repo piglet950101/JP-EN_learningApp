@@ -45,12 +45,14 @@ class SsQuestionView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final hideMeaning = _shouldHideHeadwordMeaning(entries);
+    final hidePos = _shouldHidePosOnQuestion(entries);
     return Column(
       children: [
         _SsTopBar(round: session.round, no: headword.id, onRetire: onRetire),
         _Headword(
           headword: headword,
-          hideMeaning: hideMeaning,
+          hideMeaning: hideMeaning || hidePos,
+          hidePos: hidePos,
           onSpeak: () => ref.read(ttsProvider).speak(
                 headword.word,
                 pronunciationHint: headword.pronunciationHint,
@@ -70,7 +72,7 @@ class SsQuestionView extends ConsumerWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(12, 8, 12, 16),
+          padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
           child: SizedBox(
             width: double.infinity,
             height: 72,
@@ -86,6 +88,7 @@ class SsQuestionView extends ConsumerWidget {
             ),
           ),
         ),
+        _SsCounter(session: session),
       ],
     );
   }
@@ -143,14 +146,13 @@ class _SsAnswerViewState extends ConsumerState<SsAnswerView> {
     return Column(
       children: [
         _SsTopBar(round: session.round, no: headword.id, onRetire: widget.onRetire),
+        // Spec 2026-08-12 #2: only one speaker per screen. The headword row
+        // no longer shows a speaker on the answer view — the auto-played
+        // answer TTS + per-entry inline speaker icons cover playback.
         _Headword(
           headword: headword,
           hideMeaning: hideMeaning,
-          onSpeak: () => ref.read(ttsProvider).speak(
-                headword.word,
-                pronunciationHint: headword.pronunciationHint,
-                wordId: headword.id,
-              ),
+          onSpeak: null,
         ),
         const Divider(height: 1),
         Expanded(
@@ -212,7 +214,7 @@ class _SsAnswerViewState extends ConsumerState<SsAnswerView> {
             ],
           ),
         ),
-        const SizedBox(height: 12),
+        _SsCounter(session: session),
       ],
     );
   }
@@ -226,6 +228,17 @@ class _SsAnswerViewState extends ConsumerState<SsAnswerView> {
 bool _shouldHideHeadwordMeaning(List<SecondStageEntry> entries) {
   for (final e in entries) {
     if (e.baseCategory == SsRelationCategory.meaning) return true;
+  }
+  return false;
+}
+
+/// True when at least one SS entry asks about the POS of the headword
+/// (relation starts with `品`). Showing the POS badge on the QUESTION screen
+/// would spoil that (client 2026-08-12 #5: 品詞欄が□の語 = same rule).
+/// Applied to the question view only — the answer view can still show POS.
+bool _shouldHidePosOnQuestion(List<SecondStageEntry> entries) {
+  for (final e in entries) {
+    if (e.baseCategory == SsRelationCategory.posMarker) return true;
   }
   return false;
 }
@@ -283,11 +296,13 @@ class _SsTopBar extends StatelessWidget {
 class _Headword extends StatelessWidget {
   final Word headword;
   final bool hideMeaning;
-  final VoidCallback onSpeak;
+  final bool hidePos;
+  final VoidCallback? onSpeak;
   const _Headword({
     required this.headword,
     required this.onSpeak,
     this.hideMeaning = false,
+    this.hidePos = false,
   });
 
   @override
@@ -309,7 +324,7 @@ class _Headword extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _MiniPosBadge(headword.posRaw),
+              if (!hidePos) _MiniPosBadge(headword.posRaw),
               if (!hideMeaning) ...[
                 const SizedBox(width: 10),
                 Flexible(
@@ -321,21 +336,63 @@ class _Headword extends StatelessWidget {
                   ),
                 ),
               ],
-              const SizedBox(width: 10),
-              IconButton(
-                onPressed: onSpeak,
-                icon: const Icon(Icons.volume_up_rounded),
-                color: const Color(0xFF2b6cb0),
-                iconSize: 26,
-                padding: EdgeInsets.zero,
-                constraints: const BoxConstraints(),
-              ),
+              if (onSpeak != null) ...[
+                const SizedBox(width: 10),
+                IconButton(
+                  onPressed: onSpeak,
+                  icon: const Icon(Icons.volume_up_rounded),
+                  color: const Color(0xFF2b6cb0),
+                  iconSize: 26,
+                  padding: EdgeInsets.zero,
+                  constraints: const BoxConstraints(),
+                ),
+              ],
             ],
           ),
         ],
       ),
     );
   }
+}
+
+/// Counter chip (残/OK/再チェック) matched to the First Stage bottom counter.
+/// Client 2026-08-12 #1: SS needs the same live counter as FS.
+class _SsCounter extends StatelessWidget {
+  final SessionState session;
+  const _SsCounter({required this.session});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      decoration: BoxDecoration(
+        color: const Color(0xFFF7FAFC),
+        border: Border(top: BorderSide(color: Colors.grey.shade200)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _chip('残/総数', '${session.remaining}/${session.total}'),
+          _chip('OK', '${session.ok}', color: const Color(0xFF38A169)),
+          _chip('再チェック', '${session.recheck}',
+              color: const Color(0xFFD53F8C)),
+        ],
+      ),
+    );
+  }
+
+  Widget _chip(String label, String value, {Color? color}) => Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(label,
+              style:
+                  const TextStyle(fontSize: 10, color: Colors.black54)),
+          Text(value,
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                  color: color ?? Colors.black87)),
+        ],
+      );
 }
 
 class _MiniPosBadge extends StatelessWidget {
@@ -408,6 +465,8 @@ class _EntryRow extends StatelessWidget {
       );
     }
     // Compact row: chip + answer/placeholder side-by-side.
+    // NOTE: the speaker icon lives INSIDE _answerOrPlaceholder — do not add
+    // a second one here (client 2026-08-12 #2: only one speaker per row).
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
       child: Row(
@@ -416,15 +475,6 @@ class _EntryRow extends StatelessWidget {
           _CategoryChip(cat: cat, label: cat ?? entry.relation),
           const SizedBox(width: 12),
           Expanded(child: _answerOrPlaceholder(context)),
-          if (showAnswer && onSpeak != null)
-            IconButton(
-              onPressed: onSpeak,
-              icon: const Icon(Icons.volume_up_outlined),
-              iconSize: 22,
-              color: const Color(0xFF2b6cb0),
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(minWidth: 36, minHeight: 36),
-            ),
         ],
       ),
     );
@@ -447,6 +497,14 @@ class _EntryRow extends StatelessWidget {
                 fontWeight: FontWeight.w700)),
       );
     }
+    final cat = SsRelationCategory.categoryOf(entry.relation);
+    final rest = _promptRest(entry.relation, cat);
+    // Pattern A (client 2026-08-12 #3): when the prompt "rest" is the exact
+    // English word being asked for its meaning (e.g. `意 literally` and the
+    // SS answer is also `literally`), the answer word would repeat. Hide the
+    // red answer text and let the meaning text stand alone in red.
+    final hideAnswerText = rest != null &&
+        entry.answer.trim().toLowerCase() == rest.trim().toLowerCase();
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -454,22 +512,34 @@ class _EntryRow extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                entry.answer,
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w800,
-                  color: Color(0xFFC53030),
-                  height: 1.2,
+              if (!hideAnswerText)
+                Text(
+                  entry.answer,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w800,
+                    color: Color(0xFFC53030),
+                    height: 1.2,
+                  ),
                 ),
-              ),
               if ((entry.answerMeaning ?? '').isNotEmpty)
                 Padding(
-                  padding: const EdgeInsets.only(top: 2),
-                  child: Text(
-                    entry.answerMeaning!,
-                    style: const TextStyle(
-                        fontSize: 15, color: Colors.black87),
+                  padding:
+                      EdgeInsets.only(top: hideAnswerText ? 0 : 2),
+                  child: Text.rich(
+                    _boldQuotedSpans(
+                      _breakForReading(entry.answerMeaning!),
+                      base: TextStyle(
+                        fontSize: hideAnswerText ? 22 : 15,
+                        fontWeight: hideAnswerText
+                            ? FontWeight.w800
+                            : FontWeight.w500,
+                        color: hideAnswerText
+                            ? const Color(0xFFC53030)
+                            : Colors.black87,
+                        height: 1.3,
+                      ),
+                    ),
                   ),
                 ),
             ],
@@ -488,9 +558,74 @@ class _EntryRow extends StatelessWidget {
     );
   }
 
+  /// Pattern C: insert visual line breaks in a long answer/meaning line.
+  ///
+  ///   • before ` cf. ` — a "compare" phrase deserves its own line
+  ///   • before Japanese POS markers 名/他/自/形/副/動/前/接 when they are
+  ///     used as prefix labels for multiple sub-meanings within one line
+  ///     (e.g. `形 卑しい、意地悪な 名 中間、平均 他 意味する` → 3 lines)
+  static String _breakForReading(String s) {
+    // Break at cf. (both `cf.` and ` cf `)
+    var out = s.replaceAll(RegExp(r'\s*cf\.\s*'), '\ncf. ');
+    // Break at POS markers that follow whitespace: preserve the marker.
+    out = out.replaceAllMapped(
+      RegExp(r'\s+([他自名形副動前接])\s'),
+      (m) => '\n${m.group(1)} ',
+    );
+    return out.trim();
+  }
+
+  /// Client 2026-08-12 #6: 「...」-quoted text in answer_meaning is a
+  /// mnemonic/ゴロ and should be bold. Applies to both black and red text.
+  static InlineSpan _boldQuotedSpans(String text, {required TextStyle base}) {
+    final re = RegExp(r'「[^」]*」');
+    final children = <InlineSpan>[];
+    var cursor = 0;
+    for (final m in re.allMatches(text)) {
+      if (m.start > cursor) {
+        children.add(TextSpan(
+            text: text.substring(cursor, m.start), style: base));
+      }
+      children.add(TextSpan(
+        text: text.substring(m.start, m.end),
+        style: base.copyWith(fontWeight: FontWeight.w900),
+      ));
+      cursor = m.end;
+    }
+    if (cursor < text.length) {
+      children.add(TextSpan(text: text.substring(cursor), style: base));
+    }
+    if (children.isEmpty) {
+      return TextSpan(text: text, style: base);
+    }
+    return TextSpan(children: children);
+  }
+
+  /// Strip the base code from the front of the relation string, along with
+  /// any compound-form suffix. Client 2026-08-12 #8: `副詞とその意味` →
+  /// chip "副" + prompt "とその意味". Additionally catches common
+  /// Japanese-grammar compounds where the base code is a semantic root:
+  ///   類 + 義語 (synonym), 反 + 対語 (antonym), 同音 + 異義語 (homophone).
+  static const _compoundSuffixesByCode = <String, List<String>>{
+    '副': ['詞'],
+    '意': ['味'],
+    '名': ['詞'],
+    '形': ['容詞'],
+    '動': ['詞'],
+    '類': ['義語', '義'],
+    '反': ['対語', '対'],
+    '同音': ['異義語', '異義'],
+  };
   static String? _promptRest(String relation, String? cat) {
     if (cat == null || relation == cat) return null;
-    final rest = relation.substring(cat.length).trim();
+    var rest = relation.substring(cat.length);
+    for (final suffix in _compoundSuffixesByCode[cat] ?? const <String>[]) {
+      if (rest.startsWith(suffix)) {
+        rest = rest.substring(suffix.length);
+        break;
+      }
+    }
+    rest = rest.trim();
     return rest.isEmpty ? null : rest;
   }
 }

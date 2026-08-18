@@ -9,11 +9,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/providers.dart';
+import '../../../core/trial_policy.dart';
 import '../../../data/video.dart';
-
-/// Trial mode allows the user to watch the first 2 blocks' videos as a
-/// sample; blocks 3-46 stay locked behind an unlock code (spec 2026-08-04 ②).
-const int _kTrialAccessibleBlockMax = 2;
 
 final _connectivityProvider = StreamProvider<List<ConnectivityResult>>(
   (ref) => Connectivity().onConnectivityChanged,
@@ -69,7 +66,7 @@ class VideoListScreen extends ConsumerWidget {
                   itemBuilder: (context, i) {
                     final v = repo.all[i];
                     final accessible =
-                        isUnlocked || v.block <= _kTrialAccessibleBlockMax;
+                        trialAllowsBlock(v.block, isUnlocked: isUnlocked);
                     return _VideoCard(
                       video: v,
                       isOnline: isOnline,
@@ -103,7 +100,7 @@ class _TrialBanner extends StatelessWidget {
             SizedBox(width: 10),
             Expanded(
               child: Text(
-                '体験版：ブロック1〜2のみ視聴できます。他ブロックはコード入力で解放されます。',
+                kTrialBannerVideo,
                 style: TextStyle(fontSize: 13, color: Color(0xFF1A365D)),
               ),
             ),

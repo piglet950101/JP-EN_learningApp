@@ -137,18 +137,17 @@ class StartScreen extends ConsumerWidget {
                           ),
                         ),
                         const SizedBox(height: 28),
+                        // Second Stage: trial users may enter and study
+                        // blocks 1–2 (client 2026-08-14). The range screen
+                        // applies the block gate.
                         _StageCard(
                           label: 'Second Stage',
-                          subtitle: '派生・類義・反意・活用ドリル',
-                          enabled: isUnlocked,
-                          locked: !isUnlocked,
-                          onTap: () {
-                            if (isUnlocked) {
-                              context.push('/range?stage=second');
-                            } else {
-                              context.push('/unlock');
-                            }
-                          },
+                          subtitle: isUnlocked
+                              ? '派生・類義・反意・活用ドリル'
+                              : '体験版：ブロック1〜2のみ学習可能',
+                          enabled: true,
+                          locked: false,
+                          onTap: () => context.push('/range?stage=second'),
                         ),
                         const SizedBox(height: 10),
                         ssLapsAsync.when(
