@@ -97,7 +97,7 @@ def main() -> None:
     overrides: dict[str, list[dict]] = {}
     unresolved: list[str] = []
     stats = {'delete': 0, 'relation': 0, 'relation_prefix': 0, 'answer': 0,
-             'meaning': 0, 'accent': 0, 'strip': 0, 'already': 0,
+             'meaning': 0, 'accent': 0, 'strip': 0, 'tts': 0, 'already': 0,
              'skipped_style': 0, 'unresolved': 0}
 
     for wid in sorted(changes_by_word):
@@ -144,6 +144,22 @@ def main() -> None:
                     touched = True
                 else:
                     unresolved.append(f'{wid}: DELETE target not found -> {b_raw!r}')
+                    stats['unresolved'] += 1
+                continue
+
+            # --- 「音声追加」 = enable TTS, do NOT touch the text ----------
+            if '音声追加' in a_raw:
+                hit = [e for e in entries
+                       if b in (norm(e['answer']), norm(e['relation']),
+                                norm(e['answer_meaning']))]
+                if hit:
+                    for e in hit:
+                        e['tts_enabled'] = True
+                    stats['tts'] += 1
+                    touched = True
+                else:
+                    unresolved.append(
+                        f'{wid}: 音声追加 target not found -> {b_raw!r}')
                     stats['unresolved'] += 1
                 continue
 
@@ -200,6 +216,16 @@ def main() -> None:
                     unresolved.append(
                         f'{wid}: STRIP target not found -> {b_raw!r} => {a_raw[:50]!r}')
                     stats['unresolved'] += 1
+                continue
+
+            # --- never write an empty value ------------------------------
+            # If cleaning stripped the "after" down to nothing, the
+            # instruction was an annotation rather than replacement text.
+            # Blanking real content is far worse than leaving it for review.
+            if not a_clean:
+                unresolved.append(
+                    f'{wid}: empty replacement, skipped -> {b_raw!r} => {a_raw[:50]!r}')
+                stats['unresolved'] += 1
                 continue
 
             # --- locate the field the "before" text refers to -------------
@@ -292,14 +318,14 @@ def main() -> None:
     total = sum(stats.values())
     print(f'changes seen          : {total}')
     for k in ('delete', 'relation', 'relation_prefix', 'answer', 'meaning',
-              'accent', 'strip'):
+              'accent', 'strip', 'tts'):
         print(f'  applied {k:9s}    : {stats[k]}')
     print(f'  already satisfied   : {stats["already"]}')
     print(f'  skipped (styling)   : {stats["skipped_style"]}')
     print(f'  UNRESOLVED          : {stats["unresolved"]}')
     print()
     applied = sum(stats[k] for k in ('delete', 'relation', 'relation_prefix',
-                                     'answer', 'meaning', 'accent', 'strip'))
+                                     'answer', 'meaning', 'accent', 'strip', 'tts'))
     print(f'words with overrides  : {len(overrides)}')
     print(f'auto-applied          : {applied} / {total} '
           f'({applied / total * 100:.1f}%)')
