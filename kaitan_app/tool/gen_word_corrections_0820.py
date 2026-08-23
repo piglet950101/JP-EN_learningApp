@@ -1,0 +1,136 @@
+"""
+Generate words.json corrections from the 2026-08-19 client review.
+
+Most of that review edits Second Stage entries, but two families of
+instruction target the HEADWORD's own POS and meaning, which live in
+words.json — which is why the Second Stage verifier reports them as UNKNOWN
+(it is searching the wrong dataset).
+
+Family A — drop a trailing preposition from the meaning:
+    自　控える(from)          ⇨ (from) をトル
+    自２ 住む(in)、考える(on)  ⇨ (in), (on) をトル
+    他　～に思い出させる(A of B) ⇨ (A of B) をカット
+
+Family B — remove parentheses from a compound POS:
+    他・（名）疑う、疑い ⇨ 他・名 疑う、疑い
+    間・（他）           ⇨ 間・他
+
+Output: tool/word_overrides_0820.json  (review, then merge into
+word_overrides.json). Nothing is guessed: an instruction whose target text
+cannot be located in words.json is reported rather than applied.
+"""
+from __future__ import annotations
+
+import json
+import re
+import unicodedata
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parent
+CORRECTIONS = HERE / 'corrections_0820.json'
+WORDS = ROOT / 'assets' / 'content' / 'words.json'
+OUT = HERE / 'word_overrides_0820.json'
+
+# 「(from) をトル」「(in), (on) をトル」「(A of B) をカット」「(to) を取る」
+STRIP_RE = re.compile(r'^([（(].+?[）)](?:\s*[,、]\s*[（(].+?[）)])*)\s*を?\s*(?:トル|カット|取る)\s*$')
+PAREN_POS_RE = re.compile(r'[（(]([他自名形副動前接])[）)]')
+
+
+def norm(s: str) -> str:
+    return re.sub(r'\s+', '', unicodedata.normalize('NFKC', s or ''))
+
+
+def main() -> None:
+    corr = json.loads(CORRECTIONS.read_text(encoding='utf-8'))
+    words = {w['id']: w for w in
+             json.loads(WORDS.read_text(encoding='utf-8'))['words']}
+
+    overrides: dict[str, dict] = {}
+    skipped: list[str] = []
+    n_strip = n_pos = 0
+
+    for r in corr['records']:
+        wid = r['word_id']
+        w = words.get(wid)
+        if w is None:
+            continue
+
+        for ch in r['changes']:
+            b_raw, a_raw = ch['before'].strip(), ch['after'].strip()
+
+            # ---- Family A: strip parenthetical(s) from the meanings --------
+            m = STRIP_RE.match(a_raw)
+            if m:
+                # The instruction only makes sense if the "before" text is the
+                # headword's own POS + meaning.
+                if norm(b_raw) != norm(w['pos_raw'] + ''.join(w['meanings'])):
+                    skipped.append(
+                        f'{wid} {w["word"]}: strip target is not the headword '
+                        f'line -> {b_raw!r}')
+                    continue
+                targets = re.findall(r'[（(].+?[）)]', m.group(1))
+                cur = overrides.get(str(wid), {}).get(
+                    'new_meanings', list(w['meanings']))
+                new = []
+                for meaning in cur:
+                    out = meaning
+                    for t in targets:
+                        # Match either width of bracket.
+                        inner = re.escape(t[1:-1])
+                        out = re.sub(r'\s*[（(]' + inner + r'[）)]', '', out)
+                    new.append(out.strip())
+                if new == list(w['meanings']):
+                    skipped.append(
+                        f'{wid} {w["word"]}: nothing to strip for {m.group(1)!r}')
+                    continue
+                if any(not x for x in new):
+                    skipped.append(f'{wid} {w["word"]}: strip would empty a meaning')
+                    continue
+                overrides.setdefault(str(wid), {'word': w['word']})
+                overrides[str(wid)]['field'] = 'meanings'
+                overrides[str(wid)]['new_meanings'] = new
+                n_strip += 1
+                continue
+
+            # ---- Family B: unparenthesise a compound POS -------------------
+            if PAREN_POS_RE.search(b_raw) and norm(b_raw).startswith(norm(w['pos_raw'])):
+                new_pos = PAREN_POS_RE.sub(r'\1', w['pos_raw'])
+                if new_pos == w['pos_raw']:
+                    continue
+                if norm(new_pos) not in norm(a_raw):
+                    skipped.append(
+                        f'{wid} {w["word"]}: POS {new_pos!r} not confirmed by '
+                        f'{a_raw[:40]!r}')
+                    continue
+                overrides.setdefault(str(wid), {'word': w['word']})
+                # A word needing both edits keeps the meanings entry; POS-only
+                # words get their own record.
+                if overrides[str(wid)].get('field') == 'meanings':
+                    skipped.append(
+                        f'{wid} {w["word"]}: needs BOTH pos and meanings edits '
+                        f'— apply POS manually')
+                    continue
+                overrides[str(wid)]['field'] = 'pos'
+                overrides[str(wid)]['new_pos_raw'] = new_pos
+                n_pos += 1
+
+    OUT.write_text(json.dumps({
+        'schema_version': 1,
+        'source': 'アプリ直し Second Stage 8. 20.docx (2026-08-19)',
+        'note': 'Generated by gen_word_corrections_0820.py — review before '
+                'merging into word_overrides.json',
+        'overrides': overrides,
+    }, ensure_ascii=False, indent=2), encoding='utf-8')
+
+    print(f'meaning strips  : {n_strip}')
+    print(f'POS unparens    : {n_pos}')
+    print(f'words affected  : {len(overrides)}')
+    print(f'skipped         : {len(skipped)}')
+    for s in skipped[:12]:
+        print(f'   {s}')
+    print(f'wrote {OUT.name}')
+
+
+if __name__ == '__main__':
+    main()

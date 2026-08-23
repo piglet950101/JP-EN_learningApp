@@ -40,6 +40,21 @@ def main() -> None:
             parts = [p.strip() for p in base.split('・') if p.strip()]
             w['pos_list'] = parts
             applied += 1
+        elif field == 'meanings':
+            # Full replacement of the meaning list. Used by the 2026-08-19
+            # review, where instructions like 「自　控える(from) ⇨ (from) をトル」
+            # ask for a trailing preposition to be dropped from the headword's
+            # own meaning — that text lives in words.json, not in the Second
+            # Stage entries.
+            new_meanings = spec['new_meanings']
+            if not isinstance(new_meanings, list) or not new_meanings:
+                warnings.append(f'id={wid} new_meanings must be a non-empty list')
+                continue
+            if any(not str(m).strip() for m in new_meanings):
+                warnings.append(f'id={wid} refusing to write an empty meaning')
+                continue
+            w['meanings'] = [str(m) for m in new_meanings]
+            applied += 1
         else:
             warnings.append(f'id={wid} unsupported field: {field}')
 

@@ -4275,7 +4275,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "控える(from)"
+        "控える"
       ],
       "mnemonics": [
         {
@@ -5974,7 +5974,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "違う(from)"
+        "違う"
       ],
       "mnemonics": [
         {
@@ -9654,7 +9654,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "言い張る(on)"
+        "言い張る"
       ],
       "mnemonics": [
         {
@@ -9702,7 +9702,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "(最後まで)言い張る(in)"
+        "(最後まで)言い張る"
       ],
       "mnemonics": [
         {
@@ -10246,7 +10246,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "本来備わる(in)"
+        "本来備わる"
       ],
       "mnemonics": [
         {
@@ -10333,7 +10333,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "くっつく(to)"
+        "くっつく"
       ],
       "mnemonics": [
         {
@@ -13594,7 +13594,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "（習慣などに）従う（to/with）"
+        "（習慣などに）従う"
       ],
       "mnemonics": [
         {
@@ -13981,7 +13981,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "相互作用する(with)"
+        "相互作用する"
       ],
       "mnemonics": [
         {
@@ -14602,7 +14602,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "～に思い出させる（A of B)"
+        "～に思い出させる"
       ],
       "mnemonics": [
         {
@@ -15492,7 +15492,7 @@
       "vol": 1,
       "block": 8,
       "word": "suspect",
-      "pos_raw": "他・(名)",
+      "pos_raw": "他・名",
       "pos_list": [
         "他",
         "名"
@@ -15529,7 +15529,7 @@
       "vol": 1,
       "block": 8,
       "word": "doubt",
-      "pos_raw": "他・(名)",
+      "pos_raw": "他・名",
       "pos_list": [
         "他",
         "名"
@@ -19129,7 +19129,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "不平を言う(of)"
+        "不平を言う"
       ],
       "mnemonics": [
         {
@@ -19398,7 +19398,7 @@
       "vol": 1,
       "block": 11,
       "word": "continue",
-      "pos_raw": "自・(他)",
+      "pos_raw": "自・他",
       "pos_list": [
         "自",
         "他"
@@ -21024,7 +21024,7 @@
       "vol": 1,
       "block": 11,
       "word": "say",
-      "pos_raw": "間・(他)",
+      "pos_raw": "間・他",
       "pos_list": [
         "間",
         "他"
@@ -27263,7 +27263,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "参加する(in)"
+        "参加する"
       ],
       "mnemonics": [
         {
@@ -27311,7 +27311,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "参加する(in)"
+        "参加する"
       ],
       "mnemonics": [
         {
@@ -30481,7 +30481,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "屈する(to)"
+        "屈する"
       ],
       "mnemonics": [
         {
@@ -42586,7 +42586,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "気づいている(of)"
+        "気づいている"
       ],
       "mnemonics": [
         {
@@ -42660,7 +42660,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "恐れている(of)"
+        "恐れている"
       ],
       "mnemonics": [
         {
@@ -50213,7 +50213,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "反対の(to)"
+        "反対の"
       ],
       "mnemonics": [
         {
@@ -51258,7 +51258,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "由来する(from)"
+        "由来する"
       ],
       "mnemonics": [
         {
@@ -60665,7 +60665,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "苦しむ(from)"
+        "苦しむ"
       ],
       "mnemonics": [
         {
@@ -61254,7 +61254,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "住む(in)、（くよくよ）考える(on)"
+        "住む、（くよくよ）考える"
       ],
       "mnemonics": [
         {
@@ -61502,7 +61502,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "しがみつく(to)"
+        "しがみつく"
       ],
       "mnemonics": [
         {
@@ -61689,7 +61689,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "ふける(in)"
+        "ふける"
       ],
       "mnemonics": [
         {
@@ -64447,7 +64447,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "自慢する(of/about)"
+        "自慢する"
       ],
       "mnemonics": [
         {
@@ -65452,7 +65452,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "課す(A on B)"
+        "課す"
       ],
       "mnemonics": [
         {
@@ -66996,7 +66996,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "変形する(A into B)"
+        "変形する"
       ],
       "mnemonics": [
         {
@@ -71051,7 +71051,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "頼る(on A for B)"
+        "頼る"
       ],
       "mnemonics": [
         {
@@ -73540,7 +73540,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "（定年で）退職する(from)"
+        "（定年で）退職する"
       ],
       "mnemonics": [
         {
@@ -74328,7 +74328,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "集中する(on)"
+        "集中する"
       ],
       "mnemonics": [
         {
@@ -74363,7 +74363,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "集中する(on)"
+        "集中する"
       ],
       "mnemonics": [
         {
@@ -77591,7 +77591,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "（好奇心などで）見つめる(at)"
+        "（好奇心などで）見つめる"
       ],
       "mnemonics": [
         {
@@ -77630,7 +77630,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "（奇異な目で）じっと見つめる(at)"
+        "（奇異な目で）じっと見つめる"
       ],
       "mnemonics": [
         {
@@ -79287,7 +79287,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "一致する(to/with)"
+        "一致する"
       ],
       "mnemonics": [
         {
@@ -81063,7 +81063,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "ためらう(to do)"
+        "ためらう"
       ],
       "mnemonics": [
         {
@@ -84063,7 +84063,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "くよくよ考える(on)"
+        "くよくよ考える"
       ],
       "mnemonics": [
         {
@@ -84635,7 +84635,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "熱心だ(for)"
+        "熱心だ"
       ],
       "mnemonics": [
         {

@@ -31,7 +31,11 @@ REPORT = HERE / 'verify_0820_report.txt'
 
 POS = r'[他自名形副動前接]'
 ARROW_JUNK = re.compile(r'[↱↳↲⇨→]')
-STYLE_WORDS = ('明朝', 'ゴチ', '太', 'ふつう', '小さい字', '黒', '音声')
+# 「(from) をトル」「(in), (on) をカット」「(to) を取る」 — delete verb at the end.
+STRIP_TAIL_RE = re.compile(
+    r'^([（(].+?[）)](?:\s*[,、]\s*[（(].+?[）)])*)\s*を?\s*(?:トル|カット|取る)\s*$')
+STYLE_WORDS = ('明朝', 'ゴチ', '太', 'ふつう', '小さい字', '黒', '音声',
+                '小さく', 'ちいさく', '字を小さく')
 
 
 def norm(s: str | None) -> str:
@@ -50,12 +54,38 @@ def main() -> None:
     for e in ss:
         by_word.setdefault(e['word_id'], []).append(e)
 
-    def haystack(wid: int) -> str:
-        """All searchable text for a word, as one normalized blob."""
-        parts = []
+    def fields(wid: int) -> list[str]:
+        """Every individual field value for a word, normalized.
+
+        Covers BOTH datasets. Some instructions edit the headword's own POS
+        and meaning, which live in words.json — e.g.「自　控える(from) ⇨
+        (from) をトル」. Searching only the Second Stage entries made those
+        look unresolvable when they had in fact been applied.
+        """
+        out = []
         for e in by_word.get(wid, []):
-            parts += [e['relation'], e['answer'], e['answer_meaning'] or '']
-        return norm(''.join(parts))
+            out += [norm(e['relation']), norm(e['answer']),
+                    norm(e['answer_meaning'])]
+        hw = words.get(wid)
+        if hw:
+            out.append(norm(hw['pos_raw']))
+            out += [norm(m) for m in hw['meanings']]
+            out.append(norm(hw['pos_raw'] + ''.join(hw['meanings'])))
+        return [f for f in out if f]
+
+    def present(needle: str, vals: list[str]) -> bool:
+        """Is this text present in the word's data?
+
+        Short needles (意 / 法 / 類 …) must match a WHOLE field. Testing them
+        as substrings makes them match almost anything — 意 occurs inside
+        意２, 意 lark, 意３とそれぞれの前置詞 — which previously made ~45
+        instructions look permanently unapplied.
+        """
+        if not needle:
+            return False
+        if len(needle) <= 3:
+            return any(needle == v for v in vals)
+        return any(needle in v for v in vals)
 
     counts = {'SATISFIED': 0, 'PENDING': 0, 'UI_RULE': 0, 'UNKNOWN': 0}
     lines: list[str] = []
@@ -63,7 +93,7 @@ def main() -> None:
     for r in corr['records']:
         wid = r['word_id']
         hw = words.get(wid)
-        hay = haystack(wid)
+        vals = fields(wid)
         hw_line = norm(hw['pos_raw'] + ''.join(hw['meanings'])) if hw else ''
 
         for ch in r['changes']:
@@ -87,19 +117,42 @@ def main() -> None:
                 counts['UI_RULE'] += 1
                 continue
 
+            # Pattern C: the "before" carries two or more POS-labelled senses
+            # and the "after" is its first sense — a line-break request, which
+            # the app's rendering rule handles. The docx column wrap often
+            # truncates these mid-phrase, so compare on the leading sense.
+            multi_pos = len(re.findall(POS + r'\s', b_raw)) >= 2
+            if multi_pos and a and (b.startswith(a) or a in b):
+                counts['UI_RULE'] += 1
+                continue
+
+            # 「(from) をトル」 — a strip instruction, with the delete verb at
+            # the END rather than the start. The target is the bracketed text,
+            # and it is done once that text no longer appears anywhere for
+            # this word.
+            m_strip = STRIP_TAIL_RE.match(a_raw.strip())
+            if m_strip:
+                targets = re.findall(r'[（(].+?[）)]', m_strip.group(1))
+                if targets and not any(norm(t) in ''.join(vals) for t in targets):
+                    counts['SATISFIED'] += 1
+                else:
+                    counts['PENDING'] += 1
+                    lines.append(f'PENDING  {wid}: strip {m_strip.group(1)!r}')
+                continue
+
             a_clean = norm(ARROW_JUNK.sub('', a_raw))
-            before_present = b in hay
+            before_present = present(b, vals)
 
             if a.startswith(('トル', 'カット')):
                 # A deletion is done once the target text is gone.
-                if not before_present:
+                if not present(b, vals):
                     counts['SATISFIED'] += 1
                 else:
                     counts['PENDING'] += 1
                     lines.append(f'PENDING  {wid}: delete {b_raw!r}')
                 continue
 
-            after_present = bool(a_clean) and a_clean in hay
+            after_present = present(a_clean, vals)
             if after_present and not before_present:
                 counts['SATISFIED'] += 1
             elif before_present:
