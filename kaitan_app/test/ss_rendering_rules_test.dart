@@ -98,11 +98,15 @@ void main() {
 final _meaningCodePrefix =
     RegExp(r'^意\s*[０-９0-9]*\s*[（(]?\s*[０-９0-9]*\s*[）)]?');
 
+final _startsLatin = RegExp(r'^[A-Za-z]');
+
 bool shouldHide(List<String> meaningRelations, String headword) {
   for (final rel in meaningRelations) {
     final rest = rel.trim().replaceFirst(_meaningCodePrefix, '').trim();
     if (rest.isEmpty) return true;
     if (rest.toLowerCase() == headword.trim().toLowerCase()) return true;
+    if (_startsLatin.hasMatch(rest)) continue;
+    return true;
   }
   return false;
 }
@@ -130,6 +134,15 @@ void _headwordMeaningTests() {
 
     test('no 意 entry at all keeps it visible', () {
       expect(shouldHide([], 'diversity'), isFalse);
+    });
+
+    test('Japanese qualifier after 意 still hides it', () {
+      // 「他　～を訪問する ⇨ トル」-style cases: the text after the 意 code
+      // describes how many of the HEADWORD's meanings to give, so the
+      // headword line must stay hidden.
+      expect(shouldHide(['意３とそれぞれの前置詞'], 'consist'), isTrue);
+      expect(shouldHide(['意２～３'], 'degree'), isTrue);
+      expect(shouldHide(['意２（他１、名１）'], 'exhaust'), isTrue);
     });
   });
 }

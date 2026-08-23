@@ -44,15 +44,14 @@ class SsQuestionView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final hideMeaning = _shouldHideHeadwordMeaning(entries, headword);
-    final hidePos = _shouldHidePosOnQuestion(entries);
+    final hideLine = _shouldHideHeadwordLine(entries, headword);
     return Column(
       children: [
         _SsTopBar(round: session.round, no: headword.id, onRetire: onRetire),
         _Headword(
           headword: headword,
-          hideMeaning: hideMeaning || hidePos,
-          hidePos: hidePos,
+          hideMeaning: hideLine,
+          hidePos: hideLine,
           onSpeak: () => ref.read(ttsProvider).speak(
                 headword.word,
                 pronunciationHint: headword.pronunciationHint,
@@ -142,7 +141,7 @@ class _SsAnswerViewState extends ConsumerState<SsAnswerView> {
     final headword = widget.headword;
     final entries = widget.entries;
     final session = widget.session;
-    final hideMeaning = _shouldHideHeadwordMeaning(entries, headword);
+    final hideMeaning = _shouldHideHeadwordLine(entries, headword);
     return Column(
       children: [
         _SsTopBar(round: session.round, no: headword.id, onRetire: widget.onRetire),
@@ -222,41 +221,47 @@ class _SsAnswerViewState extends ConsumerState<SsAnswerView> {
 
 // ─── Common pieces ────────────────────────────────────────────────────
 
-/// True when an SS entry asks for the meaning of the HEADWORD ITSELF, in which
-/// case showing that meaning under the headword would give the answer away
-/// (0005 appear — spec 2026-08-04 ④).
-///
-/// Refined 2026-08-19: a bare `意` / `意２` asks about the headword, but
-/// `意 <word>` asks about a *different* look-alike word — e.g. 2172 lurk
-/// carries `意 lark`, and 0379 respectable carries `意 respectful`. The
-/// original rule hid the meaning whenever any 意 entry existed, which wrongly
-/// blanked the headword meaning on 12 words. Only hide when the 意 entry has
-/// no target word, or names the headword itself.
 final RegExp _meaningCodePrefix =
     RegExp(r'^意\s*[０-９0-9]*\s*[（(]?\s*[０-９0-9]*\s*[）)]?');
+final RegExp _startsLatin = RegExp(r'^[A-Za-z]');
 
-bool _shouldHideHeadwordMeaning(
+/// True when the whole headword line (POS badge + meaning) must be hidden on
+/// the question screen, because an SS entry is asking for exactly that
+/// information and showing it would give the answer away.
+///
+/// Two triggers, both confirmed against the client's 2026-08-19 review, where
+/// the instruction is written as e.g.「他　～を訪問する ⇨ トル」— the text being
+/// deleted is precisely the headword's own POS + meaning:
+///
+///   • a 品 entry — the question IS "what part of speech is this?"
+///     (0205 visit)
+///   • an 意 entry that targets the headword itself, rather than a
+///     look-alike word.
+///
+/// Distinguishing those 意 entries is the subtle part. `意 lark` on headword
+/// `lurk` asks about a DIFFERENT word, so the headword line must stay visible
+/// (0379 respectable / 0771 discreet / 2172 lurk). But `意３とそれぞれの前置詞`
+/// and `意２～３` are Japanese qualifiers describing how many of the
+/// HEADWORD's own meanings to give, so the line must be hidden
+/// (0237 consist / 0570 degree / 0695 exhaust).
+///
+/// The reliable signal is whether the text after the 意 code is a Latin-script
+/// word: only then is a different English word being asked about.
+bool _shouldHideHeadwordLine(
     List<SecondStageEntry> entries, Word headword) {
   for (final e in entries) {
+    if (e.baseCategory == SsRelationCategory.posMarker) return true;
     if (e.baseCategory != SsRelationCategory.meaning) continue;
     final rest =
         e.relation.trim().replaceFirst(_meaningCodePrefix, '').trim();
     if (rest.isEmpty) return true; // bare 意 / 意２ → asks the headword
     if (rest.toLowerCase() == headword.word.trim().toLowerCase()) return true;
+    if (_startsLatin.hasMatch(rest)) continue; // a different English word
+    return true; // Japanese qualifier → still about the headword
   }
   return false;
 }
 
-/// True when at least one SS entry asks about the POS of the headword
-/// (relation starts with `品`). Showing the POS badge on the QUESTION screen
-/// would spoil that (client 2026-08-12 #5: 品詞欄が□の語 = same rule).
-/// Applied to the question view only — the answer view can still show POS.
-bool _shouldHidePosOnQuestion(List<SecondStageEntry> entries) {
-  for (final e in entries) {
-    if (e.baseCategory == SsRelationCategory.posMarker) return true;
-  }
-  return false;
-}
 
 class _SsTopBar extends StatelessWidget {
   final int round;
