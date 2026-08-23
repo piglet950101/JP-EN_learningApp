@@ -513,13 +513,17 @@ class _EntryRow extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               if (!hideAnswerText)
+                // Client 2026-08-19: multi-sense answers such as
+                // 「名 物体、対象、目的（語）　自 反対する」 must break onto one
+                // line per part of speech. The same rule the meaning field
+                // already used now applies to the answer text as well.
                 Text(
-                  entry.answer,
+                  _breakForReading(entry.answer),
                   style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.w800,
                     color: Color(0xFFC53030),
-                    height: 1.2,
+                    height: 1.25,
                   ),
                 ),
               if ((entry.answerMeaning ?? '').isNotEmpty)
@@ -527,17 +531,19 @@ class _EntryRow extends StatelessWidget {
                   padding:
                       EdgeInsets.only(top: hideAnswerText ? 0 : 2),
                   child: Text.rich(
-                    _boldQuotedSpans(
+                    _quotedMnemonicSpans(
                       _breakForReading(entry.answerMeaning!),
                       base: TextStyle(
+                        // 明朝（セリフ）・ふつうの太さ — client 2026-08-19.
+                        fontFamily: 'serif',
                         fontSize: hideAnswerText ? 22 : 15,
                         fontWeight: hideAnswerText
                             ? FontWeight.w800
-                            : FontWeight.w500,
+                            : FontWeight.w400,
                         color: hideAnswerText
                             ? const Color(0xFFC53030)
                             : Colors.black87,
-                        height: 1.3,
+                        height: 1.35,
                       ),
                     ),
                   ),
@@ -575,10 +581,24 @@ class _EntryRow extends StatelessWidget {
     return out.trim();
   }
 
-  /// Client 2026-08-12 #6: 「...」-quoted text in answer_meaning is a
-  /// mnemonic/ゴロ and should be bold. Applies to both black and red text.
-  static InlineSpan _boldQuotedSpans(String text, {required TextStyle base}) {
+  /// 「...」-quoted text inside a meaning is a ゴロ (mnemonic), and the client
+  /// wants it visually distinct from the meaning itself.
+  ///
+  /// Client 2026-08-19 refined the 2026-08-12 rule:
+  ///   • the meaning text  → 明朝（serif）, normal weight
+  ///   • the 「...」ゴロ部分 → ゴチ（sans-serif）, bold, one size smaller, black
+  ///
+  /// [base] already carries the serif/normal styling, so only the quoted runs
+  /// are overridden here.
+  static InlineSpan _quotedMnemonicSpans(String text,
+      {required TextStyle base}) {
     final re = RegExp(r'「[^」]*」');
+    final quoted = base.copyWith(
+      fontFamily: 'sans-serif',
+      fontWeight: FontWeight.w900,
+      fontSize: (base.fontSize ?? 15) - 2,
+      color: Colors.black,
+    );
     final children = <InlineSpan>[];
     var cursor = 0;
     for (final m in re.allMatches(text)) {
@@ -588,7 +608,7 @@ class _EntryRow extends StatelessWidget {
       }
       children.add(TextSpan(
         text: text.substring(m.start, m.end),
-        style: base.copyWith(fontWeight: FontWeight.w900),
+        style: quoted,
       ));
       cursor = m.end;
     }

@@ -835,7 +835,7 @@
       "answer": "immature",
       "answer_meaning": "未熟な",
       "tts_enabled": true,
-      "notes": null
+      "notes": "maturity 成熟　追加"
     },
     {
       "id": 70,
@@ -1910,7 +1910,7 @@
       "block": 5,
       "relation": "名",
       "base_category": "名",
-      "answer": "hospitability",
+      "answer": "hospitality",
       "answer_meaning": "歓待",
       "tts_enabled": true,
       "notes": null
@@ -14582,7 +14582,7 @@
       "block": 32,
       "relation": "意２（他１，名１）",
       "base_category": null,
-      "answer": "他 仮定する　名 履歴書",
+      "answer": "他 再び始める　名 履歴書",
       "answer_meaning": "履歴書は curriculum vitae ともいう",
       "tts_enabled": false,
       "notes": null
@@ -15319,7 +15319,7 @@
       "block": 34,
       "relation": "名",
       "base_category": "名",
-      "answer": "deliery",
+      "answer": "delivery",
       "answer_meaning": "配達、引き渡し、分娩",
       "tts_enabled": true,
       "notes": null
@@ -20507,7 +20507,7 @@
     },
     {
       "id": 1858,
-      "word_id": 2073,
+      "word_id": 2074,
       "block": 44,
       "relation": "名",
       "base_category": "名",
@@ -20518,7 +20518,7 @@
     },
     {
       "id": 1859,
-      "word_id": 2073,
+      "word_id": 2074,
       "block": 44,
       "relation": "意 congestion",
       "base_category": "意",
