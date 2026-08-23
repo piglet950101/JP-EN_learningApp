@@ -43,6 +43,10 @@ HEADER_RE = re.compile(
 ARROW_RE = re.compile(r'\s*[⇨→]\s*')
 # Font/style annotations travel on their own line, flagged by ↱ / ↳ / ↲.
 NOTE_RE = re.compile(r'[↱↳↲]')
+# A run of padding that separates the two visual columns on a wrapped line.
+COLUMN_GAP_RE = re.compile(r'[　]{3,}|[ ]{6,}')
+# A continuation line indented far enough to belong to the right column only.
+INDENTED_RE = re.compile(r'^(?:[　]{4,}|[ ]{8,})\S')
 STYLE_WORDS = ('明朝', 'ゴチ', '太', 'ふつう', '小さい字', '黒')
 
 
@@ -52,6 +56,7 @@ def parse() -> dict:
 
     records: list[dict] = []
     cur: dict | None = None
+    open_change: dict | None = None
 
     for raw in lines:
         t = raw.strip()
@@ -63,6 +68,7 @@ def parse() -> dict:
             # New word block begins.
             if cur is not None:
                 records.append(cur)
+            open_change = None
             cur = {
                 'word_id': int(m.group(1)),
                 'word': m.group(2).strip(),
@@ -88,6 +94,32 @@ def parse() -> dict:
                 before, after = parts[0].strip(), parts[1].strip()
                 if before or after:
                     cur['changes'].append({'before': before, 'after': after})
+                    open_change = cur['changes'][-1]
+            continue
+
+        # ---- wrapped column continuation --------------------------------
+        # The document is a visual two-column layout, and long entries wrap:
+        #
+        #     ひばり「ラーク（たばこの銘  ⇨  ひばり
+        #     柄」                           「スカイラーク」
+        #
+        # The second line continues BOTH columns, separated by a run of
+        # padding spaces. Without rejoining them the real "after" is lost and
+        # the instruction looks like a deletion rather than a replacement.
+        if open_change is not None and not NOTE_RE.search(t):
+            gap = COLUMN_GAP_RE.search(raw.rstrip())
+            if gap:
+                left = raw[:gap.start()].strip()
+                right = raw[gap.end():].strip()
+                if left or right:
+                    open_change['before'] += left
+                    open_change['after'] += right
+                    continue
+            elif INDENTED_RE.match(raw):
+                # Heavily indented with no gap: continues the "after" only.
+                open_change['after'] += t
+                continue
+        open_change = None
 
     if cur is not None:
         records.append(cur)

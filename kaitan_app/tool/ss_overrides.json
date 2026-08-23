@@ -107,7 +107,7 @@
     ],
     "187": [
       {
-        "relation": "類",
+        "relation": "類類",
         "answer": "gift",
         "answer_meaning": "才能「(天からの)贈り物」",
         "tts_enabled": true
@@ -171,7 +171,7 @@
     ],
     "30": [
       {
-        "relation": "自",
+        "relation": "",
         "answer": "apologize (to 人 for 事)",
         "answer_meaning": "謝る",
         "tts_enabled": true
@@ -332,7 +332,7 @@
       },
       {
         "relation": "セ　彼はけがをした。",
-        "answer": "He injured himself.（自分のミスなどによる）",
+        "answer": "He injured himself.自分のミスなどによる場合",
         "answer_meaning": null,
         "tts_enabled": false
       }
@@ -866,7 +866,7 @@
     ],
     "745": [
       {
-        "relation": "他",
+        "relation": "他他 の語法",
         "answer": "allow　enjoy ~ing 型、tell 人 to do 型",
         "answer_meaning": "許す",
         "tts_enabled": false
@@ -993,14 +993,7 @@
         "tts_enabled": true
       }
     ],
-    "870": [
-      {
-        "relation": "意２（他１，自１）",
-        "answer": "他 吸う",
-        "answer_meaning": null,
-        "tts_enabled": false
-      }
-    ],
+    "870": [],
     "876": [],
     "913": [
       {
@@ -1069,7 +1062,7 @@
         "tts_enabled": false
       },
       {
-        "relation": "他",
+        "relation": "他他の語法２",
         "answer": "advise　tell 人 to do型、要求提案型（that 節中は should または原形）",
         "answer_meaning": "忠告する",
         "tts_enabled": false
@@ -1268,7 +1261,7 @@
         "tts_enabled": true
       },
       {
-        "relation": "法２　enjoy ~ing型",
+        "relation": "法２　enjoy ~ing型tell 人 to do型",
         "answer": "enjoy -ing 型、tell 人 to do 型",
         "answer_meaning": null,
         "tts_enabled": false
@@ -1284,7 +1277,7 @@
     ],
     "1261": [
       {
-        "relation": "意２（名１、他１）",
+        "relation": "意２（名１、他１）名 馬具他 動力源に利用する",
         "answer": "馬具・動力源に利用する",
         "answer_meaning": null,
         "tts_enabled": false
@@ -1489,7 +1482,7 @@
     ],
     "1555": [
       {
-        "relation": "名",
+        "relation": "名名",
         "answer": "detection",
         "answer_meaning": "刑事、探偵",
         "tts_enabled": true
@@ -1907,7 +1900,7 @@
     "2070": [],
     "2094": [
       {
-        "relation": "意２",
+        "relation": "意２形",
         "answer": "情熱、熱中しているもの、キリストの受難",
         "answer_meaning": "パッションフルーツはキリストの磔をイメージした",
         "tts_enabled": false
@@ -2052,6 +2045,312 @@
         "answer": "能力、学部、教授陣",
         "answer_meaning": null,
         "tts_enabled": false
+      }
+    ],
+    "37": [
+      {
+        "relation": "反形",
+        "answer": "literacy",
+        "answer_meaning": "読み書きできること",
+        "tts_enabled": true
+      }
+    ],
+    "142": [
+      {
+        "relation": "熟",
+        "answer": "be indifferent to～に無関心である",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "179": [
+      {
+        "relation": "類名",
+        "answer": "sweat",
+        "answer_meaning": "汗をかく、汗",
+        "tts_enabled": true
+      }
+    ],
+    "600": [
+      {
+        "relation": "意 nun修道女",
+        "answer": "nun",
+        "answer_meaning": "修道女",
+        "tts_enabled": true
+      }
+    ],
+    "759": [
+      {
+        "relation": "名",
+        "answer": "decision",
+        "answer_meaning": "決心、決定",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形",
+        "answer": "decisive",
+        "answer_meaning": "決定的な",
+        "tts_enabled": true
+      },
+      {
+        "relation": "法",
+        "answer": "目的語に to do を取るdecide ~ing ×",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "760": [
+      {
+        "relation": "名",
+        "answer": "determination",
+        "answer_meaning": "決心、決定",
+        "tts_enabled": true
+      },
+      {
+        "relation": "法",
+        "answer": "目的語に to do を取るdecide to do型　determine ~ing ×",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "837": [
+      {
+        "relation": "意３（自２、形１）",
+        "answer": "自 （体を）曲げる、寄りかかる(on)形 やせた",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "850": [
+      {
+        "relation": "意２（他１，名１）名",
+        "answer": "他 断る　名 ごみ",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "985": [
+      {
+        "relation": "意５（名１、他２、形２）",
+        "answer": "名 光、明かり形 軽い、明るい他 火をつける自 （鳥が）止まる(on)",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "活",
+        "answer": "light > lit > lit",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "1245": [
+      {
+        "relation": "他",
+        "answer": "edit",
+        "answer_meaning": "編集する",
+        "tts_enabled": true
+      },
+      {
+        "relation": "意２（形１，名１） editorial",
+        "answer": "形 編集の　名 社説",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　最新版the latest edition新しさを強調するときは newest も可",
+        "answer": "the latest edition",
+        "answer_meaning": "新しさを強調するときは newest も可",
+        "tts_enabled": false
+      }
+    ],
+    "1324": [
+      {
+        "relation": "意 surge",
+        "answer": "surge",
+        "answer_meaning": "急騰する「匙が急にふわ～と上がる」「血圧サージ」",
+        "tts_enabled": true
+      }
+    ],
+    "1333": [
+      {
+        "relation": "法",
+        "answer": "many, few ではなく large, smallを使うa large audience たくさんの聴衆",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "1383": [
+      {
+        "relation": "意 binoculars",
+        "answer": "binoculars",
+        "answer_meaning": "双眼鏡「bi２つnoのocular目」小さく",
+        "tts_enabled": true
+      }
+    ],
+    "1405": [
+      {
+        "relation": "品",
+        "answer": "他動詞= wait for",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "1583": [
+      {
+        "relation": "熟",
+        "answer": "manage to do",
+        "answer_meaning": "なんとか～する",
+        "tts_enabled": false
+      },
+      {
+        "relation": "意 run a hotel",
+        "answer": "run a hotel",
+        "answer_meaning": "ホテルを経営するホテルを走らせる = manage a hotel",
+        "tts_enabled": false
+      }
+    ],
+    "1635": [
+      {
+        "relation": "セ　あなたの意見を子供らに押し付ける",
+        "answer": "impose your opinion on your children",
+        "answer_meaning": "impose A on B AをBに課す",
+        "tts_enabled": false
+      },
+      {
+        "relation": "形",
+        "answer": "imposing",
+        "answer_meaning": "堂々とした「相手を押すオーラを出しているイメージ」",
+        "tts_enabled": true
+      }
+    ],
+    "1641": [
+      {
+        "relation": "意 enemy",
+        "answer": "enemy",
+        "answer_meaning": "（戦争での）敵「え、ねえ、見い、敵や！」小さく",
+        "tts_enabled": true
+      }
+    ],
+    "1662": [
+      {
+        "relation": "意 flaw",
+        "answer": "flaw",
+        "answer_meaning": "ひび割れ「風呂にひび割れ」",
+        "tts_enabled": true
+      }
+    ],
+    "1714": [
+      {
+        "relation": "セ　小さな町出身である",
+        "answer": "hail from a small town",
+        "answer_meaning": "come from, be from より洗練された文芸的表現hail = hey, hi, hello と同語源。船乗り同士が声をか",
+        "tts_enabled": true
+      }
+    ],
+    "1725": [
+      {
+        "relation": "意３～４（他１、自１、名１～２）",
+        "answer": "他 ごちゃまぜにする自 よじ登る、あたふたする",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "1743": [
+      {
+        "relation": "自動詞とその活用strive",
+        "answer": "> strove > striven努力する 努力する",
+        "answer_meaning": "努力する",
+        "tts_enabled": true
+      }
+    ],
+    "2017": [
+      {
+        "relation": "類",
+        "answer": "rite",
+        "answer_meaning": "儀式（結婚式などの個々のイベント）ritualはその儀式の中で行う一連の作法、または、朝のコーヒーなど日常のルーティーン",
+        "tts_enabled": true
+      }
+    ],
+    "2068": [
+      {
+        "relation": "意 wallet",
+        "answer": "wallet",
+        "answer_meaning": "男性用の財布米では女性も使う",
+        "tts_enabled": true
+      },
+      {
+        "relation": "意 purse",
+        "answer": "purse",
+        "answer_meaning": "女性用のハンドバッグ英では女性用の財布",
+        "tts_enabled": false
+      }
+    ],
+    "2137": [
+      {
+        "relation": "副",
+        "answer": "obviously",
+        "answer_meaning": "明らかに",
+        "tts_enabled": true
+      },
+      {
+        "relation": "意 oblivious",
+        "answer": "oblivious",
+        "answer_meaning": "忘れている「覚えるびょん忘れたら」oblivion 忘却",
+        "tts_enabled": true
+      }
+    ],
+    "2140": [
+      {
+        "relation": "セ　この問題をうまく処理する",
+        "answer": "cope with this problem",
+        "answer_meaning": "deal with よりも困難な問題を努力してなんとかうまく処理するニュアンス",
+        "tts_enabled": false
+      },
+      {
+        "relation": "意 cop",
+        "answer": "cop",
+        "answer_meaning": "警官「capture の cap が cop になった」（サツ、デカの感覚）",
+        "tts_enabled": true
+      },
+      {
+        "relation": "意 copper",
+        "answer": "copper",
+        "answer_meaning": "意 copper銅「Cuは銅が採れたCyprus（キプロス島）の",
+        "tts_enabled": true
+      }
+    ],
+    "2153": [
+      {
+        "relation": "名",
+        "answer": "persuasion",
+        "answer_meaning": "説得",
+        "tts_enabled": true
+      },
+      {
+        "relation": "法２～３",
+        "answer": "tell 人 to do 型、talk 人 into -ing 型、remind A of B 型（古）",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　説得して彼が辞任するのをやめさせる(persuade で)",
+        "answer": "persuade him out of resigning",
+        "answer_meaning": "persuade 人 into -ing の逆　talk 人 out of -ing 型",
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　説得して彼が辞任するのをやめさせる(persuade の反対語で)",
+        "answer": "dissuade him from resigning",
+        "answer_meaning": "prevent 人 from -ing 型（ややフォーマル）",
+        "tts_enabled": false
+      }
+    ],
+    "2170": [
+      {
+        "relation": "意 doze",
+        "answer": "doze",
+        "answer_meaning": "居眠り、うとうとする「どうぞ居眠りしてください」",
+        "tts_enabled": true
       }
     ]
   }

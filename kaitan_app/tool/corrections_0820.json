@@ -50,7 +50,7 @@
       "changes": [
         {
           "before": "反",
-          "after": "反"
+          "after": "反形"
         }
       ],
       "notes": []
@@ -67,8 +67,8 @@
       ],
       "changes": [
         {
-          "before": "反　literacy",
-          "after": "反  literacy"
+          "before": "反　literacy読み書きできること",
+          "after": "反  literacy読み書きできること形  illiterate"
         }
       ],
       "notes": []
@@ -173,8 +173,8 @@
       ],
       "changes": [
         {
-          "before": "前　cómpensate for",
-          "after": "前　compensate for　　　アクセントをトル"
+          "before": "前　cómpensate for～を償う(= make up for)",
+          "after": "前　compensate for　　　アクセントをトル～を償う= make up for"
         },
         {
           "before": "名　compensátion",
@@ -326,7 +326,7 @@
       "changes": [
         {
           "before": "意　意味する、意図する",
-          "after": "意 他２"
+          "after": "意 他２意味する、意図する"
         }
       ],
       "notes": []
@@ -407,12 +407,12 @@
       ],
       "changes": [
         {
-          "before": "セ２　AはBと違う",
-          "after": "セ自　AはBと違う"
+          "before": "セ２　AはBと違うA differs from B",
+          "after": "セ自　AはBと違うA differs from B"
         },
         {
-          "before": "セ２　AはBと違う",
-          "after": "セ形　AはBと違う"
+          "before": "セ２　AはBと違うA is different from B",
+          "after": "セ形　AはBと違うA is different from B"
         }
       ],
       "notes": []
@@ -455,12 +455,12 @@
       ],
       "changes": [
         {
-          "before": "セ２　タバコを控える",
-          "after": "セ　タバコを控える"
+          "before": "セ２　タバコを控えるabstain from smoking",
+          "after": "セ　タバコを控えるabstain from smoking　　　音声"
         },
         {
-          "before": "セ２　タバコを控える",
-          "after": "セ　タバコを控える"
+          "before": "セ２　タバコを控えるrefrain from smoking",
+          "after": "セ　タバコを控えるrefrain from smoking　　　音声"
         }
       ],
       "notes": []
@@ -476,7 +476,7 @@
       "changes": [
         {
           "before": "熟　be indifferent to",
-          "after": "熟　be indifferent to"
+          "after": "熟　be indifferent to～に無関心である"
         }
       ],
       "notes": []
@@ -497,7 +497,7 @@
         },
         {
           "before": "類",
-          "after": "類"
+          "after": "類類"
         }
       ],
       "notes": []
@@ -538,7 +538,7 @@
       "changes": [
         {
           "before": "類",
-          "after": "類"
+          "after": "類名"
         }
       ],
       "notes": []
@@ -555,8 +555,8 @@
       ],
       "changes": [
         {
-          "before": "類　sweat",
-          "after": "類　sweat"
+          "before": "類　sweat汗をかく、汗",
+          "after": "類　sweat汗をかく、汗名　perspiration　　　音声発汗"
         }
       ],
       "notes": []
@@ -656,12 +656,12 @@
           "after": "多様性"
         },
         {
-          "before": "名 diversify",
-          "after": "名 variation"
+          "before": "名 diversify多様化する",
+          "after": "名 variation変化"
         },
         {
           "before": "変わることなく = always",
-          "after": "変わることなく"
+          "after": "変わることなく= always"
         }
       ],
       "notes": []
@@ -859,8 +859,8 @@
           "after": "セ　彼はけがをした。"
         },
         {
-          "before": "He injured himself. （自分のミスなど",
-          "after": "He injured himself."
+          "before": "He injured himself. （自分のミスなどによる）",
+          "after": "He injured himself.自分のミスなどによる場合"
         }
       ],
       "notes": [
@@ -1076,11 +1076,11 @@
       "changes": [
         {
           "before": "他動詞とその名詞　他 explore",
-          "after": "他explore"
+          "after": "他explore探検する　　　　　　　　探検する"
         },
         {
           "before": "他動詞とその名詞　名 exploration",
-          "after": "他の名詞"
+          "after": "他の名詞探検　　　　　　　　　　exploration"
         }
       ],
       "notes": []
@@ -1150,7 +1150,7 @@
       "changes": [
         {
           "before": "セ　彼の学説はデータと一貫性がある。",
-          "after": "名"
+          "after": "名セ　彼の学説はデータと一貫性がある。"
         }
       ],
       "notes": []
@@ -1169,8 +1169,8 @@
       ],
       "changes": [
         {
-          "before": "セ　彼の学説はデータと一貫性がある。",
-          "after": "名 coherence　　　　　　　音声"
+          "before": "セ　彼の学説はデータと一貫性がある。His theory coheres with the data.",
+          "after": "名 coherence　　　　　　　音声結合、首尾一貫性セ　彼の学説はデータと一貫性がある。"
         }
       ],
       "notes": []
@@ -1278,8 +1278,8 @@
       ],
       "changes": [
         {
-          "before": "セ　The flood damaged the crops. =",
-          "after": "セ　The flood damaged the crops."
+          "before": "セ　The flood damaged the crops. =The flood inflicted damage onthe crops.",
+          "after": "セ　The flood damaged the crops.= The flood inflicted damageon the crops"
         }
       ],
       "notes": []
@@ -1638,7 +1638,7 @@
       "changes": [
         {
           "before": "自動詞とその活用 bleed > bled >",
-          "after": "自動詞とその活用"
+          "after": "自動詞とその活用bled　　　　　　　　　　　bleed > bled > bled出血する　　　　　　　　 出血する"
         }
       ],
       "notes": []
@@ -1709,8 +1709,8 @@
           "after": "これはプレアのまま"
         },
         {
-          "before": "名　prayer　　　　　　　　🔊",
-          "after": "これをプレイアーにする"
+          "before": "名　prayer　　　　　　　　🔊祈る人",
+          "after": "これをプレイアーにする（別音声ができなければ作ります）"
         }
       ],
       "notes": []
@@ -1754,12 +1754,12 @@
       ],
       "changes": [
         {
-          "before": "反 immortal",
-          "after": "意２（形１，名１）"
+          "before": "反 immortal不死の",
+          "after": "意２（形１，名１）形 死すべき運命の名 人間"
         },
         {
           "before": "",
-          "after": "反 immortal"
+          "after": "反 immortal不死の"
         }
       ],
       "notes": []
@@ -1846,8 +1846,8 @@
           "after": "トル"
         },
         {
-          "before": "名 理由、理性",
-          "after": "名 理由、理性"
+          "before": "名 理由、理性他 推論する",
+          "after": "名 理由、理性他 推論する"
         }
       ],
       "notes": []
@@ -1931,8 +1931,8 @@
       ],
       "changes": [
         {
-          "before": "資格を与える、資格を取",
-          "after": "資格を与える、資格を取る"
+          "before": "資格を与える、資格を取他動詞とその名詞　qualification資格、技能",
+          "after": "資格を与える、資格を取るる他 の名詞qualification資格、技能"
         }
       ],
       "notes": []
@@ -1993,8 +1993,8 @@
       ],
       "changes": [
         {
-          "before": "名 契約　他 契約する、縮ませる、",
-          "after": "名 契約"
+          "before": "名 契約　他 契約する、縮ませる、（カゼを）ひく",
+          "after": "名 契約他 契約する、縮ませる、（カゼを）ひく"
         }
       ],
       "notes": []
@@ -2129,8 +2129,8 @@
       ],
       "changes": [
         {
-          "before": "名　通行料金、通話料、死傷者数、他",
-          "after": "名　通行料金、通話料、死傷者数"
+          "before": "名　通行料金、通話料、死傷者数、他鐘を鳴らす",
+          "after": "名　通行料金、通話料、死傷者数他　鐘を鳴らす"
         }
       ],
       "notes": []
@@ -2183,8 +2183,8 @@
       ],
       "changes": [
         {
-          "before": "名 通行料金、通話料、死傷者数　他",
-          "after": "名 通行料金、通話料、死傷者数"
+          "before": "名 通行料金、通話料、死傷者数　他鐘を鳴らす",
+          "after": "名 通行料金、通話料、死傷者数他 鐘を鳴らす"
         }
       ],
       "notes": []
@@ -2310,8 +2310,8 @@
           "after": "台所などの道具「融点知る道具」"
         },
         {
-          "before": "農具などの道具、実行する「淫婦らmen",
-          "after": "農具などの道具、実行する　　↱ 明朝"
+          "before": "農具などの道具、実行する「淫婦らmenとは道具と思って実行する」",
+          "after": "農具などの道具、実行する　　↱ 明朝「淫婦らmenとは道具と思って実行する」"
         }
       ],
       "notes": [
@@ -2441,7 +2441,7 @@
       "changes": [
         {
           "before": "意",
-          "after": "意 nun"
+          "after": "意 nun修道女"
         }
       ],
       "notes": []
@@ -2472,8 +2472,8 @@
       ],
       "changes": [
         {
-          "before": "名 首都、資本、大文字、形 最も重要",
-          "after": "名 首都、資本、大文字"
+          "before": "名 首都、資本、大文字、形 最も重要な",
+          "after": "名 首都、資本、大文字形 最も重要な"
         }
       ],
       "notes": []
@@ -2582,8 +2582,8 @@
       ],
       "changes": [
         {
-          "before": "熟 make（ナシ）progress",
-          "after": "熟２ in progress"
+          "before": "熟 make（ナシ）progress進歩する = make an advance",
+          "after": "熟２ in progress進行中でmake（ナシ）progress"
         }
       ],
       "notes": []
@@ -2615,8 +2615,8 @@
       ],
       "changes": [
         {
-          "before": "熟　in advance",
-          "after": "熟２　in advance"
+          "before": "熟　in advance前もって = beforehand",
+          "after": "熟２　in advance前もって = beforehandmake an advance進歩する = make progress"
         }
       ],
       "notes": []
@@ -2685,8 +2685,8 @@
       ],
       "changes": [
         {
-          "before": "熟 spend 時間 -ing",
-          "after": "熟 spend 時間 -ing"
+          "before": "熟 spend 時間 -inging の前に in の省略",
+          "after": "熟 spend 時間 -ingお金でも使うing の前に in の省略"
         }
       ],
       "notes": []
@@ -3025,8 +3025,8 @@
       ],
       "changes": [
         {
-          "before": "法 要求提案型 that節中は should",
-          "after": "法 要求提案型(that節中は should"
+          "before": "法 要求提案型 that節中は shouldまたは原形",
+          "after": "法 要求提案型(that節中は shouldまたは原形）"
         },
         {
           "before": "not necessarily",
@@ -3046,8 +3046,8 @@
       ],
       "changes": [
         {
-          "before": "類　massacre",
-          "after": "類　massacre  ↱ ゴチ、太 ↱ 明朝"
+          "before": "類　massacre大虐殺「まさかの大虐殺」、theHolocaust",
+          "after": "類　massacre  ↱ ゴチ、太 ↱ 明朝大虐殺「まさかの大虐殺」cf. the Holocaust ユダヤ人大虐殺"
         }
       ],
       "notes": [
@@ -3092,8 +3092,8 @@
           "after": "トル"
         },
         {
-          "before": "名 exhaustion",
-          "after": "意２（他１、名１）"
+          "before": "名 exhaustion消耗",
+          "after": "意２（他１、名１）他 疲れ果てさせる名 排気ガス名 exhaustion消耗"
         }
       ],
       "notes": []
@@ -3173,8 +3173,8 @@
       ],
       "changes": [
         {
-          "before": "反",
-          "after": "反"
+          "before": "反法",
+          "after": "反反法"
         }
       ],
       "notes": []
@@ -3192,8 +3192,8 @@
       ],
       "changes": [
         {
-          "before": "反 cheap（安っぽい感じ）、",
-          "after": "反 cheap　　　　　　　　音声"
+          "before": "反 cheap（安っぽい感じ）、inexpensive安い法",
+          "after": "反 cheap　　　　　　　　音声安い（安っぽい感じ）反 inexpensive安い法"
         }
       ],
       "notes": []
@@ -3267,7 +3267,7 @@
       "changes": [
         {
           "before": "停電＝outage",
-          "after": "停電"
+          "after": "停電= outage"
         }
       ],
       "notes": []
@@ -3329,8 +3329,8 @@
       ],
       "changes": [
         {
-          "before": "自 続く　形 最後の",
-          "after": "自 続く"
+          "before": "自 続く　形 最後の活 late",
+          "after": "自 続く形 最後の"
         },
         {
           "before": "late > later > latest 時間",
@@ -3452,7 +3452,7 @@
       "changes": [
         {
           "before": "他動詞とその語法２つ",
-          "after": "他"
+          "after": "他他 の語法"
         }
       ],
       "notes": []
@@ -3471,7 +3471,7 @@
       "changes": [
         {
           "before": "他動詞とその語法２つ  型、tell 人 to do",
-          "after": "他 allow"
+          "after": "他 allow型　　　　　　　　　　　許す許す　　　　　　　　　他 の語法enjoy ~ing 型、tell 人 to do 型"
         }
       ],
       "notes": []
@@ -3487,8 +3487,8 @@
       ],
       "changes": [
         {
-          "before": "名 板、委員会、下宿の食事　他 乗る",
-          "after": "名 板、委員会、下宿の食事"
+          "before": "名 板、委員会、下宿の食事　他 乗る板 = ～",
+          "after": "名 板、委員会、下宿の食事他 乗る"
         }
       ],
       "notes": []
@@ -3522,8 +3522,8 @@
       ],
       "changes": [
         {
-          "before": "意　習慣、関税（複数で）、税関",
-          "after": "意３　習慣"
+          "before": "意　習慣、関税（複数で）、税関形　customnary習慣的",
+          "after": "意３　習慣関税（複数で）「さまざまな習慣税が元」税関（複数で）形　customary    ※スペリングミス習慣的"
         }
       ],
       "notes": []
@@ -3539,8 +3539,8 @@
       ],
       "changes": [
         {
-          "before": "形",
-          "after": "意２"
+          "before": "形意 theology",
+          "after": "意２形意 theology"
         }
       ],
       "notes": []
@@ -3558,8 +3558,8 @@
       ],
       "changes": [
         {
-          "before": "形 theoretical",
-          "after": "意２　理論、学説"
+          "before": "形 theoretical論理（上）の意 theology神学",
+          "after": "意２　理論、学説形 theoretical論理（上）の意 theology神学"
         }
       ],
       "notes": []
@@ -3611,7 +3611,7 @@
       "changes": [
         {
           "before": "法　目的語に to do を取る",
-          "after": "法　目的語に to do を取る"
+          "after": "法　目的語に to do を取るdecide ~ing ×"
         }
       ],
       "notes": []
@@ -3660,7 +3660,7 @@
       "changes": [
         {
           "before": "法　目的語に to do を取る",
-          "after": "法　目的語に to do を取る"
+          "after": "法　目的語に to do を取るdecide to do型　determine ~ing ×"
         }
       ],
       "notes": []
@@ -3692,8 +3692,8 @@
       ],
       "changes": [
         {
-          "before": "他 命じる、あいさつを言う　名 せ",
-          "after": "他 命じる、あいさつを言う"
+          "before": "他 命じる、あいさつを言う　名 せり、努力",
+          "after": "他 命じる、あいさつを言う名 せり、努力"
         }
       ],
       "notes": []
@@ -3744,8 +3744,8 @@
       ],
       "changes": [
         {
-          "before": "熟 for God’s sake",
-          "after": "熟１～２"
+          "before": "熟 for God’s sakeお願いだから",
+          "after": "熟１～２for God’s sake"
         }
       ],
       "notes": []
@@ -3810,8 +3810,8 @@
       ],
       "changes": [
         {
-          "before": "square",
-          "after": "トル"
+          "before": "square名 正方形、四角い広場形 公明正大な他 一致させる",
+          "after": "トル名 正方形、四角い広場形 公明正大な他 一致させる赤で大きな文字で"
         }
       ],
       "notes": []
@@ -3950,8 +3950,8 @@
           "after": "形 慎重だ"
         },
         {
-          "before": "法令、判決を下す「じっくり判",
-          "after": "法令、判決を下す"
+          "before": "法令、判決を下す「じっくり判決を下す」",
+          "after": "法令、判決を下す「じっくり判決を下す」"
         }
       ],
       "notes": [
@@ -4064,8 +4064,8 @@
       ],
       "changes": [
         {
-          "before": "名 物体、対象、目的（語）　自 反対",
-          "after": "名 物体、対象、目的（語）"
+          "before": "名 物体、対象、目的（語）　自 反対する",
+          "after": "名 物体、対象、目的（語）自 反対する"
         }
       ],
       "notes": []
@@ -4097,8 +4097,8 @@
       ],
       "changes": [
         {
-          "before": "形 大きい方の、主要な　自 専攻する",
-          "after": "形 大きい方の、主要な"
+          "before": "形 大きい方の、主要な　自 専攻する名",
+          "after": "形 大きい方の、主要な自 専攻する"
         }
       ],
       "notes": []
@@ -4145,8 +4145,8 @@
       ],
       "changes": [
         {
-          "before": "名　magnificent",
-          "after": "名　magnificence"
+          "before": "名　magnificent壮大さ",
+          "after": "名　magnificence壮大さ"
         }
       ],
       "notes": []
@@ -4177,8 +4177,8 @@
       ],
       "changes": [
         {
-          "before": "類　bud, shoot",
-          "after": "類１～２"
+          "before": "類　bud, shoot芽",
+          "after": "類１～２bud （葉、花になる）芽shoot（茎、枝になる）芽、撃つ"
         }
       ],
       "notes": []
@@ -4228,8 +4228,8 @@
       ],
       "changes": [
         {
-          "before": "自（体を）曲げる、寄りかかる　形",
-          "after": "自 （体を）曲げる、寄りかかる(on)"
+          "before": "自（体を）曲げる、寄りかかる　形やせた",
+          "after": "自 （体を）曲げる、寄りかかる(on)形 やせた"
         }
       ],
       "notes": []
@@ -4272,8 +4272,8 @@
           "after": "意６～７（名６～７，形１）"
         },
         {
-          "before": "名 主題、話題、主語、科目、患者、",
-          "after": "名 主題、話題、主語、科目、患者、"
+          "before": "名 主題、話題、主語、科目、患者、被験者、臣民　形 かかりやすい、影響を受けるセ",
+          "after": "名 主題、話題、主語、科目、患者、被験者、臣民形 かかりやすい、影響を受けるセ"
         }
       ],
       "notes": []
@@ -4331,7 +4331,7 @@
         },
         {
           "before": "意２（他１，名１）",
-          "after": "意２（他１，名１）"
+          "after": "意２（他１，名１）名"
         }
       ],
       "notes": []
@@ -4348,8 +4348,8 @@
       ],
       "changes": [
         {
-          "before": "意２（他１，名１）",
-          "after": "意２（他１，名１）"
+          "before": "意２（他１，名１）他 断る　名 ごみ",
+          "after": "意２（他１，名１）他 断る　名 ごみ名 refusal拒否"
         }
       ],
       "notes": []
@@ -4435,8 +4435,8 @@
       ],
       "changes": [
         {
-          "before": "とても小さな「タイにいます、小さな",
-          "after": "とても小さな"
+          "before": "とても小さな「タイにいます、小さな子」",
+          "after": "とても小さな「タイにいます、小さな子」"
         }
       ],
       "notes": [
@@ -4474,8 +4474,8 @@
       ],
       "changes": [
         {
-          "before": "類 rent, let",
-          "after": "類１～２"
+          "before": "類 rent, let貸す",
+          "after": "類１～２rent有料で貸す、借りるlet不動産を貸す、～させる"
         }
       ],
       "notes": []
@@ -4522,7 +4522,7 @@
       "changes": [
         {
           "before": "他 吸う　自 最低である、むかつく",
-          "after": "他 吸う"
+          "after": "他 吸う自 最低である、むかつく"
         }
       ],
       "notes": []
@@ -4603,8 +4603,8 @@
       ],
       "changes": [
         {
-          "before": "bank",
-          "after": "トル"
+          "before": "bank土手、銀行",
+          "after": "トル土手、銀行"
         }
       ],
       "notes": []
@@ -4643,7 +4643,7 @@
       "changes": [
         {
           "before": "意",
-          "after": "意３～４"
+          "after": "意３～４価値を正しく評価する、鑑賞する、感謝する、味わう"
         }
       ],
       "notes": []
@@ -4701,7 +4701,7 @@
         },
         {
           "before": "他動詞の意味と活用",
-          "after": "他の意味"
+          "after": "他の意味他の活用"
         }
       ],
       "notes": []
@@ -4721,11 +4721,11 @@
       "changes": [
         {
           "before": "名 涙　tear[tiEr]",
-          "after": "涙　tear　　※ティアという発音"
+          "after": "涙　tear　　※ティアという発音他 引き裂く　　　　　　　　　　　　なければ作ります"
         },
         {
           "before": "他動詞の意味と活用　　tear > tore > torn",
-          "after": "他の意味　引き裂く"
+          "after": "他の意味　引き裂く他の活用　tear > tore > torn※テアという発音"
         }
       ],
       "notes": []
@@ -4769,8 +4769,8 @@
           "after": "意５（名１，形２，他１，自１）"
         },
         {
-          "before": "名 光、明かり　他 火をつける、（鳥",
-          "after": "名 光、明かり"
+          "before": "名 光、明かり　他 火をつける、（鳥が）止まる　形 軽い、明るい",
+          "after": "名 光、明かり形 軽い、明るい他 火をつける自 （鳥が）止まる(on)"
         },
         {
           "before": "活 light > lit > lit",
@@ -4871,8 +4871,8 @@
       ],
       "changes": [
         {
-          "before": "他 似合う　名 スーツ、訴訟、トラン",
-          "after": "他 似合う"
+          "before": "他 似合う　名 スーツ、訴訟、トランプのマーク",
+          "after": "他 似合う名 スーツ、訴訟、トランプのマーク"
         }
       ],
       "notes": []
@@ -4935,8 +4935,8 @@
       ],
       "changes": [
         {
-          "before": "他 ぴったり合う　形 健康で、適して",
-          "after": "他 ぴったり合う"
+          "before": "他 ぴったり合う　形 健康で、適している　名 発作セ",
+          "after": "他 ぴったり合う形 健康で、適している名 発作セ"
         }
       ],
       "notes": []
@@ -5054,7 +5054,7 @@
       "changes": [
         {
           "before": "他動詞とその語法を２つ",
-          "after": "他"
+          "after": "他他の語法２"
         }
       ],
       "notes": []
@@ -5086,7 +5086,7 @@
       "changes": [
         {
           "before": "他動詞とその語法を２つ",
-          "after": "他"
+          "after": "他他 の語法２"
         }
       ],
       "notes": []
@@ -5108,7 +5108,7 @@
       "changes": [
         {
           "before": "他動詞とその語法を２つ　案型（that 節中",
-          "after": "他 advise"
+          "after": "他 adviseは should また　　　　忠告するは原形）　　　　　　　他 の語法２忠告する　　　　　　　tell 人 to do 型要求提案型(that節中は should または原形)"
         }
       ],
       "notes": []
@@ -5317,8 +5317,8 @@
       ],
       "changes": [
         {
-          "before": "translate (from) English into",
-          "after": "translate English into Japanese"
+          "before": "translate (from) English intoJapanese",
+          "after": "translate English into Japanesetranslate(/put) A into B A を B に翻訳する"
         },
         {
           "before": "英語を日本語に翻訳する",
@@ -5391,8 +5391,8 @@
           "after": "トル"
         },
         {
-          "before": "セ 彼の考えに賛成する",
-          "after": "セ 彼の考えに賛成する"
+          "before": "セ 彼の考えに賛成するセ 私が海外に行くことに反対する",
+          "after": "セ 彼の考えに賛成するセ 予算案を承認する"
         }
       ],
       "notes": []
@@ -5416,8 +5416,8 @@
       ],
       "changes": [
         {
-          "before": "セ 私が海外に行くことに反対する",
-          "after": "セ 予算案を承認する"
+          "before": "セ 私が海外に行くことに反対するdisapprove of my going abroad「反対する」は自動詞",
+          "after": "セ 予算案を承認するapprove the budget「承認する」は他動詞"
         }
       ],
       "notes": []
@@ -5590,8 +5590,8 @@
       ],
       "changes": [
         {
-          "before": "自 ～だとわかる、判明する　他 証明",
-          "after": "自 ～だとわかる、判明する"
+          "before": "自 ～だとわかる、判明する　他 証明する",
+          "after": "自 ～だとわかる、判明する他 証明する"
         }
       ],
       "notes": []
@@ -5626,8 +5626,8 @@
       ],
       "changes": [
         {
-          "before": "法　fill A with B型、buy A for B型",
-          "after": "セ３　彼らに仕事を提供する"
+          "before": "法　fill A with B型、buy A for B型give A to B型",
+          "after": "セ３　彼らに仕事を提供するprovide them with jobsfill A with B型provide jobs for thembuy A for B型provide jobs to themgive A to B型"
         }
       ],
       "notes": []
@@ -5729,7 +5729,7 @@
       "changes": [
         {
           "before": "法",
-          "after": "法２　enjoy ~ing型"
+          "after": "法２　enjoy ~ing型tell 人 to do型"
         }
       ],
       "notes": []
@@ -5829,8 +5829,8 @@
       ],
       "changes": [
         {
-          "before": "名 人、人影、人形、形、体形、数",
-          "after": "名 人、人影、人形、形、体形、"
+          "before": "名 人、人影、人形、形、体形、数字、計算　他 判断する形 figurative",
+          "after": "名 人、人影、人形、形、体形、数字、計算他 判断する"
         },
         {
           "before": "比喩的な",
@@ -5868,8 +5868,8 @@
       ],
       "changes": [
         {
-          "before": "名 料金、責任　他 告発する、（料金",
-          "after": "名 料金、責任"
+          "before": "名 料金、責任　他 告発する、（料金や電圧）をかける",
+          "after": "名 料金、責任他 告発する、（料金や電圧）をかける"
         },
         {
           "before": "fill型　警察や検察が正式に起訴する",
@@ -5918,7 +5918,7 @@
         },
         {
           "before": "意　血族、同族「金一族」",
-          "after": "意 kin　　　　 ↱ 明朝"
+          "after": "意 kin　　　　 ↱ 明朝血族、同族「金一族」"
         }
       ],
       "notes": [
@@ -5989,8 +5989,8 @@
       ],
       "changes": [
         {
-          "before": "意 批判的、危機的、非常に重要な",
-          "after": "意２"
+          "before": "意 批判的、危機的、非常に重要なcrisis と criticize の形容詞",
+          "after": "意２批判的criticize の形容詞"
         }
       ],
       "notes": []
@@ -6025,8 +6025,8 @@
       ],
       "changes": [
         {
-          "before": "名　pronunciation（スペリング",
-          "after": "pronunciation（スペリング注意）※１行に収まるように"
+          "before": "名　pronunciation（スペリング注意）",
+          "after": "pronunciation（スペリング注意）※１行に収まるように発音　　　　　　　　　　　　(   )内を小さく"
         }
       ],
       "notes": []
@@ -6218,7 +6218,7 @@
       "changes": [
         {
           "before": "意",
-          "after": "意２（名１、他１）"
+          "after": "意２（名１、他１）名 馬具他 動力源に利用する"
         }
       ],
       "notes": []
@@ -6258,12 +6258,12 @@
       ],
       "changes": [
         {
-          "before": "産業 industrial",
-          "after": "産業、勤勉"
+          "before": "産業 industrial産業の",
+          "after": "産業、勤勉industrial"
         },
         {
-          "before": "意２つとそれぞれの形容詞",
-          "after": "トル     産業の"
+          "before": "意２つとそれぞれの形容詞勤勉 industrious勤勉な = hardworking, diligent",
+          "after": "トル     産業のindustrious勤勉な = hardworking, diligent"
         }
       ],
       "notes": []
@@ -6299,7 +6299,7 @@
       "changes": [
         {
           "before": "セ",
-          "after": "セ　最新版"
+          "after": "セ　最新版the latest edition新しさを強調するときは newest も可"
         }
       ],
       "notes": []
@@ -6351,8 +6351,8 @@
       ],
       "changes": [
         {
-          "before": "副 速く、しっかりと　形 速い　名 断",
-          "after": "副 速く、しっかりと"
+          "before": "副 速く、しっかりと　形 速い　名 断食セ",
+          "after": "副 速く、しっかりと形 速い名 断食"
         }
       ],
       "notes": []
@@ -6385,8 +6385,8 @@
       ],
       "changes": [
         {
-          "before": "形 健全な　副 ぐっすりと　名 音　自",
-          "after": "形 健全な"
+          "before": "形 健全な　副 ぐっすりと　名 音　自～に聞こえるセセ",
+          "after": "形 健全な副 ぐっすりと名 音自 ～に聞こえる"
         }
       ],
       "notes": []
@@ -6448,8 +6448,8 @@
       ],
       "changes": [
         {
-          "before": "意 病気にする、苦しめる「え",
-          "after": "意 ail　病気にする、苦しめる"
+          "before": "意 病気にする、苦しめる「ええ、ill は病気で苦しめる」",
+          "after": "意 ail　病気にする、苦しめる「ええ、illは病気で苦しめる」"
         }
       ],
       "notes": []
@@ -6481,8 +6481,8 @@
       ],
       "changes": [
         {
-          "before": "急騰する「匙が急にふわ～と上",
-          "after": "急騰する"
+          "before": "急騰する「匙が急にふわ～と上がる、血圧サージ」",
+          "after": "急騰する「匙が急にふわ～と上がる」「血圧サージ」"
         }
       ],
       "notes": []
@@ -6670,8 +6670,8 @@
       ],
       "changes": [
         {
-          "before": "法　many, few ではなく large, small",
-          "after": "法　many, few ではなく large, small"
+          "before": "法　many, few ではなく large, smallを使う",
+          "after": "法　many, few ではなく large, smallを使うa large audience たくさんの聴衆"
         }
       ],
       "notes": []
@@ -6689,8 +6689,8 @@
       ],
       "changes": [
         {
-          "before": "land",
-          "after": "トル"
+          "before": "land名　土地自　着陸する他　釣り上げる",
+          "after": "トル名　土地自　着陸する他　釣り上げる"
         }
       ],
       "notes": []
@@ -6772,12 +6772,12 @@
       ],
       "changes": [
         {
-          "before": "悪くさせる「あぐら、べーっと",
-          "after": "悪くさせる"
+          "before": "悪くさせる「あぐら、べーっと悪くなる」",
+          "after": "悪くさせる「あぐら、べーっと悪くなる」"
         },
         {
-          "before": "悪くさせる「やくざするべと悪",
-          "after": "悪くさせる"
+          "before": "悪くさせる「やくざするべと悪くなる」",
+          "after": "悪くさせる「やくざするべと悪くなる」"
         }
       ],
       "notes": []
@@ -6799,8 +6799,8 @@
           "after": "カット"
         },
         {
-          "before": "印、調印する、シール、アザラシ「seaいるアザ",
-          "after": "印、調印する、シール"
+          "before": "印、調印する、シール、アザラシ「seaいるアザラシ」",
+          "after": "印、調印する、シールアザラシ「seaいるアザラシ」小さく"
         }
       ],
       "notes": [
@@ -6835,7 +6835,7 @@
       "changes": [
         {
           "before": "葬儀屋 = funeral director",
-          "after": "葬儀屋"
+          "after": "葬儀屋= funeral director"
         }
       ],
       "notes": []
@@ -6868,8 +6868,8 @@
       ],
       "changes": [
         {
-          "before": "法 第４文型を取らない、要求提案",
-          "after": "法２　第４文型を取らない"
+          "before": "法 第４文型を取らない、要求提案型(that節中はshouldまたは原形）意",
+          "after": "法２　第４文型を取らない要求提案型(that節中はshouldまたは原形）意"
         }
       ],
       "notes": []
@@ -6924,8 +6924,8 @@
       ],
       "changes": [
         {
-          "before": "双眼鏡「bi２つnoのocular",
-          "after": "双眼鏡"
+          "before": "双眼鏡「bi２つnoのocular目」",
+          "after": "双眼鏡「bi２つnoのocular目」小さく"
         }
       ],
       "notes": []
@@ -6972,8 +6972,8 @@
       ],
       "changes": [
         {
-          "before": "意５（副１，形１，名１，自１，間",
-          "after": "意５（副１，形１，名１，自１，"
+          "before": "意５（副１，形１，名１，自１，間１）well",
+          "after": "意５（副１，形１，名１，自１，間１）well"
         }
       ],
       "notes": []
@@ -6990,12 +6990,12 @@
       ],
       "changes": [
         {
-          "before": "意５（副１，形１，名１，自１，間",
-          "after": "意５（副１，形１，名１，自１，"
+          "before": "意５（副１，形１，名１，自１，間１）well",
+          "after": "意５（副１，形１，名１，自１，間１）well"
         },
         {
-          "before": "副 上手に　形 元気だ　名 井戸　自こ",
-          "after": "副 上手に　形 元気だ　名 井戸"
+          "before": "副 上手に　形 元気だ　名 井戸　自こみ上げる　間 ええと",
+          "after": "副 上手に　形 元気だ　名 井戸自 こみ上げる　間 ええと"
         }
       ],
       "notes": []
@@ -7120,8 +7120,8 @@
       ],
       "changes": [
         {
-          "before": "他 応用する、当てはめる　自 申し込",
-          "after": "他 応用する、当てはめる"
+          "before": "他 応用する、当てはめる　自 申し込む、当てはめる",
+          "after": "他 応用する、当てはめる自 申し込む、当てはめる"
         }
       ],
       "notes": []
@@ -7137,7 +7137,7 @@
       "changes": [
         {
           "before": "品 他動詞",
-          "after": "品 他動詞"
+          "after": "品 他動詞= wait for"
         }
       ],
       "notes": []
@@ -7182,8 +7182,8 @@
       ],
       "changes": [
         {
-          "before": "意 幹、象の鼻、トランクス、大型",
-          "after": "意３　幹、象の鼻、トランクス"
+          "before": "意 幹、象の鼻、トランクス、大型旅行カバン",
+          "after": "意３　幹、象の鼻、トランクス大型旅行カバン"
         }
       ],
       "notes": []
@@ -7234,7 +7234,7 @@
       "changes": [
         {
           "before": "楕円「オバおるオフィス、Oval Office」",
-          "after": "楕円"
+          "after": "楕円「オバおるオフィス、Oval Office」小さく"
         }
       ],
       "notes": [
@@ -7267,8 +7267,8 @@
       ],
       "changes": [
         {
-          "before": "意３（名２、他１）plant",
-          "after": "名"
+          "before": "意３（名２、他１）plant名",
+          "after": "名意３（名２、他１）plant"
         }
       ],
       "notes": []
@@ -7285,8 +7285,8 @@
       ],
       "changes": [
         {
-          "before": "意３（名２、他１）plant",
-          "after": "名transplantation"
+          "before": "意３（名２、他１）plant名 植物、工場　他 植える名 transplantation移植",
+          "after": "名transplantation移植意３（名２、他１）plant名 植物、工場　他 植える"
         }
       ],
       "notes": []
@@ -7303,8 +7303,8 @@
       ],
       "changes": [
         {
-          "before": "誘拐する　ab「アプノーマルな",
-          "after": "誘拐する"
+          "before": "誘拐する　ab「アプノーマルな方へ」duct 導く",
+          "after": "誘拐する「ab アブノーマルな方へ duct 導く」"
         }
       ],
       "notes": []
@@ -7416,8 +7416,8 @@
       ],
       "changes": [
         {
-          "before": "率直な　cand = candleのように",
-          "after": "率直な"
+          "before": "率直な　cand = candleのように白いこと",
+          "after": "率直なcand = candleのように白いこと"
         }
       ],
       "notes": []
@@ -7492,8 +7492,8 @@
       ],
       "changes": [
         {
-          "before": "セ consumption tax",
-          "after": "セ 消費税"
+          "before": "セ consumption tax消費税",
+          "after": "セ 消費税consumption tax"
         }
       ],
       "notes": []
@@ -7526,8 +7526,8 @@
       ],
       "changes": [
         {
-          "before": "（干草を作る）牧草地、草原「うめーど",
-          "after": "（干草を作る）牧草地、草原"
+          "before": "（干草を作る）牧草地、草原「うめーどと牧草食べる牛がいう」",
+          "after": "（干草を作る）牧草地、草原「うめーどと牧草食べる牛がいう」"
         }
       ],
       "notes": []
@@ -7573,8 +7573,8 @@
       ],
       "changes": [
         {
-          "before": "意 mortgage",
-          "after": "意 mortgage"
+          "before": "意 mortgage抵当、住宅ローン「もう、ゲージも抵当」",
+          "after": "意 mortgage抵当、住宅ローン「もう、ゲージも抵当」"
         }
       ],
       "notes": []
@@ -7608,8 +7608,8 @@
       ],
       "changes": [
         {
-          "before": "法 tell 人 to do型、enjoy -ing型、",
-          "after": "法３ tell 人 to do型"
+          "before": "法 tell 人 to do型、enjoy -ing型、要求提案型（that 節中は shouldまたは原形）",
+          "after": "法３ tell 人 to do型enjoy -ing型要求提案型（that 節中は"
         }
       ],
       "notes": []
@@ -7640,8 +7640,8 @@
       ],
       "changes": [
         {
-          "before": "意 フクロウ「あ～うるさいフ",
-          "after": "意 owl  フクロウ"
+          "before": "意 フクロウ「あ～うるさいフクロウ」",
+          "after": "意 owl  フクロウ「あ～うるさいフクロウ」"
         }
       ],
       "notes": [
@@ -7674,7 +7674,7 @@
       "changes": [
         {
           "before": "名",
-          "after": "名"
+          "after": "名名"
         }
       ],
       "notes": []
@@ -7691,8 +7691,8 @@
       ],
       "changes": [
         {
-          "before": "名 detective",
-          "after": "名 detection"
+          "before": "名 detective刑事、探偵",
+          "after": "名 detection発見、検出、探知"
         }
       ],
       "notes": []
@@ -7710,8 +7710,8 @@
       ],
       "changes": [
         {
-          "before": "home",
-          "after": "トル"
+          "before": "home名 家副 家に、へ、で、ぐさりと",
+          "after": "トル名 家副 家に、へ、で、ぐさりと"
         }
       ],
       "notes": []
@@ -7817,8 +7817,8 @@
       ],
       "changes": [
         {
-          "before": "ホテルを経営する　（ホテルを走らせ",
-          "after": "ホテルを経営する"
+          "before": "ホテルを経営する　（ホテルを走らせるから）",
+          "after": "ホテルを経営するホテルを走らせる = manage a hotel"
         }
       ],
       "notes": []
@@ -7916,8 +7916,8 @@
       ],
       "changes": [
         {
-          "before": "法 型(that節中は should または原",
-          "after": "法３ 第４文型は取れない"
+          "before": "法 型(that節中は should または原形）、enjoy -ing型",
+          "after": "法３ 第４文型は取れない要求提案型(that節中は"
         }
       ],
       "notes": []
@@ -7951,7 +7951,7 @@
       "changes": [
         {
           "before": "= turn your dream into reality",
-          "after": "turn your dream into reality"
+          "after": "turn your dream into realitytransform(/turn) A into B A をBに変える"
         }
       ],
       "notes": []
@@ -8041,8 +8041,8 @@
       ],
       "changes": [
         {
-          "before": "堂々とした「←相手を押すオーラを出し",
-          "after": "堂々とした"
+          "before": "堂々とした「←相手を押すオーラを出している」",
+          "after": "堂々とした「相手を押すオーラを出しているイメージ」"
         }
       ],
       "notes": []
@@ -8075,8 +8075,8 @@
       ],
       "changes": [
         {
-          "before": "（戦争での）敵「え、ねえ、見",
-          "after": "（戦争での）敵"
+          "before": "（戦争での）敵「え、ねえ、見い、敵や！」",
+          "after": "（戦争での）敵「え、ねえ、見い、敵や！」小さく"
         }
       ],
       "notes": [
@@ -8096,8 +8096,8 @@
       ],
       "changes": [
         {
-          "before": "名　composure",
-          "after": "名　composure"
+          "before": "名　composure落ち着き",
+          "after": "名　composure落ち着き「心がバラバラになっていないで、"
         }
       ],
       "notes": []
@@ -8133,8 +8133,8 @@
       ],
       "changes": [
         {
-          "before": "法　型(that節中はshouldまたは原",
-          "after": "法２　要求提案型(that節中はshould"
+          "before": "法　型(that節中はshouldまたは原形）",
+          "after": "法２　要求提案型(that節中はshouldまたは原形）"
         }
       ],
       "notes": []
@@ -8151,8 +8151,8 @@
       ],
       "changes": [
         {
-          "before": "ひび割れ、欠点「風呂にひび割",
-          "after": "ひび割れ"
+          "before": "ひび割れ、欠点「風呂にひび割れ」",
+          "after": "ひび割れ「風呂にひび割れ」"
         }
       ],
       "notes": [
@@ -8195,8 +8195,8 @@
       ],
       "changes": [
         {
-          "before": "意 請求書、法案、紙幣、くちばし",
-          "after": "意３～４　請求書、法案、紙幣、"
+          "before": "意 請求書、法案、紙幣、くちばし（扁平な）",
+          "after": "意３～４　請求書、法案、紙幣、くちばし（扁平な）"
         }
       ],
       "notes": []
@@ -8231,7 +8231,7 @@
       "changes": [
         {
           "before": "感動的な = touching, impressive",
-          "after": "感動的な"
+          "after": "感動的な= touching, impressive"
         }
       ],
       "notes": []
@@ -8300,8 +8300,8 @@
       ],
       "changes": [
         {
-          "before": "形 正しい、公平な　副 どうしても",
-          "after": "形 正しい、公平な"
+          "before": "形 正しい、公平な　副 どうしても（～ない）、ちょうど",
+          "after": "形 正しい、公平な副 どうしても（～ない）、ちょうど"
         }
       ],
       "notes": []
@@ -8320,7 +8320,7 @@
       "changes": [
         {
           "before": "come from, be from より洗練された文芸的表現",
-          "after": "come from, be from より洗練された文芸的表現"
+          "after": "come from, be from より洗練された文芸的表現hail = hey, hi, hello と同語源。船乗り同士が声をか"
         }
       ],
       "notes": []
@@ -8340,12 +8340,12 @@
       ],
       "changes": [
         {
-          "before": "order burgers from Mc. Donald’s on",
-          "after": "order burgers from Mc. Donald’s on"
+          "before": "order burgers from Mc. Donald’s onUber Eats意 odor",
+          "after": "order burgers from Mc. Donald’s onUber Eatsorder A from B B に A を注文する"
         },
         {
-          "before": "におい「オドイーター、デオドラント」",
-          "after": "意 odor"
+          "before": "におい「オドイーター、デオドラント」意",
+          "after": "意 odorにおい「オドイーター、デオドラント」"
         }
       ],
       "notes": []
@@ -8380,8 +8380,8 @@
       ],
       "changes": [
         {
-          "before": "他 騙す、だまし取る　自 カンニングす",
-          "after": "他 騙す、だまし取る"
+          "before": "他 騙す、だまし取る　自 カンニングする、浮気する",
+          "after": "他 騙す、だまし取る自 カンニングする、浮気する"
         },
         {
           "before": "cheat the old man of his savings",
@@ -8469,8 +8469,8 @@
       ],
       "changes": [
         {
-          "before": "他 ごちゃまぜにする　自 よじ登る",
-          "after": "他 ごちゃまぜにする"
+          "before": "他 ごちゃまぜにする　自 よじ登る名 緊急発進、奪い合い",
+          "after": "他 ごちゃまぜにする自 よじ登る、あたふたする"
         }
       ],
       "notes": []
@@ -8486,8 +8486,8 @@
       ],
       "changes": [
         {
-          "before": "自動詞とその活用 strive > strove >",
-          "after": "自動詞とその活用"
+          "before": "自動詞とその活用 strive > strove >striven",
+          "after": "自動詞とその活用strive > strove > striven努力する　　　　　　　努力する"
         }
       ],
       "notes": []
@@ -8558,7 +8558,7 @@
       "changes": [
         {
           "before": "セ prime number",
-          "after": "セ　素数"
+          "after": "セ　素数prime number"
         }
       ],
       "notes": []
@@ -8639,7 +8639,7 @@
       "changes": [
         {
           "before": "物思いに沈んだ「パンセ（パスカル）」",
-          "after": "物思いに沈んだ"
+          "after": "物思いに沈んだ「パンセ（パスカル）」"
         }
       ],
       "notes": []
@@ -8671,7 +8671,7 @@
       "changes": [
         {
           "before": "収入　反対語はoutgo, expense 支出",
-          "after": "収入"
+          "after": "収入反対語は outgo, expense 支出"
         }
       ],
       "notes": []
@@ -8764,8 +8764,8 @@
       ],
       "changes": [
         {
-          "before": "セ under construction",
-          "after": "セ　建設中"
+          "before": "セ under constructionウエブサイトでも使われる",
+          "after": "セ　建設中under construction"
         }
       ],
       "notes": []
@@ -8805,8 +8805,8 @@
       ],
       "changes": [
         {
-          "before": "意 観察する、守る、気づく、述べ",
-          "after": "意５ 観察する、守る、気づく、"
+          "before": "意 観察する、守る、気づく、述べる、祝う",
+          "after": "意５ 観察する、守る、気づく、述べる、祝う"
         },
         {
           "before": "遵守、（祝祭日を守って）祝うこと、",
@@ -8868,8 +8868,8 @@
           "after": "トル"
         },
         {
-          "before": "意 使える、役立つ、務める、食事",
-          "after": "意３　使える、役立つ、務める、"
+          "before": "意 使える、役立つ、務める、食事を出す",
+          "after": "意３　使える、役立つ、務める、食事を出す"
         }
       ],
       "notes": []
@@ -8889,8 +8889,8 @@
       ],
       "changes": [
         {
-          "before": "名 標識、記号、形跡、兆候　他 署名",
-          "after": "名 標識、記号、形跡、兆候"
+          "before": "名 標識、記号、形跡、兆候　他 署名する",
+          "after": "名 標識、記号、形跡、兆候他 署名する"
         }
       ],
       "notes": []
@@ -8964,8 +8964,8 @@
       ],
       "changes": [
         {
-          "before": "類　assent（非常にフォーマ",
-          "after": "類　assent, agree"
+          "before": "類　assent（非常にフォーマル）、agree（一般的）consentはフォーマル",
+          "after": "類　assent, agreeassentは非常にフォーマルagree は一般的consent はフォーマル"
         }
       ],
       "notes": []
@@ -9032,8 +9032,8 @@
       ],
       "changes": [
         {
-          "before": "名　occurence",
-          "after": "名　occurrennce　　　※スペルミス"
+          "before": "名　occurence出来事",
+          "after": "名　occurrennce　　　※スペルミス出来事"
         }
       ],
       "notes": []
@@ -9101,8 +9101,8 @@
       ],
       "changes": [
         {
-          "before": "法 要求提案型(that節中はshould",
-          "after": "法２  decide to do型"
+          "before": "法 要求提案型(that節中はshouldまたは原形）",
+          "after": "法２  decide to do型要求提案型(that節中はshould"
         }
       ],
       "notes": []
@@ -9171,8 +9171,8 @@
       ],
       "changes": [
         {
-          "before": "形 出席している、現在の　名 贈り物",
-          "after": "形 出席している、現在の"
+          "before": "形 出席している、現在の　名 贈り物他 贈る名",
+          "after": "形 出席している、現在の名 贈り物他 贈る"
         },
         {
           "before": "反とその名詞",
@@ -9333,8 +9333,8 @@
       ],
       "changes": [
         {
-          "before": "セ mercy killing",
-          "after": "セ　安楽死"
+          "before": "セ mercy killing= euthanasia「許さねーじゃ、安楽死」",
+          "after": "セ　安楽死mercy killing"
         }
       ],
       "notes": []
@@ -9380,8 +9380,8 @@
       ],
       "changes": [
         {
-          "before": "のぞく「鳥のヒナがピーピー言",
-          "after": "のぞく「鳥のヒナがピーピー言って"
+          "before": "のぞく「鳥のヒナがピーピー言って姿を現すのが語源」",
+          "after": "のぞく「鳥のヒナがピーピー言って姿を現すのが語源」"
         }
       ],
       "notes": []
@@ -9449,8 +9449,8 @@
       ],
       "changes": [
         {
-          "before": "合併する、溶け込ませる「マジ、",
-          "after": "合併する、溶け込ませる"
+          "before": "合併する、溶け込ませる「マジ、合併する？」",
+          "after": "合併する、溶け込ませる「マジ、合併する？」"
         }
       ],
       "notes": []
@@ -9501,8 +9501,8 @@
       ],
       "changes": [
         {
-          "before": "意 名 獣医 veterinarian の略",
-          "after": "意 vet"
+          "before": "意 名 獣医 veterinarian の略他 調べる",
+          "after": "意 vet名 獣医"
         }
       ],
       "notes": []
@@ -9547,8 +9547,8 @@
           "after": "内容が合うときや文通では with が自然"
         },
         {
-          "before": "セ 日本のカッコいいに相当する",
-          "after": "セ Bushido はヨーロッパの騎士道に相当する。"
+          "before": "セ 日本のカッコいいに相当するcorrespond to the Japanese word“kakkoii”",
+          "after": "セ Bushido はヨーロッパの騎士道に相当する。Bushido corresponds to chivalry in Europe.相当するときは to が自然"
         }
       ],
       "notes": []
@@ -9615,8 +9615,8 @@
       ],
       "changes": [
         {
-          "before": "意",
-          "after": "意 awe"
+          "before": "意意",
+          "after": "意 awe畏れ、畏敬意 awesomeすごい、荘厳な"
         }
       ],
       "notes": []
@@ -9721,8 +9721,8 @@
       ],
       "changes": [
         {
-          "before": "意 固定する、修理する、作る、仕",
-          "after": "意３～４ 固定する、修理する、"
+          "before": "意 固定する、修理する、作る、仕返しをする",
+          "after": "意３～４ 固定する、修理する、作る、仕返しをする"
         }
       ],
       "notes": []
@@ -9782,7 +9782,7 @@
       "changes": [
         {
           "before": "他 強く望む",
-          "after": "他 強く望む"
+          "after": "他 強く望むdecide to do型"
         }
       ],
       "notes": []
@@ -9919,8 +9919,8 @@
       ],
       "changes": [
         {
-          "before": "他 印をつける、採点する、祝う　名",
-          "after": "他 印をつける、採点する、祝う"
+          "before": "他 印をつける、採点する、祝う　名跡、印、記号、点数",
+          "after": "他 印をつける、採点する、祝う名 跡、印、記号、点数"
         }
       ],
       "notes": []
@@ -9952,8 +9952,8 @@
       ],
       "changes": [
         {
-          "before": "儀式（個々の通過儀礼）　ritualはルー",
-          "after": "儀式（結婚式などの個々のイベント）"
+          "before": "儀式（個々の通過儀礼）　ritualはルーティーン的作法",
+          "after": "儀式（結婚式などの個々のイベント）ritualはその儀式の中で行う一連の作法、または、朝のコーヒーなど日常のルーティーン"
         }
       ],
       "notes": []
@@ -9986,8 +9986,8 @@
       ],
       "changes": [
         {
-          "before": "死体「こうプスッと刺した死",
-          "after": "死体"
+          "before": "死体「こうプスッと刺した死体」= body",
+          "after": "死体「こうプスッと刺した死体」= body"
         }
       ],
       "notes": [
@@ -10011,8 +10011,8 @@
           "after": "トル"
         },
         {
-          "before": "2073  disgust",
-          "after": "2074  digest　　私のミスです。タイトルが違っていました。"
+          "before": "2073  disgust他",
+          "after": "2074  digest　　私のミスです。タイトルが違っていました。他・名 消化する、要約"
         },
         {
           "before": "名",
@@ -10053,8 +10053,8 @@
       ],
       "changes": [
         {
-          "before": "意 作業、作用、操作、手術、軍事",
-          "after": "意２以上　作業、作用、操作、"
+          "before": "意 作業、作用、操作、手術、軍事行動",
+          "after": "意２以上　作業、作用、操作、手術、軍事行動"
         }
       ],
       "notes": []
@@ -10090,7 +10090,7 @@
         },
         {
           "before": "意",
-          "after": "意２"
+          "after": "意２形"
         }
       ],
       "notes": []
@@ -10108,8 +10108,8 @@
       ],
       "changes": [
         {
-          "before": "意 情熱、熱中しているもの、キリ",
-          "after": "意２～３"
+          "before": "意 情熱、熱中しているもの、キリストの受難",
+          "after": "意２～３情熱、熱中しているもの"
         }
       ],
       "notes": []
@@ -10140,8 +10140,8 @@
       ],
       "changes": [
         {
-          "before": "他 置く、落ち着かせる　自 定住す",
-          "after": "他 置く、落ち着かせる"
+          "before": "他 置く、落ち着かせる　自 定住する、落ち着く",
+          "after": "他 置く、落ち着かせる自 定住する、落ち着く"
         }
       ],
       "notes": []
@@ -10176,8 +10176,8 @@
       ],
       "changes": [
         {
-          "before": "屋根裏部屋「あっちくなる屋根",
-          "after": "屋根裏部屋"
+          "before": "屋根裏部屋「あっちくなる屋根裏」",
+          "after": "屋根裏部屋「あっちくなる屋根裏」"
         }
       ],
       "notes": [
@@ -10212,8 +10212,8 @@
       ],
       "changes": [
         {
-          "before": "意 typically",
-          "after": "意２ typically"
+          "before": "意 typically典型的に、概して、たいてい =usually",
+          "after": "意２ typically典型的に、概して、たいてい= usually 　小さく"
         }
       ],
       "notes": []
@@ -10234,8 +10234,8 @@
           "after": "トル"
         },
         {
-          "before": "名 気楽さ",
-          "after": "名 気楽さ"
+          "before": "名 気楽さ他 和らげる",
+          "after": "名 気楽さ他 和らげる"
         }
       ],
       "notes": []
@@ -10270,12 +10270,12 @@
       ],
       "changes": [
         {
-          "before": "形 全体の、粗野な、ひどい　名 総",
-          "after": "形 全体の、粗野な、ひどい"
+          "before": "形 全体の、粗野な、ひどい　名 総計、グロス",
+          "after": "形 全体の、粗野な、ひどい名 総計、グロス"
         },
         {
-          "before": "意 正味、ネット「ふるいにかけら",
-          "after": "意 net"
+          "before": "意 正味、ネット「ふるいにかけられた中身から」",
+          "after": "意 net正味、ネット"
         }
       ],
       "notes": []
@@ -10294,12 +10294,12 @@
       ],
       "changes": [
         {
-          "before": "男性用の財布、米では女性も使",
-          "after": "男性用の財布"
+          "before": "男性用の財布、米では女性も使う",
+          "after": "男性用の財布米では女性も使う"
         },
         {
-          "before": "米では女性のハンドバッグ、英では女",
-          "after": "女性用のハンドバッグ"
+          "before": "米では女性のハンドバッグ、英では女性用の財布",
+          "after": "女性用のハンドバッグ英では女性用の財布"
         }
       ],
       "notes": []
@@ -10383,8 +10383,8 @@
       ],
       "changes": [
         {
-          "before": "自 くよくよ考える　名 ひとかえりの",
-          "after": "自 くよくよ考える"
+          "before": "自 くよくよ考える　名 ひとかえりのヒナ",
+          "after": "自 くよくよ考える名 ひとかえりのヒナ"
         }
       ],
       "notes": []
@@ -10407,12 +10407,12 @@
           "after": "法２～３"
         },
         {
-          "before": "セ　２　説得して彼が辞任するのをやめ",
-          "after": "セ　説得して彼が辞任するのをやめさせる"
+          "before": "セ　２　説得して彼が辞任するのをやめさせる",
+          "after": "セ　説得して彼が辞任するのをやめさせる(persuade で)"
         },
         {
-          "before": "セ　２　説得して彼が辞任するのをやめ",
-          "after": "セ　説得して彼が辞任するのをやめさせる"
+          "before": "セ　２　説得して彼が辞任するのをやめさせる",
+          "after": "セ　説得して彼が辞任するのをやめさせる(persuade の反対語で)"
         }
       ],
       "notes": []
@@ -10434,16 +10434,16 @@
       ],
       "changes": [
         {
-          "before": "法 tell 人 to do型、talk 人 into -ing",
-          "after": "法２～３"
+          "before": "法 tell 人 to do型、talk 人 into -ing型、remind A of B 型（古）",
+          "after": "法２～３tell 人 to do型talk 人 into -ing型"
         },
         {
-          "before": "セ　２　説得して彼が辞任するのをやめ",
-          "after": "セ　説得して彼が辞任するのをやめさせる"
+          "before": "セ　２　説得して彼が辞任するのをやめさせる",
+          "after": "セ　説得して彼が辞任するのをやめさせる(persuade で)"
         },
         {
-          "before": "セ　２　説得して彼が辞任するのをやめ",
-          "after": "セ　説得して彼が辞任するのをやめさせる"
+          "before": "セ　２　説得して彼が辞任するのをやめさせる",
+          "after": "セ　説得して彼が辞任するのをやめさせる(persuade の反対語で)"
         }
       ],
       "notes": []
@@ -10460,8 +10460,8 @@
       ],
       "changes": [
         {
-          "before": "忘れている「覚えるびょん",
-          "after": "忘れている"
+          "before": "忘れている「覚えるびょん(oblivion)忘れたら」",
+          "after": "忘れている「覚えるびょん忘れたら」oblivion 忘却"
         }
       ],
       "notes": []
@@ -10478,12 +10478,12 @@
       ],
       "changes": [
         {
-          "before": "品　前置詞 besides this,",
-          "after": "品　前置詞"
+          "before": "品　前置詞 besides this,= in addition to this",
+          "after": "品　前置詞besides this = in addition to this"
         },
         {
-          "before": "品　副詞 besides,",
-          "after": "品　副詞　　           🔊　⇨　スピーカーをトル"
+          "before": "品　副詞 besides,= in addition",
+          "after": "品　副詞　　           🔊　⇨　スピーカーをトルbesides = in addition"
         }
       ],
       "notes": []
@@ -10589,8 +10589,8 @@
       ],
       "changes": [
         {
-          "before": "avail oneself of ～を利用する「～に関して自分に利益",
-          "after": "avail oneself of ～を利用する"
+          "before": "avail oneself of ～を利用する「～に関して自分に利益を与える」",
+          "after": "avail oneself of ～を利用する「～に関して自分に利益を与える」"
         },
         {
           "before": "of no avail「利用価値がない」= of no use",
@@ -10613,12 +10613,12 @@
       ],
       "changes": [
         {
-          "before": "（仕事をしないで）怠惰な　　idleは仕事が",
-          "after": "（仕事をしないで）怠惰な"
+          "before": "（仕事をしないで）怠惰な　　idleは仕事がなくてぶらぶらしている",
+          "after": "（仕事をしないで）怠惰なidleは仕事がなくてぶらぶらしている"
         },
         {
-          "before": "アイドル、偶像「dollがつく方が偶",
-          "after": "アイドル、偶像"
+          "before": "アイドル、偶像「dollがつく方が偶像」",
+          "after": "アイドル、偶像「dollがつく方が偶像」"
         }
       ],
       "notes": []
@@ -10715,12 +10715,12 @@
       ],
       "changes": [
         {
-          "before": "意 警官「captureのcapが",
-          "after": "意 cop"
+          "before": "意 警官「captureのcapがcop になった」（サツ、デカの感覚）意 copper",
+          "after": "意 cop警官「captureのcapがcop になった」（サツ、デカの感覚）"
         },
         {
-          "before": "Cuは動画採れたCyprus（キプロ",
-          "after": "意 copper"
+          "before": "Cuは動画採れたCyprus（キプロス島）のラテン語cuprumから",
+          "after": "意 copper銅「Cuは銅が採れたCyprus（キプロス島）の"
         }
       ],
       "notes": []
@@ -10793,8 +10793,8 @@
           "after": "自 潜む"
         },
         {
-          "before": "ひばり「ラーク（たばこの銘",
-          "after": "ひばり"
+          "before": "ひばり「ラーク（たばこの銘柄」",
+          "after": "ひばり「スカイラーク」"
         }
       ],
       "notes": []
@@ -10825,7 +10825,7 @@
       "changes": [
         {
           "before": "意 門番・案内する",
-          "after": "意２（名１，他１）"
+          "after": "意２（名１，他１）名 門番　他 案内する"
         }
       ],
       "notes": []
@@ -10914,12 +10914,12 @@
       ],
       "changes": [
         {
-          "before": "名 分け前、株　他 共有する",
-          "after": "名 分け前、株　他 共有する"
+          "before": "名 分け前、株　他 共有する意３（名２，他１）stock",
+          "after": "名 分け前、株　他 共有する株はstockを分けた個々のもの"
         },
         {
           "before": "名 株、在庫品、他 貯蔵する",
-          "after": "名 在庫品、株　他 貯蔵する"
+          "after": "名 在庫品、株　他 貯蔵する株は会社が発行した全部の株"
         }
       ],
       "notes": []
@@ -10952,7 +10952,7 @@
       "changes": [
         {
           "before": "",
-          "after": "名 deterrence 　　　　　　※音声追加"
+          "after": "名 deterrence 　　　　　　※音声追加抑止、防止"
         }
       ],
       "notes": []
@@ -10969,8 +10969,8 @@
       ],
       "changes": [
         {
-          "before": "居眠り「どうぞ居眠りしてくだ",
-          "after": "居眠り、うとうとする"
+          "before": "居眠り「どうぞ居眠りしてください」",
+          "after": "居眠り、うとうとする「どうぞ居眠りしてください」"
         }
       ],
       "notes": [
@@ -11024,8 +11024,8 @@
       ],
       "changes": [
         {
-          "before": "法 tell 人 to do型　要求提案型",
-          "after": "法２ tell 人 to do型"
+          "before": "法 tell 人 to do型　要求提案型(that 節中はshould または原形）",
+          "after": "法２ tell 人 to do型要求提案型(that 節中はshouldまたは原形）"
         }
       ],
       "notes": []
