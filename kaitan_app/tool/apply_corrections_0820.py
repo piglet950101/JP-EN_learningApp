@@ -75,7 +75,9 @@ def clean_after(s: str) -> str:
 
 
 def is_delete(after_raw: str) -> bool:
-    return norm(after_raw).startswith('トル')
+    # The client uses both 「トル」 and 「カット」 for "remove this".
+    a = norm(after_raw)
+    return a.startswith('トル') or a.startswith('カット')
 
 
 def main() -> None:
@@ -106,6 +108,15 @@ def main() -> None:
             continue
 
         touched = False
+        # Which distinct "after" values each "before" is mapped to, so a
+        # positional assignment can be distinguished from a plain rename.
+        distinct_after: dict[str, set[str]] = {}
+        for ch in changes_by_word[wid]:
+            kb = norm(ch['before'])
+            if kb:
+                distinct_after.setdefault(kb, set()).add(clean_after(ch['after']))
+        claimed: set[int] = set()
+
         for ch in changes_by_word[wid]:
             b_raw, a_raw = ch['before'], ch['after']
             b, a_clean = norm(b_raw), clean_after(a_raw)
@@ -193,12 +204,28 @@ def main() -> None:
 
             # --- locate the field the "before" text refers to -------------
             matched = False
-            for e in entries:
-                if b == norm(e['relation']):
-                    e['relation'] = a_clean
+            rel_hits = [e for e in entries if b == norm(e['relation'])]
+            if rel_hits:
+                # Pattern B: several entries can share one label. If every
+                # instruction for this label asks for the SAME new label it is
+                # a plain rename and applies to all of them (0100 abstain).
+                # If they ask for DIFFERENT labels the docx is assigning them
+                # positionally — 0181 respire wants 類 on breathe and
+                # 類 の名詞 on breath — so consume one entry at a time.
+                if len(distinct_after.get(b, ())) > 1:
+                    target = next((e for e in rel_hits
+                                   if id(e) not in claimed), None)
+                    if target is not None:
+                        target['relation'] = a_clean
+                        claimed.add(id(target))
+                        stats['relation'] += 1
+                        matched = touched = True
+                else:
+                    for e in rel_hits:
+                        e['relation'] = a_clean
                     stats['relation'] += 1
                     matched = touched = True
-                    break
+            for e in ([] if matched else entries):
                 if b == norm(e['answer']):
                     e['answer'] = a_clean
                     stats['answer'] += 1
@@ -227,8 +254,11 @@ def main() -> None:
                 cands = [e for e in entries
                          if norm(e['relation']).startswith(b)
                          or b.startswith(norm(e['relation']))]
-                if len(cands) == 1:
-                    cands[0]['relation'] = a_clean
+                # All candidates share one label, so renaming them together is
+                # unambiguous; a split across DIFFERENT labels is not.
+                if cands and len({norm(e['relation']) for e in cands}) == 1:
+                    for e in cands:
+                        e['relation'] = a_clean
                     stats['relation_prefix'] += 1
                     matched = touched = True
 
