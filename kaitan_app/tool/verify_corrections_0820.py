@@ -36,6 +36,10 @@ POS_GROUP = (r'[（(]?' + POS + r'[）)]?'
              r'(?:\s*・\s*[（(]?' + POS + r'[）)]?)*'
              r'\s*[（(]?\s*[０-９0-9]?\s*[）)]?')
 ARROW_JUNK = re.compile(r'[↱↳↲⇨→]')
+# Remarks the client writes ABOUT an edit rather than as part of the value.
+EDITORIAL = ('なければ作ります', '※スペリングミス', '※スペルミス', 'スペリングミス',
+             'スペルミス', '解答も同様', '問題も同様', '解答も', '問題も',
+             'これを追加', '私のミスです', 'タイトルが違っていました')
 # 「(from) をトル」「(in), (on) をカット」「(to) を取る」 — delete verb at the end.
 STRIP_TAIL_RE = re.compile(
     r'^([（(].+?[）)](?:\s*[,、]\s*[（(].+?[）)])*)\s*を?\s*(?:トル|カット|取る)\s*$')
@@ -93,6 +97,23 @@ def main() -> None:
             # spellings of the label).
             row = f"{e['relation']}{e['answer']}{e['answer_meaning'] or ''}"
             out += [norm(row), canon(row)]
+        # The client often writes several CONSECUTIVE rows as one run of text,
+        # because that is how they appear on screen — 「反 literacy 読み書きで
+        # きること形 illiterate」 spans two entries. Compare against those runs
+        # too, or a correctly split pair looks like neither state.
+        ents = by_word.get(wid, [])
+        for size in (2, 3, 4):
+            for i in range(len(ents) - size + 1):
+                grp = ents[i:i + size]
+                run = ''.join(
+                    f"{x['relation']}{x['answer']}{x['answer_meaning'] or ''}"
+                    for x in grp)
+                # Rows sharing a label are written with that label ONCE, at the
+                # head of the group — 「熟２ in progress 進行中で make (ナシ)
+                # progress」 covers two entries but names 熟２ a single time.
+                once = (f"{grp[0]['relation']}" + ''.join(
+                    f"{x['answer']}{x['answer_meaning'] or ''}" for x in grp))
+                out += [norm(run), canon(run), norm(once), canon(once)]
         hw = words.get(wid)
         if hw:
             out.append(norm(hw['pos_raw']))
@@ -168,6 +189,23 @@ def main() -> None:
             # the END rather than the start. The target is the bracketed text,
             # and it is done once that text no longer appears anywhere for
             # this word.
+            # 「名 compensátion ⇨ 名 compensation アクセントをトル」 asks for the
+            # stress mark to come off. It is done once the accented spelling is
+            # gone and the plain one is there.
+            if 'アクセント' in a_raw:
+                plain = norm(unicodedata.normalize(
+                    'NFKD', b_raw).encode('ascii', 'ignore').decode()
+                    ) if re.search(r'[À-ɏ]', b_raw) else ''
+                stripped = norm(''.join(
+                    c for c in unicodedata.normalize('NFD', b_raw)
+                    if unicodedata.category(c) != 'Mn'))
+                if stripped and stripped != b and present(stripped, vals):
+                    counts['SATISFIED'] += 1
+                else:
+                    counts['PENDING'] += 1
+                    lines.append(f'PENDING  {wid}: accent {b_raw!r}')
+                continue
+
             m_strip = STRIP_TAIL_RE.match(a_raw.strip())
             if m_strip:
                 targets = re.findall(r'[（(].+?[）)]', m_strip.group(1))
@@ -178,7 +216,10 @@ def main() -> None:
                     lines.append(f'PENDING  {wid}: strip {m_strip.group(1)!r}')
                 continue
 
-            a_clean = norm(ARROW_JUNK.sub('', a_raw))
+            a_txt = ARROW_JUNK.sub('', a_raw)
+            for note in EDITORIAL:
+                a_txt = a_txt.replace(note, '')
+            a_clean = norm(a_txt)
             before_present = present(b, vals)
 
             if a.startswith(('トル', 'カット')):

@@ -2,17 +2,79 @@
   "schema_version": 1,
   "source": "アプリ直し Second Stage 8. 20.docx — relation renames",
   "overrides": {
-    "663": [
+    "37": [
       {
-        "relation": "名",
-        "answer": "synthesis",
-        "answer_meaning": "統合、合成",
+        "relation": "反形",
+        "answer": "literacy",
+        "answer_meaning": "読み書きできること",
         "tts_enabled": true
       },
       {
-        "relation": "名 の複数形",
-        "answer": "syntheses",
-        "answer_meaning": "オアシス型",
+        "relation": "形",
+        "answer": "illiterate",
+        "answer_meaning": "字が読めない",
+        "tts_enabled": true
+      }
+    ],
+    "270": [
+      {
+        "relation": "品",
+        "answer": "形容詞",
+        "answer_meaning": "名詞は falsehood",
+        "tts_enabled": false
+      },
+      {
+        "relation": "反",
+        "answer": "true",
+        "answer_meaning": "真実の、誠実な、浮気をしない",
+        "tts_enabled": true
+      },
+      {
+        "relation": "反　の名詞",
+        "answer": "truth",
+        "answer_meaning": "真実",
+        "tts_enabled": true
+      }
+    ],
+    "405": [
+      {
+        "relation": "意２（形１，名１）",
+        "answer": "形 死すべき運命の　名 人間",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "意２（形１，名１）",
+        "answer": "immortal",
+        "answer_meaning": "不死の",
+        "tts_enabled": true
+      }
+    ],
+    "695": [
+      {
+        "relation": "意２（他１、名１）",
+        "answer": "他 疲れ果てさせる　名 排気ガス",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "意２（他１、名１）",
+        "answer": "exhaustion",
+        "answer_meaning": "消耗",
+        "tts_enabled": true
+      }
+    ],
+    "850": [
+      {
+        "relation": "意２（他１，名１）名",
+        "answer": "他 断る　名 ごみ",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "refusal",
+        "answer_meaning": "拒否",
         "tts_enabled": true
       }
     ],
@@ -22,6 +84,92 @@
         "answer": "devise",
         "answer_meaning": "発明する、工夫する",
         "tts_enabled": true
+      }
+    ],
+    "1107": [
+      {
+        "relation": "反",
+        "answer": "deep",
+        "answer_meaning": "深い",
+        "tts_enabled": true
+      },
+      {
+        "relation": "反 の名詞",
+        "answer": "depth",
+        "answer_meaning": "深さ",
+        "tts_enabled": true
+      }
+    ],
+    "1658": [
+      {
+        "relation": "反",
+        "answer": "infinite",
+        "answer_meaning": "無限の",
+        "tts_enabled": true
+      },
+      {
+        "relation": "反　の名詞",
+        "answer": "infinity",
+        "answer_meaning": "無限",
+        "tts_enabled": true
+      }
+    ],
+    "1856": [
+      {
+        "relation": "名",
+        "answer": "equality",
+        "answer_meaning": "同等、平等",
+        "tts_enabled": true
+      },
+      {
+        "relation": "反",
+        "answer": "unequal",
+        "answer_meaning": "同等でない、不十分な",
+        "tts_enabled": true
+      },
+      {
+        "relation": "反　の名詞",
+        "answer": "inequality",
+        "answer_meaning": "不平等、不均衡",
+        "tts_enabled": true
+      },
+      {
+        "relation": "意 equation",
+        "answer": "equation",
+        "answer_meaning": "等式",
+        "tts_enabled": true
+      }
+    ],
+    "1915": [
+      {
+        "relation": "意４（形２，名１，他１）",
+        "answer": "形 出席している、現在の　名 贈り物　他 贈る",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "presence",
+        "answer_meaning": "出席",
+        "tts_enabled": true
+      },
+      {
+        "relation": "反",
+        "answer": "absent",
+        "answer_meaning": "欠席している",
+        "tts_enabled": false
+      },
+      {
+        "relation": "反　の名詞",
+        "answer": "absence",
+        "answer_meaning": "欠席",
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　彼に万年筆を贈呈する",
+        "answer": "present him with a fountain pen",
+        "answer_meaning": "fill A with B 型 = present a fountain pen to him",
+        "tts_enabled": false
       }
     ]
   }

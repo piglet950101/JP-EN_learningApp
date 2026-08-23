@@ -39,7 +39,7 @@ OUT = HERE / 'ss_overrides_rel.json'
 LABEL_RE = re.compile(r'^[^A-Za-z]{1,24}$')
 # Long forms the docx writes in short. Leading position only: 「名詞とその複数形」
 # shortens to 「名とその複数形」, but the trailing 複数形 must stay intact.
-LONG_TO_SHORT = [('類義語', '類'), ('反意語', '反'), ('名詞', '名'),
+LONG_TO_SHORT = [('類義語', '類'), ('反意語', '反'), ('反対語', '反'), ('名詞', '名'),
                  ('形容詞', '形'), ('副詞', '副'), ('他動詞', '他'),
                  ('自動詞', '自'), ('動詞', '動')]
 STYLE_WORDS = ('明朝', 'ゴチ', '太', 'ふつう', '小さい字', '黒', '音声追加',

@@ -1,0 +1,821 @@
+{
+  "schema_version": 1,
+  "source": "アプリ直し Second Stage 8. 20.docx — decisions made by hand from the docx",
+  "note": "Applied LAST, after the generated passes, so a generated rename can never overwrite a row that was resolved by reading the document.",
+  "overrides": {
+    "30": [
+      {
+        "relation": "自",
+        "answer": "apologize (to 人 for 事)",
+        "answer_meaning": "謝る",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形",
+        "answer": "apologetic",
+        "answer_meaning": "申し訳なさそうな",
+        "tts_enabled": true
+      }
+    ],
+    "37": [
+      {
+        "relation": "反",
+        "answer": "literacy",
+        "answer_meaning": "読み書きできること",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形",
+        "answer": "illiterate",
+        "answer_meaning": "字が読めない",
+        "tts_enabled": true
+      }
+    ],
+    "187": [
+      {
+        "relation": "類",
+        "answer": "gift",
+        "answer_meaning": "才能「（天からの）贈り物」",
+        "tts_enabled": true
+      },
+      {
+        "relation": "類",
+        "answer": "talent",
+        "answer_meaning": "才能",
+        "tts_enabled": true
+      }
+    ],
+    "190": [
+      {
+        "relation": "名",
+        "answer": "variety",
+        "answer_meaning": "多様性",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名",
+        "answer": "variation",
+        "answer_meaning": "変化",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形",
+        "answer": "various",
+        "answer_meaning": "様々な",
+        "tts_enabled": true
+      },
+      {
+        "relation": "意 invariably",
+        "answer": "invariably",
+        "answer_meaning": "変わることなく = always",
+        "tts_enabled": true
+      }
+    ],
+    "346": [
+      {
+        "relation": "意 room（不可算）",
+        "answer": "余地、スペース",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "405": [
+      {
+        "relation": "意２（形１，名１）",
+        "answer": "形 死すべき運命の　名 人間",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "反",
+        "answer": "immortal",
+        "answer_meaning": "不死の",
+        "tts_enabled": true
+      }
+    ],
+    "413": [
+      {
+        "relation": "形",
+        "answer": "casual",
+        "answer_meaning": "カジュアルな、偶然の",
+        "tts_enabled": true
+      },
+      {
+        "relation": "意４～６ case",
+        "answer": "場合、実情、訴訟、事例、症例、患者",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "533": [
+      {
+        "relation": "名",
+        "answer": "profession",
+        "answer_meaning": "(知的)職業",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形",
+        "answer": "professional",
+        "answer_meaning": "プロ（の）",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形 の反対語",
+        "answer": "amateur",
+        "answer_meaning": "アマチュア（の）",
+        "tts_enabled": true
+      }
+    ],
+    "573": [
+      {
+        "relation": "形",
+        "answer": "progressive",
+        "answer_meaning": "進歩的な",
+        "tts_enabled": true
+      },
+      {
+        "relation": "法",
+        "answer": "不可算名詞",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "熟２",
+        "answer": "in progress",
+        "answer_meaning": "進行中で",
+        "tts_enabled": true
+      },
+      {
+        "relation": "熟２",
+        "answer": "make (ナシ) progress",
+        "answer_meaning": "進歩する = make an advance",
+        "tts_enabled": true
+      }
+    ],
+    "695": [
+      {
+        "relation": "意２（他１、名１）",
+        "answer": "他 疲れ果てさせる　名 排気ガス",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "exhaustion",
+        "answer_meaning": "消耗",
+        "tts_enabled": true
+      }
+    ],
+    "703": [
+      {
+        "relation": "意２（自１，形１）",
+        "answer": "自 続く",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "活 late（時間）",
+        "answer": "late > later > latest",
+        "answer_meaning": null,
+        "tts_enabled": true
+      },
+      {
+        "relation": "活 late（順序）",
+        "answer": "late > latter > last",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "707": [
+      {
+        "relation": "熟２",
+        "answer": "spend お金 on 物",
+        "answer_meaning": "時間でも使う",
+        "tts_enabled": true
+      },
+      {
+        "relation": "熟２",
+        "answer": "spend 時間 -ing",
+        "answer_meaning": "お金でも使う　ing の前に in の省略",
+        "tts_enabled": true
+      }
+    ],
+    "718": [
+      {
+        "relation": "意３～４ board（名２～３，他１）",
+        "answer": "名 板、委員会、下宿の食事　他 乗る",
+        "answer_meaning": "板 ＝ テーブル → 会議、食事",
+        "tts_enabled": true
+      }
+    ],
+    "729": [
+      {
+        "relation": "意３",
+        "answer": "習慣、関税（複数で）、税関（複数で）",
+        "answer_meaning": "「さまざまな習慣税が元」",
+        "tts_enabled": false
+      },
+      {
+        "relation": "形",
+        "answer": "customary",
+        "answer_meaning": "習慣的",
+        "tts_enabled": true
+      }
+    ],
+    "733": [
+      {
+        "relation": "意２",
+        "answer": "理論、学説",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "形",
+        "answer": "theoretical",
+        "answer_meaning": "論理（上）の",
+        "tts_enabled": true
+      },
+      {
+        "relation": "意 theology",
+        "answer": "theology",
+        "answer_meaning": "神学",
+        "tts_enabled": true
+      }
+    ],
+    "759": [
+      {
+        "relation": "名",
+        "answer": "decision",
+        "answer_meaning": "決心、決定",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形",
+        "answer": "decisive",
+        "answer_meaning": "決定的な",
+        "tts_enabled": true
+      },
+      {
+        "relation": "法",
+        "answer": "目的語に to do を取る　decide ~ing ×",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "760": [
+      {
+        "relation": "名",
+        "answer": "determination",
+        "answer_meaning": "決心、決定",
+        "tts_enabled": true
+      },
+      {
+        "relation": "法",
+        "answer": "目的語に to do を取る　decide to do型　determine ~ing ×",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "818": [
+      {
+        "relation": "意２",
+        "answer": "悪徳、代理、副-",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "形",
+        "answer": "vicious",
+        "answer_meaning": "悪意のある",
+        "tts_enabled": true
+      }
+    ],
+    "850": [
+      {
+        "relation": "意２（他１，名１）",
+        "answer": "他 断る　名 ごみ",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "refusal",
+        "answer_meaning": "拒否",
+        "tts_enabled": true
+      }
+    ],
+    "855": [
+      {
+        "relation": "類１～２",
+        "answer": "bud",
+        "answer_meaning": "（葉、花になる）芽",
+        "tts_enabled": true
+      },
+      {
+        "relation": "類１～２",
+        "answer": "shoot",
+        "answer_meaning": "（茎、枝になる）芽、撃つ",
+        "tts_enabled": true
+      }
+    ],
+    "876": [
+      {
+        "relation": "意３～４ hold",
+        "answer": "つかむ、しっかり持つ、（会を）開く、催す、考えている、判断している、持ちこたえる、有効である",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "916": [
+      {
+        "relation": "名 の意味と発音",
+        "answer": "涙　tear",
+        "answer_meaning": "※ティアという発音",
+        "tts_enabled": true
+      },
+      {
+        "relation": "他の意味",
+        "answer": "引き裂く",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "他の活用",
+        "answer": "tear > tore > torn",
+        "answer_meaning": "※テアという発音",
+        "tts_enabled": true
+      }
+    ],
+    "985": [
+      {
+        "relation": "意５（名１，形２，他１，自１）",
+        "answer": "名 光、明かり形 軽い、明るい他 火をつける自 （鳥が）止まる(on)",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "活",
+        "answer": "light > lit > lit",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "1185": [
+      {
+        "relation": "名",
+        "answer": "approval",
+        "answer_meaning": "賛成、承認",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ　彼の考えに賛成する",
+        "answer": "approve of his idea",
+        "answer_meaning": "「賛成する」は自動詞",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ　予算案を承認する",
+        "answer": "approve the budget",
+        "answer_meaning": "「承認する」は他動詞",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ　私が海外に行くことに反対する",
+        "answer": "disapprove of my going abroad",
+        "answer_meaning": "「反対する」は自動詞",
+        "tts_enabled": true
+      }
+    ],
+    "1560": [
+      {
+        "relation": "意 lapse",
+        "answer": "lapse",
+        "answer_meaning": "軽い誤り、経過、失効、下落　「滑り落ちる」が語源",
+        "tts_enabled": true
+      }
+    ],
+    "1668": [
+      {
+        "relation": "反",
+        "answer": "informal",
+        "answer_meaning": "略式の、非公式の",
+        "tts_enabled": true
+      }
+    ],
+    "1836": [
+      {
+        "relation": "意５",
+        "answer": "観察する、守る、気づく、述べる、祝う",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名２",
+        "answer": "observation",
+        "answer_meaning": "観察、観察に基づく意見、情報",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名２",
+        "answer": "observance",
+        "answer_meaning": "遵守、（祝祭日を守って）祝うこと",
+        "tts_enabled": true
+      }
+    ],
+    "1865": [
+      {
+        "relation": "複",
+        "answer": "foci（学術的、専門的）",
+        "answer_meaning": "日常は focuses でよい",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ　リスニング力に焦点をあてる",
+        "answer": "focus on listening comprehension",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "1910": [
+      {
+        "relation": "品",
+        "answer": "自動詞",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "活",
+        "answer": "occur > occurred > occurred",
+        "answer_meaning": "cf. occurring 後ろにアクセントがあるので短母音＋子音扱い",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名",
+        "answer": "occurrence",
+        "answer_meaning": "出来事",
+        "tts_enabled": true
+      }
+    ],
+    "2059": [
+      {
+        "relation": "法",
+        "answer": "要求提案型（that節中は should または原形）",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "意 desire",
+        "answer": "desire",
+        "answer_meaning": "名 欲求、願望　他 強く望む　decide to do型",
+        "tts_enabled": true
+      }
+    ],
+    "2115": [
+      {
+        "relation": "複",
+        "answer": "phenomena",
+        "answer_meaning": "medium < media 型",
+        "tts_enabled": true
+      }
+    ],
+    "2122": [
+      {
+        "relation": "名",
+        "answer": "confidence",
+        "answer_meaning": "自信、信頼（不可算）",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形",
+        "answer": "confidential",
+        "answer_meaning": "秘密の",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ　成功を確信している",
+        "answer": "be confident of success",
+        "answer_meaning": "of＋絶対そうなるという確信(success, victory, winning など)　about＋自分の力への自信(abilities, English skills, yourself など)",
+        "tts_enabled": true
+      }
+    ],
+    "90": [
+      {
+        "relation": "反",
+        "answer": "immature",
+        "answer_meaning": "未熟な",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名",
+        "answer": "maturity",
+        "answer_meaning": "成熟",
+        "tts_enabled": true
+      }
+    ],
+    "250": [
+      {
+        "relation": "形",
+        "answer": "coherent",
+        "answer_meaning": "首尾一貫した",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名",
+        "answer": "coherence",
+        "answer_meaning": "結合、首尾一貫性",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ　彼の学説はデータと一貫性がある。",
+        "answer": "His theory coheres with the data.",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "260": [
+      {
+        "relation": "他",
+        "answer": "explore",
+        "answer_meaning": "探検する",
+        "tts_enabled": true
+      },
+      {
+        "relation": "他 の名詞",
+        "answer": "exploration",
+        "answer_meaning": "探検",
+        "tts_enabled": true
+      }
+    ],
+    "574": [
+      {
+        "relation": "熟２",
+        "answer": "in advance",
+        "answer_meaning": "前もって = beforehand",
+        "tts_enabled": true
+      },
+      {
+        "relation": "熟２",
+        "answer": "make an advance",
+        "answer_meaning": "進歩する = make progress",
+        "tts_enabled": true
+      }
+    ],
+    "726": [
+      {
+        "relation": "熟１～２",
+        "answer": "for God's sake",
+        "answer_meaning": "お願いだから",
+        "tts_enabled": true
+      },
+      {
+        "relation": "熟１～２",
+        "answer": "for the sake of",
+        "answer_meaning": "～のために",
+        "tts_enabled": true
+      }
+    ],
+    "865": [
+      {
+        "relation": "反",
+        "answer": "borrow",
+        "answer_meaning": "借りる",
+        "tts_enabled": true
+      },
+      {
+        "relation": "類１～２",
+        "answer": "rent",
+        "answer_meaning": "有料で貸す、借りる",
+        "tts_enabled": true
+      },
+      {
+        "relation": "類１～２",
+        "answer": "let",
+        "answer_meaning": "不動産を貸す、～させる",
+        "tts_enabled": true
+      }
+    ],
+    "1145": [
+      {
+        "relation": "名",
+        "answer": "translation",
+        "answer_meaning": "翻訳",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ　英語を日本語に翻訳する",
+        "answer": "translate English into Japanese",
+        "answer_meaning": "translate(/put) A into B　A を B に翻訳する",
+        "tts_enabled": true
+      }
+    ],
+    "1202": [
+      {
+        "relation": "意２",
+        "answer": "批判的",
+        "answer_meaning": "criticize の形容詞",
+        "tts_enabled": false
+      },
+      {
+        "relation": "意２",
+        "answer": "危機的、非常に重要な",
+        "answer_meaning": "crisis の形容詞",
+        "tts_enabled": false
+      }
+    ],
+    "1231": [
+      {
+        "relation": "名",
+        "answer": "consideration",
+        "answer_meaning": "考慮、配慮",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形２",
+        "answer": "considerate",
+        "answer_meaning": "思いやりのある",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形２",
+        "answer": "considerable",
+        "answer_meaning": "かなりの",
+        "tts_enabled": true
+      },
+      {
+        "relation": "法２",
+        "answer": "enjoy -ing 型、tell 人 to do 型",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "1275": [
+      {
+        "relation": "意２つとそれぞれの形容詞",
+        "answer": "産業、勤勉　industrial",
+        "answer_meaning": "産業の",
+        "tts_enabled": true
+      },
+      {
+        "relation": "意２つとそれぞれの形容詞",
+        "answer": "industrious",
+        "answer_meaning": "勤勉な = hardworking, diligent",
+        "tts_enabled": true
+      }
+    ],
+    "1453": [
+      {
+        "relation": "意３（名２、他１）plant",
+        "answer": "名 植物、工場　他 植える",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "transplantation",
+        "answer_meaning": "移植",
+        "tts_enabled": true
+      }
+    ],
+    "1555": [
+      {
+        "relation": "名",
+        "answer": "detection",
+        "answer_meaning": "発見、検出、探知",
+        "tts_enabled": true
+      }
+    ],
+    "570": [
+      {
+        "relation": "意２～３",
+        "answer": "程度、学位、度",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "628": [
+      {
+        "relation": "名",
+        "answer": "necessity",
+        "answer_meaning": "必要（性）、必需品",
+        "tts_enabled": true
+      },
+      {
+        "relation": "法２",
+        "answer": "人を主語に取らない",
+        "answer_meaning": "You are necessary to study. ×",
+        "tts_enabled": false
+      },
+      {
+        "relation": "法２",
+        "answer": "要求提案型(that節中は should または原形）",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　not always =",
+        "answer": "not necessarily",
+        "answer_meaning": "必ずしも～とは限らない（部分否定）",
+        "tts_enabled": true
+      }
+    ],
+    "843": [
+      {
+        "relation": "意６～７（名６～７，形１）",
+        "answer": "名 主題、話題、主語、科目、患者、被験者、臣民　形 かかりやすい、影響を受ける",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　価格は変更されることがある。",
+        "answer": "Prices are subject to change.",
+        "answer_meaning": "to は前置詞で change は名詞",
+        "tts_enabled": false
+      }
+    ],
+    "1083": [
+      {
+        "relation": "法",
+        "answer": "不可算名詞",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　部屋にホワイトボードを備えつける",
+        "answer": "furnish the room with a white board",
+        "answer_meaning": "fill A with B 型",
+        "tts_enabled": false
+      }
+    ],
+    "1200": [
+      {
+        "relation": "名２",
+        "answer": "criticism",
+        "answer_meaning": "非難、批評、批判",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名２",
+        "answer": "critic",
+        "answer_meaning": "批評家",
+        "tts_enabled": true
+      }
+    ],
+    "1476": [
+      {
+        "relation": "意２（他１，名１）",
+        "answer": "他 導く　名 行い",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "意 abduct",
+        "answer": "abduct",
+        "answer_meaning": "誘拐する「ab アブノーマルな方へ　duct 導く」",
+        "tts_enabled": true
+      }
+    ],
+    "1636": [
+      {
+        "relation": "名３",
+        "answer": "composition",
+        "answer_meaning": "構成、創作、作曲、作文、性質",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名３",
+        "answer": "component",
+        "answer_meaning": "構成要素 = ingredient",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名３",
+        "answer": "composure",
+        "answer_meaning": "落ち着き「心がバラバラになっていないで、組み立てられていること」",
+        "tts_enabled": true
+      }
+    ],
+    "1673": [
+      {
+        "relation": "名",
+        "answer": "transformation",
+        "answer_meaning": "変形、変態",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ２　あなたの夢を現実に変える",
+        "answer": "transform your dream into reality",
+        "answer_meaning": "turn your dream into reality　transform(/turn) A into B　A を B に変える",
+        "tts_enabled": false
+      }
+    ],
+    "2129": [
+      {
+        "relation": "意 cough",
+        "answer": "cough",
+        "answer_meaning": "せき（をする）「コフコフという音から」",
+        "tts_enabled": true
+      }
+    ]
+  }
+}
