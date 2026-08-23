@@ -30,6 +30,11 @@ WORDS = ROOT / 'assets' / 'content' / 'words.json'
 REPORT = HERE / 'verify_0820_report.txt'
 
 POS = r'[他自名形副動前接]'
+# One or more POS markers joined by '・', optionally with a (2)/2 marker:
+# 他 / 他・名 / 自(２) / 名２ …
+POS_GROUP = (r'[（(]?' + POS + r'[）)]?'
+             r'(?:\s*・\s*[（(]?' + POS + r'[）)]?)*'
+             r'\s*[（(]?\s*[０-９0-9]?\s*[）)]?')
 ARROW_JUNK = re.compile(r'[↱↳↲⇨→]')
 # 「(from) をトル」「(in), (on) をカット」「(to) を取る」 — delete verb at the end.
 STRIP_TAIL_RE = re.compile(
@@ -110,8 +115,11 @@ def main() -> None:
             if a.startswith(('トル', 'カット')) and hw_line and b == hw_line:
                 counts['UI_RULE'] += 1
                 continue
-            # 「POS ⇨ POS <meaning>」 is the same rule seen from the other side.
-            if re.fullmatch(POS + r'[２2３3]?', b_raw.strip()) \
+            # 「POS ⇨ POS <meaning>」 is the same rule seen from the other side:
+            # the client is asking for the headword's meaning to be shown next
+            # to the POS badge. Compound POS such as 他・名 count too
+            # (0380 respect: 他・名 ⇨ 他・名 尊敬する、点).
+            if re.fullmatch(POS_GROUP, b_raw.strip()) \
                     and re.match(r'^' + POS, a_raw.strip()) \
                     and len(a_raw.strip()) > 2:
                 counts['UI_RULE'] += 1

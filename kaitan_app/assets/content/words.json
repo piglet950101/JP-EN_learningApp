@@ -6158,13 +6158,14 @@
       "vol": 1,
       "block": 4,
       "word": "refer",
-      "pos_raw": "自(２)",
+      "pos_raw": "自2",
       "pos_list": [
         "自"
       ],
-      "meaning_mode": "single",
+      "meaning_mode": "both_required",
       "meanings": [
-        "参照する、言及する（to）"
+        "参照する",
+        "言及する"
       ],
       "mnemonics": [
         {
@@ -17647,7 +17648,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "捜す(for)"
+        "捜す"
       ],
       "mnemonics": [
         {
@@ -42440,13 +42441,15 @@
       "vol": 1,
       "block": 22,
       "word": "living",
-      "pos_raw": "形",
+      "pos_raw": "形・名",
       "pos_list": [
-        "形"
+        "形",
+        "名"
       ],
       "meaning_mode": "single",
       "meanings": [
-        "生きている"
+        "生きている",
+        "生計"
       ],
       "mnemonics": [
         {
@@ -42625,7 +42628,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "気をつけている(of)"
+        "気をつけている"
       ],
       "mnemonics": [
         {
@@ -44393,12 +44396,14 @@
       "vol": 1,
       "block": 23,
       "word": "tame",
-      "pos_raw": "他",
+      "pos_raw": "形・他",
       "pos_list": [
+        "形",
         "他"
       ],
       "meaning_mode": "single",
       "meanings": [
+        "飼いならされた",
         "飼いならす"
       ],
       "mnemonics": [
@@ -51099,13 +51104,15 @@
       "vol": 2,
       "block": 27,
       "word": "revenge",
-      "pos_raw": "他",
+      "pos_raw": "他・名",
       "pos_list": [
-        "他"
+        "他",
+        "名"
       ],
       "meaning_mode": "single",
       "meanings": [
-        "復讐する"
+        "復讐する",
+        "復習"
       ],
       "mnemonics": [
         {
@@ -65752,7 +65759,7 @@
       "meaning_mode": "single",
       "meanings": [
         "する気にさせる",
-        "処分する(of)"
+        "処分する"
       ],
       "mnemonics": [
         {
@@ -76054,7 +76061,7 @@
       "meaning_mode": "single",
       "meanings": [
         "範囲",
-        "及ぶ(from A to B)"
+        "及ぶ"
       ],
       "mnemonics": [
         {

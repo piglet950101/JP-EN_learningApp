@@ -29,7 +29,7 @@ def main() -> None:
                 f'id={wid} word mismatch: json={w["word"]} vs override={spec["word"]}')
             continue
         field = spec['field']
-        if field == 'pos':
+        if field in ('pos', 'both'):
             new_pos = spec['new_pos_raw']
             w['pos_raw'] = new_pos
             # Rebuild pos_list from the raw POS. Uses the same normalization
@@ -39,8 +39,19 @@ def main() -> None:
             base = base.replace('（2', '').replace('(2', '')
             parts = [p.strip() for p in base.split('・') if p.strip()]
             w['pos_list'] = parts
-            applied += 1
-        elif field == 'meanings':
+            # meaning_mode is derived from the POS marker, so it must be
+            # recomputed — 0146 refer goes 自(２) -> 自２, i.e. from "either
+            # meaning is acceptable" to "both meanings required".
+            if '(2)' in new_pos or '（2）' in new_pos or '（２）' in new_pos:
+                w['meaning_mode'] = 'either_ok'
+            elif new_pos.rstrip().endswith(('2', '２')):
+                w['meaning_mode'] = 'both_required'
+            else:
+                w['meaning_mode'] = 'single'
+            if field == 'pos':
+                applied += 1
+                continue
+        if field in ('meanings', 'both'):
             # Full replacement of the meaning list. Used by the 2026-08-19
             # review, where instructions like 「自　控える(from) ⇨ (from) をトル」
             # ask for a trailing preposition to be dropped from the headword's
@@ -55,7 +66,8 @@ def main() -> None:
                 continue
             w['meanings'] = [str(m) for m in new_meanings]
             applied += 1
-        else:
+            continue
+        if field not in ('pos', 'meanings', 'both'):
             warnings.append(f'id={wid} unsupported field: {field}')
 
     WORDS.write_text(json.dumps(doc, ensure_ascii=False, indent=2), encoding='utf-8')

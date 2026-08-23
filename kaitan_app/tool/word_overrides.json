@@ -265,6 +265,72 @@
       "new_meanings": [
         "くよくよ考える"
       ]
+    },
+    "146": {
+      "word": "refer",
+      "field": "both",
+      "new_pos_raw": "自2",
+      "new_meanings": [
+        "参照する",
+        "言及する"
+      ]
+    },
+    "1049": {
+      "word": "living",
+      "field": "both",
+      "new_pos_raw": "形・名",
+      "new_meanings": [
+        "生きている",
+        "生計"
+      ]
+    },
+    "1098": {
+      "word": "tame",
+      "field": "both",
+      "new_pos_raw": "形・他",
+      "new_meanings": [
+        "飼いならされた",
+        "飼いならす"
+      ]
+    },
+    "1269": {
+      "word": "revenge",
+      "field": "both",
+      "new_pos_raw": "他・名",
+      "new_meanings": [
+        "復讐する",
+        "復習"
+      ]
+    },
+    "439": {
+      "word": "search",
+      "field": "meanings",
+      "new_meanings": [
+        "捜す"
+      ]
+    },
+    "1054": {
+      "word": "beware",
+      "field": "meanings",
+      "new_meanings": [
+        "気をつけている"
+      ]
+    },
+    "1642": {
+      "word": "dispose",
+      "field": "meanings",
+      "new_meanings": [
+        "する気にさせる",
+        "処分する"
+      ]
+    },
+    "1906": {
+      "word": "range",
+      "field": "meanings",
+      "new_meanings": [
+        "範囲",
+        "及ぶ"
+      ]
     }
   }
 }
