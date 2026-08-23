@@ -367,6 +367,15 @@
         "ある（何かわからないもの）"
       ],
       "note": "Client narrowed the headword line to the 形 sense (docx 8.20)."
+    },
+    "2074": {
+      "word": "digest",
+      "field": "both",
+      "new_pos_raw": "他・名",
+      "new_meanings": [
+        "消化する",
+        "要約"
+      ]
     }
   }
 }

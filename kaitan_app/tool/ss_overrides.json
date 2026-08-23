@@ -1148,9 +1148,15 @@
         "tts_enabled": false
       },
       {
-        "relation": "他他の語法２",
-        "answer": "advise　tell 人 to do型、要求提案型（that 節中は should または原形）",
+        "relation": "他",
+        "answer": "advise",
         "answer_meaning": "忠告する",
+        "tts_enabled": true
+      },
+      {
+        "relation": "他 の語法２",
+        "answer": "tell 人 to do 型、要求提案型（that 節中は should または原形）",
+        "answer_meaning": null,
         "tts_enabled": false
       }
     ],
@@ -1214,9 +1220,21 @@
     "1174": [
       {
         "relation": "セ３　彼らに仕事を提供する",
-        "answer": "fill A with B型、buy A for B型、give A to B 型",
-        "answer_meaning": null,
-        "tts_enabled": false
+        "answer": "provide them with jobs",
+        "answer_meaning": "fill A with B型",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ３　彼らに仕事を提供する",
+        "answer": "provide jobs for them",
+        "answer_meaning": "buy A for B型",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ３　彼らに仕事を提供する",
+        "answer": "provide jobs to them",
+        "answer_meaning": "give A to B型",
+        "tts_enabled": true
       }
     ],
     "1176": [
@@ -1480,6 +1498,12 @@
         "answer": "image",
         "answer_meaning": "像、生き写し",
         "tts_enabled": true
+      },
+      {
+        "relation": "意３ life（人生、一生、命、生活以外）",
+        "answer": "実物、生物、中心人物",
+        "answer_meaning": null,
+        "tts_enabled": false
       }
     ],
     "1341": [],
@@ -1750,7 +1774,7 @@
       {
         "relation": "意 odor",
         "answer": "odor",
-        "answer_meaning": "意 odor",
+        "answer_meaning": "におい「オドイーター、デオドラント」",
         "tts_enabled": true
       },
       {
@@ -1867,7 +1891,7 @@
     "1870": [
       {
         "relation": "法２",
-        "answer": "要求提案型（that節中は should または原形）",
+        "answer": "decide to do型、要求提案型（that節中は should または原形）",
         "answer_meaning": null,
         "tts_enabled": false
       }
@@ -2004,8 +2028,8 @@
     "2070": [],
     "2094": [
       {
-        "relation": "意２形",
-        "answer": "情熱、熱中しているもの、キリストの受難",
+        "relation": "意２～３",
+        "answer": "情熱、熱中しているもの",
         "answer_meaning": "パッションフルーツはキリストの磔をイメージした",
         "tts_enabled": false
       }
@@ -2114,7 +2138,7 @@
     "2174": [
       {
         "relation": "意２（名１，他１）",
-        "answer": "門番・案内する",
+        "answer": "名 門番　他 案内する",
         "answer_meaning": null,
         "tts_enabled": false
       }
@@ -2431,7 +2455,7 @@
       {
         "relation": "意 copper",
         "answer": "copper",
-        "answer_meaning": "意 copper銅「Cuは銅が採れたCyprus（キプロス島）の",
+        "answer_meaning": "銅「Cu は銅が採れた Cyprus（キプロス島）のラテン語 cuprum から」",
         "tts_enabled": true
       }
     ],
@@ -2444,7 +2468,7 @@
       },
       {
         "relation": "法２～３",
-        "answer": "tell 人 to do 型、talk 人 into -ing 型、remind A of B 型（古）",
+        "answer": "tell 人 to do 型、talk 人 into -ing 型",
         "answer_meaning": null,
         "tts_enabled": false
       },
@@ -2471,7 +2495,7 @@
     ],
     "2058": [
       {
-        "relation": "意３以上",
+        "relation": "意３",
         "answer": "記事、品物、項目、冠詞",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2479,7 +2503,7 @@
       {
         "relation": "意 articulate",
         "answer": "articulate",
-        "answer_meaning": "はっきり述べる３",
+        "answer_meaning": "はっきり述べる",
         "tts_enabled": true
       }
     ],
@@ -2890,6 +2914,128 @@
         "relation": "名３",
         "answer": "composure",
         "answer_meaning": "落ち着き「心がバラバラになっていないで、組み立てられていること」",
+        "tts_enabled": true
+      }
+    ],
+    "1822": [
+      {
+        "relation": "類",
+        "answer": "assent, agree",
+        "answer_meaning": "assent は非常にフォーマル　agree は一般的　consent はフォーマル",
+        "tts_enabled": true
+      }
+    ],
+    "2196": [
+      {
+        "relation": "意３（名２，他１）",
+        "answer": "名 分け前、株　他 共有する",
+        "answer_meaning": "株は stock を分けた個々のもの",
+        "tts_enabled": false
+      },
+      {
+        "relation": "意３（名２，他１） stock",
+        "answer": "名 在庫品、株　他 貯蔵する",
+        "answer_meaning": "株は会社が発行した全部の株",
+        "tts_enabled": false
+      }
+    ],
+    "1687": [
+      {
+        "relation": "意３～４",
+        "answer": "請求書、法案、紙幣、くちばし（扁平な）",
+        "answer_meaning": "ビーカーのようにとがったくちばしは beak",
+        "tts_enabled": false
+      }
+    ],
+    "1817": [
+      {
+        "relation": "セ　結局健康の問題になる",
+        "answer": "result in health problems",
+        "answer_meaning": "result in は左 ⇨ 右、result from は左 ⇦ 右　Eating too much sugar can result in health problems. = Health problems can result from eating too much sugar.",
+        "tts_enabled": false
+      }
+    ],
+    "1979": [
+      {
+        "relation": "名",
+        "answer": "irritation",
+        "answer_meaning": "いらだち",
+        "tts_enabled": true
+      },
+      {
+        "relation": "意 irritating",
+        "answer": "irritating",
+        "answer_meaning": "いらいらさせるような",
+        "tts_enabled": true
+      }
+    ],
+    "1989": [
+      {
+        "relation": "名２",
+        "answer": "correspondence",
+        "answer_meaning": "一致、通信、文通",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名２",
+        "answer": "correspondent",
+        "answer_meaning": "名 特派員　形 一致する",
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　その証拠に一致する",
+        "answer": "correspond with the evidence",
+        "answer_meaning": "内容が合うときや文通では with が自然",
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　Bushido はヨーロッパの騎士道に相当する。",
+        "answer": "Bushido corresponds to chivalry in Europe.",
+        "answer_meaning": "相当するときは to が自然",
+        "tts_enabled": false
+      }
+    ],
+    "2010": [
+      {
+        "relation": "意 vet",
+        "answer": "vet",
+        "answer_meaning": "名 獣医",
+        "tts_enabled": true
+      }
+    ],
+    "2078": [
+      {
+        "relation": "意３以上（形２，名１）",
+        "answer": "形 全体の、粗野な、ひどい　名 総計、グロス",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "意 net",
+        "answer": "net",
+        "answer_meaning": "正味、ネット",
+        "tts_enabled": false
+      }
+    ],
+    "2120": [
+      {
+        "relation": "品２",
+        "answer": "前置詞　besides this",
+        "answer_meaning": "= in addition to this",
+        "tts_enabled": false
+      },
+      {
+        "relation": "品２",
+        "answer": "副詞　besides",
+        "answer_meaning": "= in addition",
+        "tts_enabled": false
+      }
+    ],
+    "2172": [
+      {
+        "relation": "意 lark",
+        "answer": "lark",
+        "answer_meaning": "ひばり「スカイラーク」",
         "tts_enabled": true
       }
     ]

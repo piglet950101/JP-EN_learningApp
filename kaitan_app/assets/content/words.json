@@ -82554,13 +82554,15 @@
       "vol": 2,
       "block": 44,
       "word": "digest",
-      "pos_raw": "他",
+      "pos_raw": "他・名",
       "pos_list": [
-        "他"
+        "他",
+        "名"
       ],
       "meaning_mode": "single",
       "meanings": [
-        "消化する"
+        "消化する",
+        "要約"
       ],
       "mnemonics": [
         {

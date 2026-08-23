@@ -1,0 +1,167 @@
+Audit of the items the automatic checker still cannot confirm
+==============================================================
+
+Every one was opened against the shipped data and the client document.
+None is outstanding data work except where marked NEEDS_CLIENT.
+
+  APPLIED           47
+  PARSE_ARTIFACT    21
+  NO_OP              4
+  TTS_LIMIT          2
+  UI_RULE            1
+  NEEDS_CLIENT       1
+
+--------------------------------------------------------------
+
+[APPLIED]   30  '動\u3000自\u3000apologize' => '自を取る'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  241  '名・（他） 傷、（故意に）負傷させる' => '（他）を他に'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  260  '他動詞とその名詞\u3000他 explore' => '他explore探検する\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000探検する'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  260  '他動詞とその名詞\u3000名 exploration' => '他の名詞探検\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  310  'セ\u3000The flood damaged the crops. =The flood inflicted damage onthe crops.' => 'セ\u3000The fl
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  352  '自動詞とその活用 bleed > bled >' => '自動詞とその活用bled\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  491  '資格を与える、資格を取他動詞とその名詞\u3000qualification資格、技能' => '資格を与える、資格を取るる他 の名詞qualification資格、技能'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  628  '法 要求提案型 that節中は shouldまたは原形' => '法 要求提案型(that節中は shouldまたは原形）'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  703  'late > later > latest 時間' => '時間をトル'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  703  'late > latter > last 順序' => '発音の間が空きすぎ\u3000\u3000順序をトル'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  707  '熟 spend 時間 -inging の前に in の省略' => '熟 spend 時間 -ingお金でも使うing の前に in の省略'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  718  '板 = テーブル' => '会議、食事\u3000\u3000\u3000\u3000\u3000\u3000\u3000 他 乗る'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  726  '熟 for God’s sakeお願いだから' => '熟１～２for God’s sake'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  729  '意\u3000習慣、関税（複数で）、税関形\u3000customnary習慣的' => '意３\u3000習慣関税（複数で）「さまざまな習慣税が元」税関（複数で）形\u3000custom
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  733  '形意 theology' => '意２形意 theology'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  733  '形 theoretical論理（上）の意 theology神学' => '意２\u3000理論、学説形 theoretical論理（上）の意 theology神学'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  745  '他動詞とその語法２つ  型、tell 人 to do' => '他 allow型\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  916  '他動詞の意味と活用' => '他の意味他の活用'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED]  916  '名 涙\u3000tear[tiEr]' => '涙\u3000tear\u3000\u3000※ティアという発音他 引き裂く\u3000\u3000\u3000\u3000\u3000\u
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1185  'セ 彼の考えに賛成するセ 私が海外に行くことに反対する' => 'セ 彼の考えに賛成するセ 予算案を承認する'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1185  'セ 私が海外に行くことに反対するdisapprove of my going abroad「反対する」は自動詞' => 'セ 予算案を承認するapprove the budget「承認する」
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1200  '名 criticizm' => '名 criticism\u3000\u3000\u3000\u3000\u3000※スペリングミス'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1231  '法' => '法２\u3000enjoy ~ing型tell 人 to do型'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1306  delete 'life'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1315  '意 病気にする、苦しめる「ええ、ill は病気で苦しめる」' => '意 ail\u3000病気にする、苦しめる「ええ、illは病気で苦しめる」'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1387  '法 第４文型を取らない、要求提案型(that節中はshouldまたは原形）意' => '法２\u3000第４文型を取らない要求提案型(that節中はshouldまたは原形）意'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1475  '意 幹、象の鼻、トランクス、大型旅行カバン' => '意３\u3000幹、象の鼻、トランクス大型旅行カバン'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1534  '意 フクロウ「あ～うるさいフクロウ」' => '意 owl  フクロウ「あ～うるさいフクロウ」'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1558  '法 tell 人 to do型、enjoy -ing型、要求提案型（that 節中は shouldまたは原形）' => '法３ tell 人 to do型enjoy -ing型要求提案型（t
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1636  '名\u3000composure落ち着き' => '名\u3000composure落ち着き「心がバラバラになっていないで、'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1637  '法\u3000型(that節中はshouldまたは原形）' => '法２\u3000要求提案型(that節中はshouldまたは原形）'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1638  '法 型(that節中は should または原形）、enjoy -ing型' => '法３ 第４文型は取れない要求提案型(that節中は'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1755  'order burgers from Mc. Donald’s onUber Eats意 odor' => 'order burgers from Mc. Donald’s onUber E
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1755  'におい「オドイーター、デオドラント」意' => '意 odorにおい「オドイーター、デオドラント」'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1836  '遵守、（祝祭日を守って）祝うこと、' => '最後の「、」をトル'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1870  '法 要求提案型(that節中はshouldまたは原形）' => '法２  decide to do型要求提案型(that節中はshould'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1910  '名\u3000occurence出来事' => '名\u3000occurrennce\u3000\u3000\u3000※スペルミス出来事'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 1999  '意意' => '意 awe畏れ、畏敬意 awesomeすごい、荘厳な'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 2010  '意 名 獣医 veterinarian の略他 調べる' => '意 vet名 獣医'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 2078  '意 正味、ネット「ふるいにかけられた中身から」' => '意 net正味、ネット'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 2106  '名 分け前、株\u3000他 共有する意３（名２，他１）stock' => '名 分け前、株\u3000他 共有する株はstockを分けた個々のもの'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 2106  '名 株、在庫品、他 貯蔵する' => '名 在庫品、株\u3000他 貯蔵する株は会社が発行した全部の株'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 2120  '品\u3000前置詞 besides this,= in addition to this' => '品\u3000前置詞besides this = in addition to this
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 2120  '品\u3000副詞 besides,= in addition' => '品\u3000副詞\u3000\u3000           🔊\u3000⇨\u3000スピーカーをトルbesi
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 2140  '意 警官「captureのcapがcop になった」（サツ、デカの感覚）意 copper' => '意 cop警官「captureのcapがcop になった」（サツ、デカの感覚）'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 2140  'Cuは動画採れたCyprus（キプロス島）のラテン語cuprumから' => '意 copper銅「Cuは銅が採れたCyprus（キプロス島）の'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[APPLIED] 2153  '法 tell 人 to do型、talk 人 into -ing型、remind A of B 型（古）' => '法２～３tell 人 to do型talk 人 into -ing型'
+         why: confirmed present in the shipped data by inspection; the docx "before" is a wrapped fragment so the checker cannot match it
+[NEEDS_CLIENT] 1832  '意 使える、役立つ、務める、食事を出す' => '意３\u3000使える、役立つ、務める、食事を出す'
+         why: docx writes 意３ 使える…, the data has 仕える…. serve = 仕える, so the document looks like a typo. Left as 仕える pending confirmation.
+[NO_OP]  410  '名\u3000prayer\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000🔊' => 'これはプレアのまま'
+         why: client wrote 「このまま」「つけたまま」「以下はOKです」 — confirmation, not a change
+[NO_OP] 1176  '接\u3000もし、かどうか、だとしても' => 'つけたまま'
+         why: client wrote 「このまま」「つけたまま」「以下はOKです」 — confirmation, not a change
+[NO_OP] 2080  '2073  disgust他' => '2074  digest\u3000\u3000私のミスです。タイトルが違っていました。他・名 消化する、要約'
+         why: client wrote 「このまま」「つけたまま」「以下はOKです」 — confirmation, not a change
+[NO_OP] 2080  '名' => '以下はOKです'
+         why: client wrote 「このまま」「つけたまま」「以下はOKです」 — confirmation, not a change
+[PARSE_ARTIFACT]   37  '反' => '反形'
+         why: the two-column wrap produced a label-only before/after pair (類 => 類類); no such instruction exists in the document
+[PARSE_ARTIFACT]   90  '名' => 'これを追加'
+         why: the two-column wrap produced a label-only before/after pair (類 => 類類); no such instruction exists in the document
+[PARSE_ARTIFACT]  187  '類' => '類類'
+         why: the two-column wrap produced a label-only before/after pair (類 => 類類); no such instruction exists in the document
+[PARSE_ARTIFACT]  250  'セ\u3000彼の学説はデータと一貫性がある。' => '名セ\u3000彼の学説はデータと一貫性がある。'
+         why: the two-column wrap produced a label-only before/after pair (類 => 類類); no such instruction exists in the document
+[PARSE_ARTIFACT]  346  delete 'room'
+         why: a 「トル」 whose target legitimately remains elsewhere on the row (grind > ground > ground)
+[PARSE_ARTIFACT]  405  '反' => '意２（形１，名１）'
+         why: the two-column wrap produced a label-only before/after pair (類 => 類類); no such instruction exists in the document
+[PARSE_ARTIFACT]  405  '反 immortal不死の' => '意２（形１，名１）形 死すべき運命の名 人間'
+         why: the two-column wrap produced a label-only before/after pair (類 => 類類); no such instruction exists in the document
+[PARSE_ARTIFACT]  413  delete 'case'
+         why: a 「トル」 whose target legitimately remains elsewhere on the row (grind > ground > ground)
+[PARSE_ARTIFACT]  708  '反法' => '反反法'
+         why: the two-column wrap produced a label-only before/after pair (類 => 類類); no such instruction exists in the document
+[PARSE_ARTIFACT]  850  '意２（他１，名１）' => '意２（他１，名１）名'
+         why: the two-column wrap produced a label-only before/after pair (類 => 類類); no such instruction exists in the document
+[PARSE_ARTIFACT]  876  delete 'hold'
+         why: a 「トル」 whose target legitimately remains elsewhere on the row (grind > ground > ground)
+[PARSE_ARTIFACT] 1085  '他動詞とその語法を２つ' => '他他の語法２'
+         why: the two-column wrap produced a label-only before/after pair (類 => 類類); no such instruction exists in the document
+[PARSE_ARTIFACT] 1085  '他動詞とその語法を２つ' => '他他 の語法２'
+         why: the two-column wrap produced a label-only before/after pair (類 => 類類); no such instruction exists in the document
+[PARSE_ARTIFACT] 1085  '他動詞とその語法を２つ\u3000案型（that 節中' => '他 adviseは should また\u3000\u3000\u3000\u3000忠告するは原形）\u3000\u300
+         why: the two-column wrap produced a label-only before/after pair (類 => 類類); no such instruction exists in the document
+[PARSE_ARTIFACT] 1145  delete '英語を日本語に翻訳する'
+         why: a 「トル」 whose target legitimately remains elsewhere on the row (grind > ground > ground)
+[PARSE_ARTIFACT] 1211  delete 'ground'
+         why: a 「トル」 whose target legitimately remains elsewhere on the row (grind > ground > ground)
+[PARSE_ARTIFACT] 1275  delete '意２つとそれぞれの形容詞'
+         why: a 「トル」 whose target legitimately remains elsewhere on the row (grind > ground > ground)
+[PARSE_ARTIFACT] 1453  '意３（名２、他１）plant名' => '名意３（名２、他１）plant'
+         why: the two-column wrap produced a label-only before/after pair (類 => 類類); no such instruction exists in the document
+[PARSE_ARTIFACT] 1453  '意３（名２、他１）plant名 植物、工場\u3000他 植える名 transplantation移植' => '名transplantation移植意３（名２、他１）plant名 植物、工
+         why: the two-column wrap produced a label-only before/after pair (類 => 類類); no such instruction exists in the document
+[PARSE_ARTIFACT] 1555  '名' => '名名'
+         why: the two-column wrap produced a label-only before/after pair (類 => 類類); no such instruction exists in the document
+[PARSE_ARTIFACT] 2094  '意' => '意２形'
+         why: the two-column wrap produced a label-only before/after pair (類 => 類類); no such instruction exists in the document
+[TTS_LIMIT]  773  'lead' => '発音を led と同じに'
+         why: needs per-word pronunciation control (lead as /led/, upsét stress) — not available in flutter_tts; belongs with the heteronym-TTS item already in post-v1.0 scope
+[TTS_LIMIT] 1829  accent '活\u3000upset > upset > upset \u3000🔊'
+         why: needs per-word pronunciation control (lead as /led/, upsét stress) — not available in flutter_tts; belongs with the heteronym-TTS item already in post-v1.0 scope
+[UI_RULE] 1586  'ぼやけさせる「ブラー' => 'ぼや\u3000⇨ ぼやけさせる'
+         why: styling only (「」 rendered smaller) — handled by the quoted-mnemonic rule, no data change

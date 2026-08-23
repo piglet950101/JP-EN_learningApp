@@ -125,6 +125,21 @@ def main() -> None:
                 out.append(norm(sep.join(hw['meanings'])))
         return [f for f in out if f]
 
+    def same_row(b: str, a: str, wid: int) -> bool:
+        """Do the before- and after-texts both sit on ONE row?
+
+        Several instructions name a row by its label and give the content that
+        should appear on it — 「セ 彼の成功を運がよかったおかげとする ⇨
+        attribute A to B  A を B のせいにする」. Once applied, the row carries
+        both, so testing them separately reports the before-state as still
+        present and the work as outstanding.
+        """
+        for e in by_word.get(wid, []):
+            row = norm(f"{e['relation']}{e['answer']}{e['answer_meaning'] or ''}")
+            if b and a and b in row and a in row:
+                return True
+        return False
+
     def present(needle: str, vals: list[str]) -> bool:
         """Is this text present in the word's data?
 
@@ -236,7 +251,8 @@ def main() -> None:
             # 不透明」). The before-string is then a substring of the intended
             # after-string, so it necessarily still appears in correct data.
             # Requiring its absence marks finished work as outstanding.
-            if after_present and (not before_present or b in a_clean):
+            if after_present and (not before_present or b in a_clean
+                                  or same_row(b, a_clean, wid)):
                 counts['SATISFIED'] += 1
             elif before_present:
                 counts['PENDING'] += 1
