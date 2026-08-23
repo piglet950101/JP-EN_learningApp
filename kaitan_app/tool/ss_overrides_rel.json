@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "source": "アプリ直し Second Stage 8. 20.docx — relation renames",
+  "overrides": {
+    "663": [
+      {
+        "relation": "名",
+        "answer": "synthesis",
+        "answer_meaning": "統合、合成",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名 の複数形",
+        "answer": "syntheses",
+        "answer_meaning": "オアシス型",
+        "tts_enabled": true
+      }
+    ],
+    "1086": [
+      {
+        "relation": "他",
+        "answer": "devise",
+        "answer_meaning": "発明する、工夫する",
+        "tts_enabled": true
+      }
+    ]
+  }
+}

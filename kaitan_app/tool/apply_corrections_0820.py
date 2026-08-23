@@ -74,6 +74,47 @@ def clean_after(s: str) -> str:
     return out.strip(' 　、,')
 
 
+# Relation codes that can begin a NEW sibling entry when they appear in an
+# added tail (「… + 形 illiterate」).
+_CODES = ('同音', '類', '反', '前', '熟', '活', '品', '法', '複', 'セ', '意',
+          '名', '形', '副', '動')
+
+
+def _starts_with_code(s: str) -> bool:
+    t = s.strip()
+    return any(t.startswith(c) for c in _CODES)
+
+
+def _joined_raw(e: dict) -> str:
+    return norm(f"{e['relation']}{e['answer']}{e['answer_meaning'] or ''}")
+
+
+def _match_joined(entries: list[dict], b: str):
+    """Find the entry whose relation+answer+meaning, run together, equals or
+    prefixes the client's row. Returns (entry, joined) or (None, '')."""
+    if not b:
+        return None, ''
+    best = None
+    for e in entries:
+        j = _joined_raw(e)
+        if not j:
+            continue
+        if j == b or b.startswith(j) or j.startswith(b):
+            # Prefer the longest overlap so a short entry does not win over
+            # the one the row is really describing.
+            if best is None or len(_joined_raw(best)) < len(j):
+                best = e
+    return (best, _joined_raw(best)) if best else (None, '')
+
+
+def _trim_to(val: str, keep_normalized: int) -> str:
+    """Trim `val` so its normalized form is `keep_normalized` chars long."""
+    out = val
+    while out and len(norm(out)) > keep_normalized:
+        out = out[:-1]
+    return out.rstrip(' 　、,')
+
+
 def is_delete(after_raw: str) -> bool:
     # The client uses both 「トル」 and 「カット」 for "remove this".
     a = norm(after_raw)
@@ -97,7 +138,7 @@ def main() -> None:
     overrides: dict[str, list[dict]] = {}
     unresolved: list[str] = []
     stats = {'delete': 0, 'relation': 0, 'relation_prefix': 0, 'answer': 0,
-             'meaning': 0, 'accent': 0, 'strip': 0, 'tts': 0, 'already': 0,
+             'meaning': 0, 'accent': 0, 'strip': 0, 'tts': 0, 'extend': 0, 'shrink': 0, 'already': 0,
              'skipped_style': 0, 'unresolved': 0}
 
     for wid in sorted(changes_by_word):
@@ -199,7 +240,10 @@ def main() -> None:
                 token = norm(m_strip.group(1))
                 hit = False
                 for e in entries:
-                    for fld in ('answer', 'answer_meaning', 'relation'):
+                    # 'relation' deliberately excluded: it identifies the
+                    # entry, and stripping it to '' orphans the row.
+                    # 0030 apology lost its 自 that way.
+                    for fld in ('answer', 'answer_meaning'):
                         val = e[fld] or ''
                         if token and token in norm(val):
                             # Remove the token, tidy the leftover spacing.
@@ -217,6 +261,61 @@ def main() -> None:
                         f'{wid}: STRIP target not found -> {b_raw!r} => {a_raw[:50]!r}')
                     stats['unresolved'] += 1
                 continue
+
+            # --- concatenated-row extend / shrink -------------------------
+            # Once wrapped rows are rejoined, a row often reads as one entry's
+            # fields run together:
+            #     反 literacy 読み書きできること
+            # and the "after" is the same text plus or minus a tail. That is
+            # an ADD or a TRIM of a specific field rather than a replacement.
+            ent, joined = _match_joined(entries, b)
+            if ent is not None and a != b:
+                if a.startswith(b):
+                    tail = a_clean[len(_joined_raw(ent)):].strip() \
+                        if a_clean.startswith(_joined_raw(ent)) else ''
+                    if not tail:
+                        tail = a_clean[len(b):].strip() if len(a_clean) > len(b) else ''
+                    if tail:
+                        if _starts_with_code(tail):
+                            # A new sibling entry, e.g. 「+ 形 illiterate」.
+                            parts = tail.split(None, 1)
+                            entries.append({
+                                'id': 0,
+                                'word_id': wid,
+                                'block': ent['block'],
+                                'relation': parts[0],
+                                'base_category': None,
+                                'answer': parts[1] if len(parts) > 1 else '',
+                                'answer_meaning': None,
+                                'tts_enabled': True,
+                                'notes': None,
+                            })
+                        elif (ent['answer_meaning'] or '').strip():
+                            ent['answer_meaning'] = \
+                                (ent['answer_meaning'] or '') + tail
+                        else:
+                            ent['answer_meaning'] = tail
+                        stats['extend'] += 1
+                        touched = True
+                        continue
+                elif b.startswith(a):
+                    # The tail is being removed. Only trim a field that ENDS
+                    # with it, so a partial word is never left behind.
+                    cut = b[len(a):]
+                    done = False
+                    for fld in ('answer_meaning', 'answer', 'relation'):
+                        val = ent[fld] or ''
+                        if val and norm(val).endswith(cut):
+                            keep = len(norm(val)) - len(cut)
+                            if keep <= 0:
+                                break
+                            ent[fld] = _trim_to(val, keep)
+                            done = True
+                            break
+                    if done:
+                        stats['shrink'] += 1
+                        touched = True
+                        continue
 
             # --- never write an empty value ------------------------------
             # If cleaning stripped the "after" down to nothing, the
@@ -318,14 +417,15 @@ def main() -> None:
     total = sum(stats.values())
     print(f'changes seen          : {total}')
     for k in ('delete', 'relation', 'relation_prefix', 'answer', 'meaning',
-              'accent', 'strip', 'tts'):
+              'accent', 'strip', 'tts', 'extend', 'shrink'):
         print(f'  applied {k:9s}    : {stats[k]}')
     print(f'  already satisfied   : {stats["already"]}')
     print(f'  skipped (styling)   : {stats["skipped_style"]}')
     print(f'  UNRESOLVED          : {stats["unresolved"]}')
     print()
     applied = sum(stats[k] for k in ('delete', 'relation', 'relation_prefix',
-                                     'answer', 'meaning', 'accent', 'strip', 'tts'))
+                                     'answer', 'meaning', 'accent', 'strip', 'tts',
+                                     'extend', 'shrink'))
     print(f'words with overrides  : {len(overrides)}')
     print(f'auto-applied          : {applied} / {total} '
           f'({applied / total * 100:.1f}%)')

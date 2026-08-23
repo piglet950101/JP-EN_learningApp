@@ -7800,7 +7800,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "天才"
+        "天才、才能"
       ],
       "mnemonics": [
         {
@@ -9909,7 +9909,7 @@
       "vol": 1,
       "block": 6,
       "word": "wound",
-      "pos_raw": "名・(他)",
+      "pos_raw": "名・他",
       "pos_list": [
         "名",
         "他"
@@ -11305,7 +11305,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "効果"
+        "効果、結果、趣旨"
       ],
       "mnemonics": [
         {
@@ -47962,15 +47962,13 @@
       "vol": 2,
       "block": 25,
       "word": "some",
-      "pos_raw": "副・形３",
+      "pos_raw": "形",
       "pos_list": [
-        "副",
         "形"
       ],
       "meaning_mode": "single",
       "meanings": [
-        "約",
-        "ある、いくらかの、いくつかの"
+        "ある（何かわからないもの）"
       ],
       "mnemonics": [
         {
@@ -82174,7 +82172,7 @@
       "meaning_mode": "single",
       "meanings": [
         "利益",
-        "得る"
+        "得る、時計が進む"
       ],
       "mnemonics": [
         {

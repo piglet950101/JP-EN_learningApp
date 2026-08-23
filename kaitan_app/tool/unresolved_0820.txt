@@ -170,6 +170,7 @@
 850: no field matches -> '意２（他１，名１）他 断る\u3000名 ごみ' => '意２（他１，名１）他 断る\u3000名 ごみ名 refusal拒否'
 855: no field matches -> '類\u3000bud, shoot芽' => '類１～２bud （葉、花になる）芽shoot（茎、枝になる）芽、撃つ'
 865: no field matches -> '類 rent, let貸す' => '類１～２rent有料で貸す、借りるlet不動産を貸す、～させる'
+870: no Second Stage entries exist for this word
 876: no Second Stage entries exist for this word
 886: DELETE target not found -> '名\u3000縁石'
 913: DELETE target not found -> 'bank土手、銀行'
@@ -343,7 +344,6 @@
 2022: DELETE target not found -> '他（２）述べる、気づく'
 2024: DELETE target not found -> '名・（形）小説、新奇な'
 2036: no field matches -> '自\u3000ためらう(to do)' => '(to do)をトル'
-2058: no field matches -> '意' => '意３'
 2059: no field matches -> '他 強く望む' => '他 強く望むdecide to do型'
 2064: no field matches -> '名・他\u3000利益、得る' => '名・他\u3000利益、得る、時計が進む'
 2070: no Second Stage entries exist for this word

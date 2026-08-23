@@ -331,6 +331,42 @@
         "範囲",
         "及ぶ"
       ]
+    },
+    "187": {
+      "word": "genius",
+      "field": "meanings",
+      "new_meanings": [
+        "天才、才能"
+      ]
+    },
+    "274": {
+      "word": "effect",
+      "field": "meanings",
+      "new_meanings": [
+        "効果、結果、趣旨"
+      ]
+    },
+    "241": {
+      "word": "wound",
+      "field": "pos",
+      "new_pos_raw": "名・他"
+    },
+    "2064": {
+      "word": "gain",
+      "field": "meanings",
+      "new_meanings": [
+        "利益",
+        "得る、時計が進む"
+      ]
+    },
+    "1190": {
+      "word": "some",
+      "field": "both",
+      "new_pos_raw": "形",
+      "new_meanings": [
+        "ある（何かわからないもの）"
+      ],
+      "note": "Client narrowed the headword line to the 形 sense (docx 8.20)."
     }
   }
 }

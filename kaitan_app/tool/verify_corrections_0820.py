@@ -43,10 +43,25 @@ STYLE_WORDS = ('明朝', 'ゴチ', '太', 'ふつう', '小さい字', '黒', '�
                 '小さく', 'ちいさく', '字を小さく')
 
 
+# Long forms the docx writes in short: it says 類 where the data stores 類義語.
+LONG_TO_SHORT = [('類義語', '類'), ('反意語', '反'), ('名詞', '名'),
+                 ('形容詞', '形'), ('副詞', '副'), ('他動詞', '他'),
+                 ('自動詞', '自'), ('動詞', '動')]
+
+
 def norm(s: str | None) -> str:
     if not s:
         return ''
     return re.sub(r'\s+', '', unicodedata.normalize('NFKC', s))
+
+
+def canon(s: str | None) -> str:
+    """Normalized, with a LEADING long-form label shortened to the docx's form."""
+    n = norm(s)
+    for long, short in LONG_TO_SHORT:
+        if n.startswith(long):
+            return short + n[len(long):]
+    return n
 
 
 def main() -> None:
@@ -71,11 +86,22 @@ def main() -> None:
         for e in by_word.get(wid, []):
             out += [norm(e['relation']), norm(e['answer']),
                     norm(e['answer_meaning'])]
+            # The docx describes a row as the client SEES it — the label, the
+            # English and the Japanese run together on one visual line. Many
+            # instructions therefore match no single field, only the whole row,
+            # so compare against that too (in both the stored and abbreviated
+            # spellings of the label).
+            row = f"{e['relation']}{e['answer']}{e['answer_meaning'] or ''}"
+            out += [norm(row), canon(row)]
         hw = words.get(wid)
         if hw:
             out.append(norm(hw['pos_raw']))
             out += [norm(m) for m in hw['meanings']]
-            out.append(norm(hw['pos_raw'] + ''.join(hw['meanings'])))
+            # Meanings are stored as a list; the docx writes them as one line,
+            # sometimes comma-separated (他・名 疑う、疑い) and sometimes not.
+            for sep in ('', '、'):
+                out.append(norm(hw['pos_raw'] + sep.join(hw['meanings'])))
+                out.append(norm(sep.join(hw['meanings'])))
         return [f for f in out if f]
 
     def present(needle: str, vals: list[str]) -> bool:
@@ -99,7 +125,8 @@ def main() -> None:
         wid = r['word_id']
         hw = words.get(wid)
         vals = fields(wid)
-        hw_line = norm(hw['pos_raw'] + ''.join(hw['meanings'])) if hw else ''
+        hw_lines = {norm(hw['pos_raw'] + sep.join(hw['meanings']))
+                    for sep in ('', '、')} if hw else set()
 
         for ch in r['changes']:
             b_raw, a_raw = ch['before'], ch['after']
@@ -112,7 +139,10 @@ def main() -> None:
                 counts['UI_RULE'] += 1
                 continue
             # 「headword POS + meaning ⇨ トル」 is the hide-headword-line rule.
-            if a.startswith(('トル', 'カット')) and hw_line and b == hw_line:
+            if a.startswith(('トル', 'カット')) and (
+                    b in hw_lines
+                    or (re.match(r'^' + POS_GROUP, b_raw.strip())
+                        and not re.search(r'[A-Za-z]', b_raw))):
                 counts['UI_RULE'] += 1
                 continue
             # 「POS ⇨ POS <meaning>」 is the same rule seen from the other side:
@@ -161,7 +191,11 @@ def main() -> None:
                 continue
 
             after_present = present(a_clean, vals)
-            if after_present and not before_present:
+            # Many edits EXTEND the original text (不透明な ⇨ 不透明な「OPECは
+            # 不透明」). The before-string is then a substring of the intended
+            # after-string, so it necessarily still appears in correct data.
+            # Requiring its absence marks finished work as outstanding.
+            if after_present and (not before_present or b in a_clean):
                 counts['SATISFIED'] += 1
             elif before_present:
                 counts['PENDING'] += 1

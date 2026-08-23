@@ -109,7 +109,13 @@
       {
         "relation": "類類",
         "answer": "gift",
-        "answer_meaning": "才能「(天からの)贈り物」",
+        "answer_meaning": "才能「（天からの）贈り物」",
+        "tts_enabled": true
+      },
+      {
+        "relation": "類類",
+        "answer": "talent",
+        "answer_meaning": "才能",
         "tts_enabled": true
       }
     ],
@@ -171,7 +177,7 @@
     ],
     "30": [
       {
-        "relation": "",
+        "relation": "自",
         "answer": "apologize (to 人 for 事)",
         "answer_meaning": "謝る",
         "tts_enabled": true
@@ -514,14 +520,14 @@
         "tts_enabled": true
       },
       {
-        "relation": "形容詞とその反対語",
+        "relation": "形",
         "answer": "professional",
-        "answer_meaning": "形 プロの　名 プロ",
+        "answer_meaning": "プロ（の）",
         "tts_enabled": true
       },
       {
-        "relation": "形容詞とその反対語",
-        "answer": "anateur",
+        "relation": "形 の反対語",
+        "answer": "amateur",
         "answer_meaning": "アマチュア（の）",
         "tts_enabled": true
       }
@@ -531,7 +537,7 @@
       {
         "relation": "意２～３",
         "answer": "程度、学位、度",
-        "answer_meaning": null,
+        "answer_meaning": "２～３ 同様",
         "tts_enabled": false
       }
     ],
@@ -734,13 +740,13 @@
     ],
     "663": [
       {
-        "relation": "名詞とその複数形",
+        "relation": "名",
         "answer": "synthesis",
         "answer_meaning": "統合、合成",
         "tts_enabled": true
       },
       {
-        "relation": "名詞とその複数形",
+        "relation": "名 の複数形",
         "answer": "syntheses",
         "answer_meaning": "オアシス型",
         "tts_enabled": true
@@ -815,13 +821,13 @@
       },
       {
         "relation": "活 late（時間）",
-        "answer": "時間をトル",
+        "answer": "late > later > latest",
         "answer_meaning": null,
-        "tts_enabled": false
+        "tts_enabled": true
       },
       {
         "relation": "活 late（順序）",
-        "answer": "発音の間が空きすぎ 順序をトル",
+        "answer": "late > latter > last",
         "answer_meaning": null,
         "tts_enabled": true
       }
@@ -837,9 +843,9 @@
     "718": [
       {
         "relation": "意３～４ board（名２～３，他１）",
-        "answer": "名 板、委員会、下宿の食事",
+        "answer": "名 板、委員会、下宿の食事　他 乗る",
         "answer_meaning": "板 ＝ テーブル → 会議、食事",
-        "tts_enabled": false
+        "tts_enabled": true
       }
     ],
     "726": [
@@ -1263,7 +1269,7 @@
       {
         "relation": "法２　enjoy ~ing型tell 人 to do型",
         "answer": "enjoy -ing 型、tell 人 to do 型",
-        "answer_meaning": null,
+        "answer_meaning": "２",
         "tts_enabled": false
       }
     ],
@@ -1279,7 +1285,7 @@
       {
         "relation": "意２（名１、他１）名 馬具他 動力源に利用する",
         "answer": "馬具・動力源に利用する",
-        "answer_meaning": null,
+        "answer_meaning": "２（名１、他１）",
         "tts_enabled": false
       }
     ],
@@ -1528,8 +1534,8 @@
     ],
     "1668": [
       {
-        "relation": "informal",
-        "answer": "※スペルミス",
+        "relation": "反",
+        "answer": "informal",
         "answer_meaning": "略式の、非公式の",
         "tts_enabled": true
       }
@@ -1722,7 +1728,7 @@
       {
         "relation": "名２",
         "answer": "observance",
-        "answer_meaning": "最後の「、」をトル",
+        "answer_meaning": "遵守、（祝祭日を守って）祝うこと",
         "tts_enabled": true
       }
     ],
@@ -1801,11 +1807,11 @@
         "relation": "活",
         "answer": "occur > occurred > occurred",
         "answer_meaning": "cf. occurring 後ろにアクセントがあるので短母音＋子音扱い",
-        "tts_enabled": false
+        "tts_enabled": true
       },
       {
         "relation": "名",
-        "answer": "occurrennce ※スペルミス",
+        "answer": "occurrence",
         "answer_meaning": "出来事",
         "tts_enabled": true
       }
@@ -1821,13 +1827,13 @@
     ],
     "1954": [
       {
-        "relation": "名詞とその他動詞",
+        "relation": "名",
         "answer": "authority",
         "answer_meaning": "権威、当局",
         "tts_enabled": true
       },
       {
-        "relation": "名詞とその他動詞",
+        "relation": "名　の他動詞",
         "answer": "authorize",
         "answer_meaning": "権威を与える、認定する",
         "tts_enabled": true
@@ -1924,7 +1930,7 @@
       {
         "relation": "複",
         "answer": "phenomena",
-        "answer_meaning": "medium < media 型 スペルミス",
+        "answer_meaning": "medium < media 型",
         "tts_enabled": true
       }
     ],
@@ -1932,7 +1938,7 @@
     "2122": [
       {
         "relation": "名",
-        "answer": "confidence スペルミス",
+        "answer": "confidence",
         "answer_meaning": "自信、信頼（不可算）",
         "tts_enabled": true
       },
@@ -1945,8 +1951,8 @@
       {
         "relation": "セ　成功を確信している",
         "answer": "be confident of success",
-        "answer_meaning": "of＋絶対そうなる的確信(success, victory, winning など)、about＋自分の力への自信(abilities, English skills, yourself)",
-        "tts_enabled": false
+        "answer_meaning": "of＋絶対そうなるという確信(success, victory, winning など)　about＋自分の力への自信(abilities, English skills, yourself など)",
+        "tts_enabled": true
       }
     ],
     "2124": [
@@ -2075,7 +2081,7 @@
       {
         "relation": "意 nun修道女",
         "answer": "nun",
-        "answer_meaning": "修道女",
+        "answer_meaning": "修道女nun",
         "tts_enabled": true
       }
     ],
@@ -2094,7 +2100,7 @@
       },
       {
         "relation": "法",
-        "answer": "目的語に to do を取るdecide ~ing ×",
+        "answer": "目的語に to do を取る　decide ~ing ×",
         "answer_meaning": null,
         "tts_enabled": false
       }
@@ -2108,7 +2114,7 @@
       },
       {
         "relation": "法",
-        "answer": "目的語に to do を取るdecide to do型　determine ~ing ×",
+        "answer": "目的語に to do を取る　decide to do型　determine ~ing ×",
         "answer_meaning": null,
         "tts_enabled": false
       }
@@ -2159,7 +2165,7 @@
       {
         "relation": "セ　最新版the latest edition新しさを強調するときは newest も可",
         "answer": "the latest edition",
-        "answer_meaning": "新しさを強調するときは newest も可",
+        "answer_meaning": "新しさを強調するときは newest も可最新版",
         "tts_enabled": false
       }
     ],
@@ -2351,6 +2357,192 @@
         "answer": "doze",
         "answer_meaning": "居眠り、うとうとする「どうぞ居眠りしてください」",
         "tts_enabled": true
+      }
+    ],
+    "2058": [
+      {
+        "relation": "意３以上",
+        "answer": "記事、品物、項目、冠詞",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "意 articulate",
+        "answer": "articulate",
+        "answer_meaning": "はっきり述べる３",
+        "tts_enabled": true
+      }
+    ],
+    "1560": [
+      {
+        "relation": "意 lapse",
+        "answer": "lapse",
+        "answer_meaning": "軽い誤り、経過、失効、下落　「滑り落ちる」が語源",
+        "tts_enabled": true
+      }
+    ],
+    "1865": [
+      {
+        "relation": "複",
+        "answer": "foci（学術的、専門的）",
+        "answer_meaning": "日常は focuses でよい",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ　リスニング力に焦点をあてる",
+        "answer": "focus on listening comprehension",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "2059": [
+      {
+        "relation": "法",
+        "answer": "要求提案型（that節中は should または原形）",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "意 desire",
+        "answer": "desire",
+        "answer_meaning": "名 欲求、願望　他 強く望む　decide to do型",
+        "tts_enabled": true
+      }
+    ],
+    "181": [
+      {
+        "relation": "類",
+        "answer": "breathe",
+        "answer_meaning": "息をする",
+        "tts_enabled": true
+      },
+      {
+        "relation": "類　の名詞",
+        "answer": "breath",
+        "answer_meaning": "息",
+        "tts_enabled": true
+      }
+    ],
+    "499": [
+      {
+        "relation": "名",
+        "answer": "distraction",
+        "answer_meaning": "注意散漫、気晴らし",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名 の類義語",
+        "answer": "diversion",
+        "answer_meaning": "変更、気晴らし",
+        "tts_enabled": true
+      }
+    ],
+    "658": [
+      {
+        "relation": "名",
+        "answer": "analysis",
+        "answer_meaning": "分析、分析結果",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名 の複数形",
+        "answer": "analyses",
+        "answer_meaning": "オアシス型",
+        "tts_enabled": true
+      }
+    ],
+    "667": [
+      {
+        "relation": "類",
+        "answer": "brute",
+        "answer_meaning": "獣「ブルッとする獣」",
+        "tts_enabled": true
+      },
+      {
+        "relation": "類 の形容詞",
+        "answer": "brutal",
+        "answer_meaning": "獣のような",
+        "tts_enabled": true
+      }
+    ],
+    "715": [
+      {
+        "relation": "名",
+        "answer": "breadth",
+        "answer_meaning": "幅",
+        "tts_enabled": true
+      },
+      {
+        "relation": "他",
+        "answer": "broaden",
+        "answer_meaning": "広げる",
+        "tts_enabled": true
+      },
+      {
+        "relation": "反",
+        "answer": "narrow",
+        "answer_meaning": "狭い「ナロー！と怒る心狭い人」",
+        "tts_enabled": true
+      },
+      {
+        "relation": "類",
+        "answer": "wide",
+        "answer_meaning": "（幅が）広い",
+        "tts_enabled": true
+      },
+      {
+        "relation": "類の名詞",
+        "answer": "width",
+        "answer_meaning": "幅",
+        "tts_enabled": true
+      },
+      {
+        "relation": "類の動詞",
+        "answer": "widen",
+        "answer_meaning": "広げる",
+        "tts_enabled": true
+      }
+    ],
+    "1347": [
+      {
+        "relation": "名　とその意味３つ以上",
+        "answer": "constitution",
+        "answer_meaning": "構成、体格、憲法、体質",
+        "tts_enabled": true
+      }
+    ],
+    "1348": [
+      {
+        "relation": "名　とその意味２つ以上",
+        "answer": "institution",
+        "answer_meaning": "学会、施設、機構、慣習、制度",
+        "tts_enabled": true
+      }
+    ],
+    "1987": [
+      {
+        "relation": "名",
+        "answer": "response",
+        "answer_meaning": "反応、応答",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形",
+        "answer": "responsible",
+        "answer_meaning": "責任のある",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形　の名詞",
+        "answer": "responsibility",
+        "answer_meaning": "責任",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ　そのメールに返信する",
+        "answer": "respond to the email",
+        "answer_meaning": "フォーマルな言い方 = answer the email, reply to the email",
+        "tts_enabled": false
       }
     ]
   }
