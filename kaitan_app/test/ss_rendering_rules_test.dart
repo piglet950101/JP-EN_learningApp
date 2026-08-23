@@ -25,6 +25,7 @@ String breakForReading(String s) {
 }
 
 void main() {
+  _headwordMeaningTests();
   group('POS line-breaking (answer field)', () {
     test('0845 object — 名/自 split onto separate lines', () {
       final out = breakForReading('名 物体、対象、目的（語）　自 反対する');
@@ -81,6 +82,54 @@ void main() {
     test('meanings with no ゴロ are unaffected', () {
       expect(re.hasMatch('読み書きできること'), isFalse);
       expect(re.hasMatch('歓待'), isFalse);
+    });
+  });
+}
+
+// ── Headword-meaning visibility (refined 2026-08-19) ──────────────────
+//
+// A bare 意 / 意２ asks for the HEADWORD's meaning, so showing that meaning
+// under the headword would give the answer away. But 意 <word> asks about a
+// different look-alike word — 2172 lurk carries 意 lark, 0379 respectable
+// carries 意 respectful — and there the headword meaning must stay visible.
+// The original rule hid it whenever any 意 entry existed, blanking it on 12
+// words.
+
+final _meaningCodePrefix =
+    RegExp(r'^意\s*[０-９0-9]*\s*[（(]?\s*[０-９0-9]*\s*[）)]?');
+
+bool shouldHide(List<String> meaningRelations, String headword) {
+  for (final rel in meaningRelations) {
+    final rest = rel.trim().replaceFirst(_meaningCodePrefix, '').trim();
+    if (rest.isEmpty) return true;
+    if (rest.toLowerCase() == headword.trim().toLowerCase()) return true;
+  }
+  return false;
+}
+
+void _headwordMeaningTests() {
+  group('headword meaning visibility', () {
+    test('bare 意 / 意２ hides it (0005 appear)', () {
+      expect(shouldHide(['意'], 'appear'), isTrue);
+      expect(shouldHide(['意２'], 'appear'), isTrue);
+      expect(shouldHide(['意3'], 'appear'), isTrue);
+      expect(shouldHide(['意（2）'], 'appear'), isTrue);
+    });
+
+    test('意 <different word> keeps it visible', () {
+      // These are the exact cases the client flagged on 2026-08-19.
+      expect(shouldHide(['意 lark'], 'lurk'), isFalse);
+      expect(shouldHide(['意 respectful'], 'respectable'), isFalse);
+      expect(shouldHide(['意 decree'], 'discreet'), isFalse);
+    });
+
+    test('意 <headword itself> hides it', () {
+      expect(shouldHide(['意 thread'], 'thread'), isTrue);
+      expect(shouldHide(['意 THREAD'], 'thread'), isTrue);
+    });
+
+    test('no 意 entry at all keeps it visible', () {
+      expect(shouldHide([], 'diversity'), isFalse);
     });
   });
 }

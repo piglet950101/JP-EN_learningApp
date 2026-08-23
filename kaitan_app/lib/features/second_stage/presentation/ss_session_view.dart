@@ -44,7 +44,7 @@ class SsQuestionView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final hideMeaning = _shouldHideHeadwordMeaning(entries);
+    final hideMeaning = _shouldHideHeadwordMeaning(entries, headword);
     final hidePos = _shouldHidePosOnQuestion(entries);
     return Column(
       children: [
@@ -142,7 +142,7 @@ class _SsAnswerViewState extends ConsumerState<SsAnswerView> {
     final headword = widget.headword;
     final entries = widget.entries;
     final session = widget.session;
-    final hideMeaning = _shouldHideHeadwordMeaning(entries);
+    final hideMeaning = _shouldHideHeadwordMeaning(entries, headword);
     return Column(
       children: [
         _SsTopBar(round: session.round, no: headword.id, onRetire: widget.onRetire),
@@ -222,12 +222,27 @@ class _SsAnswerViewState extends ConsumerState<SsAnswerView> {
 
 // ─── Common pieces ────────────────────────────────────────────────────
 
-/// True when at least one SS entry asks the meaning of the headword (relation
-/// starts with `意`). In that case the meaning shown under the headword
-/// would spoil the answer (0005 appear spec 2026-08-04 ④).
-bool _shouldHideHeadwordMeaning(List<SecondStageEntry> entries) {
+/// True when an SS entry asks for the meaning of the HEADWORD ITSELF, in which
+/// case showing that meaning under the headword would give the answer away
+/// (0005 appear — spec 2026-08-04 ④).
+///
+/// Refined 2026-08-19: a bare `意` / `意２` asks about the headword, but
+/// `意 <word>` asks about a *different* look-alike word — e.g. 2172 lurk
+/// carries `意 lark`, and 0379 respectable carries `意 respectful`. The
+/// original rule hid the meaning whenever any 意 entry existed, which wrongly
+/// blanked the headword meaning on 12 words. Only hide when the 意 entry has
+/// no target word, or names the headword itself.
+final RegExp _meaningCodePrefix =
+    RegExp(r'^意\s*[０-９0-9]*\s*[（(]?\s*[０-９0-9]*\s*[）)]?');
+
+bool _shouldHideHeadwordMeaning(
+    List<SecondStageEntry> entries, Word headword) {
   for (final e in entries) {
-    if (e.baseCategory == SsRelationCategory.meaning) return true;
+    if (e.baseCategory != SsRelationCategory.meaning) continue;
+    final rest =
+        e.relation.trim().replaceFirst(_meaningCodePrefix, '').trim();
+    if (rest.isEmpty) return true; // bare 意 / 意２ → asks the headword
+    if (rest.toLowerCase() == headword.word.trim().toLowerCase()) return true;
   }
   return false;
 }
