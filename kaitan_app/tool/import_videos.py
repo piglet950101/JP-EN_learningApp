@@ -26,6 +26,27 @@ WORDS_JSON = Path(__file__).resolve().parents[1] / "assets" / "content" / "words
 URL_RE = re.compile(r"^https?://(?:www\.)?vimeo\.com/(\d+)/([A-Za-z0-9]+)")
 
 
+_ORIENTATION_RATIOS = {"portrait": 9 / 16, "vertical": 9 / 16,
+                       "landscape": 16 / 9, "horizontal": 16 / 9,
+                       "square": 1.0}
+
+
+def _aspect_of(item):
+    """Width-over-height for one source entry, or None if not declared."""
+    raw = item.get("aspect_ratio")
+    if isinstance(raw, (int, float)) and raw > 0:
+        return round(float(raw), 6)
+    if isinstance(raw, str) and ":" in raw:          # "9:16"
+        w, _, h = raw.partition(":")
+        try:
+            if float(h) > 0:
+                return round(float(w) / float(h), 6)
+        except ValueError:
+            pass
+    o = str(item.get("orientation", "")).strip().lower()
+    return _ORIENTATION_RATIOS.get(o)
+
+
 def _vol_of_block(block: int) -> int:
     return 1 if block <= 23 else 2  # 46-block core; medical block (47) has no video
 
@@ -71,6 +92,11 @@ def main() -> None:
             "embed_url": f"https://player.vimeo.com/video/{vimeo_id}?h={vimeo_hash}",
             "share_url": url,
             "duration_sec": item.get("duration_sec"),   # client-supplied estimate, may be null
+            # Shape of the footage. The first 46 videos are genuine 16:9, but
+            # the client shoots vertically as well, so the source may declare
+            # either an explicit ratio or just "portrait"/"landscape". Null
+            # means "unknown" and the app falls back to 16:9.
+            "aspect_ratio": _aspect_of(item),
             "first_word_id": ids[0] if ids else None,
             "last_word_id": ids[-1] if ids else None,
         })

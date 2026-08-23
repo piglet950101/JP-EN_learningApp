@@ -3,10 +3,16 @@
 // Portrait layout: 16:9 player at the top, an info strip, and a shortcut
 // button that jumps into that block's First Stage learning flow.
 //
-// Fullscreen (client 2026-08-15 ②): the client's videos are genuine 16:9
-// landscape, so in portrait they can only ever occupy ~56% of the screen
-// width in height. Tapping 全画面 rotates to landscape and lets the player
-// fill the display, matching the YouTube viewing experience.
+// Fullscreen (client 2026-08-15 ②): a 16:9 video in portrait can only ever
+// occupy ~56% of the screen width in height, so tapping 全画面 rotates to
+// landscape and lets the player fill the display, as YouTube does.
+//
+// Vertical footage is the opposite case. Rotating a 9:16 video to landscape
+// would letterbox it down both sides and make it SMALLER, so for those the
+// fullscreen toggle stays in portrait and simply drops the surrounding
+// chrome. Which one applies is read from the manifest's aspect_ratio
+// (VideoEntry.isPortraitVideo); when the manifest is silent we assume 16:9,
+// the shape of the original 46 videos.
 //
 // Implementation note: fullscreen is a STATE TOGGLE on this same page, not
 // a pushed route. webview_flutter allows only one mounted WebViewWidget per
@@ -101,12 +107,15 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
     _controller = c;
   }
 
-  Future<void> _enterFullscreen() async {
+  Future<void> _enterFullscreen(VideoEntry v) async {
     setState(() => _fullscreen = true);
-    await SystemChrome.setPreferredOrientations(const [
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
+    // Rotate only for landscape footage — see the note at the top of the file.
+    await SystemChrome.setPreferredOrientations(v.isPortraitVideo
+        ? const [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]
+        : const [
+            DeviceOrientation.landscapeLeft,
+            DeviceOrientation.landscapeRight,
+          ]);
     await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   }
 
@@ -157,14 +166,14 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
           );
         }
         _initController(v.embedUrl);
-        return _fullscreen ? _buildFullscreen() : _buildPortrait(v);
+        return _fullscreen ? _buildFullscreen(v) : _buildPortrait(v);
       },
     );
   }
 
   // ── Fullscreen (landscape) ─────────────────────────────────────────
 
-  Widget _buildFullscreen() {
+  Widget _buildFullscreen(VideoEntry v) {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, _) {
@@ -175,10 +184,16 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
         backgroundColor: Colors.black,
         body: Stack(
           children: [
-            Positioned.fill(
-              child: _loadError
-                  ? const _PlayerError()
-                  : WebViewWidget(controller: _controller!),
+            // Fit the player to the footage rather than stretching it: a
+            // 9:16 video on a 9:19.5 phone must keep its shape, with the
+            // black bars top and bottom rather than a distorted image.
+            Center(
+              child: AspectRatio(
+                aspectRatio: v.aspect,
+                child: _loadError
+                    ? const _PlayerError()
+                    : WebViewWidget(controller: _controller!),
+              ),
             ),
             // Exit control — kept small and translucent so it never covers
             // the video content.
@@ -220,9 +235,10 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
         child: Column(
           children: [
             Stack(
+              alignment: Alignment.bottomRight,
               children: [
-                AspectRatio(
-                  aspectRatio: 16 / 9,
+                _PlayerBox(
+                  aspect: v.aspect,
                   child: _loadError
                       ? const _PlayerError()
                       : WebViewWidget(controller: _controller!),
@@ -235,7 +251,7 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
                     color: Colors.black54,
                     shape: const CircleBorder(),
                     child: IconButton(
-                      onPressed: _enterFullscreen,
+                      onPressed: () => _enterFullscreen(v),
                       icon: const Icon(Icons.fullscreen_rounded),
                       color: Colors.white,
                       iconSize: 26,
@@ -249,7 +265,7 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
             // to make the video bigger, so the affordance is spelled out
             // rather than relying on the icon alone.
             InkWell(
-              onTap: _enterFullscreen,
+              onTap: () => _enterFullscreen(v),
               child: Container(
                 width: double.infinity,
                 color: const Color(0xFFE6F4FF),
@@ -257,13 +273,21 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
                     horizontal: 16, vertical: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Icon(Icons.screen_rotation_rounded,
-                        size: 18, color: Color(0xFF2b6cb0)),
-                    SizedBox(width: 8),
+                  children: [
+                    Icon(
+                        v.isPortraitVideo
+                            ? Icons.fullscreen_rounded
+                            : Icons.screen_rotation_rounded,
+                        size: 18,
+                        color: const Color(0xFF2b6cb0)),
+                    const SizedBox(width: 8),
+                    // Promising a rotation that will not happen is worse than
+                    // saying nothing, so the wording follows the footage.
                     Text(
-                      'タップすると全画面（横向き）で大きく見られます',
-                      style: TextStyle(
+                      v.isPortraitVideo
+                          ? 'タップすると全画面で大きく見られます'
+                          : 'タップすると全画面（横向き）で大きく見られます',
+                      style: const TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
                         color: Color(0xFF1A365D),
@@ -298,6 +322,40 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
         ),
       ),
     );
+  }
+}
+
+/// The player, sized to the footage but never so tall that the block's
+/// learning button is pushed off the screen. A 9:16 video at full width would
+/// be about 1.8x the phone's height, so vertical footage is bound by height
+/// and centred, with the leftover width left blank.
+class _PlayerBox extends StatelessWidget {
+  final double aspect;
+  final Widget child;
+  const _PlayerBox({required this.aspect, required this.child});
+
+  /// Share of the screen the player may occupy before it starts crowding out
+  /// the info strip and the 学習を始める button beneath it.
+  static const _maxScreenFraction = 0.62;
+
+  @override
+  Widget build(BuildContext context) {
+    final maxH = MediaQuery.sizeOf(context).height * _maxScreenFraction;
+    return LayoutBuilder(builder: (context, c) {
+      var w = c.maxWidth;
+      var h = w / aspect;
+      if (h > maxH) {
+        h = maxH;
+        w = h * aspect;
+      }
+      return Container(
+        width: double.infinity,
+        height: h,
+        color: Colors.black,
+        alignment: Alignment.center,
+        child: SizedBox(width: w, height: h, child: child),
+      );
+    });
   }
 }
 

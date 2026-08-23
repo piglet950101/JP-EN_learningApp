@@ -44,4 +44,59 @@ void main() {
       expect(v.vol, expectedVol, reason: 'block ${v.block} vol mismatch');
     }
   });
+
+
+  // ── Footage shape (client's vertical videos, due 2026-08-29) ────────
+  //
+  // The player must follow the shape of the footage. Rotating a 9:16 video
+  // into landscape would letterbox it down both sides and make it smaller,
+  // so isPortraitVideo is what decides whether 全画面 rotates the device.
+
+  VideoEntry entryWith(Object? aspect) => VideoEntry.fromJson({
+        'id': 1,
+        'block': 1,
+        'vol': 1,
+        'title': 't',
+        'vimeo_id': '1',
+        'vimeo_hash': 'h',
+        'embed_url': 'https://player.vimeo.com/video/1?h=h',
+        'share_url': 'https://vimeo.com/1/h',
+        'duration_sec': null,
+        'aspect_ratio': aspect,
+        'first_word_id': 1,
+        'last_word_id': 2,
+      });
+
+  test('a manifest without aspect_ratio falls back to 16:9', () {
+    final v = entryWith(null);
+    expect(v.aspectRatio, isNull);
+    expect(v.aspect, closeTo(16 / 9, 1e-9));
+    expect(v.isPortraitVideo, isFalse);
+  });
+
+  test('vertical footage is recognised and never rotated', () {
+    final v = entryWith(9 / 16);
+    expect(v.aspect, closeTo(0.5625, 1e-9));
+    expect(v.isPortraitVideo, isTrue);
+  });
+
+  test('landscape and square footage both stay landscape-mode', () {
+    expect(entryWith(16 / 9).isPortraitVideo, isFalse);
+    expect(entryWith(1.0).isPortraitVideo, isFalse);
+  });
+
+  test('a nonsensical aspect_ratio falls back rather than dividing by zero',
+      () {
+    for (final bad in <Object?>[0, -1.5]) {
+      final v = entryWith(bad);
+      expect(v.aspect, closeTo(16 / 9, 1e-9), reason: 'aspect_ratio=$bad');
+      expect(v.isPortraitVideo, isFalse);
+    }
+  });
+
+  test('every bundled video has a usable aspect', () {
+    for (final v in repo.all) {
+      expect(v.aspect, greaterThan(0), reason: 'block ${v.block}');
+    }
+  });
 }

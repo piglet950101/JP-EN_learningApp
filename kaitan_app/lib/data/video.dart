@@ -21,6 +21,9 @@ class VideoEntry {
   final String embedUrl;    // https://player.vimeo.com/video/{id}?h={hash}
   final String shareUrl;    // https://vimeo.com/{id}/{hash}?...
   final int? durationSec;
+  /// Width over height. Null when the manifest does not say, in which case
+  /// [aspect] falls back to 16:9 — the shape of the original 46 videos.
+  final double? aspectRatio;
   final int? firstWordId;
   final int? lastWordId;
 
@@ -34,6 +37,7 @@ class VideoEntry {
     required this.embedUrl,
     required this.shareUrl,
     required this.durationSec,
+    this.aspectRatio,
     required this.firstWordId,
     required this.lastWordId,
   });
@@ -48,9 +52,21 @@ class VideoEntry {
         embedUrl: j['embed_url'] as String,
         shareUrl: j['share_url'] as String,
         durationSec: j['duration_sec'] as int?,
+        aspectRatio: (j['aspect_ratio'] as num?)?.toDouble(),
         firstWordId: j['first_word_id'] as int?,
         lastWordId: j['last_word_id'] as int?,
       );
+
+  /// Width over height, defaulting to 16:9 when the manifest is silent.
+  double get aspect {
+    final a = aspectRatio;
+    return (a != null && a > 0) ? a : 16 / 9;
+  }
+
+  /// True for footage that is taller than it is wide. Such a video must NOT
+  /// be shown by rotating the device — that would letterbox it on both sides
+  /// and make it smaller, which is the opposite of what fullscreen is for.
+  bool get isPortraitVideo => aspect < 1;
 
   /// Formatted like "約 6:00" if we have a duration, else "".
   String get durationLabel {
