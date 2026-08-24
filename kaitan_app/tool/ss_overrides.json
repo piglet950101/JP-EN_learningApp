@@ -964,7 +964,7 @@
         "relation": "活　と過去形と同音",
         "answer": "lead > led > led",
         "answer_meaning": null,
-        "tts_enabled": true
+        "tts_enabled": false
       },
       {
         "relation": "形",
@@ -976,7 +976,7 @@
         "relation": "セ　性能の改善につながる",
         "answer": "lead to improving performance",
         "answer_meaning": null,
-        "tts_enabled": false
+        "tts_enabled": true
       }
     ],
     "785": [],
@@ -3037,6 +3037,14 @@
         "answer": "lark",
         "answer_meaning": "ひばり「スカイラーク」",
         "tts_enabled": true
+      }
+    ],
+    "1829": [
+      {
+        "relation": "活",
+        "answer": "upset > upset > upset",
+        "answer_meaning": null,
+        "tts_enabled": false
       }
     ]
   }

@@ -551,11 +551,14 @@ class _EntryRow extends StatelessWidget {
                   padding:
                       EdgeInsets.only(top: hideAnswerText ? 0 : 2),
                   child: Text.rich(
-                    _quotedMnemonicSpans(
+                    _mnemonicSpans(
                       _breakForReading(entry.answerMeaning!),
+                      echo: entry.mnemonicEcho,
                       base: TextStyle(
-                        // 明朝（セリフ）・ふつうの太さ — client 2026-08-19.
-                        fontFamily: 'serif',
+                        // ゴチ — the meaning itself keeps the gothic face it
+                        // has always had (client 2026-08-24 ①②). Only part of
+                        // a 「…」 mnemonic turns mincho; see _mnemonicSpans.
+                        fontFamily: 'sans-serif',
                         fontSize: hideAnswerText ? 22 : 15,
                         fontWeight: hideAnswerText
                             ? FontWeight.w800
@@ -601,44 +604,92 @@ class _EntryRow extends StatelessWidget {
     return out.trim();
   }
 
-  /// 「...」-quoted text inside a meaning is a ゴロ (mnemonic), and the client
-  /// wants it visually distinct from the meaning itself.
+  /// Style a meaning line, splitting any 「…」 mnemonic three ways.
   ///
-  /// Client 2026-08-19 refined the 2026-08-12 rule:
-  ///   • the meaning text  → 明朝（serif）, normal weight
-  ///   • the 「...」ゴロ部分 → ゴチ（sans-serif）, bold, one size smaller, black
+  /// Client 2026-08-24 ③, replacing the 08-19 rule. Taking 0007 opaque,
+  /// whose meaning reads 不透明な「OPECは不透明」:
   ///
-  /// [base] already carries the serif/normal styling, so only the quoted runs
-  /// are overridden here.
-  static InlineSpan _quotedMnemonicSpans(String text,
-      {required TextStyle base}) {
-    final re = RegExp(r'「[^」]*」');
-    final quoted = base.copyWith(
-      fontFamily: 'sans-serif',
-      fontWeight: FontWeight.w900,
-      fontSize: (base.fontSize ?? 15) - 2,
-      color: Colors.black,
-    );
+  ///   不透明な   the meaning        → ゴチ, normal   (unchanged from before)
+  ///   OPEC       echoes the English → ゴチ, bold
+  ///   「…は不透明」the rest of the ゴロ → 明朝
+  ///
+  /// The earlier rule had this inverted — it set the whole mnemonic in gothic
+  /// bold and the meaning in mincho, which is why rows with no correction at
+  /// all still changed appearance.
+  ///
+  /// [echo] carries the runs that echo the English word. It has to be
+  /// recorded per entry: the echo is a pun on the sound, and it may be
+  /// written in Latin (OPEC/opaque), katakana (プリーズ/priest) or plain
+  /// kanji (政治/sage), so no rule over the characters can find it.
+  ///
+  /// With no echo recorded the line stays entirely gothic — its appearance
+  /// before any of this. That default matters: not every 「…」 is a ゴロ. Many
+  /// are grammar notes quoting Japanese (「賛成する」は自動詞), and the client
+  /// asked for mincho only inside 意味の覚え方. Leaving an entry unmarked is
+  /// therefore always safe, never a half-applied rule.
+  static final RegExp _quoteRe = RegExp(r'「[^」]*」');
+
+  static InlineSpan _mnemonicSpans(String text,
+      {required TextStyle base, List<String> echo = const []}) {
+    if (echo.isEmpty) return TextSpan(text: text, style: base);
+    final mincho = base.copyWith(fontFamily: 'serif');
+    final echoStyle = base.copyWith(fontWeight: FontWeight.w900);
+
     final children = <InlineSpan>[];
     var cursor = 0;
-    for (final m in re.allMatches(text)) {
-      if (m.start > cursor) {
-        children.add(TextSpan(
-            text: text.substring(cursor, m.start), style: base));
+    for (final q in _quoteRe.allMatches(text)) {
+      if (q.start > cursor) {
+        children.add(
+            TextSpan(text: text.substring(cursor, q.start), style: base));
       }
-      children.add(TextSpan(
-        text: text.substring(m.start, m.end),
-        style: quoted,
-      ));
-      cursor = m.end;
+      children.addAll(_insideQuote(text.substring(q.start, q.end),
+          mincho: mincho, echoStyle: echoStyle, echo: echo));
+      cursor = q.end;
     }
     if (cursor < text.length) {
       children.add(TextSpan(text: text.substring(cursor), style: base));
     }
-    if (children.isEmpty) {
-      return TextSpan(text: text, style: base);
-    }
+    if (children.isEmpty) return TextSpan(text: text, style: base);
     return TextSpan(children: children);
+  }
+
+  /// One 「…」 run: mincho throughout, except the echoing parts.
+  static List<InlineSpan> _insideQuote(String quoted,
+      {required TextStyle mincho,
+      required TextStyle echoStyle,
+      required List<String> echo}) {
+    // Collect the ranges to emphasise, longest first so that a short echo
+    // that happens to be a substring of a longer one cannot split it.
+    final hits = <List<int>>[];
+    final needles = [...echo]..sort((a, b) => b.length.compareTo(a.length));
+    for (final n in needles) {
+      if (n.isEmpty) continue;
+      var from = 0;
+      while (true) {
+        final i = quoted.indexOf(n, from);
+        if (i < 0) break;
+        if (!hits.any((h) => i < h[1] && h[0] < i + n.length)) {
+          hits.add([i, i + n.length]);
+        }
+        from = i + n.length;
+      }
+    }
+    hits.sort((a, b) => a[0].compareTo(b[0]));
+
+    final out = <InlineSpan>[];
+    var cursor = 0;
+    for (final h in hits) {
+      if (h[0] > cursor) {
+        out.add(TextSpan(text: quoted.substring(cursor, h[0]), style: mincho));
+      }
+      out.add(TextSpan(
+          text: quoted.substring(h[0], h[1]), style: echoStyle));
+      cursor = h[1];
+    }
+    if (cursor < quoted.length) {
+      out.add(TextSpan(text: quoted.substring(cursor), style: mincho));
+    }
+    return out;
   }
 
   /// Strip the base code from the front of the relation string, along with

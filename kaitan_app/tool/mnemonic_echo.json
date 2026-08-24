@@ -1,0 +1,606 @@
+{
+  "schema_version": 1,
+  "source": "client 2026-08-24 ③ — the part of a ゴロ that echoes the English",
+  "note": "Absent entries render entirely gothic, i.e. unchanged.",
+  "entries": [
+    {
+      "word_id": 7,
+      "answer": "opaque",
+      "echo": [
+        "OPEC"
+      ]
+    },
+    {
+      "word_id": 85,
+      "answer": "soar",
+      "echo": [
+        "空"
+      ]
+    },
+    {
+      "word_id": 99,
+      "answer": "stubborn",
+      "echo": [
+        "スター本"
+      ]
+    },
+    {
+      "word_id": 130,
+      "answer": "notorious",
+      "echo": [
+        "載っとりやす"
+      ]
+    },
+    {
+      "word_id": 157,
+      "answer": "priest",
+      "echo": [
+        "プリーズ"
+      ]
+    },
+    {
+      "word_id": 314,
+      "answer": "corridor",
+      "echo": [
+        "氷だー"
+      ]
+    },
+    {
+      "word_id": 354,
+      "answer": "vein",
+      "echo": [
+        "弁"
+      ]
+    },
+    {
+      "word_id": 395,
+      "answer": "conceit",
+      "echo": [
+        "完成"
+      ]
+    },
+    {
+      "word_id": 552,
+      "answer": "burglar",
+      "echo": [
+        "ぼぐら"
+      ]
+    },
+    {
+      "word_id": 557,
+      "answer": "assess",
+      "echo": [
+        "アセスメント"
+      ]
+    },
+    {
+      "word_id": 560,
+      "answer": "utensil",
+      "echo": [
+        "融点知る"
+      ]
+    },
+    {
+      "word_id": 560,
+      "answer": "implement",
+      "echo": [
+        "淫婦らmen"
+      ]
+    },
+    {
+      "word_id": 601,
+      "answer": "clown",
+      "echo": [
+        "クラウン"
+      ]
+    },
+    {
+      "word_id": 605,
+      "answer": "sage",
+      "echo": [
+        "政治"
+      ]
+    },
+    {
+      "word_id": 639,
+      "answer": "eventually",
+      "echo": [
+        "イベント"
+      ]
+    },
+    {
+      "word_id": 662,
+      "answer": "acute",
+      "echo": [
+        "あ、キュー"
+      ]
+    },
+    {
+      "word_id": 667,
+      "answer": "brute",
+      "echo": [
+        "ブルッ"
+      ]
+    },
+    {
+      "word_id": 668,
+      "answer": "pathos",
+      "echo": [
+        "ペーソス"
+      ]
+    },
+    {
+      "word_id": 693,
+      "answer": "massacre",
+      "echo": [
+        "まさか"
+      ]
+    },
+    {
+      "word_id": 700,
+      "answer": "skull",
+      "echo": [
+        "すっから"
+      ]
+    },
+    {
+      "word_id": 715,
+      "answer": "narrow",
+      "echo": [
+        "ナロー"
+      ]
+    },
+    {
+      "word_id": 739,
+      "answer": "exhibition",
+      "echo": [
+        "エキシビション"
+      ]
+    },
+    {
+      "word_id": 771,
+      "answer": "decree",
+      "echo": [
+        "じっくり"
+      ]
+    },
+    {
+      "word_id": 863,
+      "answer": "exhilarate",
+      "echo": [
+        "いじられる"
+      ]
+    },
+    {
+      "word_id": 864,
+      "answer": "debt",
+      "echo": [
+        "デート"
+      ]
+    },
+    {
+      "word_id": 901,
+      "answer": "tiny",
+      "echo": [
+        "タイにい"
+      ]
+    },
+    {
+      "word_id": 954,
+      "answer": "cozy",
+      "echo": [
+        "コージー"
+      ]
+    },
+    {
+      "word_id": 1011,
+      "answer": "chaos",
+      "echo": [
+        "カオス"
+      ]
+    },
+    {
+      "word_id": 1130,
+      "answer": "alarm",
+      "echo": [
+        "アラーム"
+      ]
+    },
+    {
+      "word_id": 1150,
+      "answer": "naked",
+      "echo": [
+        "ねえ、kid"
+      ]
+    },
+    {
+      "word_id": 1160,
+      "answer": "masculine",
+      "echo": [
+        "マスク凛"
+      ]
+    },
+    {
+      "word_id": 1161,
+      "answer": "female",
+      "echo": [
+        "非male"
+      ]
+    },
+    {
+      "word_id": 1221,
+      "answer": "kin",
+      "echo": [
+        "金"
+      ]
+    },
+    {
+      "word_id": 1229,
+      "answer": "shrine",
+      "echo": [
+        "修羅いん"
+      ]
+    },
+    {
+      "word_id": 1232,
+      "answer": "tyrant",
+      "echo": [
+        "平"
+      ]
+    },
+    {
+      "word_id": 1263,
+      "answer": "nephew",
+      "echo": [
+        "ニース",
+        "寝冬"
+      ]
+    },
+    {
+      "word_id": 1300,
+      "answer": "fasten your seatbelt",
+      "echo": [
+        "ファスナー"
+      ]
+    },
+    {
+      "word_id": 1314,
+      "answer": "merchant",
+      "echo": [
+        "マーちゃん"
+      ]
+    },
+    {
+      "word_id": 1315,
+      "answer": "ail",
+      "echo": [
+        "ええ",
+        "ill"
+      ]
+    },
+    {
+      "word_id": 1324,
+      "answer": "surge",
+      "echo": [
+        "匙",
+        "サージ"
+      ]
+    },
+    {
+      "word_id": 1364,
+      "answer": "urban",
+      "echo": [
+        "あ～晩"
+      ]
+    },
+    {
+      "word_id": 1368,
+      "answer": "subside",
+      "echo": [
+        "sub",
+        "side"
+      ]
+    },
+    {
+      "word_id": 1370,
+      "answer": "aggravate",
+      "echo": [
+        "あぐら、べーっ"
+      ]
+    },
+    {
+      "word_id": 1370,
+      "answer": "exacerbate",
+      "echo": [
+        "やくざするべ"
+      ]
+    },
+    {
+      "word_id": 1383,
+      "answer": "binoculars",
+      "echo": [
+        "bi",
+        "ocular"
+      ]
+    },
+    {
+      "word_id": 1455,
+      "answer": "specification",
+      "echo": [
+        "スペック"
+      ]
+    },
+    {
+      "word_id": 1476,
+      "answer": "abduct",
+      "echo": [
+        "ab",
+        "duct"
+      ]
+    },
+    {
+      "word_id": 1533,
+      "answer": "meadow",
+      "echo": [
+        "うめーど"
+      ]
+    },
+    {
+      "word_id": 1534,
+      "answer": "owl",
+      "echo": [
+        "あ～う"
+      ]
+    },
+    {
+      "word_id": 1580,
+      "answer": "mortgage",
+      "echo": [
+        "もう、ゲージ"
+      ]
+    },
+    {
+      "word_id": 1586,
+      "answer": "blur",
+      "echo": [
+        "ブラー"
+      ]
+    },
+    {
+      "word_id": 1595,
+      "answer": "grove",
+      "echo": [
+        "グローブ"
+      ]
+    },
+    {
+      "word_id": 1627,
+      "answer": "captive",
+      "echo": [
+        "capture"
+      ]
+    },
+    {
+      "word_id": 1641,
+      "answer": "enemy",
+      "echo": [
+        "え、ねえ、見い"
+      ]
+    },
+    {
+      "word_id": 1662,
+      "answer": "flaw",
+      "echo": [
+        "風呂"
+      ]
+    },
+    {
+      "word_id": 1742,
+      "answer": "bully",
+      "echo": [
+        "bull"
+      ]
+    },
+    {
+      "word_id": 1755,
+      "answer": "odor",
+      "echo": [
+        "オド"
+      ]
+    },
+    {
+      "word_id": 1897,
+      "answer": "longitude",
+      "echo": [
+        "long"
+      ]
+    },
+    {
+      "word_id": 1897,
+      "answer": "latitude",
+      "echo": [
+        "拉致中"
+      ]
+    },
+    {
+      "word_id": 1911,
+      "answer": "incur",
+      "echo": [
+        "インカ"
+      ]
+    },
+    {
+      "word_id": 1917,
+      "answer": "saucer",
+      "echo": [
+        "sauce"
+      ]
+    },
+    {
+      "word_id": 1942,
+      "answer": "mercy killing",
+      "echo": [
+        "許さねーじゃ"
+      ]
+    },
+    {
+      "word_id": 1945,
+      "answer": "peep",
+      "echo": [
+        "ピーピー"
+      ]
+    },
+    {
+      "word_id": 1953,
+      "answer": "optimist",
+      "echo": [
+        "オー、プチミス"
+      ]
+    },
+    {
+      "word_id": 1985,
+      "answer": "merge",
+      "echo": [
+        "マジ"
+      ]
+    },
+    {
+      "word_id": 2003,
+      "answer": "rhino",
+      "echo": [
+        "らいの"
+      ]
+    },
+    {
+      "word_id": 2009,
+      "answer": "crawl",
+      "echo": [
+        "クロール"
+      ]
+    },
+    {
+      "word_id": 2011,
+      "answer": "drip",
+      "echo": [
+        "ドリップ"
+      ]
+    },
+    {
+      "word_id": 2020,
+      "answer": "aisle",
+      "echo": [
+        "アイル"
+      ]
+    },
+    {
+      "word_id": 2044,
+      "answer": "retail",
+      "echo": [
+        "re",
+        "tail"
+      ]
+    },
+    {
+      "word_id": 2060,
+      "answer": "whiskers",
+      "echo": [
+        "whisk"
+      ]
+    },
+    {
+      "word_id": 2060,
+      "answer": "moustache",
+      "echo": [
+        "mouth"
+      ]
+    },
+    {
+      "word_id": 2088,
+      "answer": "attic",
+      "echo": [
+        "あっちく"
+      ]
+    },
+    {
+      "word_id": 2089,
+      "answer": "broke",
+      "echo": [
+        "break"
+      ]
+    },
+    {
+      "word_id": 2098,
+      "answer": "corpse",
+      "echo": [
+        "こうプスッ"
+      ]
+    },
+    {
+      "word_id": 2129,
+      "answer": "cough",
+      "echo": [
+        "コフコフ"
+      ]
+    },
+    {
+      "word_id": 2136,
+      "answer": "idol",
+      "echo": [
+        "doll"
+      ]
+    },
+    {
+      "word_id": 2137,
+      "answer": "oblivious",
+      "echo": [
+        "覚えるびょん"
+      ]
+    },
+    {
+      "word_id": 2140,
+      "answer": "cop",
+      "echo": [
+        "capture",
+        "cap",
+        "cop"
+      ]
+    },
+    {
+      "word_id": 2140,
+      "answer": "copper",
+      "echo": [
+        "Cu",
+        "Cyprus",
+        "cuprum"
+      ]
+    },
+    {
+      "word_id": 2147,
+      "answer": "clay",
+      "echo": [
+        "クレー"
+      ]
+    },
+    {
+      "word_id": 2164,
+      "answer": "cartoon",
+      "echo": [
+        "card"
+      ]
+    },
+    {
+      "word_id": 2170,
+      "answer": "doze",
+      "echo": [
+        "どうぞ"
+      ]
+    },
+    {
+      "word_id": 2172,
+      "answer": "lark",
+      "echo": [
+        "ラーク"
+      ]
+    }
+  ]
+}

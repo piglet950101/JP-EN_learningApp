@@ -1114,6 +1114,34 @@
         "answer_meaning": null,
         "tts_enabled": false
       }
+    ],
+    "773": [
+      {
+        "relation": "活　と過去形と同音",
+        "answer": "lead > led > led",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "形",
+        "answer": "leading",
+        "answer_meaning": "主要な",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ　性能の改善につながる",
+        "answer": "lead to improving performance",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "1829": [
+      {
+        "relation": "活",
+        "answer": "upset > upset > upset",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
     ]
   }
 }

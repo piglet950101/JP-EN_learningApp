@@ -74,6 +74,12 @@ class SecondStageEntry {
   final String answer;
   final String? answerMeaning;
   final bool ttsEnabled;
+  /// The run(s) inside a 「…」 mnemonic that echo the English word — 「OPEC」
+  /// for opaque, 「政治」 for sage. The client sets these in gothic bold while
+  /// the rest of the mnemonic is mincho (2026-08-24). Only the author knows
+  /// which characters carry the pun, so it is recorded rather than guessed;
+  /// when empty the renderer falls back to any Latin run in the mnemonic.
+  final List<String> mnemonicEcho;
   final String? notes;
 
   const SecondStageEntry({
@@ -85,6 +91,7 @@ class SecondStageEntry {
     required this.answer,
     required this.answerMeaning,
     required this.ttsEnabled,
+    this.mnemonicEcho = const [],
     required this.notes,
   });
 
@@ -98,6 +105,11 @@ class SecondStageEntry {
       answer: (j['answer'] ?? '') as String,
       answerMeaning: j['answer_meaning'] as String?,
       ttsEnabled: (j['tts_enabled'] ?? false) as bool,
+      mnemonicEcho: (j['mnemonic_echo'] as List?)
+              ?.map((e) => e.toString())
+              .where((e) => e.isNotEmpty)
+              .toList(growable: false) ??
+          const [],
       notes: j['notes'] as String?,
     );
   }
@@ -174,6 +186,9 @@ class SecondStageRepository {
       _byWordId[wordId] ?? const <SecondStageEntry>[];
 
   SecondStageEntry? byId(int entryId) => _byId[entryId];
+
+  /// Every entry, ordered by id. Mirrors VideoRepository.all.
+  Iterable<SecondStageEntry> get all => _byId.values;
 
   /// Unique headword IDs that carry ≥1 SS entry in the given block,
   /// in ascending order. Used to build the SS session queue.

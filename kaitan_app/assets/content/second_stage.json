@@ -142,7 +142,10 @@
       "answer": "opaque",
       "answer_meaning": "不透明な「OPECは不透明」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "OPEC"
+      ]
     },
     {
       "id": 7,
@@ -769,7 +772,10 @@
       "answer": "soar",
       "answer_meaning": "高く上がる「空高く上がる」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "空"
+      ]
     },
     {
       "id": 64,
@@ -912,7 +918,10 @@
       "answer": "stubborn",
       "answer_meaning": "「スター本許さぬがんこなおやじ」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "スター本"
+      ]
     },
     {
       "id": 77,
@@ -1088,7 +1097,10 @@
       "answer": "notorious",
       "answer_meaning": "「載っとりやすよ、ブラックリスト」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "載っとりやす"
+      ]
     },
     {
       "id": 93,
@@ -1418,7 +1430,10 @@
       "answer": "priest",
       "answer_meaning": "聖職者「プリーズと祈る聖職者」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "プリーズ"
+      ]
     },
     {
       "id": 123,
@@ -3068,7 +3083,10 @@
       "answer": "corridor",
       "answer_meaning": "廊下「氷だー、廊下が」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "氷だー"
+      ]
     },
     {
       "id": 273,
@@ -3420,7 +3438,10 @@
       "answer": "vein",
       "answer_meaning": "静脈「静脈弁」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "弁"
+      ]
     },
     {
       "id": 305,
@@ -3937,7 +3958,10 @@
       "answer": "conceit",
       "answer_meaning": "意２　うぬぼれ「完成とはうぬぼれ」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "完成"
+      ]
     },
     {
       "id": 352,
@@ -5092,7 +5116,10 @@
       "answer": "burglar",
       "answer_meaning": "強盗「ぼぐらは強盗」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "ぼぐら"
+      ]
     },
     {
       "id": 457,
@@ -5147,7 +5174,10 @@
       "answer": "assess",
       "answer_meaning": "（資産を）評価する　「環境アセスメント」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "アセスメント"
+      ]
     },
     {
       "id": 462,
@@ -5180,7 +5210,10 @@
       "answer": "utensil",
       "answer_meaning": "台所などの道具「融点知る道具」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "融点知る"
+      ]
     },
     {
       "id": 465,
@@ -5202,7 +5235,10 @@
       "answer": "implement",
       "answer_meaning": "農具などの道具、実行する「淫婦らmenとは道具と思って実行する」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "淫婦らmen"
+      ]
     },
     {
       "id": 467,
@@ -5609,7 +5645,10 @@
       "answer": "clown",
       "answer_meaning": "ピエロ「クラウン(crown)かぶったピエロ」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "クラウン"
+      ]
     },
     {
       "id": 504,
@@ -5653,7 +5692,10 @@
       "answer": "sage",
       "answer_meaning": "賢人「政治する賢人」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "政治"
+      ]
     },
     {
       "id": 508,
@@ -6247,7 +6289,10 @@
       "answer": "eventually",
       "answer_meaning": "結局「結局イベントあり」　小さく",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "イベント"
+      ]
     },
     {
       "id": 562,
@@ -6379,7 +6424,10 @@
       "answer": "acute",
       "answer_meaning": "急性の、鋭い「あ、キューと来るのが急性病」",
       "tts_enabled": false,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "あ、キュー"
+      ]
     },
     {
       "id": 574,
@@ -6412,7 +6460,10 @@
       "answer": "brute",
       "answer_meaning": "獣「ブルッとする獣」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "ブルッ"
+      ]
     },
     {
       "id": 577,
@@ -6434,7 +6485,10 @@
       "answer": "pathos",
       "answer_meaning": "哀愁、哀感「ペーソス」　小さく",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "ペーソス"
+      ]
     },
     {
       "id": 579,
@@ -6621,7 +6675,10 @@
       "answer": "massacre",
       "answer_meaning": "大虐殺「まさかの大虐殺」、the Holocaust",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "まさか"
+      ]
     },
     {
       "id": 596,
@@ -6665,7 +6722,10 @@
       "answer": "skull",
       "answer_meaning": "頭蓋骨「すっからかんの頭蓋骨」字を小さく",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "すっから"
+      ]
     },
     {
       "id": 600,
@@ -6841,7 +6901,10 @@
       "answer": "narrow",
       "answer_meaning": "狭い「ナロー！と怒る心狭い人」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "ナロー"
+      ]
     },
     {
       "id": 616,
@@ -7149,7 +7212,10 @@
       "answer": "exhibition",
       "answer_meaning": "展示「エキシビション」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "エキシビション"
+      ]
     },
     {
       "id": 644,
@@ -7468,7 +7534,10 @@
       "answer": "decree",
       "answer_meaning": "法令、判決を下す「じっくり判決を下す」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "じっくり"
+      ]
     },
     {
       "id": 673,
@@ -7500,7 +7569,7 @@
       "base_category": "活",
       "answer": "lead > led > led",
       "answer_meaning": null,
-      "tts_enabled": true,
+      "tts_enabled": false,
       "notes": null
     },
     {
@@ -7522,7 +7591,7 @@
       "base_category": "セ",
       "answer": "lead to improving performance",
       "answer_meaning": null,
-      "tts_enabled": false,
+      "tts_enabled": true,
       "notes": null
     },
     {
@@ -8425,7 +8494,10 @@
       "answer": "exhilarate",
       "answer_meaning": "うきうきする「いじられるとうきうきする」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "いじられる"
+      ]
     },
     {
       "id": 760,
@@ -8436,7 +8508,10 @@
       "answer": "debt",
       "answer_meaning": "借金「デートも借金」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "デート"
+      ]
     },
     {
       "id": 761,
@@ -8689,7 +8764,10 @@
       "answer": "tiny",
       "answer_meaning": "とても小さな「タイにいます、小さな子」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "タイにい"
+      ]
     },
     {
       "id": 784,
@@ -9228,7 +9306,10 @@
       "answer": "cozy",
       "answer_meaning": "居心地のよい「コージーコーナー」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "コージー"
+      ]
     },
     {
       "id": 833,
@@ -9591,7 +9672,10 @@
       "answer": "chaos",
       "answer_meaning": "無秩序「カオス」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "カオス"
+      ]
     },
     {
       "id": 866,
@@ -10691,7 +10775,10 @@
       "answer": "alarm",
       "answer_meaning": "警報「アラーム」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "アラーム"
+      ]
     },
     {
       "id": 966,
@@ -10933,7 +11020,10 @@
       "answer": "naked",
       "answer_meaning": "裸の、全裸の「ねえ、kidが裸で走ってる」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "ねえ、kid"
+      ]
     },
     {
       "id": 988,
@@ -11065,7 +11155,10 @@
       "answer": "masculine",
       "answer_meaning": "男らしい「マスク凛と男らしい」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "マスク凛"
+      ]
     },
     {
       "id": 1000,
@@ -11076,7 +11169,10 @@
       "answer": "female",
       "answer_meaning": "女性の、女性「非maleは女性」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "非male"
+      ]
     },
     {
       "id": 1001,
@@ -11692,7 +11788,10 @@
       "answer": "kin",
       "answer_meaning": "血族、同族「金一族」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "金"
+      ]
     },
     {
       "id": 1057,
@@ -11747,7 +11846,10 @@
       "answer": "shrine",
       "answer_meaning": "神社「修羅いんの？神社にも」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "修羅いん"
+      ]
     },
     {
       "id": 1062,
@@ -11813,7 +11915,10 @@
       "answer": "tyrant",
       "answer_meaning": "専制君主「平と言えば、専制君主」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "平"
+      ]
     },
     {
       "id": 1068,
@@ -12088,7 +12193,11 @@
       "answer": "nephew",
       "answer_meaning": "甥「姪はニースへ甥は寝冬」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "ニース",
+        "寝冬"
+      ]
     },
     {
       "id": 1093,
@@ -12495,7 +12604,10 @@
       "answer": "fasten your seatbelt",
       "answer_meaning": "fasten しっかりさせる「ファスナー」",
       "tts_enabled": false,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "ファスナー"
+      ]
     },
     {
       "id": 1130,
@@ -12638,7 +12750,10 @@
       "answer": "merchant",
       "answer_meaning": "商人「マーちゃんと言う名の商人」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "マーちゃん"
+      ]
     },
     {
       "id": 1143,
@@ -12649,7 +12764,11 @@
       "answer": "ail",
       "answer_meaning": "病気にする、苦しめる「ええ、ill は病気で苦しめる」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "ええ",
+        "ill"
+      ]
     },
     {
       "id": 1144,
@@ -12748,7 +12867,11 @@
       "answer": "surge",
       "answer_meaning": "急騰する「匙が急にふわ～と上がる」「血圧サージ」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "匙",
+        "サージ"
+      ]
     },
     {
       "id": 1153,
@@ -13111,7 +13234,10 @@
       "answer": "urban",
       "answer_meaning": "都会の「あ～晩の都会のillumination」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "あ～晩"
+      ]
     },
     {
       "id": 1186,
@@ -13166,7 +13292,11 @@
       "answer": "subside",
       "answer_meaning": "水が引く「sub 下へ side わきへ」小さく",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "sub",
+        "side"
+      ]
     },
     {
       "id": 1191,
@@ -13199,7 +13329,10 @@
       "answer": "aggravate",
       "answer_meaning": "悪くさせる「あぐら、べーっと悪くなる」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "あぐら、べーっ"
+      ]
     },
     {
       "id": 1194,
@@ -13210,7 +13343,10 @@
       "answer": "exacerbate",
       "answer_meaning": "悪くさせる「やくざするべと悪くなる」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "やくざするべ"
+      ]
     },
     {
       "id": 1195,
@@ -13331,7 +13467,11 @@
       "answer": "binoculars",
       "answer_meaning": "双眼鏡「bi２つnoのocular目」小さく",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "bi",
+        "ocular"
+      ]
     },
     {
       "id": 1206,
@@ -14145,7 +14285,10 @@
       "answer": "specification",
       "answer_meaning": "明細（な記述）「スペック」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "スペック"
+      ]
     },
     {
       "id": 1280,
@@ -14365,7 +14508,11 @@
       "answer": "abduct",
       "answer_meaning": "誘拐する「ab アブノーマルな方へ　duct 導く」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "ab",
+        "duct"
+      ]
     },
     {
       "id": 1300,
@@ -14860,7 +15007,10 @@
       "answer": "meadow",
       "answer_meaning": "（干草を作る）牧草地、草原「うめーどと牧草食べる牛がいう」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "うめーど"
+      ]
     },
     {
       "id": 1345,
@@ -14871,7 +15021,10 @@
       "answer": "owl",
       "answer_meaning": "フクロウ「あ～うるさいフクロウ」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "あ～う"
+      ]
     },
     {
       "id": 1346,
@@ -15157,7 +15310,10 @@
       "answer": "mortgage",
       "answer_meaning": "抵当、住宅ローン「もう、ゲージも抵当」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "もう、ゲージ"
+      ]
     },
     {
       "id": 1372,
@@ -15234,7 +15390,10 @@
       "answer": "blur",
       "answer_meaning": "ぼやけさせる「ブラー→ぼやー」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "ブラー"
+      ]
     },
     {
       "id": 1379,
@@ -15300,7 +15459,10 @@
       "answer": "grove",
       "answer_meaning": "木立ち「マングローブ」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "グローブ"
+      ]
     },
     {
       "id": 1385,
@@ -15586,7 +15748,10 @@
       "answer": "captive",
       "answer_meaning": "捕虜「capture された人」　ちいさく",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "capture"
+      ]
     },
     {
       "id": 1411,
@@ -15850,7 +16015,10 @@
       "answer": "enemy",
       "answer_meaning": "（戦争での）敵「え、ねえ、見い、敵や！」小さく",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "え、ねえ、見い"
+      ]
     },
     {
       "id": 1435,
@@ -16092,7 +16260,10 @@
       "answer": "flaw",
       "answer_meaning": "ひび割れ「風呂にひび割れ」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "風呂"
+      ]
     },
     {
       "id": 1457,
@@ -16928,7 +17099,10 @@
       "answer": "bully",
       "answer_meaning": "いじめる「bull（雄牛）が角でつつくイメージ」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "bull"
+      ]
     },
     {
       "id": 1533,
@@ -17071,7 +17245,10 @@
       "answer": "odor",
       "answer_meaning": "におい「オドイーター、デオドラント」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "オド"
+      ]
     },
     {
       "id": 1546,
@@ -17763,7 +17940,7 @@
       "base_category": "活",
       "answer": "upset > upset > upset",
       "answer_meaning": null,
-      "tts_enabled": true,
+      "tts_enabled": false,
       "notes": null
     },
     {
@@ -18578,7 +18755,10 @@
       "answer": "longitude",
       "answer_meaning": "経度「long な方」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "long"
+      ]
     },
     {
       "id": 1683,
@@ -18589,7 +18769,10 @@
       "answer": "latitude",
       "answer_meaning": "緯度「38度に拉致中だ」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "拉致中"
+      ]
     },
     {
       "id": 1684,
@@ -18776,7 +18959,10 @@
       "answer": "incur",
       "answer_meaning": "（怒りなどを）招く「インカは招く」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "インカ"
+      ]
     },
     {
       "id": 1701,
@@ -18919,7 +19105,10 @@
       "answer": "saucer",
       "answer_meaning": "cup の受け皿「元は sauce 用」",
       "tts_enabled": false,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "sauce"
+      ]
     },
     {
       "id": 1714,
@@ -19128,7 +19317,10 @@
       "answer": "mercy killing",
       "answer_meaning": "= euthanasia 「許さねーじゃ、安楽死」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "許さねーじゃ"
+      ]
     },
     {
       "id": 1733,
@@ -19161,7 +19353,10 @@
       "answer": "peep",
       "answer_meaning": "のぞく「鳥のヒナがピーピー言って姿を現すのが語源」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "ピーピー"
+      ]
     },
     {
       "id": 1736,
@@ -19238,7 +19433,10 @@
       "answer": "optimist",
       "answer_meaning": "楽観主義者「オー、プチミスと楽観主義者」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "オー、プチミス"
+      ]
     },
     {
       "id": 1743,
@@ -19546,7 +19744,10 @@
       "answer": "merge",
       "answer_meaning": "合併する、溶け込ませる「マジ、合併する？」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "マジ"
+      ]
     },
     {
       "id": 1771,
@@ -19766,7 +19967,10 @@
       "answer": "rhino",
       "answer_meaning": "サイ「いいえ、くらいの」 rhinoceros の略",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "らいの"
+      ]
     },
     {
       "id": 1791,
@@ -19810,7 +20014,10 @@
       "answer": "crawl",
       "answer_meaning": "虫やヘビがはう「水泳のクロール」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "クロール"
+      ]
     },
     {
       "id": 1795,
@@ -19832,7 +20039,10 @@
       "answer": "drip",
       "answer_meaning": "したたる「コーヒーのドリップ」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "ドリップ"
+      ]
     },
     {
       "id": 1797,
@@ -19953,7 +20163,10 @@
       "answer": "aisle",
       "answer_meaning": "通路「アイルは隘路」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "アイル"
+      ]
     },
     {
       "id": 1808,
@@ -20129,7 +20342,11 @@
       "answer": "retail",
       "answer_meaning": "小売りの「re 何度も tail 切って売る」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "re",
+        "tail"
+      ]
     },
     {
       "id": 1824,
@@ -20316,7 +20533,10 @@
       "answer": "whiskers",
       "answer_meaning": "ほおひげ「whisk ほうき」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "whisk"
+      ]
     },
     {
       "id": 1841,
@@ -20327,7 +20547,10 @@
       "answer": "moustache",
       "answer_meaning": "口ひげ「mouth の上にあるもの」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "mouth"
+      ]
     },
     {
       "id": 1842,
@@ -20547,7 +20770,10 @@
       "answer": "attic",
       "answer_meaning": "屋根裏部屋「あっちくなる屋根裏」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "あっちく"
+      ]
     },
     {
       "id": 1862,
@@ -20569,7 +20795,10 @@
       "answer": "broke",
       "answer_meaning": "文無しの「break のppだった」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "break"
+      ]
     },
     {
       "id": 1864,
@@ -20701,7 +20930,10 @@
       "answer": "corpse",
       "answer_meaning": "死体「こうプスッと刺した死体」= body",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "こうプスッ"
+      ]
     },
     {
       "id": 1876,
@@ -21053,7 +21285,10 @@
       "answer": "cough",
       "answer_meaning": "せき（をする）「コフコフという音から」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "コフコフ"
+      ]
     },
     {
       "id": 1908,
@@ -21130,7 +21365,10 @@
       "answer": "idol",
       "answer_meaning": "アイドル、偶像「dollがつく方が偶像」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "doll"
+      ]
     },
     {
       "id": 1915,
@@ -21152,7 +21390,10 @@
       "answer": "oblivious",
       "answer_meaning": "忘れている「覚えるびょん忘れたら」oblivion 忘却",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "覚えるびょん"
+      ]
     },
     {
       "id": 1917,
@@ -21207,7 +21448,12 @@
       "answer": "cop",
       "answer_meaning": "警官「capture の cap が cop になった」（サツ、デカの感覚）",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "capture",
+        "cap",
+        "cop"
+      ]
     },
     {
       "id": 1922,
@@ -21218,7 +21464,12 @@
       "answer": "copper",
       "answer_meaning": "銅「Cu は銅が採れた Cyprus（キプロス島）のラテン語 cuprum から」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "Cu",
+        "Cyprus",
+        "cuprum"
+      ]
     },
     {
       "id": 1923,
@@ -21251,7 +21502,10 @@
       "answer": "clay",
       "answer_meaning": "粘土「クレー射撃」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "クレー"
+      ]
     },
     {
       "id": 1926,
@@ -21427,7 +21681,10 @@
       "answer": "cartoon",
       "answer_meaning": "（様々な）漫画「card が語源」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "card"
+      ]
     },
     {
       "id": 1942,
@@ -21482,7 +21739,10 @@
       "answer": "doze",
       "answer_meaning": "居眠り、うとうとする「どうぞ居眠りしてください」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "どうぞ"
+      ]
     },
     {
       "id": 1947,
@@ -21493,7 +21753,10 @@
       "answer": "lark",
       "answer_meaning": "ひばり「スカイラーク」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "ラーク"
+      ]
     },
     {
       "id": 1948,

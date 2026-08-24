@@ -92,4 +92,49 @@ void main() {
       expect(repo.hasEntriesForWord(2), isFalse);
     });
   });
+
+  // ── ゴロ echo markings (client 2026-08-24 ③) ────────────────────────
+  //
+  // The bold run of each mnemonic is recorded in data because it is a pun on
+  // the sound and cannot be derived from the characters. Re-running the
+  // import without apply_mnemonic_echo.py would silently drop the lot, and
+  // nothing on screen would look broken — it would just quietly stop obeying
+  // the client's rule. These pin it.
+
+  group('mnemonic echo markings', () {
+    test('the marked runs are actually present in their meaning', () async {
+      final repo = await SecondStageRepository.loadFromAsset();
+      var marked = 0;
+      for (final e in repo.all) {
+        if (e.mnemonicEcho.isEmpty) continue;
+        marked++;
+        final meaning = e.answerMeaning ?? '';
+        expect(meaning, contains('「'),
+            reason: '${e.wordId} ${e.answer}: marked but has no ゴロ');
+        for (final n in e.mnemonicEcho) {
+          expect(meaning, contains(n),
+              reason: '${e.wordId} ${e.answer}: "$n" not in meaning');
+        }
+      }
+      expect(marked, greaterThanOrEqualTo(80),
+          reason: 'echo markings look dropped — did the import re-run '
+              'without apply_mnemonic_echo.py?');
+    });
+
+    test("the client's worked example is marked as they described", () async {
+      final repo = await SecondStageRepository.loadFromAsset();
+      final opaque = repo.all.firstWhere(
+          (e) => e.wordId == 7 && e.answer == 'opaque');
+      expect(opaque.answerMeaning, '不透明な「OPECは不透明」');
+      expect(opaque.mnemonicEcho, ['OPEC']);
+    });
+
+    test('grammar notes quoting Japanese are left unmarked', () async {
+      final repo = await SecondStageRepository.loadFromAsset();
+      for (final e in repo.all.where((e) => e.wordId == 1185)) {
+        expect(e.mnemonicEcho, isEmpty,
+            reason: '${e.answer}: 「…」は語法の注記であってゴロではない');
+      }
+    });
+  });
 }
