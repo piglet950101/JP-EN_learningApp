@@ -4,6 +4,8 @@
 
 import 'dart:io';
 
+import 'package:flutter/services.dart';
+
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:path/path.dart' as p;
@@ -101,10 +103,37 @@ class ProgressDb extends _$ProgressDb {
       );
 }
 
+/// Keeps progress.db out of the device backup.
+///
+/// Android does this declaratively (allowBackup="false"), added after a
+/// reinstall on 菊地様's phone came back already unlocked while 落合様's did
+/// not — Auto Backup had restored the unlock flag with the rest of the file.
+/// iOS backs up everything under Documents/ to iCloud by default, so the same
+/// file would travel the same way; there the exclusion is a per-file resource
+/// value, which only Swift can set.
+///
+/// Best effort by design: a failure here must never stop the app from opening
+/// its database.
+const _backupChannel = MethodChannel('jp.or.kai.kaitan/backup');
+
+Future<void> _excludeFromBackup(File file) async {
+  if (!Platform.isIOS) return;
+  try {
+    await _backupChannel.invokeMethod<void>(
+        'excludeFromBackup', {'path': file.path});
+  } catch (_) {
+    // Older build without the handler, or the file vanished — either way the
+    // database itself is fine, so carry on.
+  }
+}
+
 LazyDatabase _openDefault() {
   return LazyDatabase(() async {
     final dir = await getApplicationDocumentsDirectory();
     final file = File(p.join(dir.path, 'progress.db'));
-    return NativeDatabase.createInBackground(file);
+    final db = NativeDatabase.createInBackground(file);
+    // After createInBackground so the file exists to carry the flag.
+    await _excludeFromBackup(file);
+    return db;
   });
 }

@@ -28,6 +28,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_android/webview_flutter_android.dart';
+import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 import '../../../core/providers.dart';
 import '../../../data/block.dart';
@@ -78,7 +79,18 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
 
   void _initController(String embedUrl) {
     if (_controller != null) return;
-    final c = WebViewController()
+    // iOS plays HTML5 video fullscreen unless the web view is created with
+    // inline playback allowed — the flag is a CREATION parameter, so it cannot
+    // be set after the fact the way the Android option below can. Without it
+    // the player escapes our layout and the portrait/landscape rules that
+    // follow the footage never get a chance to apply.
+    final params = WebViewPlatform.instance is WebKitWebViewPlatform
+        ? WebKitWebViewControllerCreationParams(
+            allowsInlineMediaPlayback: true,
+            mediaTypesRequiringUserAction: const <PlaybackMediaTypes>{},
+          )
+        : const PlatformWebViewControllerCreationParams();
+    final c = WebViewController.fromPlatformCreationParams(params)
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(const Color(0xFF000000))
       ..setUserAgent(_mobileUa)
