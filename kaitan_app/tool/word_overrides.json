@@ -376,6 +376,34 @@
         "消化する",
         "要約"
       ]
+    },
+    "568": {
+      "word": "graduate",
+      "field": "meanings",
+      "new_meanings": [
+        "卒業する"
+      ]
+    },
+    "978": {
+      "word": "long",
+      "field": "meanings",
+      "new_meanings": [
+        "熱望する"
+      ]
+    },
+    "2140": {
+      "word": "cope",
+      "field": "meanings",
+      "new_meanings": [
+        "うまく処理する"
+      ]
+    },
+    "1774": {
+      "word": "odd",
+      "field": "meanings",
+      "new_meanings": [
+        "奇数の、変な"
+      ]
     }
   }
 }

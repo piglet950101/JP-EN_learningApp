@@ -6,99 +6,203 @@
       "word": "concern",
       "mnemonic_type": "ゴロ",
       "runs": [
-        {"text": "concerned は「", "bold": false},
-        {"text": "［", "bold": false},
-        {"text": "関する", "bold": true},
-        {"text": "］", "bold": false},
-        {"text": "ん", "bold": true},
-        {"text": "だ", "bold": false},
-        {"text": "」", "bold": false}
+        {
+          "text": "concerned は「",
+          "bold": false
+        },
+        {
+          "text": "［",
+          "bold": false
+        },
+        {
+          "text": "関する",
+          "bold": true
+        },
+        {
+          "text": "］",
+          "bold": false
+        },
+        {
+          "text": "ん",
+          "bold": true
+        },
+        {
+          "text": "だ",
+          "bold": false
+        },
+        {
+          "text": "」",
+          "bold": false
+        }
       ]
     },
     "74": {
       "word": "incessant",
       "mnemonic_type": "ゴロ",
       "runs": [
-        {"text": "院生さんと", "bold": true},
-        {"text": "は、[絶え間ぬ]研究", "bold": false}
+        {
+          "text": "院生さんと",
+          "bold": true
+        },
+        {
+          "text": "は、[絶え間ぬ]研究",
+          "bold": false
+        }
       ]
     },
     "99": {
       "word": "obstinate",
       "mnemonic_type": "ゴロ",
       "runs": [
-        {"text": "虻捨てないと", "bold": true},
-        {"text": "は［がんこな］子", "bold": false}
+        {
+          "text": "虻捨てないと",
+          "bold": true
+        },
+        {
+          "text": "は［がんこな］子",
+          "bold": false
+        }
       ]
     },
     "100": {
       "word": "abstain",
       "mnemonic_type": "ゴロ",
       "runs": [
-        {"text": "虻捨てん", "bold": true},
-        {"text": "子と遊ぶの［控える］", "bold": false}
+        {
+          "text": "虻捨てん",
+          "bold": true
+        },
+        {
+          "text": "子と遊ぶの［控える］",
+          "bold": false
+        }
       ]
     },
     "907": {
       "word": "nuclear",
       "mnemonic_type": "セットフレーズ",
       "runs": [
-        {"text": "a nuclear weapon 核兵器\na nuclear family 核家族", "bold": false}
+        {
+          "text": "a nuclear weapon 核兵器\na nuclear family 核家族",
+          "bold": false
+        }
       ]
     },
     "28": {
       "word": "prone",
       "mnemonic_type": "ゴロ",
       "runs": [
-        {"text": "ポロン", "bold": true},
-        {"text": "と［しがちである］", "bold": false}
+        {
+          "text": "ポロン",
+          "bold": true
+        },
+        {
+          "text": "と［しがちである］",
+          "bold": false
+        }
       ]
     },
     "29": {
       "word": "prompt",
       "mnemonic_type": "ゴロ",
       "runs": [
-        {"text": "ポロン、ぷっと", "bold": true},
-        {"text": "され［すばやく］戻す", "bold": false}
+        {
+          "text": "ポロン、ぷっと",
+          "bold": true
+        },
+        {
+          "text": "され［すばやく］戻す",
+          "bold": false
+        }
       ]
     },
     "169": {
       "word": "evaporate",
       "mnemonic_type": "カタカナ",
       "runs": [
-        {"text": "ベープマット", "bold": false}
+        {
+          "text": "ベープマット",
+          "bold": false
+        }
       ]
     },
     "322": {
       "word": "feudal",
       "mnemonic_type": "ゴロ",
       "runs": [
-        {"text": "封土", "bold": true},
-        {"text": "（ほうど）", "bold": false},
-        {"text": "ある、", "bold": true},
-        {"text": "［封建制度の］時代には", "bold": false}
+        {
+          "text": "封土",
+          "bold": true
+        },
+        {
+          "text": "（ほうど）",
+          "bold": false
+        },
+        {
+          "text": "ある、",
+          "bold": true
+        },
+        {
+          "text": "［封建制度の］時代には",
+          "bold": false
+        }
       ]
     },
     "2224": {
       "word": "anesthesia",
       "mnemonic_type": "ゴロ",
       "runs": [
-        {"text": "「あね素敵じゃ」と気を失いそう→手術", "bold": false}
+        {
+          "text": "「あね素敵じゃ」と気を失いそう→手術",
+          "bold": false
+        }
       ]
     },
     "2264": {
       "word": "inoculate",
       "mnemonic_type": "ゴロ",
       "runs": [
-        {"text": "犬をくれと", "bold": true},
-        {"text": "［予防接種］", "bold": false}
+        {
+          "text": "犬をくれと",
+          "bold": true
+        },
+        {
+          "text": "［予防接種］",
+          "bold": false
+        }
       ]
     },
     "2262": {
       "word": "optical",
       "mnemonic_type": "語源／カタカナ",
       "runs": [
-        {"text": "opti［見る］ cal［形容詞語尾］／コンタクトの光学の（視覚の）特性とは", "bold": false}
+        {
+          "text": "opti［見る］ cal［形容詞語尾］／コンタクトの光学の（視覚の）特性とは",
+          "bold": false
+        }
+      ]
+    },
+    "1810": {
+      "word": "prime",
+      "mnemonic_type": "セットフレーズ",
+      "note": "one phrase per line; ・ ran them together",
+      "runs": [
+        {
+          "text": "prime minister 総理大臣\nprime number 素数",
+          "bold": false
+        }
+      ]
+    },
+    "1993": {
+      "word": "overwhelming",
+      "mnemonic_type": "語源",
+      "new_mnemonic_type": "イメージ",
+      "note": "whelm is whale, and it goes over the HEAD — not the body",
+      "runs": [
+        {
+          "text": "over[頭の上に] whelm[ = whale クジラ]",
+          "bold": false
+        }
       ]
     }
   }

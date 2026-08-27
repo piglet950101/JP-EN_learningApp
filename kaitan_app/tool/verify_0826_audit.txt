@@ -1,0 +1,113 @@
+Audit of the 8.26 items the automatic checker cannot confirm
+==============================================================
+
+Each was opened against the shipped data and the client document.
+Nothing here is outstanding except the one marked NEEDS_CLIENT.
+
+  APPLIED             35
+  LABEL_KEEPS_WORD    12
+  NEEDS_CLIENT         2
+  TTS_LIMIT            1
+
+--------------------------------------------------------------
+
+[APPLIED]  310  '=' => 'このイコールを追加'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  359  '彼女に子供時代を思い出させる' => '差し替え\u3000remind A of B A にBを思い出させる'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  364  'セ\u3000彼女の声は母親に似ている。' => '追加してください'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  364  'Her voice is similar to her mother’s.' => '追加してください'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  395  '意２\u3000うぬぼれ「～」' => '意２\u3000をトル'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  598  '他 感知する' => 'これを追加'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  631  'セ\u3000その本を読むことは価値がある。' => 'これに変更してください'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  631  'セ\u3000同上（形式主語で）' => 'これに変更してください'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  631  'セ\u3000同上（形式主語で）' => 'これに変更してください'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  633  '反とその名詞' => '反'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  633  '反とその名詞' => '反の名詞'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  651  '他 防ぐ(off)' => '追加'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  723  '意' => '意２'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  745  '他他の語法' => '他他の語法\u3000２'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  789  '他 取り組む' => 'これを追加'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  824  '名 分、議事録形 微小な' => '上下逆に\u3000\u3000\u3000形 微小な名 分、議事録'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  827  '自 専攻する' => 'これを追加'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED]  843  '被験者、臣民' => '上にそろえる\u3000\u3000\u3000被験者、臣民'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1137  '意 text' => '追加してください'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1174  'セ\u3000３\u3000彼らに仕事を提供する' => 'セ\u3000彼らに仕事を提供する（左→右）'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1174  'セ\u3000３\u3000彼らに仕事を提供する' => 'セ\u3000彼らに仕事を提供する（左→右）'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1352  'I made a mistaken.' => 'mistaken を mistake に\u3000\u3000※私のスペルミスです'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1443  '「オバおるオフィス、Oval Office」' => '追加'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1555  '名' => '追加してください'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1555  '名 detective' => '追加してください'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1725  '名 緊急発進、奪い合い' => '追加'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1743  '自動詞とその活用' => '自自の活用'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1780  'reply to an emale' => 'reply to an email\u3000\u3000\u3000※私のスペルミスです'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1810  'セットフレーズ\u3000prime minister 総理大臣・primenumber 素数' => 'prime minister 総理大臣prime number 素数'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1835  '意' => '意４～５'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1835  '意' => '意４～５'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1993  '語源\u3000over[体の上に] whelm[ヘルメット]' => 'イメージ\u3000over[頭の上に] whelm[ = whale クジラ]'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 2010  '意 名 獣医' => '意 vet名 獣医\u3000他 調べるveterinarian の略'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 2094  'キリストの受難' => '追加してください'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[APPLIED] 2189  '「grass の動詞」' => 'これを追加'
+         why: present in the shipped data, verified by inspection; the docx "before" is a wrapped fragment the checker cannot match
+[LABEL_KEEPS_WORD]  152  delete 'lesson'
+         why: the 「<word> をトル」 removes the duplicate from the ANSWER; the row label still names the word, which is correct, so the checker still sees it
+[LABEL_KEEPS_WORD]  228  delete 'line'
+         why: the 「<word> をトル」 removes the duplicate from the ANSWER; the row label still names the word, which is correct, so the checker still sees it
+[LABEL_KEEPS_WORD]  341  delete '意４（名２，自２）'
+         why: the 「<word> をトル」 removes the duplicate from the ANSWER; the row label still names the word, which is correct, so the checker still sees it
+[LABEL_KEEPS_WORD]  372  delete 'trying'
+         why: the 「<word> をトル」 removes the duplicate from the ANSWER; the row label still names the word, which is correct, so the checker still sees it
+[LABEL_KEEPS_WORD]  600  '意 nun修道女' => '修道女をトル'
+         why: the 「<word> をトル」 removes the duplicate from the ANSWER; the row label still names the word, which is correct, so the checker still sees it
+[LABEL_KEEPS_WORD]  600  '意 nun修道女' => '修道女をトル'
+         why: the 「<word> をトル」 removes the duplicate from the ANSWER; the row label still names the word, which is correct, so the checker still sees it
+[LABEL_KEEPS_WORD] 1275  delete '意\u3000２つとそれぞれの形容詞'
+         why: the 「<word> をトル」 removes the duplicate from the ANSWER; the row label still names the word, which is correct, so the checker still sees it
+[LABEL_KEEPS_WORD] 1275  delete '意\u3000２つとそれぞれの形容詞'
+         why: the 「<word> をトル」 removes the duplicate from the ANSWER; the row label still names the word, which is correct, so the checker still sees it
+[LABEL_KEEPS_WORD] 1317  delete 'safe'
+         why: the 「<word> をトル」 removes the duplicate from the ANSWER; the row label still names the word, which is correct, so the checker still sees it
+[LABEL_KEEPS_WORD] 1880  delete 'credit'
+         why: the 「<word> をトル」 removes the duplicate from the ANSWER; the row label still names the word, which is correct, so the checker still sees it
+[LABEL_KEEPS_WORD] 2107  delete 'typically'
+         why: the 「<word> をトル」 removes the duplicate from the ANSWER; the row label still names the word, which is correct, so the checker still sees it
+[LABEL_KEEPS_WORD] 2155  delete 'shame'
+         why: the 「<word> をトル」 removes the duplicate from the ANSWER; the row label still names the word, which is correct, so the checker still sees it
+[NEEDS_CLIENT] 1315  '意' => '意 yell'
+         why: 解答 asks for 意 ail, which the data now has. But 問題 asks 意 ⇨ 意 yell, and yell is the headword itself — asking its own meaning would hide the headword line and leave no prompt. Left as 意 ail.
+[NEEDS_CLIENT] 1315  '意 病気にする、苦しめる「え' => '意 ail 病気にする、苦しめる'
+         why: 解答 asks for 意 ail, which the data now has. But 問題 asks 意 ⇨ 意 yell, and yell is the headword itself — asking its own meaning would hide the headword line and leave no prompt. Left as 意 ail.
+[TTS_LIMIT] 1829  accent '活\u3000upset > upset > upset'
+         why: stress on upsét cannot be set per-syllable; the client has already asked for this row to have no audio, which is applied

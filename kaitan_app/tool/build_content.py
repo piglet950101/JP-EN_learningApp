@@ -22,6 +22,7 @@ STEPS = [
     ('import_second_stage.py',    'rebuild Second Stage from the client sheet'),
     ('apply_ss_overrides.py',     'per-word corrections (incl. the 08-19 review)'),
     ('apply_mnemonic_echo.py',    'which run of each ゴロ echoes the English'),
+    ('apply_ss_pronunciation.py', 'per-row reading where the spelling misleads'),
     # words.json
     ('import_excel.py',           'rebuild the headword list from the Excel'),
     ('apply_word_overrides.py',   'headword POS / meaning corrections'),

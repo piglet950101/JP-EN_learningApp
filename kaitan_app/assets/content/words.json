@@ -22787,7 +22787,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "卒業する(from)"
+        "卒業する"
       ],
       "mnemonics": [
         {
@@ -39590,7 +39590,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "熱望する（for）"
+        "熱望する"
       ],
       "mnemonics": [
         {
@@ -70899,7 +70899,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "変な"
+        "奇数の、変な"
       ],
       "mnemonics": [
         {
@@ -72300,7 +72300,7 @@
           "type": "セットフレーズ",
           "runs": [
             {
-              "text": "prime minister 総理大臣・prime number 素数",
+              "text": "prime minister 総理大臣\nprime number 素数",
               "bold": false
             }
           ]
@@ -79453,10 +79453,10 @@
       ],
       "mnemonics": [
         {
-          "type": "語源",
+          "type": "イメージ",
           "runs": [
             {
-              "text": "over[体の上に] whelm[ヘルメット]",
+              "text": "over[頭の上に] whelm[ = whale クジラ]",
               "bold": false
             }
           ]
@@ -85209,7 +85209,7 @@
       ],
       "meaning_mode": "single",
       "meanings": [
-        "うまく処理する(with)"
+        "うまく処理する"
       ],
       "mnemonics": [
         {

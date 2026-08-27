@@ -397,7 +397,7 @@
     "310": [
       {
         "relation": "セ　The flood damaged the crops.",
-        "answer": "The flood inflicted damage on the crops.",
+        "answer": "= The flood inflicted damage on the crops.",
         "answer_meaning": "The flood did damage to the crops. も可",
         "tts_enabled": true
       }
@@ -476,7 +476,7 @@
       {
         "relation": "名３",
         "answer": "conceit",
-        "answer_meaning": "意２　うぬぼれ「完成とはうぬぼれ」",
+        "answer_meaning": "うぬぼれ「完成とはうぬぼれ」",
         "tts_enabled": true
       },
       {
@@ -655,7 +655,7 @@
     "598": [
       {
         "relation": "意４（名３、他１）",
-        "answer": "名 感覚、意味、分別",
+        "answer": "名 感覚、意味、分別　他 感知する",
         "answer_meaning": null,
         "tts_enabled": false
       }
@@ -672,7 +672,7 @@
     "625": [
       {
         "relation": "意３（名２、他１）",
-        "answer": "質問（可算）、疑い（不可算）",
+        "answer": "名 質問（可算）、疑い（不可算）　他 質問する",
         "answer_meaning": null,
         "tts_enabled": false
       },
@@ -735,19 +735,19 @@
         "tts_enabled": false
       },
       {
-        "relation": "セ　その本は読む価値がある。",
+        "relation": "セ　その本を読むことは価値がある。",
         "answer": "Reading(/To read) the book is worth while.",
         "answer_meaning": "while は「時間」という意味の名詞",
         "tts_enabled": false
       },
       {
-        "relation": "セ　その本は読む価値がある。",
+        "relation": "セ　同上（形式主語で）",
         "answer": "It is worth while to read the book.",
         "answer_meaning": "It ~ to 構文",
         "tts_enabled": false
       },
       {
-        "relation": "セ　その本は読む価値がある。",
+        "relation": "セ　同上（形式主語で）",
         "answer": "It is worth (while) reading the book.",
         "answer_meaning": "It ~ing 構文",
         "tts_enabled": false
@@ -757,7 +757,7 @@
       {
         "relation": "意 eventually",
         "answer": "eventually",
-        "answer_meaning": "結局「結局イベントあり」　小さく",
+        "answer_meaning": "結局「結局イベントあり」",
         "tts_enabled": true
       },
       {
@@ -770,7 +770,7 @@
     "651": [
       {
         "relation": "意３（名２，他１）",
-        "answer": "名 病棟、区",
+        "answer": "名 病棟、区　他 防ぐ(off)",
         "answer_meaning": null,
         "tts_enabled": false
       }
@@ -793,7 +793,7 @@
       {
         "relation": "意 pathos",
         "answer": "pathos",
-        "answer_meaning": "哀愁、哀感「ペーソス」　小さく",
+        "answer_meaning": "哀愁、哀感「ペーソス」",
         "tts_enabled": true
       }
     ],
@@ -851,14 +851,14 @@
       {
         "relation": "意 skull",
         "answer": "skull",
-        "answer_meaning": "頭蓋骨「すっからかんの頭蓋骨」字を小さく",
+        "answer_meaning": "頭蓋骨「すっからかんの頭蓋骨」",
         "tts_enabled": true
       }
     ],
     "703": [
       {
         "relation": "意２（自１，形１）",
-        "answer": "自 続く",
+        "answer": "自 続く　形 最後の",
         "answer_meaning": null,
         "tts_enabled": false
       },
@@ -927,9 +927,15 @@
     ],
     "745": [
       {
-        "relation": "他他 の語法",
-        "answer": "allow　enjoy ~ing 型、tell 人 to do 型",
+        "relation": "他",
+        "answer": "allow",
         "answer_meaning": "許す",
+        "tts_enabled": true
+      },
+      {
+        "relation": "他の語法　２",
+        "answer": "enjoy ~ing 型、tell 人 to do 型",
+        "answer_meaning": null,
         "tts_enabled": false
       }
     ],
@@ -983,7 +989,7 @@
     "789": [
       {
         "relation": "意３（名２，他１）",
-        "answer": "名 住所、演説",
+        "answer": "名 住所、演説　他 取り組む",
         "answer_meaning": null,
         "tts_enabled": false
       }
@@ -991,7 +997,7 @@
     "824": [
       {
         "relation": "意２～３（形１，名１～２）",
-        "answer": "名 分、議事録　形 微小な",
+        "answer": "形 微小な　名 分、議事録",
         "answer_meaning": null,
         "tts_enabled": false
       }
@@ -1007,7 +1013,7 @@
     "827": [
       {
         "relation": "意３（形２，自１）",
-        "answer": "形 大きい方の、主要な",
+        "answer": "形 大きい方の、主要な　自 専攻する",
         "answer_meaning": null,
         "tts_enabled": false
       },
@@ -1093,7 +1099,7 @@
       {
         "relation": "名 の意味と発音",
         "answer": "涙　tear",
-        "answer_meaning": "※ティアという発音",
+        "answer_meaning": null,
         "tts_enabled": true
       },
       {
@@ -1105,7 +1111,7 @@
       {
         "relation": "他の活用",
         "answer": "tear > tore > torn",
-        "answer_meaning": "※テアという発音",
+        "answer_meaning": null,
         "tts_enabled": true
       }
     ],
@@ -1214,24 +1220,24 @@
         "relation": "意 in an hour",
         "answer": "in an hour",
         "answer_meaning": "１時間たったら",
-        "tts_enabled": true
+        "tts_enabled": false
       }
     ],
     "1174": [
       {
-        "relation": "セ３　彼らに仕事を提供する",
+        "relation": "セ　彼らに仕事を提供する（左←右）",
         "answer": "provide them with jobs",
         "answer_meaning": "fill A with B型",
         "tts_enabled": true
       },
       {
-        "relation": "セ３　彼らに仕事を提供する",
+        "relation": "セ　彼らに仕事を提供する（左→右）",
         "answer": "provide jobs for them",
         "answer_meaning": "buy A for B型",
         "tts_enabled": true
       },
       {
-        "relation": "セ３　彼らに仕事を提供する",
+        "relation": "セ　彼らに仕事を提供する（左→右）",
         "answer": "provide jobs to them",
         "answer_meaning": "give A to B型",
         "tts_enabled": true
@@ -1525,7 +1531,7 @@
       {
         "relation": "意 subside",
         "answer": "subside",
-        "answer_meaning": "水が引く「sub 下へ side わきへ」小さく",
+        "answer_meaning": "水が引く「sub 下へ side わきへ」",
         "tts_enabled": true
       }
     ],
@@ -1560,7 +1566,7 @@
       {
         "relation": "意 oval",
         "answer": "oval",
-        "answer_meaning": "楕円",
+        "answer_meaning": "楕円「オバおるオフィス、Oval Office」",
         "tts_enabled": true
       }
     ],
@@ -1613,6 +1619,12 @@
         "relation": "名",
         "answer": "detection",
         "answer_meaning": "発見、検出、探知",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名",
+        "answer": "detective",
+        "answer_meaning": "探偵、刑事",
         "tts_enabled": true
       }
     ],
@@ -1741,7 +1753,7 @@
         "relation": "意 spurn",
         "answer": "spurn",
         "answer_meaning": "はねつける",
-        "tts_enabled": false
+        "tts_enabled": true
       }
     ],
     "1745": [
@@ -1810,7 +1822,7 @@
     ],
     "1832": [
       {
-        "relation": "意３",
+        "relation": "意３～４",
         "answer": "仕える、役立つ、務める、食事を出す",
         "answer_meaning": null,
         "tts_enabled": false
@@ -1836,7 +1848,7 @@
     ],
     "1836": [
       {
-        "relation": "意５",
+        "relation": "意４～５",
         "answer": "観察する、守る、気づく、述べる、祝う",
         "answer_meaning": null,
         "tts_enabled": false
@@ -1882,7 +1894,7 @@
         "tts_enabled": true
       },
       {
-        "relation": "セ　建設中",
+        "relation": "セ　工事中",
         "answer": "under construction",
         "answer_meaning": "ウエブサイトでも使われる",
         "tts_enabled": true
@@ -1906,7 +1918,7 @@
     ],
     "1898": [
       {
-        "relation": "意２",
+        "relation": "意２～３",
         "answer": "態度、意見、姿勢",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2029,16 +2041,22 @@
     "2094": [
       {
         "relation": "意２～３",
-        "answer": "情熱、熱中しているもの",
+        "answer": "情熱、熱中しているもの、キリストの受難",
         "answer_meaning": "パッションフルーツはキリストの磔をイメージした",
         "tts_enabled": false
+      },
+      {
+        "relation": "形",
+        "answer": "passionate",
+        "answer_meaning": "情熱的な",
+        "tts_enabled": true
       }
     ],
     "2107": [
       {
         "relation": "意２ typically",
-        "answer": "typically",
-        "answer_meaning": "典型的に、概して、たいてい = usually",
+        "answer": "典型的に、概して、たいてい = usually",
+        "answer_meaning": null,
         "tts_enabled": true
       },
       {
@@ -2116,8 +2134,8 @@
     "2155": [
       {
         "relation": "意 ２ shame",
-        "answer": "shame",
-        "answer_meaning": "恥、恥ずかしさ、残念なこと",
+        "answer": "恥、恥ずかしさ、残念なこと",
+        "answer_meaning": null,
         "tts_enabled": true
       },
       {
@@ -2129,7 +2147,7 @@
     ],
     "2167": [
       {
-        "relation": "意３～４",
+        "relation": "意２以上",
         "answer": "かなり、むしろ、やや、多少",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2155,13 +2173,13 @@
       {
         "relation": "意 graze",
         "answer": "graze",
-        "answer_meaning": "草を食べる",
+        "answer_meaning": "草を食べる「grass の動詞」",
         "tts_enabled": true
       }
     ],
     "2199": [
       {
-        "relation": "意２",
+        "relation": "意２～３",
         "answer": "施設、容易さ、器用さ",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2169,7 +2187,7 @@
     ],
     "2200": [
       {
-        "relation": "意２～３",
+        "relation": "意３",
         "answer": "能力、学部、教授陣",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2192,8 +2210,8 @@
     "142": [
       {
         "relation": "熟",
-        "answer": "be indifferent to～に無関心である",
-        "answer_meaning": null,
+        "answer": "be indifferent to",
+        "answer_meaning": "～に無関心である",
         "tts_enabled": true
       }
     ],
@@ -2207,9 +2225,9 @@
     ],
     "600": [
       {
-        "relation": "意 nun修道女",
-        "answer": "nun",
-        "answer_meaning": "修道女nun",
+        "relation": "意 nun",
+        "answer": "修道女",
+        "answer_meaning": null,
         "tts_enabled": true
       }
     ],
@@ -2323,7 +2341,7 @@
       {
         "relation": "意 binoculars",
         "answer": "binoculars",
-        "answer_meaning": "双眼鏡「bi２つnoのocular目」小さく",
+        "answer_meaning": "双眼鏡「bi２つnoのocular目」",
         "tts_enabled": true
       }
     ],
@@ -2367,7 +2385,7 @@
       {
         "relation": "意 enemy",
         "answer": "enemy",
-        "answer_meaning": "（戦争での）敵「え、ねえ、見い、敵や！」小さく",
+        "answer_meaning": "（戦争での）敵「え、ねえ、見い、敵や！」",
         "tts_enabled": true
       }
     ],
@@ -2383,22 +2401,28 @@
       {
         "relation": "セ　小さな町出身である",
         "answer": "hail from a small town",
-        "answer_meaning": "come from, be from より洗練された文芸的表現hail = hey, hi, hello と同語源。船乗り同士が声をか",
+        "answer_meaning": "come from, be from より洗練された文芸的表現　hail = hey, hi, hello と同語源。船乗り同士が声をかけあって、どこから来たかを聞いた。",
         "tts_enabled": true
       }
     ],
     "1725": [
       {
         "relation": "意３～４（他１、自１、名１～２）",
-        "answer": "他 ごちゃまぜにする自 よじ登る、あたふたする",
+        "answer": "他 ごちゃまぜにする　自 よじ登る、あたふたする　名 緊急発進、奪い合い",
         "answer_meaning": null,
         "tts_enabled": false
       }
     ],
     "1743": [
       {
-        "relation": "自動詞とその活用strive",
-        "answer": "> strove > striven努力する 努力する",
+        "relation": "自",
+        "answer": "strive",
+        "answer_meaning": null,
+        "tts_enabled": true
+      },
+      {
+        "relation": "自の活用",
+        "answer": "strive > strove > striven",
         "answer_meaning": "努力する",
         "tts_enabled": true
       }
@@ -2467,15 +2491,15 @@
         "tts_enabled": true
       },
       {
-        "relation": "法２～３",
+        "relation": "法２",
         "answer": "tell 人 to do 型、talk 人 into -ing 型",
         "answer_meaning": null,
         "tts_enabled": false
       },
       {
         "relation": "セ　説得して彼が辞任するのをやめさせる(persuade で)",
-        "answer": "persuade him out of resigning",
-        "answer_meaning": "persuade 人 into -ing の逆　talk 人 out of -ing 型",
+        "answer": "persuade him not to resign",
+        "answer_meaning": "tell 人 to do 型",
         "tts_enabled": false
       },
       {
@@ -2509,7 +2533,7 @@
     ],
     "1560": [
       {
-        "relation": "意 lapse",
+        "relation": "意 ２～３ lapse",
         "answer": "lapse",
         "answer_meaning": "軽い誤り、経過、失効、下落　「滑り落ちる」が語源",
         "tts_enabled": true
@@ -2631,7 +2655,7 @@
         "tts_enabled": true
       },
       {
-        "relation": "類の動詞",
+        "relation": "類の他動詞",
         "answer": "widen",
         "answer_meaning": "広げる",
         "tts_enabled": true
@@ -2684,13 +2708,13 @@
         "relation": "熟２",
         "answer": "spend お金 on 物",
         "answer_meaning": "時間でも使う",
-        "tts_enabled": true
+        "tts_enabled": false
       },
       {
         "relation": "熟２",
         "answer": "spend 時間 -ing",
         "answer_meaning": "お金でも使う　ing の前に in の省略",
-        "tts_enabled": true
+        "tts_enabled": false
       }
     ],
     "729": [
@@ -2844,7 +2868,7 @@
     "843": [
       {
         "relation": "意６～７（名６～７，形１）",
-        "answer": "名 主題、話題、主語、科目、患者、被験者、臣民　形 かかりやすい、影響を受ける",
+        "answer": "名 主題、話題、主語、科目、患者\n被験者、臣民　形 かかりやすい、影響を受ける",
         "answer_meaning": null,
         "tts_enabled": false
       },
@@ -2999,7 +3023,7 @@
       {
         "relation": "意 vet",
         "answer": "vet",
-        "answer_meaning": "名 獣医",
+        "answer_meaning": "名 獣医　他 調べる　veterinarian の略",
         "tts_enabled": true
       }
     ],
@@ -3044,6 +3068,276 @@
         "relation": "活",
         "answer": "upset > upset > upset",
         "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "544": [
+      {
+        "relation": "意 vowel",
+        "answer": "母音",
+        "answer_meaning": "子音は consonant",
+        "tts_enabled": true
+      }
+    ],
+    "708": [
+      {
+        "relation": "反２",
+        "answer": "cheap",
+        "answer_meaning": "安っぽい感じ",
+        "tts_enabled": true
+      },
+      {
+        "relation": "反２",
+        "answer": "inexpensive",
+        "answer_meaning": "安い",
+        "tts_enabled": true
+      },
+      {
+        "relation": "法",
+        "answer": "salary, wage, income, price には使わない",
+        "answer_meaning": "これらは high, low を使う",
+        "tts_enabled": false
+      }
+    ],
+    "1137": [
+      {
+        "relation": "意 context",
+        "answer": "context",
+        "answer_meaning": "文脈、状況",
+        "tts_enabled": true
+      },
+      {
+        "relation": "意 textile",
+        "answer": "textile",
+        "answer_meaning": "織物",
+        "tts_enabled": true
+      },
+      {
+        "relation": "意 text",
+        "answer": "text",
+        "answer_meaning": "メールを送る、本文、原文",
+        "tts_enabled": true
+      }
+    ],
+    "1769": [
+      {
+        "relation": "活",
+        "answer": "kneel > knelt > knelt",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "1327": [
+      {
+        "relation": "意３～４",
+        "answer": "特徴、性格、登場人物、（表意）文字",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "形",
+        "answer": "characteristic",
+        "answer_meaning": "形 特有の　名 特徴、特性",
+        "tts_enabled": true
+      },
+      {
+        "relation": "他",
+        "answer": "characterize",
+        "answer_meaning": "特徴づける",
+        "tts_enabled": true
+      }
+    ],
+    "2096": [
+      {
+        "relation": "意３以上",
+        "answer": "作業、作用、操作、手術、軍事行動",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "他",
+        "answer": "operate",
+        "answer_meaning": "作用する、動かす、手術する",
+        "tts_enabled": true
+      }
+    ],
+    "152": [
+      {
+        "relation": "意２ lesson",
+        "answer": "授業、教訓",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "372": [
+      {
+        "relation": "法２",
+        "answer": "try to do",
+        "answer_meaning": "しようとする（実際にするかは不明）",
+        "tts_enabled": false
+      },
+      {
+        "relation": "法２",
+        "answer": "try doing",
+        "answer_meaning": "試しにする（実際にする）",
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "trial",
+        "answer_meaning": "裁判、試し",
+        "tts_enabled": true
+      },
+      {
+        "relation": "意 trying（形容詞）",
+        "answer": "つらい",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "1317": [
+      {
+        "relation": "意（名）safe",
+        "answer": "金庫",
+        "answer_meaning": null,
+        "tts_enabled": true
+      },
+      {
+        "relation": "意 salvation",
+        "answer": "salvation",
+        "answer_meaning": "救助",
+        "tts_enabled": true
+      }
+    ],
+    "1880": [
+      {
+        "relation": "意２以上 credit",
+        "answer": "信用、名声、功績、履修単位",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "228": [
+      {
+        "relation": "意５～６ line",
+        "answer": "行、行列、線、セリフ\n得意分野、短い手紙",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "341": [
+      {
+        "relation": "意４（名２，自２）",
+        "answer": "名 法令、（劇の）幕　自 行動する、演じる",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名２",
+        "answer": "action",
+        "answer_meaning": "行動、訴訟",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名２",
+        "answer": "activity",
+        "answer_meaning": "活動",
+        "tts_enabled": true
+      },
+      {
+        "relation": "副",
+        "answer": "actually",
+        "answer_meaning": "実際に、ところが実際は",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形２",
+        "answer": "active",
+        "answer_meaning": "積極的、活動的、能動的",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形２",
+        "answer": "actual",
+        "answer_meaning": "現実の、実際の",
+        "tts_enabled": true
+      }
+    ],
+    "1352": [
+      {
+        "relation": "セ　私は間違えた。",
+        "answer": "I made a mistake.",
+        "answer_meaning": "他動詞なので I mistook. は不可。I was mistaken. は可",
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　トムを彼の兄と間違える",
+        "answer": "mistake Tom for his brother",
+        "answer_meaning": "take A for B も言う。としての for",
+        "tts_enabled": false
+      }
+    ],
+    "1780": [
+      {
+        "relation": "セ　彼に返事をする",
+        "answer": "reply to him",
+        "answer_meaning": "= answer him（answer は reply より直接的）",
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　Eメールに返信をする",
+        "answer": "reply to an email",
+        "answer_meaning": "= answer an email",
+        "tts_enabled": false
+      }
+    ],
+    "1273": [
+      {
+        "relation": "セ　ラテン語に由来する",
+        "answer": "derive from Latin",
+        "answer_meaning": "ラテン語から川が下へ分岐しているイメージ",
+        "tts_enabled": false
+      }
+    ],
+    "364": [
+      {
+        "relation": "名",
+        "answer": "similarity",
+        "answer_meaning": "類似",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ　彼女の声は母親に似ている。",
+        "answer": "Her voice is similar to her mother's.",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "359": [
+      {
+        "relation": "セ　彼女に子供時代を思い出させる",
+        "answer": "remind her of her childhood",
+        "answer_meaning": "remind A of B　A に B を思い出させる",
+        "tts_enabled": false
+      }
+    ],
+    "845": [
+      {
+        "relation": "意４（名３，自１）",
+        "answer": "名 物体、対象、目的（語）　自 反対する",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "objection",
+        "answer_meaning": "反対",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ　働くことに反対する",
+        "answer": "object to working",
+        "answer_meaning": "to は前置詞",
         "tts_enabled": false
       }
     ]

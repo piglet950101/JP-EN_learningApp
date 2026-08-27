@@ -80,6 +80,9 @@ class SecondStageEntry {
   /// which characters carry the pun, so it is recorded rather than guessed;
   /// when empty the renderer falls back to any Latin run in the mnemonic.
   final List<String> mnemonicEcho;
+  /// How this row's answer should be READ, when the spelling misleads the
+  /// engine (0242 wind → ワインド). Null means read the answer itself.
+  final String? pronunciationHint;
   final String? notes;
 
   const SecondStageEntry({
@@ -92,6 +95,7 @@ class SecondStageEntry {
     required this.answerMeaning,
     required this.ttsEnabled,
     this.mnemonicEcho = const [],
+    this.pronunciationHint,
     required this.notes,
   });
 
@@ -110,6 +114,7 @@ class SecondStageEntry {
               .where((e) => e.isNotEmpty)
               .toList(growable: false) ??
           const [],
+      pronunciationHint: j['pronunciation_hint'] as String?,
       notes: j['notes'] as String?,
     );
   }

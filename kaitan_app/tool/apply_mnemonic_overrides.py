@@ -36,6 +36,10 @@ def main() -> None:
             errors.append(f'id={wid} mnemonic type "{mtype}" not present')
             continue
         target['runs'] = spec['runs']
+        # 1993 overwhelming was filed under 語源 but the client reclassified it
+        # as イメージ, so the heading has to change too, not only the text.
+        if spec.get('new_mnemonic_type'):
+            target['type'] = spec['new_mnemonic_type']
         applied += 1
 
     WORDS.write_text(json.dumps(words_doc, ensure_ascii=False, indent=2),

@@ -27,7 +27,11 @@ abstract class TtsService {
   ///   • splits "lay > laid > laid" style conjugation triples on `>` and
   ///     speaks each in sequence with a short pause (no `>` uttered).
   /// If the cleaned string is empty (e.g. only `[自]` was there), this is a no-op.
-  Future<void> speakAnswer(String raw);
+  /// [pronunciationHint] overrides how the answer is READ without changing
+  /// what is shown. Needed where the spelling misleads the engine — 0242 wind
+  /// is ワインド not ウインド, 0916 tear is ティア, 0410 prayer is プレア in one
+  /// row and プレイア in the next.
+  Future<void> speakAnswer(String raw, {String? pronunciationHint});
 
   /// Speak several SS answers back-to-back with a short pause between,
   /// used by the ⑦' auto-play when the answer view opens.
@@ -95,9 +99,22 @@ class FlutterTtsService implements TtsService {
   }
 
   @override
-  Future<void> speakAnswer(String raw) async {
+  Future<void> speakAnswer(String raw, {String? pronunciationHint}) async {
     if (!_ready) await init();
     await _tts.stop();
+    final hint = pronunciationHint?.trim() ?? '';
+    if (hint.isNotEmpty) {
+      // Kana is read by the Japanese voice, which is the only way to force an
+      // English spelling to a specific sound; anything else is read as-is.
+      if (_kanaRe.hasMatch(hint)) {
+        await _tts.setLanguage('ja-JP');
+        await _tts.speak(hint);
+        await _tts.setLanguage(_defaultLang);
+      } else {
+        await _tts.speak(hint);
+      }
+      return;
+    }
     final words = _splitAnswerForSpeech(raw);
     if (words.isEmpty) return;
     for (var i = 0; i < words.length; i++) {

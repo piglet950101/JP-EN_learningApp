@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "source": "client 2026-08-26 — how a row's answer must be READ",
+  "note": "Kana is spoken by the Japanese voice, which is the only way to force an English spelling to a given sound. Latin text is read as-is. Absent entries read their own answer.",
+  "entries": [
+    { "word_id": 242, "answer": "wind > wound > wound",
+      "pronunciation": "ワインド　ワウンド　ワウンド",
+      "why": "wind の音声を ウインド× ⇨ ワインド〇 に" },
+
+    { "word_id": 410, "relation": "名 人", "answer": "prayer",
+      "pronunciation": "プレイア",
+      "why": "祈る人 の prayer はプレイア。祈り の prayer はプレアのままでよい" },
+
+    { "word_id": 718, "answer": "名 板、委員会、下宿の食事　他 乗る",
+      "pronunciation": "board",
+      "why": "音声を board に（答えは日本語なのでそのままでは読めない）" },
+
+    { "word_id": 874, "answer": "draft/draught",
+      "pronunciation": "draft",
+      "why": "音声を１つにできますか — 同音なので1回でよい" },
+
+    { "word_id": 916, "answer": "涙　tear",
+      "pronunciation": "ティア",
+      "why": "🔊ではティアと発音" },
+
+    { "word_id": 544, "answer": "母音",
+      "pronunciation": "vowel, consonant",
+      "why": "音声を追加。できれば consonant の音声も" }
+  ]
+}

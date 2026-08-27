@@ -65,7 +65,12 @@ class SsQuestionView extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                for (final e in entries) _EntryRow.hidden(entry: e),
+                for (var i = 0; i < entries.length; i++)
+                  _EntryRow.hidden(
+                    entry: entries[i],
+                    showLabel: i == 0 ||
+                        entries[i].relation != entries[i - 1].relation,
+                  ),
               ],
             ),
           ),
@@ -160,11 +165,17 @@ class _SsAnswerViewState extends ConsumerState<SsAnswerView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                for (final e in entries)
+                for (var i = 0; i < entries.length; i++)
                   _EntryRow.revealed(
-                    entry: e,
-                    onSpeak: e.ttsEnabled && e.answer.isNotEmpty
-                        ? () => ref.read(ttsProvider).speakAnswer(e.answer)
+                    entry: entries[i],
+                    showLabel: i == 0 ||
+                        entries[i].relation != entries[i - 1].relation,
+                    onSpeak: entries[i].ttsEnabled &&
+                            entries[i].answer.isNotEmpty
+                        ? () => ref.read(ttsProvider).speakAnswer(
+                              entries[i].answer,
+                              pronunciationHint: entries[i].pronunciationHint,
+                            )
                         : null,
                   ),
               ],
@@ -451,10 +462,17 @@ class _EntryRow extends StatelessWidget {
   final SecondStageEntry entry;
   final bool showAnswer;
   final VoidCallback? onSpeak;
-  const _EntryRow.hidden({required this.entry})
+  /// False when this row repeats the label of the row above it. The client
+  /// asked for the duplicate to go on 0341 act and 1275 industry, and it is
+  /// the same shape 109 times across 86 words: one question, several answers,
+  /// the label restated on each. Printing it once reads as the one question
+  /// it is.
+  final bool showLabel;
+  const _EntryRow.hidden({required this.entry, this.showLabel = true})
       : showAnswer = false,
         onSpeak = null;
-  const _EntryRow.revealed({required this.entry, this.onSpeak})
+  const _EntryRow.revealed(
+      {required this.entry, this.onSpeak, this.showLabel = true})
       : showAnswer = true;
 
   @override
@@ -475,11 +493,14 @@ class _EntryRow extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                _CategoryChip(cat: cat, label: cat ?? entry.relation),
+                _CategoryChip(
+                    cat: cat,
+                    label: cat ?? entry.relation,
+                    visible: showLabel),
                 const SizedBox(width: 10),
                 Expanded(
                   child: Text(
-                    rest,
+                    showLabel ? rest : '',
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
@@ -754,9 +775,14 @@ class _EntryRow extends StatelessWidget {
 class _CategoryChip extends StatelessWidget {
   final String? cat;
   final String label;
-  const _CategoryChip({required this.cat, required this.label});
+  /// When false the chip still occupies its slot but draws nothing, so the
+  /// answers of a multi-row question stay aligned under the one label.
+  final bool visible;
+  const _CategoryChip(
+      {required this.cat, required this.label, this.visible = true});
   @override
   Widget build(BuildContext context) {
+    if (!visible) return const SizedBox(width: 44);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
