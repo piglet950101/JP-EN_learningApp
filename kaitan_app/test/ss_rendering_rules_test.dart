@@ -322,4 +322,37 @@ void _headwordMeaningTests() {
       expect(shouldHide(['dig の活用と意味'], 'dignity'), isFalse);
     });
   });
+
+  // ── Repeated labels print once (client 2026-08-26, 0341 / 1275) ─────
+  //
+  // One question with several answers restated its label on every row. That
+  // shape occurs 109 times across 86 words, so it is a rule rather than two
+  // corrections.
+
+  group('a repeated label prints once', () {
+    test('consecutive identical labels collapse to the first', () {
+      expect(labelVisibility(['意４（名２，自２）', '意４（名２，自２）', '名２']),
+          [true, false, true]);
+    });
+
+    test('a label that returns after a gap prints again', () {
+      // Not merely "have I seen this label" — the run has to be adjacent, or
+      // a later group would silently lose its heading.
+      expect(labelVisibility(['名２', '副', '名２']), [true, true, true]);
+    });
+
+    test('a single row always shows its label', () {
+      expect(labelVisibility(['意 lapse']), [true]);
+    });
+
+    test('three in a row leave only the first', () {
+      expect(labelVisibility(['名３', '名３', '名３']), [true, false, false]);
+    });
+  });
 }
+
+/// Mirrors the showLabel argument computed for each _EntryRow.
+List<bool> labelVisibility(List<String> relations) => [
+      for (var i = 0; i < relations.length; i++)
+        i == 0 || relations[i] != relations[i - 1],
+    ];
