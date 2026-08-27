@@ -23,6 +23,11 @@ String breakForReading(String s) {
     RegExp(r'\s+([他自名形副動前接])\s'),
     (m) => '\n${m.group(1)} ',
   );
+  // A ゴロ starts its own line (client 2026-08-26 ④).
+  out = out.replaceAllMapped(
+    RegExp(r'([^\n\s])\s*(?=「)'),
+    (m) => '${m.group(1)}\n',
+  );
   return out.trim();
 }
 
@@ -216,9 +221,18 @@ final _meaningCodePrefix =
 
 final _startsLatin = RegExp(r'^[A-Za-z]');
 
-bool shouldHide(List<String> meaningRelations, String headword) {
-  for (final rel in meaningRelations) {
-    final rest = rel.trim().replaceFirst(_meaningCodePrefix, '').trim();
+final _posThenOwnMeaning = RegExp(r'^[他自名形副動前接間]\s*の意味');
+
+bool shouldHide(List<String> relations, String headword) {
+  // Mirrors _shouldHideHeadwordLine, which is handed EVERY relation for the
+  // word and does its own filtering — so this takes them all too, rather than
+  // a pre-filtered list of 意 entries.
+  for (final rel in relations) {
+    final r = rel.trim();
+    if (_posThenOwnMeaning.hasMatch(r)) return true;
+    if (r.startsWith('品')) return true; // posMarker
+    if (!r.startsWith('意')) continue; // not a meaning question at all
+    final rest = r.replaceFirst(_meaningCodePrefix, '').trim();
     if (rest.isEmpty) return true;
     if (rest.toLowerCase() == headword.trim().toLowerCase()) return true;
     if (_startsLatin.hasMatch(rest)) continue;
@@ -226,6 +240,7 @@ bool shouldHide(List<String> meaningRelations, String headword) {
   }
   return false;
 }
+
 
 void _headwordMeaningTests() {
   group('headword meaning visibility', () {
@@ -259,6 +274,52 @@ void _headwordMeaningTests() {
       expect(shouldHide(['意３とそれぞれの前置詞'], 'consist'), isTrue);
       expect(shouldHide(['意２～３'], 'degree'), isTrue);
       expect(shouldHide(['意２（他１、名１）'], 'exhaust'), isTrue);
+    });
+  });
+
+  // ── Client 2026-08-26 ──────────────────────────────────────────────
+
+  group('a ゴロ takes its own line (rule ④)', () {
+    test('a mnemonic following a meaning is pushed onto the next line', () {
+      expect(breakForReading('聖職者「プリーズと祈る聖職者」'),
+          '聖職者\n「プリーズと祈る聖職者」');
+    });
+
+    test('two mnemonics in a row each get a line — 1324 surge', () {
+      expect(breakForReading('急騰する「匙が急にふわ～と上がる」「血圧サージ」'),
+          '急騰する\n「匙が急にふわ～と上がる」\n「血圧サージ」');
+    });
+
+    test('a line that is only a mnemonic is left alone', () {
+      expect(breakForReading('「スター本許さぬがんこなおやじ」'),
+          '「スター本許さぬがんこなおやじ」');
+    });
+
+    test('a 「」 used as a grammar note also breaks — harmless, still one idea',
+        () {
+      expect(breakForReading('approve of his idea「賛成する」は自動詞'),
+          'approve of his idea\n「賛成する」は自動詞');
+    });
+  });
+
+  group('asking for the headword own meaning hides it (rule ①)', () {
+    test('0916 tear: 他の意味 and 名 の意味と発音 both hide it', () {
+      expect(shouldHide(['他の意味'], 'tear'), isTrue);
+      expect(shouldHide(['名 の意味と発音'], 'tear'), isTrue);
+      expect(shouldHide(['他の活用'], 'tear'), isFalse);
+    });
+
+    test('a DERIVED word and its meaning leaves the headword visible', () {
+      // 0006 apparent 副詞とその意味 wants apparently — showing 明らかな
+      // gives nothing away, so the line must stay.
+      expect(shouldHide(['副詞とその意味'], 'apparent'), isFalse);
+      expect(shouldHide(['名詞とその意味を２つ'], 'occupy'), isFalse);
+      expect(shouldHide(['形容詞とその意味'], 'condition'), isFalse);
+    });
+
+    test('a DIFFERENT word meaning leaves the headword visible', () {
+      expect(shouldHide(['副詞 fairly の意味'], 'fair'), isFalse);
+      expect(shouldHide(['dig の活用と意味'], 'dignity'), isFalse);
     });
   });
 }

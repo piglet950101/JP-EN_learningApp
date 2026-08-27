@@ -247,9 +247,21 @@ final RegExp _startsLatin = RegExp(r'^[A-Za-z]');
 ///
 /// The reliable signal is whether the text after the 意 code is a Latin-script
 /// word: only then is a different English word being asked about.
+final _posThenOwnMeaning = RegExp(r'^[他自名形副動前接間]\s*の意味');
+
 bool _shouldHideHeadwordLine(
     List<SecondStageEntry> entries, Word headword) {
   for (final e in entries) {
+    // A question can ask for the headword's meaning without using the 意 code
+    // at all: 0916 tear carries 他の意味 and 名 の意味と発音, both of which
+    // want tear's own meaning, so leaving the headword line up hands over the
+    // answer (client 2026-08-26 ①).
+    //
+    // The POS code must be followed directly by の意味. That is what separates
+    // it from 副詞とその意味, which asks for a DERIVED word and its meaning,
+    // and from 副詞 fairly の意味, which asks about a different word entirely —
+    // in both of those the headword line gives nothing away and must stay.
+    if (_posThenOwnMeaning.hasMatch(e.relation.trim())) return true;
     if (e.baseCategory == SsRelationCategory.posMarker) return true;
     if (e.baseCategory != SsRelationCategory.meaning) continue;
     final rest =
@@ -601,6 +613,15 @@ class _EntryRow extends StatelessWidget {
       RegExp(r'\s+([他自名形副動前接])\s'),
       (m) => '\n${m.group(1)} ',
     );
+    // A ゴロ starts its own line. Client 2026-08-26 ④ asked for this on
+    // entry after entry — 0557 assess, 1315 ail, 1324 surge, 1370 aggravate,
+    // 1383 binoculars — always paired with 「黒字、小さく」, which is rule ③.
+    // Two consecutive ゴロ each get their own line (1324 surge carries
+    // 「匙が…」「血圧サージ」).
+    out = out.replaceAllMapped(
+      RegExp(r'([^\n\s])\s*(?=「)'),
+      (m) => '${m.group(1)}\n',
+    );
     return out.trim();
   }
 
@@ -632,8 +653,17 @@ class _EntryRow extends StatelessWidget {
   static InlineSpan _mnemonicSpans(String text,
       {required TextStyle base, List<String> echo = const []}) {
     if (echo.isEmpty) return TextSpan(text: text, style: base);
-    final mincho = base.copyWith(fontFamily: 'serif');
-    final echoStyle = base.copyWith(fontWeight: FontWeight.w900);
+    // Client 2026-08-26 ③: a ゴロ is 「基本的に黒字で、小さいフォント」. That
+    // applies to the whole quoted run — the echoing part included — so it is
+    // set on the shared style here and the face/weight split happens below.
+    // (These two attributes were in the 08-19 build and I dropped them when
+    // rewriting for the 08-24 mincho rule.)
+    final quoted = base.copyWith(
+      color: Colors.black,
+      fontSize: (base.fontSize ?? 15) - 2,
+    );
+    final mincho = quoted.copyWith(fontFamily: 'serif');
+    final echoStyle = quoted.copyWith(fontWeight: FontWeight.w900);
 
     final children = <InlineSpan>[];
     var cursor = 0;
