@@ -99,4 +99,17 @@ void main() {
       expect(v.aspect, greaterThan(0), reason: 'block ${v.block}');
     }
   });
+
+  test('all 46 blocks are vertical footage (delivered 2026-08-27)', () {
+    // 湯原様 re-shot every block 9:16 and swapped them in place, so the
+    // manifest must say portrait for all of them. If a re-import ever loses
+    // the orientation field the entries fall back to 16:9 and fullscreen
+    // starts rotating the device again — which for vertical footage makes
+    // the picture SMALLER, the opposite of what the control is for.
+    for (final v in repo.all) {
+      expect(v.isPortraitVideo, isTrue, reason: 'block ${v.block}');
+      expect(v.aspect, closeTo(9 / 16, 1e-9), reason: 'block ${v.block}');
+    }
+    expect(repo.all.length, 46);
+  });
 }

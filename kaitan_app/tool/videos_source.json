@@ -4,54 +4,239 @@
     "Client-supplied Vimeo URL list, received 2026-07-13.",
     "URLs are the Vimeo unlisted-share format: https://vimeo.com/{ID}/{hash}?fl=tl&fe=ec",
     "The importer converts these to embed-player URLs at build time.",
-    "Duration is client's estimate ('約6分'); leave duration_sec=null unless a specific duration is confirmed."
+    "Duration is client's estimate ('約6分'); leave duration_sec=null unless a specific duration is confirmed.",
+    "2026-08-27 (湯原様): all 46 blocks re-shot vertical (9:16) and swapped in place on Vimeo. The IDs and hashes are unchanged, so the URLs above still resolve — only the shape of the footage changed."
   ],
   "urls": [
-    {"block": 1,  "url": "https://vimeo.com/1210995261/2e413b4072?fl=tl&fe=ec"},
-    {"block": 2,  "url": "https://vimeo.com/1210995258/b22e10933f?fl=tl&fe=ec"},
-    {"block": 3,  "url": "https://vimeo.com/1210995260/42e3663934?fl=tl&fe=ec"},
-    {"block": 4,  "url": "https://vimeo.com/1210995259/e94daf8f3e?fl=tl&fe=ec"},
-    {"block": 5,  "url": "https://vimeo.com/1210995278/95c38974f9?fl=tl&fe=ec"},
-    {"block": 6,  "url": "https://vimeo.com/1210995282/12cae74588?fl=tl&fe=ec"},
-    {"block": 7,  "url": "https://vimeo.com/1210995283/820dd9d066?fl=tl&fe=ec"},
-    {"block": 8,  "url": "https://vimeo.com/1210995284/b31c692027?fl=tl&fe=ec"},
-    {"block": 9,  "url": "https://vimeo.com/1210995290/766fb3f5c3?fl=tl&fe=ec"},
-    {"block": 10, "url": "https://vimeo.com/1210995301/6527d9d680?fl=tl&fe=ec"},
-    {"block": 11, "url": "https://vimeo.com/1210995302/1e09ce7ee4?fl=tl&fe=ec"},
-    {"block": 12, "url": "https://vimeo.com/1210995303/66810bed9c?fl=tl&fe=ec"},
-    {"block": 13, "url": "https://vimeo.com/1210995305/07f0d0b216?fl=tl&fe=ec"},
-    {"block": 14, "url": "https://vimeo.com/1210995317/8e26474559?fl=tl&fe=ec"},
-    {"block": 15, "url": "https://vimeo.com/1210995318/f295caafa3?fl=tl&fe=ec"},
-    {"block": 16, "url": "https://vimeo.com/1210995319/36fd4a80eb?fl=tl&fe=ec"},
-    {"block": 17, "url": "https://vimeo.com/1210995320/d5f49f3956?fl=tl&fe=ec"},
-    {"block": 18, "url": "https://vimeo.com/1210995329/a0e7e428b5?fl=tl&fe=ec"},
-    {"block": 19, "url": "https://vimeo.com/1210995330/59a03e3b24?fl=tl&fe=ec"},
-    {"block": 20, "url": "https://vimeo.com/1210995332/30d544936d?fl=tl&fe=ec"},
-    {"block": 21, "url": "https://vimeo.com/1210995331/6696b5868b?fl=tl&fe=ec"},
-    {"block": 22, "url": "https://vimeo.com/1210995342/f60753cb4d?fl=tl&fe=ec"},
-    {"block": 23, "url": "https://vimeo.com/1210995345/c499c5aec0?fl=tl&fe=ec"},
-    {"block": 24, "url": "https://vimeo.com/1210996886/adaebd79c9?fl=tl&fe=ec"},
-    {"block": 25, "url": "https://vimeo.com/1210996885/a30617404f?fl=tl&fe=ec"},
-    {"block": 26, "url": "https://vimeo.com/1210996887/39cbffa875?fl=tl&fe=ec"},
-    {"block": 27, "url": "https://vimeo.com/1210996889/b1eb3181b8?fl=tl&fe=ec"},
-    {"block": 28, "url": "https://vimeo.com/1210996899/9ffd002e1a?fl=tl&fe=ec"},
-    {"block": 29, "url": "https://vimeo.com/1210996900/acdacc7210?fl=tl&fe=ec"},
-    {"block": 30, "url": "https://vimeo.com/1210996806/4f9671702b?fl=tl&fe=ec"},
-    {"block": 31, "url": "https://vimeo.com/1210996807/1b135a6529?fl=tl&fe=ec"},
-    {"block": 32, "url": "https://vimeo.com/1210996809/67dc631f8c?fl=tl&fe=ec"},
-    {"block": 33, "url": "https://vimeo.com/1210996808/ae8fcc9a5e?fl=tl&fe=ec"},
-    {"block": 34, "url": "https://vimeo.com/1210996829/ecdbd8dd32?fl=tl&fe=ec"},
-    {"block": 35, "url": "https://vimeo.com/1210996830/43fc86e4ff?fl=tl&fe=ec"},
-    {"block": 36, "url": "https://vimeo.com/1210996832/0125841063?fl=tl&fe=ec"},
-    {"block": 37, "url": "https://vimeo.com/1210996831/e1fb49c8b9?fl=tl&fe=ec"},
-    {"block": 38, "url": "https://vimeo.com/1210996845/2fde1f6a9b?fl=tl&fe=ec"},
-    {"block": 39, "url": "https://vimeo.com/1210996852/6c24eae7e0?fl=tl&fe=ec"},
-    {"block": 40, "url": "https://vimeo.com/1210996853/7fb357cc04?fl=tl&fe=ec"},
-    {"block": 41, "url": "https://vimeo.com/1210996854/c9c4c58558?fl=tl&fe=ec"},
-    {"block": 42, "url": "https://vimeo.com/1210996862/c0793b6281?fl=tl&fe=ec"},
-    {"block": 43, "url": "https://vimeo.com/1210996866/f8cf39e09e?fl=tl&fe=ec"},
-    {"block": 44, "url": "https://vimeo.com/1210996868/dfdba06abe?fl=tl&fe=ec"},
-    {"block": 45, "url": "https://vimeo.com/1210996871/e1d613143a?fl=tl&fe=ec"},
-    {"block": 46, "url": "https://vimeo.com/1210996878/60c451bffd?fl=tl&fe=ec"}
+    {
+      "block": 1,
+      "url": "https://vimeo.com/1210995261/2e413b4072?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 2,
+      "url": "https://vimeo.com/1210995258/b22e10933f?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 3,
+      "url": "https://vimeo.com/1210995260/42e3663934?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 4,
+      "url": "https://vimeo.com/1210995259/e94daf8f3e?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 5,
+      "url": "https://vimeo.com/1210995278/95c38974f9?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 6,
+      "url": "https://vimeo.com/1210995282/12cae74588?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 7,
+      "url": "https://vimeo.com/1210995283/820dd9d066?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 8,
+      "url": "https://vimeo.com/1210995284/b31c692027?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 9,
+      "url": "https://vimeo.com/1210995290/766fb3f5c3?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 10,
+      "url": "https://vimeo.com/1210995301/6527d9d680?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 11,
+      "url": "https://vimeo.com/1210995302/1e09ce7ee4?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 12,
+      "url": "https://vimeo.com/1210995303/66810bed9c?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 13,
+      "url": "https://vimeo.com/1210995305/07f0d0b216?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 14,
+      "url": "https://vimeo.com/1210995317/8e26474559?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 15,
+      "url": "https://vimeo.com/1210995318/f295caafa3?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 16,
+      "url": "https://vimeo.com/1210995319/36fd4a80eb?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 17,
+      "url": "https://vimeo.com/1210995320/d5f49f3956?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 18,
+      "url": "https://vimeo.com/1210995329/a0e7e428b5?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 19,
+      "url": "https://vimeo.com/1210995330/59a03e3b24?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 20,
+      "url": "https://vimeo.com/1210995332/30d544936d?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 21,
+      "url": "https://vimeo.com/1210995331/6696b5868b?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 22,
+      "url": "https://vimeo.com/1210995342/f60753cb4d?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 23,
+      "url": "https://vimeo.com/1210995345/c499c5aec0?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 24,
+      "url": "https://vimeo.com/1210996886/adaebd79c9?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 25,
+      "url": "https://vimeo.com/1210996885/a30617404f?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 26,
+      "url": "https://vimeo.com/1210996887/39cbffa875?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 27,
+      "url": "https://vimeo.com/1210996889/b1eb3181b8?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 28,
+      "url": "https://vimeo.com/1210996899/9ffd002e1a?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 29,
+      "url": "https://vimeo.com/1210996900/acdacc7210?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 30,
+      "url": "https://vimeo.com/1210996806/4f9671702b?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 31,
+      "url": "https://vimeo.com/1210996807/1b135a6529?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 32,
+      "url": "https://vimeo.com/1210996809/67dc631f8c?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 33,
+      "url": "https://vimeo.com/1210996808/ae8fcc9a5e?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 34,
+      "url": "https://vimeo.com/1210996829/ecdbd8dd32?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 35,
+      "url": "https://vimeo.com/1210996830/43fc86e4ff?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 36,
+      "url": "https://vimeo.com/1210996832/0125841063?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 37,
+      "url": "https://vimeo.com/1210996831/e1fb49c8b9?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 38,
+      "url": "https://vimeo.com/1210996845/2fde1f6a9b?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 39,
+      "url": "https://vimeo.com/1210996852/6c24eae7e0?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 40,
+      "url": "https://vimeo.com/1210996853/7fb357cc04?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 41,
+      "url": "https://vimeo.com/1210996854/c9c4c58558?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 42,
+      "url": "https://vimeo.com/1210996862/c0793b6281?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 43,
+      "url": "https://vimeo.com/1210996866/f8cf39e09e?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 44,
+      "url": "https://vimeo.com/1210996868/dfdba06abe?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 45,
+      "url": "https://vimeo.com/1210996871/e1d613143a?fl=tl&fe=ec",
+      "orientation": "portrait"
+    },
+    {
+      "block": 46,
+      "url": "https://vimeo.com/1210996878/60c451bffd?fl=tl&fe=ec",
+      "orientation": "portrait"
+    }
   ]
 }
