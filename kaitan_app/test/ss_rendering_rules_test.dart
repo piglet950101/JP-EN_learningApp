@@ -17,17 +17,21 @@
 
 import 'package:flutter_test/flutter_test.dart';
 
-String breakForReading(String s) {
+String breakForReading(String s,
+    {bool breakBeforeQuote = true}) {
   var out = s.replaceAll(RegExp(r'\s*cf\.\s*'), '\ncf. ');
   out = out.replaceAllMapped(
     RegExp(r'\s+([他自名形副動前接])\s'),
     (m) => '\n${m.group(1)} ',
   );
-  // A ゴロ starts its own line (client 2026-08-26 ④).
-  out = out.replaceAllMapped(
-    RegExp(r'([^\n\s])\s*(?=「)'),
-    (m) => '${m.group(1)}\n',
-  );
+  // A ゴロ starts its own line (2026-08-26 ④) — but only a ゴロ;
+  // a grammar note keeps its quotes inline (2026-08-31).
+  if (breakBeforeQuote) {
+    out = out.replaceAllMapped(
+      RegExp(r'([^\n\s])\s*(?=「)'),
+      (m) => '${m.group(1)}\n',
+    );
+  }
   return out.trim();
 }
 
@@ -151,6 +155,36 @@ void main() {
       final r = splitMeaning('急性の、鋭い「あ、キューと来るのが急性病」',
           ['あ、キュー']);
       expect(r.first, ('急性の、鋭い', Face.gothic));
+    });
+  });
+
+  // ── Only a ゴロ takes its own line (client 2026-08-31) ──────────────
+  //
+  // 1269 revenge and 1761 anxious both asked for 「１行に」. Their quotes are
+  // grammar notes sitting mid-sentence, so breaking before each one would
+  // scatter a single thought across three lines. mnemonicEcho is what tells
+  // a ゴロ from a note, so the caller passes it in.
+
+  group('a grammar note keeps its quotes inline', () {
+    test('1761 anxious stays on one line when unmarked', () {
+      expect(
+          breakForReading('anxious は「やきもき」for は「求めて」',
+              breakBeforeQuote: false),
+          'anxious は「やきもき」for は「求めて」');
+    });
+
+    test('1269 revenge stays on one line when unmarked', () {
+      expect(
+          breakForReading('oneself「= 自分がやられたこと」を返す',
+              breakBeforeQuote: false),
+          'oneself「= 自分がやられたこと」を返す');
+    });
+
+    test('a marked ゴロ still breaks onto its own line', () {
+      expect(
+          breakForReading('聖職者「プリーズと祈る聖職者」',
+              breakBeforeQuote: true),
+          '聖職者\n「プリーズと祈る聖職者」');
     });
   });
 }

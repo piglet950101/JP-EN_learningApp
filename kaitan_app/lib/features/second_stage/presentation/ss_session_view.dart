@@ -585,7 +585,8 @@ class _EntryRow extends StatelessWidget {
                       EdgeInsets.only(top: hideAnswerText ? 0 : 2),
                   child: Text.rich(
                     _mnemonicSpans(
-                      _breakForReading(entry.answerMeaning!),
+                      _breakForReading(entry.answerMeaning!,
+                          breakBeforeQuote: entry.mnemonicEcho.isNotEmpty),
                       echo: entry.mnemonicEcho,
                       base: TextStyle(
                         // ゴチ — the meaning itself keeps the gothic face it
@@ -626,7 +627,7 @@ class _EntryRow extends StatelessWidget {
   ///   • before Japanese POS markers 名/他/自/形/副/動/前/接 when they are
   ///     used as prefix labels for multiple sub-meanings within one line
   ///     (e.g. `形 卑しい、意地悪な 名 中間、平均 他 意味する` → 3 lines)
-  static String _breakForReading(String s) {
+  static String _breakForReading(String s, {bool breakBeforeQuote = false}) {
     // Break at cf. (both `cf.` and ` cf `)
     var out = s.replaceAll(RegExp(r'\s*cf\.\s*'), '\ncf. ');
     // Break at POS markers that follow whitespace: preserve the marker.
@@ -634,15 +635,22 @@ class _EntryRow extends StatelessWidget {
       RegExp(r'\s+([他自名形副動前接])\s'),
       (m) => '\n${m.group(1)} ',
     );
-    // A ゴロ starts its own line. Client 2026-08-26 ④ asked for this on
-    // entry after entry — 0557 assess, 1315 ail, 1324 surge, 1370 aggravate,
-    // 1383 binoculars — always paired with 「黒字、小さく」, which is rule ③.
-    // Two consecutive ゴロ each get their own line (1324 surge carries
-    // 「匙が…」「血圧サージ」).
-    out = out.replaceAllMapped(
-      RegExp(r'([^\n\s])\s*(?=「)'),
-      (m) => '${m.group(1)}\n',
-    );
+    // A ゴロ starts its own line (client 2026-08-26 ④) — but ONLY a ゴロ.
+    // Not every 「…」 is one: 1269 revenge carries oneself「= 自分がやられた
+    // こと」を返す and 1761 anxious carries anxious は「やきもき」for は
+    // 「求めて」, and for both the client asked for 「１行に」 — one line. They
+    // are grammar notes with the quotes mid-sentence, and breaking there would
+    // scatter one thought over three lines.
+    //
+    // mnemonicEcho already distinguishes the two: it is recorded only for a
+    // real ゴロ, so the caller passes it through here rather than this trying
+    // to tell them apart from the text.
+    if (breakBeforeQuote) {
+      out = out.replaceAllMapped(
+        RegExp(r'([^\n\s])\s*(?=「)'),
+        (m) => '${m.group(1)}\n',
+      );
+    }
     return out.trim();
   }
 

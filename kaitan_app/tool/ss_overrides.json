@@ -399,7 +399,7 @@
         "relation": "セ　The flood damaged the crops.",
         "answer": "= The flood inflicted damage on the crops.",
         "answer_meaning": "The flood did damage to the crops. も可",
-        "tts_enabled": true
+        "tts_enabled": false
       }
     ],
     "314": [
@@ -888,7 +888,7 @@
         "relation": "意３～４ board（名２～３，他１）",
         "answer": "名 板、委員会、下宿の食事　他 乗る",
         "answer_meaning": "板 ＝ テーブル → 会議、食事",
-        "tts_enabled": true
+        "tts_enabled": false
       }
     ],
     "726": [
@@ -941,7 +941,7 @@
     ],
     "757": [
       {
-        "relation": "意２～３",
+        "relation": "意３",
         "answer": "任せる、係わる、犯す",
         "answer_meaning": null,
         "tts_enabled": false
@@ -983,6 +983,12 @@
         "answer": "lead to improving performance",
         "answer_meaning": null,
         "tts_enabled": true
+      },
+      {
+        "relation": "同音 lead[led]",
+        "answer": "鉛、えんぴつの芯",
+        "answer_meaning": null,
+        "tts_enabled": false
       }
     ],
     "785": [],
@@ -1421,7 +1427,7 @@
       {
         "relation": "セ　彼らに復讐する（他動詞）",
         "answer": "revenge himself on them",
-        "answer_meaning": "oneself「自分がやられたこと」を返す",
+        "answer_meaning": "oneself「= 自分がやられたこと」を返す",
         "tts_enabled": false
       }
     ],
@@ -1586,7 +1592,7 @@
     ],
     "1460": [
       {
-        "relation": "意２～３",
+        "relation": "意２",
         "answer": "失敗する、しない、期待を裏切る",
         "answer_meaning": null,
         "tts_enabled": false
@@ -1603,12 +1609,12 @@
         "relation": "意 accelerate",
         "answer": "accelerate",
         "answer_meaning": "加速する",
-        "tts_enabled": false
+        "tts_enabled": true
       }
     ],
     "1475": [
       {
-        "relation": "意３",
+        "relation": "意３～４",
         "answer": "幹、象の鼻、トランクス、大型旅行カバン",
         "answer_meaning": null,
         "tts_enabled": false
@@ -1765,7 +1771,7 @@
       },
       {
         "relation": "セ　その老人から貯えをだまし取る",
-        "answer": "セ cheat the old man (out) of his savings",
+        "answer": "cheat the old man (out) of his savings",
         "answer_meaning": "rob 人 of 物型（分離のof で人と物を逆に訳）",
         "tts_enabled": false
       }
@@ -1848,7 +1854,7 @@
     ],
     "1836": [
       {
-        "relation": "意４～５",
+        "relation": "意５",
         "answer": "観察する、守る、気づく、述べる、祝う",
         "answer_meaning": null,
         "tts_enabled": false
@@ -1918,7 +1924,7 @@
     ],
     "1898": [
       {
-        "relation": "意２～３",
+        "relation": "意２",
         "answer": "態度、意見、姿勢",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2040,7 +2046,7 @@
     "2070": [],
     "2094": [
       {
-        "relation": "意２～３",
+        "relation": "意３",
         "answer": "情熱、熱中しているもの、キリストの受難",
         "answer_meaning": "パッションフルーツはキリストの磔をイメージした",
         "tts_enabled": false
@@ -2055,8 +2061,8 @@
     "2107": [
       {
         "relation": "意２ typically",
-        "answer": "典型的に、概して、たいてい = usually",
-        "answer_meaning": null,
+        "answer": "典型的に、概して、たいてい",
+        "answer_meaning": "= usually",
         "tts_enabled": true
       },
       {
@@ -2147,7 +2153,7 @@
     ],
     "2167": [
       {
-        "relation": "意２以上",
+        "relation": "意２～４",
         "answer": "かなり、むしろ、やや、多少",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2179,7 +2185,7 @@
     ],
     "2199": [
       {
-        "relation": "意２～３",
+        "relation": "意２",
         "answer": "施設、容易さ、器用さ",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2519,7 +2525,7 @@
     ],
     "2058": [
       {
-        "relation": "意３",
+        "relation": "意３～４",
         "answer": "記事、品物、項目、冠詞",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2550,7 +2556,7 @@
         "relation": "セ　リスニング力に焦点をあてる",
         "answer": "focus on listening comprehension",
         "answer_meaning": null,
-        "tts_enabled": true
+        "tts_enabled": false
       }
     ],
     "2059": [
@@ -2965,7 +2971,7 @@
     ],
     "1687": [
       {
-        "relation": "意３～４",
+        "relation": "意４",
         "answer": "請求書、法案、紙幣、くちばし（扁平な）",
         "answer_meaning": "ビーカーのようにとがったくちばしは beak",
         "tts_enabled": false
@@ -3004,7 +3010,7 @@
         "relation": "名２",
         "answer": "correspondent",
         "answer_meaning": "名 特派員　形 一致する",
-        "tts_enabled": false
+        "tts_enabled": true
       },
       {
         "relation": "セ　その証拠に一致する",
@@ -3022,8 +3028,8 @@
     "2010": [
       {
         "relation": "意 vet",
-        "answer": "vet",
-        "answer_meaning": "名 獣医　他 調べる　veterinarian の略",
+        "answer": "名 獣医　他 調べる",
+        "answer_meaning": "veterinarian の略",
         "tts_enabled": true
       }
     ],
@@ -3129,7 +3135,7 @@
     ],
     "1327": [
       {
-        "relation": "意３～４",
+        "relation": "意４",
         "answer": "特徴、性格、登場人物、（表意）文字",
         "answer_meaning": null,
         "tts_enabled": false
@@ -3166,7 +3172,7 @@
         "relation": "意２ lesson",
         "answer": "授業、教訓",
         "answer_meaning": null,
-        "tts_enabled": true
+        "tts_enabled": false
       }
     ],
     "372": [
@@ -3192,7 +3198,7 @@
         "relation": "意 trying（形容詞）",
         "answer": "つらい",
         "answer_meaning": null,
-        "tts_enabled": true
+        "tts_enabled": false
       }
     ],
     "1317": [
@@ -3222,7 +3228,7 @@
         "relation": "意５～６ line",
         "answer": "行、行列、線、セリフ\n得意分野、短い手紙",
         "answer_meaning": null,
-        "tts_enabled": true
+        "tts_enabled": false
       }
     ],
     "341": [
@@ -3338,6 +3344,586 @@
         "relation": "セ　働くことに反対する",
         "answer": "object to working",
         "answer_meaning": "to は前置詞",
+        "tts_enabled": false
+      }
+    ],
+    "578": [
+      {
+        "relation": "セ　ダイエット中である",
+        "answer": "be on a diet",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "662": [
+      {
+        "relation": "反",
+        "answer": "acute",
+        "answer_meaning": "急性の、鋭い「あ、キューと来るのが急性病」",
+        "tts_enabled": true
+      }
+    ],
+    "143": [
+      {
+        "relation": "意２",
+        "answer": "延期する、従う",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "活",
+        "answer": "defer > deferred > deferred",
+        "answer_meaning": "短母音＋子音扱い",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名",
+        "answer": "deference",
+        "answer_meaning": "敬意、服従",
+        "tts_enabled": true
+      }
+    ],
+    "383": [
+      {
+        "relation": "意２",
+        "answer": "怪しく思う、容疑者",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "suspicion",
+        "answer_meaning": "疑い",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形",
+        "answer": "suspicious",
+        "answer_meaning": "怪しい、疑い深い",
+        "tts_enabled": true
+      }
+    ],
+    "513": [
+      {
+        "relation": "意２",
+        "answer": "乱用する、虐待する",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "734": [
+      {
+        "relation": "意２",
+        "answer": "医学、薬",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "750": [
+      {
+        "relation": "意２",
+        "answer": "提出する、服従させる",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　プレッシャーに屈する",
+        "answer": "submit to pressure",
+        "answer_meaning": "自動詞 = yield to, give in to, succumb to",
+        "tts_enabled": false
+      }
+    ],
+    "763": [
+      {
+        "relation": "意２",
+        "answer": "解決する、決心する",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "resolution",
+        "answer_meaning": "決意",
+        "tts_enabled": true
+      }
+    ],
+    "772": [
+      {
+        "relation": "意２",
+        "answer": "いなくて寂しく思う、逃す",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "法",
+        "answer": "enjoy -ing 型",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "775": [
+      {
+        "relation": "意２",
+        "answer": "解散する、解雇する",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "776": [
+      {
+        "relation": "意２",
+        "answer": "前提、敷地",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "780": [
+      {
+        "relation": "意２",
+        "answer": "指定する、任命する",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "appointment",
+        "answer_meaning": "（会う）約束、予約、任命",
+        "tts_enabled": true
+      }
+    ],
+    "787": [
+      {
+        "relation": "意２",
+        "answer": "錨、ニュースキャスター",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "797": [
+      {
+        "relation": "意２",
+        "answer": "知能、情報",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "形",
+        "answer": "intelligent",
+        "answer_meaning": "頭が良い",
+        "tts_enabled": true
+      }
+    ],
+    "819": [
+      {
+        "relation": "意２",
+        "answer": "美徳、効力",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "形２",
+        "answer": "virtuous",
+        "answer_meaning": "徳のある",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形２",
+        "answer": "virtual",
+        "answer_meaning": "事実上の",
+        "tts_enabled": true
+      },
+      {
+        "relation": "副詞とその書き換え",
+        "answer": "virtually",
+        "answer_meaning": "実質的に、ほとんど = practically, almost",
+        "tts_enabled": true
+      }
+    ],
+    "822": [
+      {
+        "relation": "意２",
+        "answer": "瞬間、重要性",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "形２",
+        "answer": "momentary",
+        "answer_meaning": "一瞬の",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形２",
+        "answer": "momentous",
+        "answer_meaning": "重要な",
+        "tts_enabled": true
+      }
+    ],
+    "930": [
+      {
+        "relation": "意３～４",
+        "answer": "価値を正しく評価する、鑑賞する、感謝する、味わう",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "appreciation",
+        "answer_meaning": "評価、理解、鑑賞、感謝",
+        "tts_enabled": true
+      }
+    ],
+    "935": [
+      {
+        "relation": "意２",
+        "answer": "国家、国民",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "形",
+        "answer": "national",
+        "answer_meaning": "全国的な",
+        "tts_enabled": true
+      },
+      {
+        "relation": "意 nationality",
+        "answer": "nationality",
+        "answer_meaning": "国籍",
+        "tts_enabled": true
+      }
+    ],
+    "941": [
+      {
+        "relation": "意５",
+        "answer": "見ること、視野、視力、視界、光景、眺め、名所",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "1057": [
+      {
+        "relation": "意２",
+        "answer": "貢物（みつぎもの）、賛辞",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "1143": [
+      {
+        "relation": "意２",
+        "answer": "適切だ、関係がある",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "1144": [
+      {
+        "relation": "意２",
+        "answer": "関係づける、話す",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名２",
+        "answer": "relation",
+        "answer_meaning": "（国、組織、データの）関係、親類",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名２",
+        "answer": "relationship",
+        "answer_meaning": "（個人的）関係",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ　新出単語を画像と関連づける",
+        "answer": "relate new words to pictures",
+        "answer_meaning": "新出単語を画像と関連づける",
+        "tts_enabled": false
+      }
+    ],
+    "1225": [
+      {
+        "relation": "意２",
+        "answer": "現代の、同時代の",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "1369": [
+      {
+        "relation": "意３",
+        "answer": "文化、教養、培養",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "形",
+        "answer": "cultural",
+        "answer_meaning": "文化の、教養の",
+        "tts_enabled": true
+      }
+    ],
+    "1388": [
+      {
+        "relation": "意２",
+        "answer": "命令する、自在に操る",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　良い眺めを見下ろす",
+        "answer": "command a fine view",
+        "answer_meaning": "上から下へのベクトル",
+        "tts_enabled": false
+      }
+    ],
+    "1400": [
+      {
+        "relation": "意２",
+        "answer": "適切だ、固有の",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "propriety",
+        "answer_meaning": "適切さ、礼儀正しさ",
+        "tts_enabled": true
+      }
+    ],
+    "1401": [
+      {
+        "relation": "意２",
+        "answer": "所有物、特性",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "1415": [
+      {
+        "relation": "意２",
+        "answer": "部分的な、不公平な",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "反２",
+        "answer": "complete",
+        "answer_meaning": "完全な",
+        "tts_enabled": true
+      },
+      {
+        "relation": "反２",
+        "answer": "impartial",
+        "answer_meaning": "公平な",
+        "tts_enabled": true
+      }
+    ],
+    "1422": [
+      {
+        "relation": "意２～３",
+        "answer": "細胞、独房、電池",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "1454": [
+      {
+        "relation": "意２",
+        "answer": "思いを巡らす、投機する",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "speculation",
+        "answer_meaning": "思索、投機",
+        "tts_enabled": true
+      }
+    ],
+    "1500": [
+      {
+        "relation": "意２",
+        "answer": "つかまえる、さくっと食べる",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "1628": [
+      {
+        "relation": "意２",
+        "answer": "心配する、逮捕する",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "apprehension",
+        "answer_meaning": "（未来の）心配、気づかい、逮捕",
+        "tts_enabled": true
+      },
+      {
+        "relation": "形",
+        "answer": "apprehensive",
+        "answer_meaning": "心配して、恐れて",
+        "tts_enabled": true
+      }
+    ],
+    "1688": [
+      {
+        "relation": "意３",
+        "answer": "メモ、注、紙幣",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　彼らに新しい方針を知らせる",
+        "answer": "notify them of the new policy",
+        "answer_meaning": "remind A of B 型（関連「～について」のof）",
+        "tts_enabled": false
+      }
+    ],
+    "1815": [
+      {
+        "relation": "意２",
+        "answer": "結果、重要さ",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "形",
+        "answer": "consequent",
+        "answer_meaning": "結果として起こる",
+        "tts_enabled": true
+      },
+      {
+        "relation": "副",
+        "answer": "consequently",
+        "answer_meaning": "その結果",
+        "tts_enabled": true
+      }
+    ],
+    "1824": [
+      {
+        "relation": "意２～３",
+        "answer": "コンセント、はけ口、直売店",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "1912": [
+      {
+        "relation": "意２～３",
+        "answer": "流行している、現在の",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "currency",
+        "answer_meaning": "通過、流通",
+        "tts_enabled": true
+      }
+    ],
+    "2038": [
+      {
+        "relation": "意２",
+        "answer": "しつけ、学問",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "16": [
+      {
+        "relation": "セ　彼に留学するのを思いとどまらせる",
+        "answer": "discourage him from studying abroad",
+        "answer_meaning": "prevent 人 from doing 型",
+        "tts_enabled": false
+      }
+    ],
+    "352": [
+      {
+        "relation": "形",
+        "answer": "bloody",
+        "answer_meaning": "血まみれの",
+        "tts_enabled": true
+      },
+      {
+        "relation": "自",
+        "answer": "bleed",
+        "answer_meaning": "出血する",
+        "tts_enabled": true
+      },
+      {
+        "relation": "自の活用",
+        "answer": "bleed > bled > bled",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "524": [
+      {
+        "relation": "意３",
+        "answer": "間 たとえば　他 言う　名 発言権",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "法",
+        "answer": "第４文型を取らない",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "637": [
+      {
+        "relation": "意２ converse",
+        "answer": "会話する、逆の",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "693": [
+      {
+        "relation": "類",
+        "answer": "massacre",
+        "answer_meaning": "大虐殺「まさかの大虐殺」",
+        "tts_enabled": true
+      },
+      {
+        "relation": "類",
+        "answer": "the Holocaust",
+        "answer_meaning": "ユダヤ人大虐殺",
+        "tts_enabled": true
+      }
+    ],
+    "1592": [
+      {
+        "relation": "セ　酸性雨",
+        "answer": "acid rain",
+        "answer_meaning": null,
+        "tts_enabled": true
+      }
+    ],
+    "1778": [
+      {
+        "relation": "名",
+        "answer": "dependence",
+        "answer_meaning": "依存",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ　彼らに食料を頼っている",
+        "answer": "be dependent on them for food",
+        "answer_meaning": "on 頼る、for 求めて",
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　他国に石油を頼る",
+        "answer": "depend on other countries for oil",
+        "answer_meaning": "倒置に注意 one of the countries on which we depend (　　) oil　空所には on ではなく for",
         "tts_enabled": false
       }
     ]

@@ -1,0 +1,44 @@
+Audit of the 8.31 items the automatic checker cannot confirm
+==============================================================
+
+Each was opened against the shipped data and the client document.
+Only the NEEDS_CLIENT item is outstanding.
+
+  APPLIED             14
+  NEEDS_CLIENT         1
+  LABEL_KEEPS_WORD     1
+
+--------------------------------------------------------------
+
+[APPLIED]   16  'discourag him ～' => 'discourage him ～\u3000\u3000\u3000※私のスペルミスです'
+         why: present in the shipped data, verified by inspection; the doc "before" is a wrapped fragment the checker cannot match
+[APPLIED]  270  still on -> '反0310\u3000inflict\u3000\u3000問題'
+         why: present in the shipped data, verified by inspection; the doc "before" is a wrapped fragment the checker cannot match
+[APPLIED]  270  'セ The flood damaged the crops.' => 'セ The flood damaged the crops.='
+         why: present in the shipped data, verified by inspection; the doc "before" is a wrapped fragment the checker cannot match
+[APPLIED]  352  '自動詞とその活用' => '自自の活用'
+         why: present in the shipped data, verified by inspection; the doc "before" is a wrapped fragment the checker cannot match
+[APPLIED]  524  '意３' => '追加してください'
+         why: present in the shipped data, verified by inspection; the doc "before" is a wrapped fragment the checker cannot match
+[APPLIED]  524  '意３\u3000間 たとえば' => '追加してください'
+         why: present in the shipped data, verified by inspection; the doc "before" is a wrapped fragment the checker cannot match
+[APPLIED]  773  '同音 lead[led]' => 'これを追加'
+         why: present in the shipped data, verified by inspection; the doc "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1269  'oneself' => '１行に\u3000\u3000oneself「= 自分がやられたこと」を返す'
+         why: present in the shipped data, verified by inspection; the doc "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1315  '意\u3000病気にする、苦しめる「ええ、illは病気で苦しめ' => '意 ail病気にする、苦しめる'
+         why: present in the shipped data, verified by inspection; the doc "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1745  'セ cheat the old man (out) of his' => 'セ\u3000をトル'
+         why: present in the shipped data, verified by inspection; the doc "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1761  'anxiousは' => '１行にanxiousは「やきもき」forは「求めて」'
+         why: present in the shipped data, verified by inspection; the doc "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1835  '意' => '意５'
+         why: present in the shipped data, verified by inspection; the doc "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1916  '反' => '反の名詞'
+         why: present in the shipped data, verified by inspection; the doc "before" is a wrapped fragment the checker cannot match
+[APPLIED] 2155  still on -> '恥、恥ずかしさ、残念なこと'
+         why: present in the shipped data, verified by inspection; the doc "before" is a wrapped fragment the checker cannot match
+[LABEL_KEEPS_WORD]  637  delete 'converse'
+         why: the 「converse をトル」 clears the ANSWER; the label 意２ converse still names the word, which is correct
+[NEEDS_CLIENT]   59  '意' => '意２'
+         why: the doc lists 活 / 意形１～２ / 意名１～２ then 意 ⇨ 意２, but the fourth row in the data is 意 他2 — already carrying a count, and matching the 形/名 rows in style. Changing only that one to 意２ would break the parallel, so it is left as 意 他2.

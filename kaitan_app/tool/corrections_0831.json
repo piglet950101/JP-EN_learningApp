@@ -1,0 +1,4543 @@
+{
+  "source": "アプリ直し 8. 31.docx",
+  "word_count": 229,
+  "record_count": 249,
+  "records": [
+    {
+      "word_id": 16,
+      "word": "discourage",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "セ",
+        "discourag him ～　　⇨　discourage him ～　　　※私のスペルミスです"
+      ],
+      "changes": [
+        {
+          "before": "discourag him ～",
+          "after": "discourage him ～　　　※私のスペルミスです"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 33,
+      "word": "concern",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 85,
+      "word": "sore",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "同音 soar",
+        "高く上がる",
+        "「空高く上がる」　⇨　「空高く上がる」",
+        "↳ 高く上がるの部分は明朝に"
+      ],
+      "changes": [
+        {
+          "before": "「空高く上がる」",
+          "after": "「空高く上がる」"
+        }
+      ],
+      "notes": [
+        "↳ 高く上がるの部分は明朝に"
+      ]
+    },
+    {
+      "word_id": 59,
+      "word": "mean",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "活",
+        "意形１～２",
+        "意名１～２",
+        "意　　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 143,
+      "word": "defer",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 181,
+      "word": "respire",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "類",
+        "類　　　　　　　　⇨　類の名詞"
+      ],
+      "changes": [
+        {
+          "before": "類",
+          "after": "類の名詞"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 152,
+      "word": "lessen",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意２ lesson",
+        "授業、教訓　　　⇨　　音声をトル"
+      ],
+      "changes": [
+        {
+          "before": "授業、教訓",
+          "after": "音声をトル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 240,
+      "word": "injure",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "品",
+        "名",
+        "セ",
+        "He was injured.",
+        "He injured himself. 自分のミスなどに　　　⇨　改行　　He injured himself.",
+        "よる場合　　　　　　　　　　　　　　　　　　　　　　自分のミスなどによる場合",
+        "↳　黒字、小"
+      ],
+      "changes": [
+        {
+          "before": "He injured himself. 自分のミスなどによる場合",
+          "after": "改行　　He injured himself.自分のミスなどによる場合"
+        }
+      ],
+      "notes": [
+        "↳　黒字、小"
+      ]
+    },
+    {
+      "word_id": 228,
+      "word": "row",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意　　　　　　　　　⇨　　音声をトル"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "音声をトル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 217,
+      "word": "state",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名・他　状態、述べる　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "名・他　状態、述べる",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 242,
+      "word": "wind",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "活 wind > wound > wound　　　⇨　wind の音声を　ワインドに"
+      ],
+      "changes": [
+        {
+          "before": "活 wind > wound > wound",
+          "after": "wind の音声を　ワインドに"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 252,
+      "word": "stick",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "自２　突き出る、くっつく　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "自２　突き出る、くっつく",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 283,
+      "word": "complex",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "形　複雑だ　　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "形　複雑だ",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 270,
+      "word": "false",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "品",
+        "反",
+        "反　　　　　　⇨　反の名詞",
+        "0310　inflict　　問題　　　　　　　　イコールを入れて、解答音声をトル",
+        "セ The flood damaged the crops.　　⇨　セ The flood damaged the crops.",
+        "="
+      ],
+      "changes": [
+        {
+          "before": "反0310　inflict　　問題",
+          "after": "反の名詞イコールを入れて、解答音声をトル"
+        },
+        {
+          "before": "セ The flood damaged the crops.",
+          "after": "セ The flood damaged the crops.="
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 296,
+      "word": "post",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意３（名２，他１）",
+        "名 柱、地位、郵便",
+        "⇨　他 投函する、投稿する　　　　　追加"
+      ],
+      "changes": [
+        {
+          "before": "",
+          "after": "他 投函する、投稿する　　　　　追加"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 372,
+      "word": "try",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "法",
+        "法",
+        "名",
+        "意　　　　　　　　　　　　⇨　音声をトル"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "音声をトル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 352,
+      "word": "blood",
+      "stage": "Second Stage",
+      "section": "問題",
+      "raw": [
+        "形",
+        "自動詞とその活用　⇨　自",
+        "自の活用"
+      ],
+      "changes": [
+        {
+          "before": "自動詞とその活用",
+          "after": "自自の活用"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 352,
+      "word": "blood",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "形",
+        "自動詞とその活用　⇨　自　bleed",
+        "出血する",
+        "自の活用　bleed > bled > bled"
+      ],
+      "changes": [
+        {
+          "before": "自動詞とその活用",
+          "after": "自　bleed出血する自の活用　bleed > bled > bled"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 383,
+      "word": "suspect",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 395,
+      "word": "conceive",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 410,
+      "word": "pray",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名",
+        "名　prayer　　　　　　⇨　音声をプレイヤに",
+        "祈る人"
+      ],
+      "changes": [
+        {
+          "before": "名　prayer",
+          "after": "音声をプレイヤに"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 441,
+      "word": "discuss",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "品　他動詞　　　　　　⇨　品　他動詞",
+        "= talk about　　　　⇨黒字、追加"
+      ],
+      "changes": [
+        {
+          "before": "品　他動詞",
+          "after": "品　他動詞"
+        },
+        {
+          "before": "= talk about",
+          "after": "黒字、追加"
+        }
+      ],
+      "notes": [
+        "= talk about　　　　⇨黒字、追加"
+      ]
+    },
+    {
+      "word_id": 474,
+      "word": "train",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名２　連続、列車　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "名２　連続、列車",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 444,
+      "word": "grant",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "他　認める　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "他　認める",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 501,
+      "word": "contract",
+      "stage": "Second Stage",
+      "section": "問題",
+      "raw": [
+        "名　契約　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "名　契約",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 501,
+      "word": "contract",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意３（名１，他２～３）",
+        "名 契約",
+        "他 契約する、縮ませる、（カゼを）　⇨　他 契約する、縮ませる、",
+        "ひく　　　　　　　　　　　　　　　　　　（カゼを）ひく"
+      ],
+      "changes": [
+        {
+          "before": "他 契約する、縮ませる、（カゼを）ひく",
+          "after": "他 契約する、縮ませる、（カゼを）ひく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 524,
+      "word": "say",
+      "stage": "Second Stage",
+      "section": "問題",
+      "raw": [
+        "間・他　たとえば、言う　⇨　トル",
+        "意３　　　　　　　　　　⇨　追加してください",
+        "法"
+      ],
+      "changes": [
+        {
+          "before": "間・他　たとえば、言う",
+          "after": "トル"
+        },
+        {
+          "before": "意３",
+          "after": "追加してください"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 524,
+      "word": "say",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "間・他　たとえば、言う　⇨　トル",
+        "意３　間 たとえば　　　 ⇨　追加してください",
+        "他 言う",
+        "名 発言権",
+        "法"
+      ],
+      "changes": [
+        {
+          "before": "間・他　たとえば、言う",
+          "after": "トル"
+        },
+        {
+          "before": "意３　間 たとえば",
+          "after": "追加してください"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 513,
+      "word": "abuse",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 559,
+      "word": "toll",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名　通行料金　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "名　通行料金",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 557,
+      "word": "asset",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意",
+        "（資産を）評価する",
+        "「環境アセスメント」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「環境アセスメント」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 544,
+      "word": "vow",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意 vowel　　　　　　　　　⇨　音声が違っています。",
+        "母音",
+        "子音は consonant　　　　　⇨　できればconsonant も音声を"
+      ],
+      "changes": [
+        {
+          "before": "意 vowel",
+          "after": "音声が違っています。"
+        },
+        {
+          "before": "子音は consonant",
+          "after": "できればconsonant も音声を"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 570,
+      "word": "degree",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　⇨　意２～３"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２～３"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 565,
+      "word": "pound",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名　ポンド　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "名　ポンド",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 552,
+      "word": "thief",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意 burglar",
+        "強盗",
+        "「ぼぐらは強盗」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「ぼぐらは強盗」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 572,
+      "word": "disagree",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "自　不賛成である(with ×to)　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "自　不賛成である(with ×to)",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 594,
+      "word": "capital",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名２　首都、資本　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "名２　首都、資本",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 600,
+      "word": "numb",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意 　　　　　　⇨　意 nun"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意 nun"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 605,
+      "word": "wise",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名",
+        "意",
+        "賢人",
+        "「政治する賢人」　　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「政治する賢人」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 601,
+      "word": "folly",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "ピエロ",
+        "「クラウン(crown)かぶったピエロ」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「クラウン(crown)かぶったピエロ」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 578,
+      "word": "diet",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "セ　ダイエット中である",
+        "be on a diet　　　　　　　　　⇨　音声を追加してください"
+      ],
+      "changes": [
+        {
+          "before": "be on a diet",
+          "after": "音声を追加してください"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 668,
+      "word": "pathetic",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意",
+        "哀愁、哀感",
+        "「ペーソス」　　⇨　小さくしてください"
+      ],
+      "changes": [
+        {
+          "before": "「ペーソス」",
+          "after": "小さくしてください"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 662,
+      "word": "chronic",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "反 acute　　　　　　　　　　　　　⇨　音声を追加してください",
+        "急性の、鋭い",
+        "「あ、キューとくるのが急性病」　⇨　「あ、キューとくるのが急性病」"
+      ],
+      "changes": [
+        {
+          "before": "反 acute",
+          "after": "音声を追加してください"
+        },
+        {
+          "before": "「あ、キューとくるのが急性病」",
+          "after": "「あ、キューとくるのが急性病」"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 639,
+      "word": "event",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意",
+        "結局",
+        "「結局イベントあり」　　⇨　「あり」も太字、ゴチ　全体を小さく"
+      ],
+      "changes": [
+        {
+          "before": "「結局イベントあり」",
+          "after": "「あり」も太字、ゴチ　全体を小さく"
+        }
+      ],
+      "notes": [
+        "「結局イベントあり」　　⇨　「あり」も太字、ゴチ　全体を小さく"
+      ]
+    },
+    {
+      "word_id": 637,
+      "word": "conversation",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意２ converse",
+        "converse　　　　　　　⇨　トル",
+        "会話する、逆の　　　　⇨　赤、ゴチ、大きく"
+      ],
+      "changes": [
+        {
+          "before": "converse",
+          "after": "トル"
+        },
+        {
+          "before": "会話する、逆の",
+          "after": "赤、ゴチ、大きく"
+        }
+      ],
+      "notes": [
+        "会話する、逆の　　　　⇨　赤、ゴチ、大きく"
+      ]
+    },
+    {
+      "word_id": 715,
+      "word": "broad",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名",
+        "他",
+        "反",
+        "類",
+        "類　　　　　　　⇨　類の名詞",
+        "類の他動詞"
+      ],
+      "changes": [
+        {
+          "before": "類",
+          "after": "類の名詞"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 697,
+      "word": "stake",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　⇨　意２～４"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２～４"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 700,
+      "word": "skeleton",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意",
+        "頭蓋骨",
+        "「すっからかんの頭蓋骨」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「すっからかんの頭蓋骨」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 718,
+      "word": "cupboard",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　　　　　　⇨　音声トル"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "音声トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 693,
+      "word": "slaughter",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "類",
+        "「まさかの大虐殺」、the Holocaust　⇨　「まさかの大虐殺」",
+        "the Holocaust ユダヤ人大虐殺"
+      ],
+      "changes": [
+        {
+          "before": "「まさかの大虐殺」、the Holocaust",
+          "after": "「まさかの大虐殺」the Holocaust ユダヤ人大虐殺"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 750,
+      "word": "submit",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 723,
+      "word": "practice",
+      "stage": "Second Stage",
+      "section": "問題",
+      "raw": [
+        "名２　実行、習慣　　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "名２　実行、習慣",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 729,
+      "word": "custom",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　⇨　意３"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意３"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 760,
+      "word": "determine",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名",
+        "法　目的語に to doを取る　decide　　⇨　改行、黒字、小",
+        "to do 型　determine ~ing ×"
+      ],
+      "changes": [
+        {
+          "before": "法　目的語に to doを取る　decide",
+          "after": "改行、黒字、小"
+        }
+      ],
+      "notes": [
+        "法　目的語に to doを取る　decide　　⇨　改行、黒字、小"
+      ]
+    },
+    {
+      "word_id": 759,
+      "word": "decide",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名",
+        "形",
+        "法　目的語に to do を取る decide　　⇨　改行、黒字、小",
+        "~ing ×"
+      ],
+      "changes": [
+        {
+          "before": "法　目的語に to do を取る decide",
+          "after": "改行、黒字、小"
+        }
+      ],
+      "notes": [
+        "法　目的語に to do を取る decide　　⇨　改行、黒字、小"
+      ]
+    },
+    {
+      "word_id": 733,
+      "word": "theory",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 763,
+      "word": "resolve",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 734,
+      "word": "medicine",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 746,
+      "word": "permission",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名",
+        "法　　　　　⇨　法２"
+      ],
+      "changes": [
+        {
+          "before": "法",
+          "after": "法２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 724,
+      "word": "bid",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "他　命じる　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "他　命じる",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 757,
+      "word": "commit",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意３"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意３"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 773,
+      "word": "lead",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "活と過去形と同音",
+        "lead > led > led",
+        "同音 lead[led]　　　　　　⇨　これを追加",
+        "鉛、えんぴつの芯"
+      ],
+      "changes": [
+        {
+          "before": "同音 lead[led]",
+          "after": "これを追加"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 787,
+      "word": "anchor",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 797,
+      "word": "intelligence",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 780,
+      "word": "appoint",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 776,
+      "word": "premise",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 775,
+      "word": "dismiss",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 772,
+      "word": "miss",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 771,
+      "word": "discreet",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "名",
+        "意",
+        "法令、判決を下す",
+        "「じっくり判決を下す」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「じっくり判決を下す」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 825,
+      "word": "second",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 818,
+      "word": "vice",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 864,
+      "word": "lawn",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意 debt",
+        "借金",
+        "「デートも借金」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「デートも借金」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 863,
+      "word": "moan",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意 exhilarate",
+        "うきうきする",
+        "「いじられるとうきうきする」　⇨　「と」も太字、ゴチ　　全体を小さく"
+      ],
+      "changes": [
+        {
+          "before": "「いじられるとうきうきする」",
+          "after": "「と」も太字、ゴチ　　全体を小さく"
+        }
+      ],
+      "notes": [
+        "「いじられるとうきうきする」　⇨　「と」も太字、ゴチ　　全体を小さく"
+      ]
+    },
+    {
+      "word_id": 819,
+      "word": "virtue",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 822,
+      "word": "moment",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 874,
+      "word": "draw",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "活",
+        "名",
+        "draft/draught　　　　　　　⇨　できれば発音を１つに（どちらも同音）",
+        "引くこと、草稿、徴兵"
+      ],
+      "changes": [
+        {
+          "before": "draft/draught",
+          "after": "できれば発音を１つに（どちらも同音）"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 916,
+      "word": "tear",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "名",
+        "涙　tear　　　　　　　⇨　　涙　を発音しないように、あるいは、",
+        "tear",
+        "涙",
+        "のように改行してもいいです"
+      ],
+      "changes": [
+        {
+          "before": "涙　tear",
+          "after": "涙　を発音しないように、あるいは、tear涙のように改行してもいいです"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 930,
+      "word": "appreciate",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "他（３）価値を正しく～鑑賞する　　⇨　トル",
+        "意　　　　　　　　　　　　　　　⇨　意３～４"
+      ],
+      "changes": [
+        {
+          "before": "他（３）価値を正しく～鑑賞する",
+          "after": "トル"
+        },
+        {
+          "before": "意",
+          "after": "意３～４"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 954,
+      "word": "comfort",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "反",
+        "形",
+        "意 cozy",
+        "居心地のよい",
+        "「コージーコーナー」　⇨　小さく",
+        "意"
+      ],
+      "changes": [
+        {
+          "before": "「コージーコーナー」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 935,
+      "word": "nation",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 941,
+      "word": "sight",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名（５）見ること、～眺め　　⇨　トル",
+        "意　　　　　⇨　意５"
+      ],
+      "changes": [
+        {
+          "before": "名（５）見ること、～眺め",
+          "after": "トル"
+        },
+        {
+          "before": "意",
+          "after": "意５"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 985,
+      "word": "light",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意５",
+        "名 光、明かり　　　　⇨　改行",
+        "形 軽い、明るい　　　⇨　改行",
+        "他 火をつける　　　　⇨　改行",
+        "自 （鳥が）止まる(on)",
+        "活"
+      ],
+      "changes": [
+        {
+          "before": "名 光、明かり",
+          "after": "改行"
+        },
+        {
+          "before": "形 軽い、明るい",
+          "after": "改行"
+        },
+        {
+          "before": "他 火をつける",
+          "after": "改行"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1025,
+      "word": "suit",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "他　似合う　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "他　似合う",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1034,
+      "word": "fit",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "他（大きさが）ぴったり合う　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "他（大きさが）ぴったり合う",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1042,
+      "word": "cross",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "形・（名）不機嫌な、十字架　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "形・（名）不機嫌な、十字架",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1067,
+      "word": "favor",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名・（他）親切な行為、ひいきにする　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "名・（他）親切な行為、ひいきにする",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1057,
+      "word": "tribute",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1143,
+      "word": "relevant",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1144,
+      "word": "relate",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1107,
+      "word": "shallow",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "反",
+        "反　　　　　　⇨　反の名詞"
+      ],
+      "changes": [
+        {
+          "before": "反",
+          "after": "反の名詞"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1138,
+      "word": "fire",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "他（２）発砲する、クビにする　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "他（２）発砲する、クビにする",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1130,
+      "word": "alert",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意 alarm",
+        "警報",
+        "「アラーム」　　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「アラーム」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1146,
+      "word": "relative",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "形・（名）相対的、親類　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "形・（名）相対的、親類",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1185,
+      "word": "approve",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "自　～に賛成する(of)　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "自　～に賛成する(of)",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1181,
+      "word": "prove",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "自・（他）～だとわかる、証明する　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "自・（他）～だとわかる、証明する",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1231,
+      "word": "consider",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名",
+        "形",
+        "形",
+        "法　　　　　　　⇨　法２"
+      ],
+      "changes": [
+        {
+          "before": "法",
+          "after": "法２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1229,
+      "word": "temple",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "神社",
+        "「修羅いんの？神社にも」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「修羅いんの？神社にも」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1225,
+      "word": "contemporary",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1221,
+      "word": "akin",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "セ",
+        "意　　　　　⇨ 意 kin"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意 kin"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1221,
+      "word": "akin",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "セ",
+        "意　血族、同族",
+        "「金一族」　　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「金一族」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1223,
+      "word": "figure",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "名 人、人影、人形、形、体形、数　　　⇨　体形のあと改行",
+        "字、計算",
+        "他 判断する",
+        "形",
+        "※つまりこうなります"
+      ],
+      "changes": [
+        {
+          "before": "名 人、人影、人形、形、体形、数",
+          "after": "体形のあと改行"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1223,
+      "word": "figure",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "名 人、人影、人形、形、体形、",
+        "数字、計算",
+        "他 判断する",
+        "形"
+      ],
+      "changes": [],
+      "notes": []
+    },
+    {
+      "word_id": 1245,
+      "word": "editor",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "他",
+        "意",
+        "セ　最新版～～も可　　　　⇨　セ　最新版",
+        "※the latest edition新しさを強",
+        "調するときはnewestも可　　　をトルということです"
+      ],
+      "changes": [
+        {
+          "before": "セ　最新版～～も可",
+          "after": "セ　最新版"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1269,
+      "word": "revenge",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "セ",
+        "セ",
+        "revenge himself on them",
+        "oneself　　　　　　　　　　⇨　１行に　　oneself「= 自分がやられたこと」を返す",
+        "「自分がやられたこと」を返す"
+      ],
+      "changes": [
+        {
+          "before": "oneself",
+          "after": "１行に　　oneself「= 自分がやられたこと」を返す"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1275,
+      "word": "industry",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "産業、勤勉　industrial　　⇨　改行　　産業、勤勉",
+        "産業の　　　　　　　　　　　　　　　industrial",
+        "産業の"
+      ],
+      "changes": [
+        {
+          "before": "産業、勤勉　industrial産業の",
+          "after": "改行　　産業、勤勉industrial産業の"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1256,
+      "word": "shed",
+      "stage": "Second Stage",
+      "section": "問題",
+      "raw": [
+        "他　（血や涙を）流す　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "他　（血や涙を）流す",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1261,
+      "word": "harness",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意２（名１，他１）名 馬具他 動力源　　⇨　意２（名１，他１）",
+        "に利用する",
+        "※つまり、名 馬具他 動力源に利用する",
+        "をトルということです"
+      ],
+      "changes": [
+        {
+          "before": "意２（名１，他１）名 馬具他 動力源",
+          "after": "意２（名１，他１）"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1261,
+      "word": "harness",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意２（名１，他１）名 馬具他 動力源　　⇨　意２（名１，他１）",
+        "に利用する",
+        "馬具・動力源に利用する　　　　　　　⇨　名 馬具",
+        "他 動力源に利用する",
+        "２（名１，他１）　　　　　　　　　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "意２（名１，他１）名 馬具他 動力源",
+          "after": "意２（名１，他１）"
+        },
+        {
+          "before": "馬具・動力源に利用する",
+          "after": "名 馬具他 動力源に利用する"
+        },
+        {
+          "before": "２（名１，他１）",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1292,
+      "word": "attend",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "他・自　～に出席する、世話をする(to)　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "他・自　～に出席する、世話をする(to)",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1315,
+      "word": "yell",
+      "stage": "Second Stage",
+      "section": "問題",
+      "raw": [
+        "意　　　　　　⇨　意 ail"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意 ail"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1315,
+      "word": "yell",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意　病気にする、苦しめる　　⇨　意 ail",
+        "「ええ、illは病気で苦しめ　　　　病気にする、苦しめる",
+        "る」　　　　　　　　　　　　　「ええ、illは病気で苦しめる」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "意　病気にする、苦しめる「ええ、illは病気で苦しめ",
+          "after": "意 ail病気にする、苦しめる"
+        },
+        {
+          "before": "る」　　　　　　　　　　　　　「ええ、illは病気で苦しめる」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1327,
+      "word": "character",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　　⇨　意４",
+        "形",
+        "他"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意４"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1324,
+      "word": "surface",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意 surge",
+        "急騰する",
+        "「匙が急にふわ～と上がる」　　⇨　小さく",
+        "「血圧サージ」　　　　　　　　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「匙が急にふわ～と上がる」",
+          "after": "小さく"
+        },
+        {
+          "before": "「血圧サージ」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1335,
+      "word": "planet",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　　⇨　意 ape"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意 ape"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1338,
+      "word": "laboratory",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意 lavatory",
+        "トイレ",
+        "cf. lavender は風呂の好気に使われた　　⇨　黒字、小さく"
+      ],
+      "changes": [
+        {
+          "before": "cf. lavender は風呂の好気に使われた",
+          "after": "黒字、小さく"
+        }
+      ],
+      "notes": [
+        "cf. lavender は風呂の好気に使われた　　⇨　黒字、小さく"
+      ]
+    },
+    {
+      "word_id": 1301,
+      "word": "sound",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "形　健全な　　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "形　健全な",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1333,
+      "word": "audience",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "法　many, few ではなく large, small",
+        "を使う a largge audience たくさん",
+        "の聴衆",
+        "※以下のように",
+        "法　many, few ではなく、large, small",
+        "を使う　　　　　　　　　　　　　　⇨　赤、大きく",
+        "a large audience たくさんの聴衆　　⇨　黒、小さく"
+      ],
+      "changes": [
+        {
+          "before": "を使う",
+          "after": "赤、大きく"
+        },
+        {
+          "before": "a large audience たくさんの聴衆",
+          "after": "黒、小さく"
+        }
+      ],
+      "notes": [
+        "a large audience たくさんの聴衆　　⇨　黒、小さく"
+      ]
+    },
+    {
+      "word_id": 1317,
+      "word": "save",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意（名）safe　　　　　 ⇨　発音させる",
+        "金庫　　　　　　　　　⇨　金庫の発音は不要"
+      ],
+      "changes": [
+        {
+          "before": "意（名）safe",
+          "after": "発音させる"
+        },
+        {
+          "before": "金庫",
+          "after": "金庫の発音は不要"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1300,
+      "word": "fast",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "副　しっかりと　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "副　しっかりと",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1319,
+      "word": "rear",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名　後部　　　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "名　後部",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1388,
+      "word": "command",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1369,
+      "word": "culture",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意３"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意３"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1370,
+      "word": "agriculture",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意",
+        "悪くさせる",
+        "「あぐら、べーっと悪くなる」　⇨　小さく、「と」も太字ゴチで",
+        "意",
+        "悪くさせる",
+        "「やくざするべと悪くなる」　　⇨　小さく、「と」も太字ゴチで"
+      ],
+      "changes": [
+        {
+          "before": "「あぐら、べーっと悪くなる」",
+          "after": "小さく、「と」も太字ゴチで"
+        },
+        {
+          "before": "「やくざするべと悪くなる」",
+          "after": "小さく、「と」も太字ゴチで"
+        }
+      ],
+      "notes": [
+        "「あぐら、べーっと悪くなる」　⇨　小さく、「と」も太字ゴチで",
+        "「やくざするべと悪くなる」　　⇨　小さく、「と」も太字ゴチで"
+      ]
+    },
+    {
+      "word_id": 1387,
+      "word": "demand",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "法　　　　　　　⇨　法２"
+      ],
+      "changes": [
+        {
+          "before": "法",
+          "after": "法２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1383,
+      "word": "telescope",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "双眼鏡",
+        "「bi ２つnoのocular目」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「bi ２つnoのocular目」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1401,
+      "word": "property",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1412,
+      "word": "part",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "自・名　分かれる、部分　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "自・名　分かれる、部分",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1415,
+      "word": "partial",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1414,
+      "word": "flat",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "形・（名）　平らな、アパート　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "形・（名）　平らな、アパート",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1390,
+      "word": "apply",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "他・（自）応用する、申し込む　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "他・（自）応用する、申し込む",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1422,
+      "word": "cell",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　⇨　意２～３"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２～３"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1400,
+      "word": "proper",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1398,
+      "word": "count",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "自２　重要である、数える　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "自２　重要である、数える",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1430,
+      "word": "welfare",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意",
+        "副",
+        "形",
+        "自 こみ上げる　間 ええと　　　　⇨ 間 ええと　　を改行",
+        "※これは「間（ま）」ではなく、「間投詞」の意味です"
+      ],
+      "changes": [
+        {
+          "before": "自 こみ上げる　間 ええと",
+          "after": "間 ええと　　を改行※これは「間（ま）」ではなく、「間投詞」の意味です"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1399,
+      "word": "account",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名（２）　説明、話　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "名（２）　説明、話",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1427,
+      "word": "fare",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意 fee"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意 fee"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1454,
+      "word": "speculate",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1475,
+      "word": "trunk",
+      "stage": "Second Stage",
+      "section": "問題",
+      "raw": [
+        "意　　　　　⇨　意３～４"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意３～４"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1475,
+      "word": "trunk",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意　　　　　⇨　意３～４"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意３～４"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1476,
+      "word": "conduct",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意",
+        "他",
+        "名",
+        "意",
+        "誘拐する",
+        "「abアブノーマルな方へ duct 導く」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「abアブノーマルな方へ duct 導く」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1443,
+      "word": "circular",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意 oval",
+        "楕円",
+        "「オバおるオフィス、Oval Office」 ⇨　黒、小さく、オバおるを太ゴチに",
+        "「オバおるオフィス、Oval Office」"
+      ],
+      "changes": [
+        {
+          "before": "「オバおるオフィス、Oval Office」",
+          "after": "黒、小さく、オバおるを太ゴチに"
+        }
+      ],
+      "notes": [
+        "「オバおるオフィス、Oval Office」 ⇨　黒、小さく、オバおるを太ゴチに"
+      ]
+    },
+    {
+      "word_id": 1470,
+      "word": "access",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意 accelerate　　　　　⇨　音声を追加",
+        "加速する"
+      ],
+      "changes": [
+        {
+          "before": "意 accelerate",
+          "after": "音声を追加"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1460,
+      "word": "fail",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1487,
+      "word": "resume",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "他・（名）再び始める、履歴書　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "他・（名）再び始める、履歴書",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1526,
+      "word": "era",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意 epoch",
+        "意　　　　　　　　　　　⇨　意 age"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意 age"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1530,
+      "word": "candidate",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意 candid",
+        "率直な　cand = candleのように　　⇨　改行、黒字、小さく",
+        "白いこと"
+      ],
+      "changes": [
+        {
+          "before": "率直な　cand = candleのように",
+          "after": "改行、黒字、小さく"
+        }
+      ],
+      "notes": [
+        "率直な　cand = candleのように　　⇨　改行、黒字、小さく"
+      ]
+    },
+    {
+      "word_id": 1500,
+      "word": "grab",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1485,
+      "word": "consume",
+      "stage": "Second Stage",
+      "section": "問題",
+      "raw": [
+        "セ　　　　　　⇨　セ 消費税"
+      ],
+      "changes": [
+        {
+          "before": "セ",
+          "after": "セ 消費税"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1485,
+      "word": "consume",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "セ consumption tax　　　　⇨　セ 消費税",
+        "消費税　　　　　　　　　　　consumption tax"
+      ],
+      "changes": [
+        {
+          "before": "セ consumption tax消費税",
+          "after": "セ 消費税consumption tax"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1558,
+      "word": "recommend",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名",
+        "法　　　　　　　　⇨　法３"
+      ],
+      "changes": [
+        {
+          "before": "法",
+          "after": "法３"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1580,
+      "word": "gauge",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意 mortgage",
+        "抵当、住宅ローン",
+        "「もう、ゲージも抵当」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「もう、ゲージも抵当」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1534,
+      "word": "howl",
+      "stage": "Second Stage",
+      "section": "問題",
+      "raw": [
+        "意　　　　　　⇨　意 owl"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意 owl"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1534,
+      "word": "howl",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意　フクロウ　　　　　　⇨　意 owl",
+        "「あ～うるさいフクロウ￥　　⇨　小さく、「る」も太、ゴチ"
+      ],
+      "changes": [
+        {
+          "before": "意　フクロウ",
+          "after": "意 owl"
+        },
+        {
+          "before": "「あ～うるさいフクロウ￥",
+          "after": "小さく、「る」も太、ゴチ"
+        }
+      ],
+      "notes": [
+        "「あ～うるさいフクロウ￥　　⇨　小さく、「る」も太、ゴチ"
+      ]
+    },
+    {
+      "word_id": 1586,
+      "word": "vague",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意 blur",
+        "ぼやけさせる",
+        "「ブラー→ぼやー」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「ブラー",
+          "after": "ぼやー」　⇨　小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1627,
+      "word": "prison",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "類",
+        "意",
+        "捕虜",
+        "「capture された人」　ちいさく　⇨　「　　」は小さく、　ちいさくはトル"
+      ],
+      "changes": [
+        {
+          "before": "「capture された人」　ちいさく",
+          "after": "「　　」は小さく、　ちいさくはトル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1595,
+      "word": "globe",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "形",
+        "意 grove",
+        "木立ち",
+        "「マングローブ」　　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「マングローブ」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1592,
+      "word": "acid",
+      "stage": "Second Stage",
+      "section": "問題",
+      "raw": [
+        "セ　　　　　　　⇨　セ　酸性雨"
+      ],
+      "changes": [
+        {
+          "before": "セ",
+          "after": "セ　酸性雨"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1592,
+      "word": "acid",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "セ　acid rain　　　　　　　⇨　セ　酸性雨",
+        "酸性雨　　　　　　　　　　　　acid rain"
+      ],
+      "changes": [
+        {
+          "before": "セ　acid rain酸性雨",
+          "after": "セ　酸性雨acid rain"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1628,
+      "word": "apprehend",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1583,
+      "word": "manage",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "熟",
+        "意 run a hotel",
+        "ホテルを経営するホテルを走らせる＝　⇨　改行　　ホテルを経営する",
+        "manage a hotel　　　　　　　　　　　　　　　　　ホテルを走らせる = manage a hotel　↳　黒、小さく"
+      ],
+      "changes": [
+        {
+          "before": "ホテルを経営するホテルを走らせる＝",
+          "after": "改行　　ホテルを経営する"
+        }
+      ],
+      "notes": [
+        "manage a hotel　　　　　　　　　　　　　　　　　ホテルを走らせる = manage a hotel　↳　黒、小さく"
+      ]
+    },
+    {
+      "word_id": 1669,
+      "word": "formula",
+      "stage": "Second Stage",
+      "section": "問題",
+      "raw": [
+        "意　　　　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1658,
+      "word": "finite",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "反",
+        "反　　　　　　⇨　反の名詞"
+      ],
+      "changes": [
+        {
+          "before": "反",
+          "after": "反の名詞"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1641,
+      "word": "enemy",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意",
+        "（戦争での）敵",
+        "「え、ねえ、見い、敵や！」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「え、ねえ、見い、敵や！」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1673,
+      "word": "transform",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名",
+        "セ　２",
+        "transform your dream into reality",
+        "turn your dream into reality　transform(/turn) A into B　⇨　改行　　前を赤に",
+        "AをBに変える",
+        "※こうなります"
+      ],
+      "changes": [
+        {
+          "before": "turn your dream into reality　transform(/turn) A into B",
+          "after": "改行　　前を赤に"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1673,
+      "word": "transform",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名",
+        "セ　２",
+        "transform your dream into reality",
+        "turn your dream into reality",
+        "transform(/turn) A into B",
+        "AをBに変える"
+      ],
+      "changes": [],
+      "notes": []
+    },
+    {
+      "word_id": 1662,
+      "word": "flaw",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "ひび割れ",
+        "「風呂にひび割れ」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「風呂にひび割れ」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1638,
+      "word": "suggest",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名",
+        "法　　　　　　⇨　法３"
+      ],
+      "changes": [
+        {
+          "before": "法",
+          "after": "法３"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1688,
+      "word": "note",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　⇨　意３"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意３"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1695,
+      "word": "just",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "形　正しい　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "形　正しい",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1687,
+      "word": "bill",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意４"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意４"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1715,
+      "word": "span",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意 spurn",
+        "はねつける　　　　　⇨　はねつける",
+        "「スパーンとはねつける」　⇨　追加、黒、小さく"
+      ],
+      "changes": [
+        {
+          "before": "はねつける",
+          "after": "はねつける"
+        },
+        {
+          "before": "「スパーンとはねつける」",
+          "after": "追加、黒、小さく"
+        }
+      ],
+      "notes": [
+        "「スパーンとはねつける」　⇨　追加、黒、小さく"
+      ]
+    },
+    {
+      "word_id": 1719,
+      "word": "spell",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名（２）ひと続き、呪文　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "名（２）ひと続き、呪文",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1733,
+      "word": "strip",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "他　剥ぎ取る　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "他　剥ぎ取る",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1761,
+      "word": "anxious",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "名",
+        "セ",
+        "be anxious for his arrival",
+        "anxiousは　　　　　　　　⇨　１行にanxiousは「やきもき」forは「求めて」",
+        "「やきもき」forは",
+        "「求めて」"
+      ],
+      "changes": [
+        {
+          "before": "anxiousは",
+          "after": "１行にanxiousは「やきもき」forは「求めて」"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1745,
+      "word": "cheat",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "他",
+        "自",
+        "セ",
+        "セ cheat the old man (out) of his　　⇨　セ　をトル",
+        "savings"
+      ],
+      "changes": [
+        {
+          "before": "セ cheat the old man (out) of his",
+          "after": "セ　をトル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1755,
+      "word": "order",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "法",
+        "セ",
+        "意",
+        "におい",
+        "「オドイーター、デオドラント」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「オドイーター、デオドラント」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1778,
+      "word": "depend",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "名",
+        "セ",
+        "セ",
+        "depend on other countries for oil",
+        "倒置に注意 one of the countries on which we depend",
+        "(for) oil　　　　　　　　　　　　　　　⇨　(　　) oil 　　空所には on ではなく for"
+      ],
+      "changes": [
+        {
+          "before": "(for) oil",
+          "after": "(　　) oil 　　空所には on ではなく for"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1815,
+      "word": "consequence",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1817,
+      "word": "result",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "セ",
+        "result in health problems",
+        "result in は～　右　Eating too　　　⇨　Eating から改行",
+        "～ = Health　　　　　　　　　　　⇨　= から改行",
+        "※つまり、こうなります。"
+      ],
+      "changes": [
+        {
+          "before": "result in は～　右　Eating too",
+          "after": "Eating から改行"
+        },
+        {
+          "before": "～ = Health",
+          "after": "= から改行"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1817,
+      "word": "result",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "セ",
+        "result in health problems",
+        "result in は左 ⇨ 右、result from は左 ⇦ 右",
+        "Eating too much sugar can result in health problems.",
+        "= Health problems can result from eating too much sugar."
+      ],
+      "changes": [
+        {
+          "before": "result in は左",
+          "after": "右、result from は左 ⇦ 右"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1810,
+      "word": "prime",
+      "stage": "Second Stage",
+      "section": "問題",
+      "raw": [
+        "セ　総理大臣",
+        "セ　　　　　　　　　　　　　⇨　セ　素数"
+      ],
+      "changes": [
+        {
+          "before": "セ",
+          "after": "セ　素数"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1810,
+      "word": "prime",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "セ　総理大臣",
+        "prime minister",
+        "premier とも言う",
+        "セ　　　　　　　　　　　　　⇨　セ　素数",
+        "prime number"
+      ],
+      "changes": [
+        {
+          "before": "セ",
+          "after": "セ　素数prime number"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1835,
+      "word": "observe",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　⇨　意５"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意５"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1837,
+      "word": "sign",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名（２）　標識、兆候　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "名（２）　標識、兆候",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1865,
+      "word": "focus",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "複",
+        "セ　　　　　　⇨　音声をトル"
+      ],
+      "changes": [
+        {
+          "before": "セ",
+          "after": "音声をトル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1832,
+      "word": "serve",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　⇨　意３～４"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意３～４"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1824,
+      "word": "outlet",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名　コンセント　⇨　トル",
+        "意　　　　　⇨　意２～３"
+      ],
+      "changes": [
+        {
+          "before": "名　コンセント",
+          "after": "トル"
+        },
+        {
+          "before": "意",
+          "after": "意２～３"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1856,
+      "word": "equal",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名",
+        "反",
+        "反　　　　　　⇨　反の名詞",
+        "意"
+      ],
+      "changes": [
+        {
+          "before": "反",
+          "after": "反の名詞"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1916,
+      "word": "present",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "名",
+        "反",
+        "反　　　　　　⇨　反の名詞",
+        "セ"
+      ],
+      "changes": [
+        {
+          "before": "反",
+          "after": "反の名詞"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1897,
+      "word": "altitude",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "経度",
+        "「longな方」　　⇨　小さく",
+        "意",
+        "緯度",
+        "「38度に拉致中だ」　⇨　「だ」も太字、ゴチ　　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「longな方」",
+          "after": "小さく"
+        },
+        {
+          "before": "「38度に拉致中だ」",
+          "after": "「だ」も太字、ゴチ　　小さく"
+        }
+      ],
+      "notes": [
+        "「38度に拉致中だ」　⇨　「だ」も太字、ゴチ　　小さく"
+      ]
+    },
+    {
+      "word_id": 1912,
+      "word": "current",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　⇨　意２～３"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２～３"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1898,
+      "word": "attitude",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1904,
+      "word": "alley",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意",
+        "名",
+        "他",
+        "arrange の変形",
+        "「鉄アレーを陳列」　⇨　「鉄アレーを陳列」　　アレーを太字、ゴチに"
+      ],
+      "changes": [
+        {
+          "before": "「鉄アレーを陳列」",
+          "after": "「鉄アレーを陳列」　　アレーを太字、ゴチに"
+        }
+      ],
+      "notes": [
+        "「鉄アレーを陳列」　⇨　「鉄アレーを陳列」　　アレーを太字、ゴチに"
+      ]
+    },
+    {
+      "word_id": 1870,
+      "word": "claim",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "法　　　　　⇨　法２"
+      ],
+      "changes": [
+        {
+          "before": "法",
+          "after": "法２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1911,
+      "word": "recur",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "（怒りなどを）招く",
+        "「インカは招く」　　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「インカは招く」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1880,
+      "word": "incredible",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　　　　　　⇨　音声を credit に"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "音声を credit に"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1942,
+      "word": "mercy",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "セ　　　　　　⇨　セ　安楽死"
+      ],
+      "changes": [
+        {
+          "before": "セ",
+          "after": "セ　安楽死"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1945,
+      "word": "peer",
+      "stage": "Second Stage",
+      "section": "問題",
+      "raw": [
+        "自・（名）　（見えにくそうに）じっと見る(at)、仲間　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "自・（名）　（見えにくそうに）じっと見る(at)、仲間",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1945,
+      "word": "peer",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意",
+        "自",
+        "名",
+        "意",
+        "のぞく",
+        "「鳥のヒナがピーピー～～」　　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「鳥のヒナがピーピー～～」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1917,
+      "word": "source",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "cupの受け皿",
+        "「元はsauce用」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「元はsauce用」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1958,
+      "word": "desert",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名・（他）砂漠、見捨てる　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "名・（他）砂漠、見捨てる",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1989,
+      "word": "correspond",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名",
+        "名　correspondent　　　　⇨　　音声追加してください"
+      ],
+      "changes": [
+        {
+          "before": "名　correspondent",
+          "after": "音声追加してください"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2011,
+      "word": "droop",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "したたる",
+        "「コーヒーのドリップ」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「コーヒーのドリップ」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2005,
+      "word": "fix",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　⇨　意３～４"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意３～４"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1987,
+      "word": "respond",
+      "stage": "Second Stage",
+      "section": "問題",
+      "raw": [
+        "名",
+        "形",
+        "形　　　　　　　　⇨　形の名詞",
+        "セ"
+      ],
+      "changes": [
+        {
+          "before": "形",
+          "after": "形の名詞"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 1987,
+      "word": "respond",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "名",
+        "形",
+        "形　　　　　　　　⇨　形の名詞",
+        "セ",
+        "respond to the email",
+        "フォーマルな言い方 = answer the email, reply to the email　　⇨　イコールから改行"
+      ],
+      "changes": [
+        {
+          "before": "形",
+          "after": "形の名詞"
+        },
+        {
+          "before": "フォーマルな言い方 = answer the email, reply to the email",
+          "after": "イコールから改行"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2010,
+      "word": "bet",
+      "stage": "Second Stage",
+      "section": "問題",
+      "raw": [
+        "意　　　　　⇨　意 vet"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意 vet"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2010,
+      "word": "bet",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意 名 獣医　　　　　　　　　　　　　⇨　意 vet",
+        "他 調べる　veterinarian の略　　　　　名 獣医",
+        "他 調べる",
+        "veterinarian の略　⇨　黒、小さく"
+      ],
+      "changes": [
+        {
+          "before": "意 名 獣医他 調べる　veterinarian の略",
+          "after": "意 vet名 獣医"
+        },
+        {
+          "before": "veterinarian の略",
+          "after": "黒、小さく"
+        }
+      ],
+      "notes": [
+        "veterinarian の略　⇨　黒、小さく"
+      ]
+    },
+    {
+      "word_id": 1985,
+      "word": "submerge",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "合併する、溶け込ませる",
+        "「マジ、合併する？」　　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「マジ、合併する？」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2003,
+      "word": "sigh",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "サイ",
+        "「いいえ、くらいの」rhinoceros",
+        "の略",
+        "※次のように"
+      ],
+      "changes": [],
+      "notes": []
+    },
+    {
+      "word_id": 2003,
+      "word": "sigh",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "サイ",
+        "「いいえ、くらいの」　　⇨　黒、小さく",
+        "rhinocerosの略　　　　　⇨　改行、黒、小さく"
+      ],
+      "changes": [
+        {
+          "before": "「いいえ、くらいの」",
+          "after": "黒、小さく"
+        },
+        {
+          "before": "rhinocerosの略",
+          "after": "改行、黒、小さく"
+        }
+      ],
+      "notes": [
+        "「いいえ、くらいの」　　⇨　黒、小さく",
+        "rhinocerosの略　　　　　⇨　改行、黒、小さく"
+      ]
+    },
+    {
+      "word_id": 1999,
+      "word": "awful",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意 awe"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意 awe"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2060,
+      "word": "beard",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "ほおひげ",
+        "「whisk ほうき」　⇨　小さく",
+        "意",
+        "口ひげ",
+        "「mouthの上にあるもの」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「whisk ほうき」",
+          "after": "小さく"
+        },
+        {
+          "before": "「mouthの上にあるもの」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2039,
+      "word": "fuel",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "セ",
+        "fossil fuels",
+        "「走る燃料、化石燃料」　⇨　走る　を太、ゴチに"
+      ],
+      "changes": [
+        {
+          "before": "「走る燃料、化石燃料」",
+          "after": "走る　を太、ゴチに"
+        }
+      ],
+      "notes": [
+        "「走る燃料、化石燃料」　⇨　走る　を太、ゴチに"
+      ]
+    },
+    {
+      "word_id": 2020,
+      "word": "isolate",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "名",
+        "意 aisle",
+        "通路",
+        "「アイルは隘路」　　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「アイルは隘路」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2021,
+      "word": "mark",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "他　印をつける　　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "他　印をつける",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2022,
+      "word": "remark",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "他（２）述べる、気づく　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "他（２）述べる、気づく",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2058,
+      "word": "article",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　⇨　意３～４"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意３～４"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2059,
+      "word": "desirable",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "法",
+        "意",
+        "名",
+        "他 強く望む　decide to do 型　⇨　decide から改行、黒、小さく"
+      ],
+      "changes": [
+        {
+          "before": "他 強く望む　decide to do 型",
+          "after": "decide から改行、黒、小さく"
+        }
+      ],
+      "notes": [
+        "他 強く望む　decide to do 型　⇨　decide から改行、黒、小さく"
+      ]
+    },
+    {
+      "word_id": 2024,
+      "word": "novel",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名・（形）　小説、新奇な　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "名・（形）　小説、新奇な",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2038,
+      "word": "discipline",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2087,
+      "word": "settle",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "他（２）置く、落ち着かせる　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "他（２）置く、落ち着かせる",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2078,
+      "word": "gross",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "意　　　　　　⇨　意 net"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意 net"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2107,
+      "word": "typical",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意２ typically　　　　　　　　　　　　⇨　音声をこちらに",
+        "典型的に、概して，たいてい =　　　　⇨　イコールから改行、= usually は黒、小さく",
+        "usually"
+      ],
+      "changes": [
+        {
+          "before": "意２ typically",
+          "after": "音声をこちらに"
+        },
+        {
+          "before": "典型的に、概して，たいてい =",
+          "after": "イコールから改行、= usually は黒、小さく"
+        }
+      ],
+      "notes": [
+        "典型的に、概して，たいてい =　　　　⇨　イコールから改行、= usually は黒、小さく"
+      ]
+    },
+    {
+      "word_id": 2094,
+      "word": "passion",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　⇨　意３"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意３"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2068,
+      "word": "bullet",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意 wallet",
+        "男性用の財布米では女性も使う　　⇨　改行　米では女性も使う　黒字、小",
+        "意 purse",
+        "女性用のハンドバッグ英では女性用の　⇨　改行　英では女性用の財布　黒字、小",
+        "財布",
+        "※こうなります。"
+      ],
+      "changes": [
+        {
+          "before": "男性用の財布米では女性も使う",
+          "after": "改行　米では女性も使う　黒字、小"
+        },
+        {
+          "before": "女性用のハンドバッグ英では女性用の",
+          "after": "改行　英では女性用の財布　黒字、小"
+        }
+      ],
+      "notes": [
+        "男性用の財布米では女性も使う　　⇨　改行　米では女性も使う　黒字、小",
+        "女性用のハンドバッグ英では女性用の　⇨　改行　英では女性用の財布　黒字、小"
+      ]
+    },
+    {
+      "word_id": 2068,
+      "word": "bullet",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "意 wallet",
+        "男性用の財布",
+        "米では女性も使う",
+        "意 purse",
+        "女性用のハンドバッグ",
+        "英では女性用の財布"
+      ],
+      "changes": [],
+      "notes": []
+    },
+    {
+      "word_id": 2080,
+      "word": "noble",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "形　高貴な　　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "形　高貴な",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2089,
+      "word": "poor",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名",
+        "意",
+        "文無しの",
+        "「breakのppだった」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「breakのppだった」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2088,
+      "word": "loft",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "形",
+        "意",
+        "屋根裏部屋",
+        "「あっちくなる屋根裏」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「あっちくなる屋根裏」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2098,
+      "word": "corporation",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意",
+        "死体",
+        "「こうプスッと刺した死体」= body　　⇨　全部黒字、小さく、イコールから改行"
+      ],
+      "changes": [
+        {
+          "before": "「こうプスッと刺した死体」= body",
+          "after": "全部黒字、小さく、イコールから改行"
+        }
+      ],
+      "notes": [
+        "「こうプスッと刺した死体」= body　　⇨　全部黒字、小さく、イコールから改行"
+      ]
+    },
+    {
+      "word_id": 2120,
+      "word": "besides",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "品　前置詞　　　　　　　　　　　　⇨　改行、besides this は黒字、小",
+        "besides this = in addition to this",
+        "品　副詞　　　　　　　　　　　　⇨　改行、besidesは黒字、小",
+        "besides = in addition"
+      ],
+      "changes": [
+        {
+          "before": "品　前置詞",
+          "after": "改行、besides this は黒字、小"
+        },
+        {
+          "before": "品　副詞",
+          "after": "改行、besidesは黒字、小"
+        }
+      ],
+      "notes": [
+        "品　前置詞　　　　　　　　　　　　⇨　改行、besides this は黒字、小",
+        "品　副詞　　　　　　　　　　　　⇨　改行、besidesは黒字、小"
+      ]
+    },
+    {
+      "word_id": 2137,
+      "word": "obvious",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "複",
+        "意 oblivious",
+        "忘れている",
+        "「覚えるびょん忘れたら」oblivion　　⇨　oblivion 忘却　　　⇨　黒字、小さく",
+        "忘却　　　　　　　　　　　　　　　　　「覚えるびょん忘れたら」　⇨　黒字、小さく"
+      ],
+      "changes": [
+        {
+          "before": "「覚えるびょん忘れたら」oblivion",
+          "after": "oblivion 忘却　　　⇨　黒字、小さく"
+        },
+        {
+          "before": "忘却　　　　　　　　　　　　　　　　　「覚えるびょん忘れたら」",
+          "after": "黒字、小さく"
+        }
+      ],
+      "notes": [
+        "「覚えるびょん忘れたら」oblivion　　⇨　oblivion 忘却　　　⇨　黒字、小さく",
+        "忘却　　　　　　　　　　　　　　　　　「覚えるびょん忘れたら」　⇨　黒字、小さく"
+      ]
+    },
+    {
+      "word_id": 2147,
+      "word": "cradle",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意clay",
+        "粘土",
+        "「クレー射撃」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「クレー射撃」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2129,
+      "word": "thorough",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意 cough",
+        "せき（をする）",
+        "「コフコフという音から」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「コフコフという音から」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2136,
+      "word": "idle",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "類 lazy",
+        "（仕事をしないで）怠惰な　idleは仕事が～　　⇨　idle は　から改行"
+      ],
+      "changes": [
+        {
+          "before": "（仕事をしないで）怠惰な　idleは仕事が～",
+          "after": "idle は　から改行"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2140,
+      "word": "cope",
+      "stage": "Second Stage",
+      "section": "問題",
+      "raw": [
+        "セ",
+        "意　　　　　　　　　　⇨ 意 cop",
+        "意 copper",
+        "※次のように"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意 cop"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2140,
+      "word": "cope",
+      "stage": "Second Stage",
+      "section": "解答",
+      "raw": [
+        "セ",
+        "意 cop",
+        "警察",
+        "「captureのcapがcopになった」　⇨　改行、黒字、小",
+        "（サツ、デカの感覚）　　　　　　　⇨　改行、黒字、小",
+        "意 copper",
+        "銅",
+        "「Cu は銅が採れた Cyprus（キプロス島）⇨　改行、黒字、小",
+        "のラテン語 cuprumから」"
+      ],
+      "changes": [
+        {
+          "before": "「captureのcapがcopになった」",
+          "after": "改行、黒字、小"
+        },
+        {
+          "before": "（サツ、デカの感覚）",
+          "after": "改行、黒字、小"
+        },
+        {
+          "before": "「Cu は銅が採れた Cyprus（キプロス島）",
+          "after": "改行、黒字、小"
+        }
+      ],
+      "notes": [
+        "「captureのcapがcopになった」　⇨　改行、黒字、小",
+        "（サツ、デカの感覚）　　　　　　　⇨　改行、黒字、小",
+        "「Cu は銅が採れた Cyprus（キプロス島）⇨　改行、黒字、小"
+      ]
+    },
+    {
+      "word_id": 2153,
+      "word": "persuade",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名",
+        "法　　　　　　　⇨　法２",
+        "セ",
+        "セ"
+      ],
+      "changes": [
+        {
+          "before": "法",
+          "after": "法２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2112,
+      "word": "brood",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "自　くよくよ考える　　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "自　くよくよ考える",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2155,
+      "word": "ashamed",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意２ shame　　　　　　　　　　　⇨　音声を入れる",
+        "恥、恥ずかしさ、残念なこと　　　　⇨　音声をトル"
+      ],
+      "changes": [
+        {
+          "before": "意２ shame",
+          "after": "音声を入れる"
+        },
+        {
+          "before": "恥、恥ずかしさ、残念なこと",
+          "after": "音声をトル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2118,
+      "word": "cause",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名（２）原因、大義　⇨　トル"
+      ],
+      "changes": [
+        {
+          "before": "名（２）原因、大義",
+          "after": "トル"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2172,
+      "word": "lurk",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意 lark",
+        "ひばり",
+        "「スカイラーク」　⇨　小さく"
+      ],
+      "changes": [
+        {
+          "before": "「スカイラーク」",
+          "after": "小さく"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2199,
+      "word": "facility",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　⇨　意２"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2170,
+      "word": "dose",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意 doze",
+        "居眠り、うとうとする",
+        "「どうぞ居眠りしてください」　⇨　小さく　　どうぞ以外は明朝に"
+      ],
+      "changes": [
+        {
+          "before": "「どうぞ居眠りしてください」",
+          "after": "小さく　　どうぞ以外は明朝に"
+        }
+      ],
+      "notes": [
+        "「どうぞ居眠りしてください」　⇨　小さく　　どうぞ以外は明朝に"
+      ]
+    },
+    {
+      "word_id": 2189,
+      "word": "glacier",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意 graze",
+        "草を食べる",
+        "「grassの動詞」　　⇨　黒、小さく"
+      ],
+      "changes": [
+        {
+          "before": "「grassの動詞」",
+          "after": "黒、小さく"
+        }
+      ],
+      "notes": [
+        "「grassの動詞」　　⇨　黒、小さく"
+      ]
+    },
+    {
+      "word_id": 2167,
+      "word": "rather",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　　⇨　意２～４"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意２～４"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2160,
+      "word": "urge",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "名",
+        "形",
+        "法　　　　　⇨　法２"
+      ],
+      "changes": [
+        {
+          "before": "法",
+          "after": "法２"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "word_id": 2200,
+      "word": "faculty",
+      "stage": "Second Stage",
+      "section": null,
+      "raw": [
+        "意　　　　　⇨　意３",
+        "以上です"
+      ],
+      "changes": [
+        {
+          "before": "意",
+          "after": "意３"
+        }
+      ],
+      "notes": []
+    }
+  ]
+}
