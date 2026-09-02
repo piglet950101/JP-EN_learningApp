@@ -279,7 +279,7 @@
     ],
     "818": [
       {
-        "relation": "意２",
+        "relation": "意２～３",
         "answer": "悪徳、代理、副-",
         "answer_meaning": null,
         "tts_enabled": false
@@ -390,8 +390,8 @@
     "1560": [
       {
         "relation": "意 ２～３ lapse",
-        "answer": "lapse",
-        "answer_meaning": "軽い誤り、経過、失効、下落　「滑り落ちる」が語源",
+        "answer": "軽い誤り、経過、失効、下落",
+        "answer_meaning": "「滑り落ちる」が語源",
         "tts_enabled": true
       }
     ],
@@ -405,7 +405,7 @@
     ],
     "1836": [
       {
-        "relation": "意５",
+        "relation": "意４～５",
         "answer": "観察する、守る、気づく、述べる、祝う",
         "answer_meaning": null,
         "tts_enabled": false
@@ -652,7 +652,7 @@
     "1275": [
       {
         "relation": "意２つとそれぞれの形容詞",
-        "answer": "産業、勤勉　industrial",
+        "answer": "産業、勤勉\nindustrial",
         "answer_meaning": "産業の",
         "tts_enabled": true
       },
@@ -887,7 +887,7 @@
     ],
     "1687": [
       {
-        "relation": "意４",
+        "relation": "意３～４",
         "answer": "請求書、法案、紙幣、くちばし（扁平な）",
         "answer_meaning": "ビーカーのようにとがったくちばしは beak",
         "tts_enabled": false
@@ -1013,7 +1013,7 @@
     ],
     "2094": [
       {
-        "relation": "意３",
+        "relation": "意２～３",
         "answer": "情熱、熱中しているもの、キリストの受難",
         "answer_meaning": "パッションフルーツはキリストの磔をイメージした",
         "tts_enabled": false
@@ -1150,7 +1150,7 @@
         "relation": "同音 lead[led]",
         "answer": "鉛、えんぴつの芯",
         "answer_meaning": null,
-        "tts_enabled": false
+        "tts_enabled": true
       }
     ],
     "1829": [
@@ -1235,7 +1235,7 @@
       {
         "relation": "意 spurn",
         "answer": "spurn",
-        "answer_meaning": "はねつける",
+        "answer_meaning": "はねつける「スパーンとはねつける」",
         "tts_enabled": true
       }
     ],
@@ -1309,7 +1309,7 @@
     ],
     "2096": [
       {
-        "relation": "意３以上",
+        "relation": "意３～５",
         "answer": "作業、作用、操作、手術、軍事行動",
         "answer_meaning": null,
         "tts_enabled": false
@@ -1755,13 +1755,13 @@
         "tts_enabled": false
       },
       {
-        "relation": "セ　同上（形式主語で）",
+        "relation": "セ２　同上（形式主語で）",
         "answer": "It is worth while to read the book.",
         "answer_meaning": "It ~ to 構文",
         "tts_enabled": false
       },
       {
-        "relation": "セ　同上（形式主語で）",
+        "relation": "セ２　同上（形式主語で）",
         "answer": "It is worth (while) reading the book.",
         "answer_meaning": "It ~ing 構文",
         "tts_enabled": false
@@ -1935,7 +1935,7 @@
         "tts_enabled": false
       },
       {
-        "relation": "意 他2",
+        "relation": "意 他1〜2",
         "answer": "意味する、意図する",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2181,7 +2181,7 @@
     ],
     "930": [
       {
-        "relation": "意３～４",
+        "relation": "意４",
         "answer": "価値を正しく評価する、鑑賞する、感謝する、味わう",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2215,7 +2215,7 @@
     ],
     "941": [
       {
-        "relation": "意５",
+        "relation": "意５以上",
         "answer": "見ること、視野、視力、視界、光景、眺め、名所",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2343,7 +2343,7 @@
     ],
     "1422": [
       {
-        "relation": "意２～３",
+        "relation": "意3",
         "answer": "細胞、独房、電池",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2365,7 +2365,7 @@
     ],
     "1460": [
       {
-        "relation": "意２",
+        "relation": "意２～３",
         "answer": "失敗する、しない、期待を裏切る",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2471,7 +2471,7 @@
     ],
     "1912": [
       {
-        "relation": "意２～３",
+        "relation": "意２",
         "answer": "流行している、現在の",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2616,6 +2616,92 @@
         "relation": "セ　他国に石油を頼る",
         "answer": "depend on other countries for oil",
         "answer_meaning": "倒置に注意 one of the countries on which we depend (　　) oil　空所には on ではなく for",
+        "tts_enabled": false
+      }
+    ],
+    "5": [
+      {
+        "relation": "意２",
+        "answer": "現れる、見える",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "appearance",
+        "answer_meaning": "出現、外見",
+        "tts_enabled": true
+      }
+    ],
+    "990": [
+      {
+        "relation": "意２（名１，他１）",
+        "answer": "名 カラス　他 誇らしげに言う",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "1146": [
+      {
+        "relation": "意２（形１、名１）",
+        "answer": "形 相対的　名 親類 = relation",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "1221": [
+      {
+        "relation": "セ　窃盗と同類である",
+        "answer": "be akin to theft",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "意２ kin",
+        "answer": "kin",
+        "answer_meaning": "血族、同族「金一族」",
+        "tts_enabled": true
+      }
+    ],
+    "1245": [
+      {
+        "relation": "他",
+        "answer": "edit",
+        "answer_meaning": "編集する",
+        "tts_enabled": true
+      },
+      {
+        "relation": "意２（形１，名１） editorial",
+        "answer": "形 編集の　名 社説",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　最新版",
+        "answer": "the latest edition",
+        "answer_meaning": "新しさを強調するときは newest も可",
+        "tts_enabled": false
+      }
+    ],
+    "1261": [
+      {
+        "relation": "意２（名１，他１）",
+        "answer": "名 馬具　他 動力源に利用する",
+        "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "1054": [
+      {
+        "relation": "法",
+        "answer": "原形で使う",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　猛犬注意",
+        "answer": "Beware of the dog.",
+        "answer_meaning": null,
         "tts_enabled": false
       }
     ]

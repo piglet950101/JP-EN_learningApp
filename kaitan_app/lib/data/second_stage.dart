@@ -80,6 +80,11 @@ class SecondStageEntry {
   /// which characters carry the pun, so it is recorded rather than guessed;
   /// when empty the renderer falls back to any Latin run in the mnemonic.
   final List<String> mnemonicEcho;
+  /// True when the 「…」 should be set as a ゴロ — own line, black, smaller —
+  /// even though no run inside it echoes the English. 1560 collapse is the
+  /// case: 「滑り落ちる」が語源 is an etymology note, not a pun, but the client
+  /// asked for the same treatment.
+  final bool mnemonicBreak;
   /// How this row's answer should be READ, when the spelling misleads the
   /// engine (0242 wind → ワインド). Null means read the answer itself.
   final String? pronunciationHint;
@@ -95,6 +100,7 @@ class SecondStageEntry {
     required this.answerMeaning,
     required this.ttsEnabled,
     this.mnemonicEcho = const [],
+    this.mnemonicBreak = false,
     this.pronunciationHint,
     required this.notes,
   });
@@ -114,6 +120,7 @@ class SecondStageEntry {
               .where((e) => e.isNotEmpty)
               .toList(growable: false) ??
           const [],
+      mnemonicBreak: (j['mnemonic_break'] ?? false) as bool,
       pronunciationHint: j['pronunciation_hint'] as String?,
       notes: j['notes'] as String?,
     );

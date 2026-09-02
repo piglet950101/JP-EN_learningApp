@@ -1,4 +1,9 @@
-"""Post-import patch: apply per-word SS entry overrides from
+"""
+NOTE: an override mapped to an EMPTY list is an intentional deletion — the
+client asked for every row of that word to go (0269 defect, 1304 instead and
+twelve others from the 2026-08-19 review). Do not "tidy away" empty entries:
+removing one silently brings its rows back.
+Post-import patch: apply per-word SS entry overrides from
 `ss_overrides.json` on top of `assets/content/second_stage.json`.
 
 For each override, all existing entries for that word_id are removed

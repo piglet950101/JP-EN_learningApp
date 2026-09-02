@@ -63,6 +63,24 @@
       "answer": "名 獣医　他 調べる",
       "pronunciation": "vet",
       "why": "答えは日本語なので vet を読む"
+    },
+    {
+      "word_id": 637,
+      "answer": "会話する、逆の",
+      "pronunciation": "converse",
+      "why": "意２ converse を発音させる／日本語は発音させない"
+    },
+    {
+      "word_id": 1275,
+      "answer": "産業、勤勉\nindustrial",
+      "pronunciation": "industrial",
+      "why": "industrial を発音させる／産業、勤勉 の発音はトル"
+    },
+    {
+      "word_id": 773,
+      "answer": "鉛、えんぴつの芯",
+      "pronunciation": "led",
+      "why": "同音 lead[led] — 綴りは lead でも読みは led"
     }
   ]
 }

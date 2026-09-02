@@ -137,4 +137,34 @@ void main() {
       }
     });
   });
+
+  // ── Words the client asked to remove entirely ──────────────────────
+  //
+  // Fourteen words are mapped to an EMPTY override, which means "drop every
+  // row" — 0269 defect, 1304 instead and twelve others from the 2026-08-19
+  // review. An empty entry looks like junk in the override file and invites
+  // tidying; deleting one silently brings its rows back, and nothing on
+  // screen looks broken because the rows simply reappear.
+
+  test('words the client removed stay removed', () async {
+    final repo = await SecondStageRepository.loadFromAsset();
+    const removed = [269, 469, 564, 620, 785, 870, 992, 1142, 1304, 1341,
+                     1386, 1926, 2070, 2121];
+    for (final id in removed) {
+      expect(repo.byWordId(id), isEmpty,
+          reason: 'word $id was deleted by the client but has rows again — '
+              'was its empty override removed from ss_overrides.json?');
+    }
+  });
+
+  test('mnemonic_break marks a ゴロ that has nothing to emphasise', () async {
+    final repo = await SecondStageRepository.loadFromAsset();
+    // 1560 collapse: 「滑り落ちる」が語源 is etymology, not a pun, so no run
+    // echoes the English — but the client wants the ゴロ treatment anyway.
+    final lapse = repo.all.firstWhere(
+        (e) => e.wordId == 1560 && e.relation.startsWith('意 ２～３ lapse'));
+    expect(lapse.mnemonicEcho, isEmpty);
+    expect(lapse.mnemonicBreak, isTrue);
+    expect(lapse.answerMeaning, '「滑り落ちる」が語源');
+  });
 }

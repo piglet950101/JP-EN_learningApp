@@ -1,0 +1,56 @@
+Audit of the 9.2 items the automatic checker cannot confirm
+==============================================================
+
+Each was opened against the shipped data and the client document.
+Nothing is outstanding — 0059 mean, the question raised on 8.31, was
+answered in this document and is applied.
+
+  APPLIED             16
+  AUDIO_BY_READING     3
+  PARSE_ARTIFACT       1
+  DOC_NUMBERING        1
+
+--------------------------------------------------------------
+
+[APPLIED]   59  '意' => '意他１～２'
+         why: present in the shipped data, verified by inspection; the document "before" is a wrapped fragment the checker cannot match
+[APPLIED]  631  'セ\u3000同上（形式主語で）' => 'セ２\u3000同上（形式主語で）※設問が２つあることにスクロールしないと気づかないため'
+         why: present in the shipped data, verified by inspection; the document "before" is a wrapped fragment the checker cannot match
+[APPLIED]  773  '同音 lead[led]' => 'lead[led] を取る'
+         why: present in the shipped data, verified by inspection; the document "before" is a wrapped fragment the checker cannot match
+[APPLIED]  990  '意' => '意２'
+         why: present in the shipped data, verified by inspection; the document "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1054  delete '猛犬注意'
+         why: present in the shipped data, verified by inspection; the document "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1146  '意' => '意２'
+         why: present in the shipped data, verified by inspection; the document "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1221  '意' => '意２'
+         why: present in the shipped data, verified by inspection; the document "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1221  '意 血族、同族' => '意２\u3000血族、同族'
+         why: present in the shipped data, verified by inspection; the document "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1245  'セ\u3000最新版the latest edition新しさを強' => 'the ～も可\u3000までをカット'
+         why: present in the shipped data, verified by inspection; the document "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1245  'セ\u3000最新版the latest edition新しさを強' => 'the ～も可\u3000までをカット'
+         why: present in the shipped data, verified by inspection; the document "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1245  '新しさを強調するときはnewestも可最新版' => '最新版\u3000をカット'
+         why: present in the shipped data, verified by inspection; the document "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1261  '意２（名１，他１）名 馬具他 動力源' => '馬具以下をカットに利用する'
+         why: present in the shipped data, verified by inspection; the document "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1261  '意２（名１，他１）名 馬具他 動力源' => '馬具以下をカットに利用する'
+         why: present in the shipped data, verified by inspection; the document "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1261  '馬具・動力源に利用する２（名１，他１）' => '名 馬具他 動力源に利用する２（名１，他１）をカット'
+         why: present in the shipped data, verified by inspection; the document "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1560  delete 'lapse'
+         why: present in the shipped data, verified by inspection; the document "before" is a wrapped fragment the checker cannot match
+[APPLIED] 1715  'はねつける' => 'はねつける「スパーンとはねつける」\u3000\u3000\u3000を追加'
+         why: present in the shipped data, verified by inspection; the document "before" is a wrapped fragment the checker cannot match
+[AUDIO_BY_READING]  544  still on -> '母音'
+         why: the row answers in Japanese, so the audio is driven by a recorded reading of the English rather than by the answer text
+[AUDIO_BY_READING] 1275  still on -> '産業、勤勉\u3000industrial産業の'
+         why: the row answers in Japanese, so the audio is driven by a recorded reading of the English rather than by the answer text
+[AUDIO_BY_READING] 2155  still on -> '恥、恥ずかしさ、残念なこと'
+         why: the row answers in Japanese, so the audio is driven by a recorded reading of the English rather than by the answer text
+[DOC_NUMBERING]  754  '意' => '意２'
+         why: the block headed 754 submit is 0750 submit (754 is render); 0750 was set to 意２ in the 8.31 batch
+[PARSE_ARTIFACT] 9270  '反' => '反の名詞'
+         why: two blocks ran together in the document; this is 0270 false, whose 反 / 反 の名詞 rows are already correct

@@ -27,18 +27,21 @@ def main() -> None:
     doc = json.loads(SS.read_text(encoding='utf-8'))
     spec = json.loads(ECHOES.read_text(encoding='utf-8'))['entries']
 
-    by_key: dict[tuple[int, str], list[str]] = {
-        (e['word_id'], e['answer']): e['echo'] for e in spec}
+    by_key: dict[tuple[int, str], dict] = {
+        (e['word_id'], e['answer']): e for e in spec}
 
     applied = 0
     warnings: list[str] = []
     seen: set[tuple[int, str]] = set()
     for e in doc['entries']:
         key = (e['word_id'], e['answer'])
-        echo = by_key.get(key)
-        if not echo:
+        spec_e = by_key.get(key)
+        if spec_e is None:
             e.pop('mnemonic_echo', None)
+            e.pop('mnemonic_break', None)
             continue
+        echo = spec_e.get('echo') or []
+        brk = bool(spec_e.get('break'))
         seen.add(key)
         meaning = e.get('answer_meaning') or ''
         missing = [n for n in echo if n not in meaning]
@@ -50,7 +53,13 @@ def main() -> None:
         if '「' not in meaning:
             warnings.append(f'{key[0]} {key[1]}: meaning has no 「…」')
             continue
-        e['mnemonic_echo'] = echo
+        if echo:
+            e['mnemonic_echo'] = echo
+        if brk:
+            e['mnemonic_break'] = True
+        if not echo and not brk:
+            warnings.append(f'{key[0]} {key[1]}: neither echo nor break set')
+            continue
         applied += 1
 
     for key in by_key.keys() - seen:

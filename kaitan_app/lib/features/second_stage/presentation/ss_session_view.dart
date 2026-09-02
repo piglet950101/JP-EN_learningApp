@@ -586,8 +586,10 @@ class _EntryRow extends StatelessWidget {
                   child: Text.rich(
                     _mnemonicSpans(
                       _breakForReading(entry.answerMeaning!,
-                          breakBeforeQuote: entry.mnemonicEcho.isNotEmpty),
+                          breakBeforeQuote: entry.mnemonicEcho.isNotEmpty ||
+                              entry.mnemonicBreak),
                       echo: entry.mnemonicEcho,
+                      asMnemonic: entry.mnemonicBreak,
                       base: TextStyle(
                         // ゴチ — the meaning itself keeps the gothic face it
                         // has always had (client 2026-08-24 ①②). Only part of
@@ -680,8 +682,13 @@ class _EntryRow extends StatelessWidget {
   static final RegExp _quoteRe = RegExp(r'「[^」]*」');
 
   static InlineSpan _mnemonicSpans(String text,
-      {required TextStyle base, List<String> echo = const []}) {
-    if (echo.isEmpty) return TextSpan(text: text, style: base);
+      {required TextStyle base,
+      List<String> echo = const [],
+      bool asMnemonic = false}) {
+    // No echo AND not flagged means the 「…」 is a grammar note, which keeps
+    // the surrounding style. Flagged with no echo means a ゴロ with nothing to
+    // emphasise inside it — the whole quote goes mincho.
+    if (echo.isEmpty && !asMnemonic) return TextSpan(text: text, style: base);
     // Client 2026-08-26 ③: a ゴロ is 「基本的に黒字で、小さいフォント」. That
     // applies to the whole quoted run — the echoing part included — so it is
     // set on the shared style here and the face/weight split happens below.
