@@ -2486,8 +2486,8 @@
       "block": 5,
       "relation": "セ　彼はけがをした。",
       "base_category": "セ",
-      "answer": "He injured himself.自分のミスなどによる場合",
-      "answer_meaning": null,
+      "answer": "He injured himself.",
+      "answer_meaning": "自分のミスなどによる場合",
       "tts_enabled": false,
       "notes": null
     },
@@ -4860,7 +4860,7 @@
       "id": 433,
       "word_id": 524,
       "block": 11,
-      "relation": "意３",
+      "relation": "意３（間１，他１，名１）",
       "base_category": "意",
       "answer": "間 たとえば　他 言う　名 発言権",
       "answer_meaning": null,
@@ -5659,7 +5659,8 @@
       "answer": "修道女",
       "answer_meaning": null,
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "pronunciation_hint": "nun"
     },
     {
       "id": 505,
@@ -7502,8 +7503,8 @@
       "block": 16,
       "relation": "法",
       "base_category": "法",
-      "answer": "目的語に to do を取る　decide ~ing ×",
-      "answer_meaning": null,
+      "answer": "目的語に to do を取る",
+      "answer_meaning": "decide ~ing ×",
       "tts_enabled": false,
       "notes": null
     },
@@ -7524,8 +7525,8 @@
       "block": 16,
       "relation": "法",
       "base_category": "法",
-      "answer": "目的語に to do を取る　decide to do型　determine ~ing ×",
-      "answer_meaning": null,
+      "answer": "目的語に to do を取る",
+      "answer_meaning": "decide to do型　determine ~ing ×",
       "tts_enabled": false,
       "notes": null
     },
@@ -7650,7 +7651,7 @@
       "base_category": "セ",
       "answer": "lead to improving performance",
       "answer_meaning": null,
-      "tts_enabled": true,
+      "tts_enabled": false,
       "notes": null
     },
     {
@@ -8054,7 +8055,7 @@
       "id": 719,
       "word_id": 818,
       "block": 18,
-      "relation": "意２～３",
+      "relation": "意２",
       "base_category": "意",
       "answer": "悪徳、代理、副-",
       "answer_meaning": null,
@@ -12963,7 +12964,7 @@
       "id": 1160,
       "word_id": 1327,
       "block": 28,
-      "relation": "意４",
+      "relation": "意３～４",
       "base_category": "意",
       "answer": "特徴、性格、登場人物、（表意）文字",
       "answer_meaning": null,
@@ -13031,8 +13032,8 @@
       "block": 28,
       "relation": "法",
       "base_category": "法",
-      "answer": "many, few ではなく large, smallを使うa large audience たくさんの聴衆",
-      "answer_meaning": null,
+      "answer": "many, few ではなく large, smallを使う",
+      "answer_meaning": "a large audience たくさんの聴衆",
       "tts_enabled": false,
       "notes": null
     },
@@ -14047,7 +14048,7 @@
       "id": 1257,
       "word_id": 1422,
       "block": 30,
-      "relation": "意3",
+      "relation": "意３",
       "base_category": "意",
       "answer": "細胞、独房、電池",
       "answer_meaning": null,
@@ -14084,7 +14085,7 @@
       "base_category": "意",
       "answer": "fee",
       "answer_meaning": "専門職の料金（医者、弁護士、家庭教師）",
-      "tts_enabled": false,
+      "tts_enabled": true,
       "notes": null
     },
     {
@@ -15298,7 +15299,8 @@
       "answer_meaning": "「滑り落ちる」が語源",
       "tts_enabled": true,
       "notes": null,
-      "mnemonic_break": true
+      "mnemonic_break": true,
+      "pronunciation_hint": "lapse"
     },
     {
       "id": 1370,
@@ -18928,7 +18930,7 @@
       "base_category": "複",
       "answer": "axes",
       "answer_meaning": "オアシス型　発音はアクスィーズ",
-      "tts_enabled": true,
+      "tts_enabled": false,
       "notes": null
     },
     {

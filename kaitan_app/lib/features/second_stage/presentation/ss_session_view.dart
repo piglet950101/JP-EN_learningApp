@@ -260,8 +260,23 @@ final RegExp _startsLatin = RegExp(r'^[A-Za-z]');
 /// word: only then is a different English word being asked about.
 final _posThenOwnMeaning = RegExp(r'^[他自名形副動前接間]\s*の意味');
 
+/// Strips the padding and brackets that differ between a prompt and a
+/// headword meaning, so 「（意見が）一致する」 still matches 「彼と意見が合わない」
+/// on its shared run.
+String _bareText(String s) =>
+    s.replaceAll(RegExp(r'[\s　（）()～~]'), '');
+
 bool _shouldHideHeadwordLine(
     List<SecondStageEntry> entries, Word headword) {
+  // A prompt that spells out the headword's own meaning hands over the answer,
+  // whatever code it carries. 1292 attend asks セ その会議に出席する while the
+  // headword line reads 出席する; 0572 disagree and 1185 approve are the same
+  // shape. None of them has an 意 row, so the checks below never fired.
+  for (final m in headword.meanings) {
+    final mm = _bareText(m);
+    if (mm.length < 3) continue;
+    if (entries.any((e) => _bareText(e.relation).contains(mm))) return true;
+  }
   for (final e in entries) {
     // A question can ask for the headword's meaning without using the 意 code
     // at all: 0916 tear carries 他の意味 and 名 の意味と発音, both of which

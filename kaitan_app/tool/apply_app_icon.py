@@ -39,7 +39,14 @@ IOS = ROOT / 'ios' / 'Runner' / 'Assets.xcassets' / 'AppIcon.appiconset'
 DENSITIES = {'mdpi': 48, 'hdpi': 72, 'xhdpi': 96, 'xxhdpi': 144, 'xxxhdpi': 192}
 # Foreground/background drawables are authored at 108dp; 432px covers xxxhdpi.
 ADAPTIVE = {'mdpi': 108, 'hdpi': 162, 'xhdpi': 216, 'xxhdpi': 324, 'xxxhdpi': 432}
-SAFE_FRACTION = 0.66   # the centre 66% of an adaptive icon is always visible
+SAFE_FRACTION = 0.667  # an adaptive icon only ever shows its centre 2/3
+# The client draws on a 1024 canvas and treats the centre 768 as the circle
+# that will be seen — アイコンN-93-02 is exactly that crop of N-93-01, so the
+# artwork is composed to be cut there, 2~Pre1 included. Scaling the ink to the
+# safe zone instead made the whole design smaller than intended, which is why
+# it looked unchanged. Mapping their circle onto the visible area keeps the
+# framing they drew.
+SOURCE_CIRCLE = 768 / 1024
 
 
 def ink_only(im: Image.Image) -> tuple[Image.Image, tuple[int, int, int]]:
@@ -65,8 +72,7 @@ def main() -> None:
     if not SRC.exists():
         raise SystemExit(f'not found: {SRC}')
     art = Image.open(SRC).convert('RGBA')
-    ink, bg = ink_only(art)
-    ink = cropped_to_ink(ink)
+    ink_full, bg = ink_only(art)   # kept at full canvas so the framing survives
 
     # ── Android: adaptive background + foreground ────────────────────
     for bucket, size in ADAPTIVE.items():
@@ -75,10 +81,12 @@ def main() -> None:
         Image.new('RGBA', (size, size), bg + (255,)).save(d / 'ic_launcher_background.png')
 
         fg = Image.new('RGBA', (size, size), (0, 0, 0, 0))
-        limit = int(size * SAFE_FRACTION)
-        scaled = ink.copy()
-        scaled.thumbnail((limit, limit), Image.LANCZOS)
-        fg.paste(scaled, ((size - scaled.width) // 2, (size - scaled.height) // 2), scaled)
+        # Scale the WHOLE artwork (not its ink bounding box) so the client's
+        # 768 circle coincides with the visible 2/3 of the layer.
+        canvas = int(round(size * SAFE_FRACTION / SOURCE_CIRCLE))
+        scaled = ink_full.resize((canvas, canvas), Image.LANCZOS)
+        off = (size - canvas) // 2
+        fg.paste(scaled, (off, off), scaled)
         fg.save(d / 'ic_launcher_foreground.png')
 
     # Legacy square icon for anything below Android 8.
@@ -111,7 +119,8 @@ def main() -> None:
 
     print(f'Android: adaptive layers + legacy icons for {len(DENSITIES)} densities')
     print(f'iOS    : {len(written)} sizes, alpha removed')
-    print(f'background {bg}, ink scaled to {int(SAFE_FRACTION * 100)}% safe zone')
+    print(f'background {bg}; the client 768 circle maps onto the visible '
+          f'{SAFE_FRACTION:.0%} of the layer')
 
 
 if __name__ == '__main__':

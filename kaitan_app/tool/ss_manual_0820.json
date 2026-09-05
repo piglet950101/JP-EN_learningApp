@@ -258,8 +258,8 @@
       },
       {
         "relation": "法",
-        "answer": "目的語に to do を取る　decide ~ing ×",
-        "answer_meaning": null,
+        "answer": "目的語に to do を取る",
+        "answer_meaning": "decide ~ing ×",
         "tts_enabled": false
       }
     ],
@@ -272,14 +272,14 @@
       },
       {
         "relation": "法",
-        "answer": "目的語に to do を取る　decide to do型　determine ~ing ×",
-        "answer_meaning": null,
+        "answer": "目的語に to do を取る",
+        "answer_meaning": "decide to do型　determine ~ing ×",
         "tts_enabled": false
       }
     ],
     "818": [
       {
-        "relation": "意２～３",
+        "relation": "意２",
         "answer": "悪徳、代理、副-",
         "answer_meaning": null,
         "tts_enabled": false
@@ -1144,7 +1144,7 @@
         "relation": "セ　性能の改善につながる",
         "answer": "lead to improving performance",
         "answer_meaning": null,
-        "tts_enabled": true
+        "tts_enabled": false
       },
       {
         "relation": "同音 lead[led]",
@@ -1249,7 +1249,7 @@
     ],
     "1327": [
       {
-        "relation": "意４",
+        "relation": "意３～４",
         "answer": "特徴、性格、登場人物、（表意）文字",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2343,7 +2343,7 @@
     ],
     "1422": [
       {
-        "relation": "意3",
+        "relation": "意３",
         "answer": "細胞、独房、電池",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2529,7 +2529,7 @@
     ],
     "524": [
       {
-        "relation": "意３",
+        "relation": "意３（間１，他１，名１）",
         "answer": "間 たとえば　他 言う　名 発言権",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2702,6 +2702,68 @@
         "relation": "セ　猛犬注意",
         "answer": "Beware of the dog.",
         "answer_meaning": null,
+        "tts_enabled": false
+      }
+    ],
+    "240": [
+      {
+        "relation": "品",
+        "answer": "他動詞",
+        "answer_meaning": "He injured. 彼はけがをした。（×）",
+        "tts_enabled": false
+      },
+      {
+        "relation": "名",
+        "answer": "injury",
+        "answer_meaning": "けが",
+        "tts_enabled": true
+      },
+      {
+        "relation": "セ　彼はけがをした。",
+        "answer": "He was injured.",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　彼はけがをした。",
+        "answer": "He injured himself.",
+        "answer_meaning": "自分のミスなどによる場合",
+        "tts_enabled": false
+      }
+    ],
+    "1333": [
+      {
+        "relation": "法",
+        "answer": "many, few ではなく large, smallを使う",
+        "answer_meaning": "a large audience たくさんの聴衆",
+        "tts_enabled": false
+      }
+    ],
+    "1427": [
+      {
+        "relation": "意 fee",
+        "answer": "fee",
+        "answer_meaning": "専門職の料金（医者、弁護士、家庭教師）",
+        "tts_enabled": true
+      }
+    ],
+    "1901": [
+      {
+        "relation": "複",
+        "answer": "axes",
+        "answer_meaning": "オアシス型　発音はアクスィーズ",
+        "tts_enabled": false
+      },
+      {
+        "relation": "意 ax, axe",
+        "answer": "斧",
+        "answer_meaning": "複数形は axes　発音はアクスィズ",
+        "tts_enabled": false
+      },
+      {
+        "relation": "意 axiom",
+        "answer": "公理",
+        "answer_meaning": "軸となるもの",
         "tts_enabled": false
       }
     ]
