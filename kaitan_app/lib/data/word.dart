@@ -74,6 +74,10 @@ class Word {
   final List<Example> examples;
   final String imageFilename;  // e.g. "0001.webp"
   final String? pronunciationHint;
+  /// Second Stage must not show this word's meaning under the headword. Most
+  /// cases the app derives; this covers the ones it cannot (0572 disagree is
+  /// asked as 彼と意見が合わない but means 不賛成である).
+  final bool hideMeaningInSs;
 
   const Word({
     required this.id,
@@ -88,6 +92,7 @@ class Word {
     required this.examples,
     required this.imageFilename,
     required this.pronunciationHint,
+    this.hideMeaningInSs = false,
   });
 
   // Back-compat accessors so existing callers keep working.
@@ -124,6 +129,7 @@ class Word {
       examples: examples,
       imageFilename: j['image_filename'] as String? ?? '',
       pronunciationHint: j['pronunciation_hint'] as String?,
+      hideMeaningInSs: (j['hide_meaning_in_ss'] ?? false) as bool,
     );
   }
 }

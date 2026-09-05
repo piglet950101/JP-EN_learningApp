@@ -27,6 +27,7 @@ STEPS = [
     ('import_excel.py',           'rebuild the headword list from the Excel'),
     ('apply_word_overrides.py',   'headword POS / meaning corrections'),
     ('apply_mnemonic_overrides.py', 'headword mnemonic corrections'),
+    ('apply_hide_headword.py',    'words whose meaning SS must not show'),
     # videos.json
     ('import_videos.py',          'video manifest incl. footage aspect ratio'),
 ]

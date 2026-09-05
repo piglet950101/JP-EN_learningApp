@@ -1913,7 +1913,7 @@
     ],
     "1898": [
       {
-        "relation": "意２",
+        "relation": "意２～３",
         "answer": "態度、意見、姿勢",
         "answer_meaning": null,
         "tts_enabled": false
@@ -2003,7 +2003,7 @@
     ],
     "2005": [
       {
-        "relation": "意３～４",
+        "relation": "意４",
         "answer": "固定する、修理する、作る、仕返しをする",
         "answer_meaning": null,
         "tts_enabled": false
@@ -3141,7 +3141,7 @@
     ],
     "2096": [
       {
-        "relation": "意３～５",
+        "relation": "意３以上",
         "answer": "作業、作用、操作、手術、軍事行動",
         "answer_meaning": null,
         "tts_enabled": false

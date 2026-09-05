@@ -263,11 +263,17 @@ final _posThenOwnMeaning = RegExp(r'^[他自名形副動前接間]\s*の意味')
 /// Strips the padding and brackets that differ between a prompt and a
 /// headword meaning, so 「（意見が）一致する」 still matches 「彼と意見が合わない」
 /// on its shared run.
-String _bareText(String s) =>
-    s.replaceAll(RegExp(r'[\s　（）()～~]'), '');
+String _bareText(String s) => s
+    // Drop what is INSIDE the brackets too: 1185 approve reads ～に賛成する(of)
+    // while its prompt says 彼の考えに賛成する, and the stray "of" was enough to
+    // stop the two matching.
+    .replaceAll(RegExp(r'[（(][^）)]*[）)]'), '')
+    .replaceAll(RegExp(r'[\s　～~]'), '');
 
 bool _shouldHideHeadwordLine(
     List<SecondStageEntry> entries, Word headword) {
+  // The client's own list wins; the rules below only fill in the rest.
+  if (headword.hideMeaningInSs) return true;
   // A prompt that spells out the headword's own meaning hands over the answer,
   // whatever code it carries. 1292 attend asks セ その会議に出席する while the
   // headword line reads 出席する; 0572 disagree and 1185 approve are the same

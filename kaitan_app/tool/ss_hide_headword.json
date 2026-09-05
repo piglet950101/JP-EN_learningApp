@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "source": "Second Stage 直し 9. 4.xlsx — 見出し語の下の意味を削除する column",
+  "note": "Most of these the app works out for itself, from the 意 code or from a prompt that quotes the headword meaning. A few cannot be derived — 0572 disagree is asked as 彼と意見が合わない while its meaning reads 不賛成である — so the client list is kept verbatim and wins outright.",
+  "word_ids": [
+    {
+      "id": 217,
+      "word": "state"
+    },
+    {
+      "id": 252,
+      "word": "stick"
+    },
+    {
+      "id": 444,
+      "word": "grant"
+    },
+    {
+      "id": 474,
+      "word": "train"
+    },
+    {
+      "id": 501,
+      "word": "contract"
+    },
+    {
+      "id": 559,
+      "word": "toll"
+    },
+    {
+      "id": 565,
+      "word": "pound"
+    },
+    {
+      "id": 572,
+      "word": "disagree"
+    },
+    {
+      "id": 594,
+      "word": "capital"
+    },
+    {
+      "id": 724,
+      "word": "bid"
+    },
+    {
+      "id": 732,
+      "word": "practice"
+    },
+    {
+      "id": 839,
+      "word": "weather"
+    },
+    {
+      "id": 886,
+      "word": "curb"
+    },
+    {
+      "id": 1034,
+      "word": "fit"
+    },
+    {
+      "id": 1035,
+      "word": "suit"
+    },
+    {
+      "id": 1042,
+      "word": "cross"
+    },
+    {
+      "id": 1067,
+      "word": "favor"
+    },
+    {
+      "id": 1138,
+      "word": "fire"
+    },
+    {
+      "id": 1185,
+      "word": "approve"
+    },
+    {
+      "id": 1256,
+      "word": "shed"
+    },
+    {
+      "id": 1292,
+      "word": "attend"
+    },
+    {
+      "id": 1300,
+      "word": "fast"
+    },
+    {
+      "id": 1301,
+      "word": "sound"
+    },
+    {
+      "id": 1319,
+      "word": "rear"
+    },
+    {
+      "id": 1390,
+      "word": "apply"
+    },
+    {
+      "id": 1398,
+      "word": "count"
+    },
+    {
+      "id": 1399,
+      "word": "account"
+    },
+    {
+      "id": 1412,
+      "word": "part"
+    },
+    {
+      "id": 1414,
+      "word": "flat"
+    },
+    {
+      "id": 1487,
+      "word": "resume"
+    },
+    {
+      "id": 1521,
+      "word": "term"
+    },
+    {
+      "id": 1695,
+      "word": "just"
+    },
+    {
+      "id": 1719,
+      "word": "spell"
+    },
+    {
+      "id": 1733,
+      "word": "strip"
+    },
+    {
+      "id": 1837,
+      "word": "sign"
+    },
+    {
+      "id": 1945,
+      "word": "peer"
+    },
+    {
+      "id": 1958,
+      "word": "desert"
+    },
+    {
+      "id": 2021,
+      "word": "mark"
+    },
+    {
+      "id": 2022,
+      "word": "remark"
+    },
+    {
+      "id": 2024,
+      "word": "novel"
+    },
+    {
+      "id": 2080,
+      "word": "noble"
+    },
+    {
+      "id": 2087,
+      "word": "settle"
+    },
+    {
+      "id": 2112,
+      "word": "brood"
+    },
+    {
+      "id": 2118,
+      "word": "cause"
+    }
+  ]
+}
