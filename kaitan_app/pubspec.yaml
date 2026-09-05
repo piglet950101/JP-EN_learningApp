@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # of the product and file versions while build-number is used as the build suffix.
 # Bump the +N build number on EVERY client delivery — some Android builds
 # refuse a same-versionCode sideload update (AQUOS SH-M15, 2026-08-12).
-version: 1.0.12+13
+version: 1.0.13+14
 
 environment:
   sdk: ^3.12.0
