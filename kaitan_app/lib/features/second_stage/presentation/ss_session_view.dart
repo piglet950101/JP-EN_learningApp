@@ -610,11 +610,15 @@ class _EntryRow extends StatelessWidget {
                       EdgeInsets.only(top: hideAnswerText ? 0 : 2),
                   child: Text.rich(
                     _mnemonicSpans(
-                      _breakForReading(entry.answerMeaning!,
-                          breakBeforeQuote: entry.mnemonicEcho.isNotEmpty ||
-                              entry.mnemonicBreak),
+                      _splitNote(
+                          _breakForReading(entry.answerMeaning!,
+                              breakBeforeQuote:
+                                  entry.mnemonicEcho.isNotEmpty ||
+                                      entry.mnemonicBreak),
+                          entry.noteFrom),
                       echo: entry.mnemonicEcho,
                       asMnemonic: entry.mnemonicBreak,
+                      noteFrom: entry.noteFrom,
                       base: TextStyle(
                         // ゴチ — the meaning itself keeps the gothic face it
                         // has always had (client 2026-08-24 ①②). Only part of
@@ -659,7 +663,7 @@ class _EntryRow extends StatelessWidget {
     var out = s.replaceAll(RegExp(r'\s*cf\.\s*'), '\ncf. ');
     // Break at POS markers that follow whitespace: preserve the marker.
     out = out.replaceAllMapped(
-      RegExp(r'\s+([他自名形副動前接])\s'),
+      RegExp(r'\s+([他自名形副動前接間])\s'),
       (m) => '\n${m.group(1)} ',
     );
     // A ゴロ starts its own line (client 2026-08-26 ④) — but ONLY a ゴロ.
@@ -706,10 +710,34 @@ class _EntryRow extends StatelessWidget {
   /// therefore always safe, never a half-applied rule.
   static final RegExp _quoteRe = RegExp(r'「[^」]*」');
 
+  /// Put a line break in front of the note, so it starts its own line.
+  static String _splitNote(String text, String? noteFrom) {
+    if (noteFrom == null || noteFrom.isEmpty) return text;
+    final i = text.indexOf(noteFrom);
+    if (i <= 0) return text;
+    return '${text.substring(0, i).trimRight()}\n${text.substring(i)}';
+  }
+
   static InlineSpan _mnemonicSpans(String text,
       {required TextStyle base,
       List<String> echo = const [],
-      bool asMnemonic = false}) {
+      bool asMnemonic = false,
+      String? noteFrom}) {
+    // A supplementary note runs to the end of the line, set like a ゴロ.
+    if (noteFrom != null && noteFrom.isNotEmpty) {
+      final i = text.indexOf(noteFrom);
+      if (i >= 0) {
+        final quoted = base.copyWith(
+          color: Colors.black,
+          fontSize:
+              ((base.fontSize ?? 15) * 0.72).roundToDouble().clamp(11.0, 40.0),
+        );
+        return TextSpan(children: [
+          if (i > 0) TextSpan(text: text.substring(0, i), style: base),
+          TextSpan(text: text.substring(i), style: quoted),
+        ]);
+      }
+    }
     // No echo AND not flagged means the 「…」 is a grammar note, which keeps
     // the surrounding style. Flagged with no echo means a ゴロ with nothing to
     // emphasise inside it — the whole quote goes mincho.

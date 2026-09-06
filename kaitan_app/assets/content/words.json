@@ -11715,7 +11715,8 @@
         }
       ],
       "image_filename": "0283.webp",
-      "pronunciation_hint": null
+      "pronunciation_hint": null,
+      "hide_meaning_in_ss": true
     },
     {
       "id": 284,
@@ -47847,7 +47848,8 @@
         }
       ],
       "image_filename": "1186.webp",
-      "pronunciation_hint": null
+      "pronunciation_hint": null,
+      "hide_meaning_in_ss": true
     },
     {
       "id": 1187,
@@ -61081,7 +61083,8 @@
         }
       ],
       "image_filename": "1523.webp",
-      "pronunciation_hint": null
+      "pronunciation_hint": null,
+      "hide_meaning_in_ss": true
     },
     {
       "id": 1524,

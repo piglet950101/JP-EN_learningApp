@@ -748,9 +748,12 @@
       "relation": "意 amiable",
       "base_category": "意",
       "answer": "amiable",
-      "answer_meaning": "愛想よい",
+      "answer_meaning": "愛想よい「笑み溢るとは愛想よい」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "笑み溢る"
+      ]
     },
     {
       "id": 62,
@@ -930,7 +933,7 @@
       "relation": "セ　タバコを控える",
       "base_category": "セ",
       "answer": "abstain from smoking",
-      "answer_meaning": null,
+      "answer_meaning": "継続的",
       "tts_enabled": false,
       "notes": null
     },
@@ -941,7 +944,7 @@
       "relation": "セ　タバコを控える",
       "base_category": "セ",
       "answer": "refrain from smoking",
-      "answer_meaning": null,
+      "answer_meaning": "一時的",
       "tts_enabled": false,
       "notes": null
     },
@@ -2476,7 +2479,7 @@
       "relation": "セ　彼はけがをした。",
       "base_category": "セ",
       "answer": "He was injured.",
-      "answer_meaning": null,
+      "answer_meaning": "ふつうに偶然けがをする場合",
       "tts_enabled": false,
       "notes": null
     },
@@ -6211,8 +6214,8 @@
       "id": 554,
       "word_id": 633,
       "block": 14,
-      "relation": "反対語とその名詞",
-      "base_category": null,
+      "relation": "反",
+      "base_category": "反",
       "answer": "possible",
       "answer_meaning": "可能である",
       "tts_enabled": true,
@@ -6222,8 +6225,8 @@
       "id": 555,
       "word_id": 633,
       "block": 14,
-      "relation": "反対語とその名詞",
-      "base_category": null,
+      "relation": "反 の名詞",
+      "base_category": "反",
       "answer": "possibility",
       "answer_meaning": "可能性",
       "tts_enabled": true,
@@ -11896,7 +11899,7 @@
       "relation": "形　とその意味",
       "base_category": "形",
       "answer": "figurative",
-      "answer_meaning": "形　とその意味 figurative",
+      "answer_meaning": "比喩的な",
       "tts_enabled": true,
       "notes": null
     },
@@ -13068,7 +13071,8 @@
       "answer": "lavatory",
       "answer_meaning": "トイレ　cf. lavender は風呂の好気に使われた",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "note_from": "cf."
     },
     {
       "id": 1170,
@@ -15017,7 +15021,8 @@
       "answer": "epoch",
       "answer_meaning": "新時代　epoch-making 画期的な",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "note_from": "epoch-making"
     },
     {
       "id": 1345,
@@ -15083,7 +15088,8 @@
       "answer": "candid",
       "answer_meaning": "率直な　cand = candleのように白いこと",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "note_from": "cand"
     },
     {
       "id": 1351,
@@ -15457,7 +15463,8 @@
       "answer": "run a hotel",
       "answer_meaning": "ホテルを経営するホテルを走らせる = manage a hotel",
       "tts_enabled": false,
-      "notes": null
+      "notes": null,
+      "note_from": "ホテルを走らせる"
     },
     {
       "id": 1384,
@@ -19906,7 +19913,8 @@
       "answer": "respond to the email",
       "answer_meaning": "フォーマルな言い方 = answer the email, reply to the email",
       "tts_enabled": false,
-      "notes": null
+      "notes": null,
+      "note_from": "= answer"
     },
     {
       "id": 1784,
@@ -21482,7 +21490,8 @@
       "answer": "lazy",
       "answer_meaning": "(仕事をしないで）怠惰な　idle は仕事がなくてぶらぶらしている",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "note_from": "idle は仕事が"
     },
     {
       "id": 1924,

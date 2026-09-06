@@ -85,6 +85,11 @@ class SecondStageEntry {
   /// case: 「滑り落ちる」が語源 is an etymology note, not a pun, but the client
   /// asked for the same treatment.
   final bool mnemonicBreak;
+  /// The client repeatedly asks for 「Xから改行、黒字、小さく」 — from some
+  /// point onward the meaning is a supplementary note, on its own line and
+  /// set smaller. This holds that point; the tail from there is styled like a
+  /// ゴロ. 1338 laboratory splits at 'cf.', 1987 respond at '= answer'.
+  final String? noteFrom;
   /// How this row's answer should be READ, when the spelling misleads the
   /// engine (0242 wind → ワインド). Null means read the answer itself.
   final String? pronunciationHint;
@@ -101,6 +106,7 @@ class SecondStageEntry {
     required this.ttsEnabled,
     this.mnemonicEcho = const [],
     this.mnemonicBreak = false,
+    this.noteFrom,
     this.pronunciationHint,
     required this.notes,
   });
@@ -121,6 +127,7 @@ class SecondStageEntry {
               .toList(growable: false) ??
           const [],
       mnemonicBreak: (j['mnemonic_break'] ?? false) as bool,
+      noteFrom: j['note_from'] as String?,
       pronunciationHint: j['pronunciation_hint'] as String?,
       notes: j['notes'] as String?,
     );

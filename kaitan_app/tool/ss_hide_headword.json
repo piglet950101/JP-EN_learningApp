@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "source": "Second Stage 直し 9. 4.xlsx — 見出し語の下の意味を削除する column",
+  "source": "Second Stage 直し 9. 4.xlsx — 見出し語の下の意味を削除する column + 9. 6.xlsx",
   "note": "Most of these the app works out for itself, from the 意 code or from a prompt that quotes the headword meaning. A few cannot be derived — 0572 disagree is asked as 彼と意見が合わない while its meaning reads 不賛成である — so the client list is kept verbatim and wins outright.",
   "word_ids": [
     {
@@ -10,6 +10,10 @@
     {
       "id": 252,
       "word": "stick"
+    },
+    {
+      "id": 283,
+      "word": "complex"
     },
     {
       "id": 444,
@@ -80,6 +84,10 @@
       "word": "approve"
     },
     {
+      "id": 1186,
+      "word": "reprove"
+    },
+    {
       "id": 1256,
       "word": "shed"
     },
@@ -126,6 +134,10 @@
     {
       "id": 1521,
       "word": "term"
+    },
+    {
+      "id": 1523,
+      "word": "period"
     },
     {
       "id": 1695,

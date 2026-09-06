@@ -2721,7 +2721,7 @@
       {
         "relation": "セ　彼はけがをした。",
         "answer": "He was injured.",
-        "answer_meaning": null,
+        "answer_meaning": "ふつうに偶然けがをする場合",
         "tts_enabled": false
       },
       {
@@ -2765,6 +2765,68 @@
         "answer": "公理",
         "answer_meaning": "軸となるもの",
         "tts_enabled": false
+      }
+    ],
+    "83": [
+      {
+        "relation": "意 amiable",
+        "answer": "amiable",
+        "answer_meaning": "愛想よい「笑み溢るとは愛想よい」",
+        "tts_enabled": true
+      }
+    ],
+    "100": [
+      {
+        "relation": "セ　タバコを控える",
+        "answer": "abstain from smoking",
+        "answer_meaning": "継続的",
+        "tts_enabled": false
+      },
+      {
+        "relation": "セ　タバコを控える",
+        "answer": "refrain from smoking",
+        "answer_meaning": "一時的",
+        "tts_enabled": false
+      }
+    ],
+    "1223": [
+      {
+        "relation": "意６～（名５～、他１）",
+        "answer": "名 人、人影、人形、形、体形、数字、計算　他 判断する",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "形　とその意味",
+        "answer": "figurative",
+        "answer_meaning": "比喩的な",
+        "tts_enabled": true
+      }
+    ],
+    "633": [
+      {
+        "relation": "法２",
+        "answer": "人を主語に取らない",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "法２",
+        "answer": "判断感情型（that 節中はshouldまたは直説法）",
+        "answer_meaning": null,
+        "tts_enabled": false
+      },
+      {
+        "relation": "反",
+        "answer": "possible",
+        "answer_meaning": "可能である",
+        "tts_enabled": true
+      },
+      {
+        "relation": "反 の名詞",
+        "answer": "possibility",
+        "answer_meaning": "可能性",
+        "tts_enabled": true
       }
     ]
   }

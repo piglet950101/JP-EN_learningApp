@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "source": "Second Stage 直し 9. 6.xlsx — 改行、黒字、小さく column",
+  "note": "Where a meaning turns into a supplementary note. The client writes 「Xから改行、黒字、小さく」; this records X, and the tail from there starts its own line in black at the ゴロ size.",
+  "entries": [
+    {
+      "word_id": 1338,
+      "answer": "lavatory",
+      "note_from": "cf."
+    },
+    {
+      "word_id": 1530,
+      "answer": "candid",
+      "note_from": "cand"
+    },
+    {
+      "word_id": 1583,
+      "answer": "run a hotel",
+      "note_from": "ホテルを走らせる"
+    },
+    {
+      "word_id": 1987,
+      "answer": "respond to the email",
+      "note_from": "= answer"
+    },
+    {
+      "word_id": 2136,
+      "answer": "lazy",
+      "note_from": "idle は仕事が"
+    },
+    {
+      "word_id": 1526,
+      "answer": "epoch",
+      "note_from": "epoch-making"
+    }
+  ]
+}
