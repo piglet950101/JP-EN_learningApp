@@ -187,6 +187,45 @@ void main() {
           '聖職者\n「プリーズと祈る聖職者」');
     });
   });
+
+  // ── The chip must not swallow the relation (client 2026-09-06) ──────
+  //
+  // The compact row labelled its chip with the base code alone, so 意２ drew
+  // as 意 and 類 の名詞 as 類 — 275 rows lost their detail on screen while the
+  // JSON held it correctly. 落合様 reported the counts missing for four
+  // rounds and every data check passed, because the checks read the data and
+  // he was reading the screen.
+
+  group('the relation chip keeps its detail', () {
+    test('a short relation goes into the chip whole', () {
+      expect(chipLabelFor('意２'), '意２');
+      expect(chipLabelFor('法２'), '法２');
+      expect(chipLabelFor('類　の名詞'), '類　の名詞');
+    });
+
+    test('a bare code is unaffected', () {
+      expect(chipLabelFor('意'), '意');
+      expect(chipLabelFor('セ'), 'セ');
+    });
+
+    test('a long prompt still splits into chip plus text', () {
+      expect(chipLabelFor('セ　彼に留学するように勧める'), 'セ');
+      expect(chipLabelFor('意 literally'), '意');
+      // Split, not dropped: the detail moves beside the chip.
+      expect(chipLabelFor('意 形1〜2'), '意');
+      expect(visibleTextFor('意 形1〜2'), '意 形1〜2');
+    });
+
+    test('nothing is silently dropped', () {
+      const relations = ['意２', '法２', '類　の名詞', '反 の名詞', '同音２',
+                         '意２～３', '意 kin', 'セ最新版', '意 literally',
+                         'セ　彼に留学するように勧める'];
+      for (final rel in relations) {
+        expect(strip(visibleTextFor(rel)), strip(rel), reason: 'lost: $rel');
+      }
+    });
+  });
+
 }
 
 // ── Independent restatement of the split, per this file's convention ──
@@ -390,3 +429,52 @@ List<bool> labelVisibility(List<String> relations) => [
       for (var i = 0; i < relations.length; i++)
         i == 0 || relations[i] != relations[i - 1],
     ];
+
+// ── Mirrors how _EntryRow decides what its chip says ──────────────────
+
+String strip(String s) => s.replaceAll(RegExp(r'[\s　]'), '');
+
+String chipLabelFor(String relation) {
+  final rest = _restOf(relation, _catOf(relation));
+  final wide = rest != null && rest.length > 3;
+  return wide ? (_catOf(relation) ?? relation.trim()) : relation.trim();
+}
+
+/// Everything the row shows for its relation: the chip, plus the text beside
+/// it when the prompt is long enough to sit outside.
+String visibleTextFor(String relation) {
+  final cat = _catOf(relation);
+  final rest = _restOf(relation, cat);
+  final wide = rest != null && rest.length > 3;
+  return wide ? '${cat ?? ''} $rest' : relation.trim();
+}
+
+const _relationCodes = ['同音', '類義語', '反対語', '意', '類', '反', '名', '形',
+    '副', '動', '他', '自', '前', '接', '間', '活', '複', '法', '品', '熟', 'セ'];
+const _relationSuffixes = {'意': ['味'], '名': ['詞'], '形': ['容詞'],
+    '副': ['詞'], '動': ['詞'], '類': ['義語', '義'], '反': ['対語', '対'],
+    '同音': ['異義語', '異義']};
+
+String? _catOf(String relation) {
+  final t = relation.trim();
+  final byLength = [..._relationCodes]
+    ..sort((a, b) => b.length.compareTo(a.length));
+  for (final c in byLength) {
+    if (t.startsWith(c)) return c;
+  }
+  return null;
+}
+
+String? _restOf(String relation, String? cat) {
+  final t = relation.trim();
+  if (cat == null || t == cat) return null;
+  var r = t.substring(cat.length);
+  for (final suffix in _relationSuffixes[cat] ?? const <String>[]) {
+    if (r.startsWith(suffix)) {
+      r = r.substring(suffix.length);
+      break;
+    }
+  }
+  r = r.trim();
+  return r.isEmpty ? null : r;
+}

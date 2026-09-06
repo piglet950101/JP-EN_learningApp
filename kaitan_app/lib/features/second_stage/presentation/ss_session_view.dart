@@ -500,10 +500,17 @@ class _EntryRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final cat = SsRelationCategory.categoryOf(entry.relation);
     final rest = _promptRest(entry.relation, cat);
+    final full = entry.relation.trim();
     // Free-form long prompts (rest != null && length > 3) span the full
     // width beneath the chip — 0015 encourage / 0006 apparent / 0036
     // literature all fall in this bucket.
     final wide = rest != null && rest.length > 3;
+    // Everything else puts the WHOLE relation in the chip. It used to show
+    // only the base code, which silently swallowed the detail on 275 rows:
+    // 意２ drew as 意, 法２ as 法, 類 の名詞 as 類. The client reported the
+    // counts as missing for four rounds while the data held them all along —
+    // they were reading the screen and the checks were reading the JSON.
+    final chipLabel = wide ? (cat ?? full) : full;
 
     if (wide) {
       return Padding(
@@ -514,10 +521,7 @@ class _EntryRow extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                _CategoryChip(
-                    cat: cat,
-                    label: cat ?? entry.relation,
-                    visible: showLabel),
+                _CategoryChip(cat: cat, label: chipLabel, visible: showLabel),
                 const SizedBox(width: 10),
                 Expanded(
                   child: Text(
@@ -546,7 +550,7 @@ class _EntryRow extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _CategoryChip(cat: cat, label: cat ?? entry.relation),
+          _CategoryChip(cat: cat, label: chipLabel, visible: showLabel),
           const SizedBox(width: 12),
           Expanded(child: _answerOrPlaceholder(context)),
         ],
@@ -717,7 +721,9 @@ class _EntryRow extends StatelessWidget {
     // rewriting for the 08-24 mincho rule.)
     final quoted = base.copyWith(
       color: Colors.black,
-      fontSize: (base.fontSize ?? 15) - 2,
+      // A ratio, not a fixed -2. Against a 15px meaning the old rule gave
+      // 13px — a 13% drop the client kept reporting as not applied.
+      fontSize: ((base.fontSize ?? 15) * 0.72).roundToDouble().clamp(11.0, 40.0),
     );
     final mincho = quoted.copyWith(fontFamily: 'serif');
     final echoStyle = quoted.copyWith(fontWeight: FontWeight.w900);
