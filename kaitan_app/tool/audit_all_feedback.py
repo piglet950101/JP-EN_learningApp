@@ -33,10 +33,18 @@ DOCS = (('08-26', ROOT / 'tool' / 'corrections_0826.json'),
         ('08-31', ROOT / 'tool' / 'corrections_0831.json'),
         ('09-02', ROOT / 'tool' / 'corrections_0902.json'))
 SHEET = PROJECT / 'Second Stage 直し 9. 4.xlsx'
+# 09-06 keeps the per-rule columns; 09-07 drops them for one free-form column,
+# and a revision hiding in there still supersedes everything before it —
+# 1221 akin went 意 kin, then 意２ kin on 09-02, then back to 意 kin on 09-07.
+SHEETS = ((PROJECT / 'Second Stage 直し 9. 6.xlsx', '09-06'),
+          (PROJECT / 'Second Stage 直し 9. 7.xlsx', '09-07'))
+# 「意２kin を 意 kin に」 — the target sits between を and に.
+FREEFORM = re.compile(r'を\s*(意[^\s　]*(?:[\s　]+[^\s　]+)?)[\s　]*に')
 
 # Block numbers the client has corrected; the earlier number and the later one
 # describe the same word and must be merged before ordering by date.
-SLIP = {723: 733, 754: 750, 1835: 1836, 1916: 1915, 2073: 2074, 2106: 2196}
+SLIP = {723: 733, 754: 750, 1256: 1526, 1835: 1836, 1916: 1915,
+        2073: 2074, 2106: 2196}
 
 TARGET = re.compile(
     r'^意\s*[他自名形副動]?\s*[０-９0-9]+\s*(?:[～~]\s*[０-９0-9]+)?\s*(?:以上)?$')
@@ -79,6 +87,25 @@ def main() -> None:
             if row[1] and str(row[1]).strip() and row[3] is not None \
                     and str(row[3]).strip():
                 add(int(row[1]), '09-04', '意' + str(row[3]).strip())
+
+    for path, date in SHEETS:
+        if not path.exists():
+            continue
+        sheet = openpyxl.load_workbook(path, data_only=True).worksheets[0]
+        for row in sheet.iter_rows(min_row=2, values_only=True):
+            if not row[1] or not str(row[1]).strip():
+                continue
+            wid = int(row[1])
+            # a dedicated 意 column, when the sheet still has one
+            if len(row) > 3 and row[3] is not None and str(row[3]).strip()                     and str(row[3]).strip()[0] in '０１２３４５６７８９0123456789':
+                add(wid, date, '意' + str(row[3]).strip())
+            # otherwise dig the target out of the free-form text
+            for cell in row[3:]:
+                if cell is None:
+                    continue
+                m = FREEFORM.search(str(cell))
+                if m:
+                    add(wid, date, m.group(1).strip())
 
     ok, mismatch, missing = 0, [], []
     for wid, seq in sorted(history.items()):
