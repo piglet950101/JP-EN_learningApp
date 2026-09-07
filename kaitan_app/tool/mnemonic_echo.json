@@ -229,7 +229,7 @@
     },
     {
       "word_id": 1221,
-      "answer": "kin",
+      "answer": "血族、同族",
       "echo": [
         "金"
       ]
@@ -621,6 +621,20 @@
       "answer": "amiable",
       "echo": [
         "笑み溢る"
+      ]
+    },
+    {
+      "word_id": 1904,
+      "answer": "名 陳列　他 整列させる",
+      "echo": [
+        "鉄アレー"
+      ]
+    },
+    {
+      "word_id": 2039,
+      "answer": "fossil fuels",
+      "echo": [
+        "走る"
       ]
     }
   ]

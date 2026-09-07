@@ -3054,7 +3054,8 @@
       "answer": "= The flood inflicted damage on the crops.",
       "answer_meaning": "The flood did damage to the crops. も可",
       "tts_enabled": false,
-      "notes": null
+      "notes": null,
+      "note_from": "The flood did damage"
     },
     {
       "id": 270,
@@ -7661,7 +7662,7 @@
       "id": 683,
       "word_id": 773,
       "block": 17,
-      "relation": "同音 lead[led]",
+      "relation": "同音　過去形と同音",
       "base_category": "同音",
       "answer": "鉛、えんぴつの芯",
       "answer_meaning": null,
@@ -8929,7 +8930,7 @@
       "relation": "名 の意味と発音",
       "base_category": "名",
       "answer": "涙　tear",
-      "answer_meaning": null,
+      "answer_meaning": "発音はティア",
       "tts_enabled": true,
       "notes": null,
       "pronunciation_hint": "ティア"
@@ -8952,7 +8953,7 @@
       "relation": "他の活用",
       "base_category": null,
       "answer": "tear > tore > torn",
-      "answer_meaning": null,
+      "answer_meaning": "発音はテア",
       "tts_enabled": true,
       "notes": null
     },
@@ -9614,7 +9615,7 @@
       "block": 21,
       "relation": "意５（名１，形２，他１，自１）",
       "base_category": "意",
-      "answer": "名 光、明かり形 軽い、明るい他 火をつける自 （鳥が）止まる(on)",
+      "answer": "名 光、明かり　形 軽い、明るい　他 火をつける　自 （鳥が）止まる(on)",
       "answer_meaning": null,
       "tts_enabled": false,
       "notes": null
@@ -11871,10 +11872,10 @@
       "id": 1063,
       "word_id": 1221,
       "block": 26,
-      "relation": "意２ kin",
+      "relation": "意 kin",
       "base_category": "意",
-      "answer": "kin",
-      "answer_meaning": "血族、同族「金一族」",
+      "answer": "血族、同族",
+      "answer_meaning": "「金一族」",
       "tts_enabled": true,
       "notes": null,
       "mnemonic_echo": [
@@ -14255,7 +14256,8 @@
       "answer": "oval",
       "answer_meaning": "楕円「オバおるオフィス、Oval Office」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "note_from": "「オバおる"
     },
     {
       "id": 1276,
@@ -15853,7 +15855,7 @@
       "relation": "意 captive",
       "base_category": "意",
       "answer": "captive",
-      "answer_meaning": "捕虜「capture された人」　ちいさく",
+      "answer_meaning": "捕虜「capture された人」",
       "tts_enabled": true,
       "notes": null,
       "mnemonic_echo": [
@@ -16491,7 +16493,8 @@
       "answer": "transform your dream into reality",
       "answer_meaning": "turn your dream into reality　transform(/turn) A into B　A を B に変える",
       "tts_enabled": false,
-      "notes": null
+      "notes": null,
+      "note_from": "transform(/turn)"
     },
     {
       "id": 1476,
@@ -17655,7 +17658,8 @@
       "answer": "depend on other countries for oil",
       "answer_meaning": "倒置に注意 one of the countries on which we depend (　　) oil　空所には on ではなく for",
       "tts_enabled": false,
-      "notes": null
+      "notes": null,
+      "note_from": "one of"
     },
     {
       "id": 1581,
@@ -17985,7 +17989,8 @@
       "answer": "result in health problems",
       "answer_meaning": "result in は左 ⇨ 右、result from は左 ⇦ 右　Eating too much sugar can result in health problems. = Health problems can result from eating too much sugar.",
       "tts_enabled": false,
-      "notes": null
+      "notes": null,
+      "note_from": "Eating too much"
     },
     {
       "id": 1611,
@@ -18018,7 +18023,8 @@
       "answer": "assent, agree",
       "answer_meaning": "assent は非常にフォーマル　agree は一般的　consent はフォーマル",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "note_from": "assent は"
     },
     {
       "id": 1614,
@@ -18982,7 +18988,10 @@
       "answer": "名 陳列　他 整列させる",
       "answer_meaning": "arrange の変形　「鉄アレーを陳列」",
       "tts_enabled": false,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "鉄アレー"
+      ]
     },
     {
       "id": 1701,
@@ -20093,7 +20102,8 @@
       "notes": null,
       "mnemonic_echo": [
         "らいの"
-      ]
+      ],
+      "note_from": "rhinoceros の略"
     },
     {
       "id": 1800,
@@ -20455,7 +20465,10 @@
       "answer": "fossil fuels",
       "answer_meaning": "「走る燃料、化石燃料」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "mnemonic_echo": [
+        "走る"
+      ]
     },
     {
       "id": 1832,
@@ -20646,7 +20659,8 @@
       "answer": "desire",
       "answer_meaning": "名 欲求、願望　他 強く望む　decide to do型",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "note_from": "decide to do型"
     },
     {
       "id": 1849,
@@ -20729,7 +20743,8 @@
       "answer": "wallet",
       "answer_meaning": "男性用の財布米では女性も使う",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "note_from": "米では"
     },
     {
       "id": 1856,
@@ -21068,7 +21083,8 @@
       "notes": null,
       "mnemonic_echo": [
         "こうプスッ"
-      ]
+      ],
+      "note_from": "= body"
     },
     {
       "id": 1886,
@@ -21530,7 +21546,8 @@
       "notes": null,
       "mnemonic_echo": [
         "覚えるびょん"
-      ]
+      ],
+      "note_from": "oblivion 忘却"
     },
     {
       "id": 1927,
@@ -21590,7 +21607,8 @@
         "capture",
         "cap",
         "cop"
-      ]
+      ],
+      "note_from": "（サツ"
     },
     {
       "id": 1932,
@@ -22004,7 +22022,8 @@
       "answer": "graze",
       "answer_meaning": "草を食べる「grass の動詞」",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "note_from": "「grass の動詞」"
     },
     {
       "id": 1968,

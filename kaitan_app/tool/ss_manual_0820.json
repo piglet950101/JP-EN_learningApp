@@ -331,7 +331,7 @@
       {
         "relation": "名 の意味と発音",
         "answer": "涙　tear",
-        "answer_meaning": null,
+        "answer_meaning": "発音はティア",
         "tts_enabled": true
       },
       {
@@ -343,14 +343,14 @@
       {
         "relation": "他の活用",
         "answer": "tear > tore > torn",
-        "answer_meaning": null,
+        "answer_meaning": "発音はテア",
         "tts_enabled": true
       }
     ],
     "985": [
       {
         "relation": "意５（名１，形２，他１，自１）",
-        "answer": "名 光、明かり形 軽い、明るい他 火をつける自 （鳥が）止まる(on)",
+        "answer": "名 光、明かり　形 軽い、明るい　他 火をつける　自 （鳥が）止まる(on)",
         "answer_meaning": null,
         "tts_enabled": false
       },
@@ -1147,7 +1147,7 @@
         "tts_enabled": false
       },
       {
-        "relation": "同音 lead[led]",
+        "relation": "同音　過去形と同音",
         "answer": "鉛、えんぴつの芯",
         "answer_meaning": null,
         "tts_enabled": true
@@ -2657,9 +2657,9 @@
         "tts_enabled": false
       },
       {
-        "relation": "意２ kin",
-        "answer": "kin",
-        "answer_meaning": "血族、同族「金一族」",
+        "relation": "意 kin",
+        "answer": "血族、同族",
+        "answer_meaning": "「金一族」",
         "tts_enabled": true
       }
     ],
@@ -2826,6 +2826,20 @@
         "relation": "反 の名詞",
         "answer": "possibility",
         "answer_meaning": "可能性",
+        "tts_enabled": true
+      }
+    ],
+    "1627": [
+      {
+        "relation": "類",
+        "answer": "jail(/gaol)",
+        "answer_meaning": "prison は有罪判決後で長期、jail はその前や軽微な犯罪で短期",
+        "tts_enabled": true
+      },
+      {
+        "relation": "意 captive",
+        "answer": "captive",
+        "answer_meaning": "捕虜「capture された人」",
         "tts_enabled": true
       }
     ]

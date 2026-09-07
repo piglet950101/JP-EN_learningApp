@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "source": "Second Stage 直し 9. 6.xlsx — 改行、黒字、小さく column",
+  "source": "Second Stage 直し 9. 6.xlsx — 改行、黒字、小さく column + 9. 7.xlsx",
   "note": "Where a meaning turns into a supplementary note. The client writes 「Xから改行、黒字、小さく」; this records X, and the tail from there starts its own line in black at the ゴロ size.",
   "entries": [
     {
@@ -32,6 +32,71 @@
       "word_id": 1526,
       "answer": "epoch",
       "note_from": "epoch-making"
+    },
+    {
+      "word_id": 310,
+      "answer": "= The flood inflicted damage on the crops.",
+      "note_from": "The flood did damage"
+    },
+    {
+      "word_id": 1443,
+      "answer": "oval",
+      "note_from": "「オバおる"
+    },
+    {
+      "word_id": 1673,
+      "answer": "transform your dream into reality",
+      "note_from": "transform(/turn)"
+    },
+    {
+      "word_id": 1817,
+      "answer": "result in health problems",
+      "note_from": "Eating too much"
+    },
+    {
+      "word_id": 1778,
+      "answer": "depend on other countries for oil",
+      "note_from": "one of"
+    },
+    {
+      "word_id": 1822,
+      "answer": "assent, agree",
+      "note_from": "assent は"
+    },
+    {
+      "word_id": 2003,
+      "answer": "rhino",
+      "note_from": "rhinoceros の略"
+    },
+    {
+      "word_id": 2059,
+      "answer": "desire",
+      "note_from": "decide to do型"
+    },
+    {
+      "word_id": 2068,
+      "answer": "wallet",
+      "note_from": "米では"
+    },
+    {
+      "word_id": 2098,
+      "answer": "corpse",
+      "note_from": "= body"
+    },
+    {
+      "word_id": 2137,
+      "answer": "oblivious",
+      "note_from": "oblivion 忘却"
+    },
+    {
+      "word_id": 2189,
+      "answer": "graze",
+      "note_from": "「grass の動詞」"
+    },
+    {
+      "word_id": 2140,
+      "answer": "cop",
+      "note_from": "（サツ"
     }
   ]
 }

@@ -197,10 +197,28 @@ void main() {
   // he was reading the screen.
 
   group('the relation chip keeps its detail', () {
-    test('a short relation goes into the chip whole', () {
+    test('a bare count stays in the chip', () {
+      // 意２ reads as one label; splitting it leaves a lone ２ beside the box.
       expect(chipLabelFor('意２'), '意２');
       expect(chipLabelFor('法２'), '法２');
-      expect(chipLabelFor('類　の名詞'), '類　の名詞');
+      expect(chipLabelFor('意２～３'), '意２～３');
+      expect(chipLabelFor('名(2)'), '名(2)');
+      expect(chipLabelFor('意３以上'), '意３以上');
+    });
+
+    test('anything else sits beside the chip, so it can be black', () {
+      // Client 2026-09-07, sixteen times over: 「ape を黒字に」「素数 を黒字に」.
+      // The chip is white-on-colour, so the detail has to leave it.
+      expect(chipLabelFor('意 ape'), '意');
+      expect(chipLabelFor('セ　素数'), 'セ');
+      expect(chipLabelFor('類　の名詞'), '類');
+    });
+
+    test('a stored full-width space stops mattering', () {
+      // 「類　の名詞 ⇨ 類の名詞　スペースを詰めて」 — once the detail is its own
+      // text the gap is layout, so both spellings render alike.
+      expect(visibleTextFor('類　の名詞'), visibleTextFor('類の名詞'));
+      expect(visibleTextFor('類の他動詞'), '類 の他動詞');
     });
 
     test('a bare code is unaffected', () {
@@ -434,9 +452,12 @@ List<bool> labelVisibility(List<String> relations) => [
 
 String strip(String s) => s.replaceAll(RegExp(r'[\s　]'), '');
 
+bool _isCountOnly(String rest) =>
+    RegExp(r'^[０-９0-9()（）～~〜、,，・]+(?:以上)?$').hasMatch(rest.trim());
+
 String chipLabelFor(String relation) {
   final rest = _restOf(relation, _catOf(relation));
-  final wide = rest != null && rest.length > 3;
+  final wide = rest != null && !_isCountOnly(rest);
   return wide ? (_catOf(relation) ?? relation.trim()) : relation.trim();
 }
 
@@ -445,7 +466,7 @@ String chipLabelFor(String relation) {
 String visibleTextFor(String relation) {
   final cat = _catOf(relation);
   final rest = _restOf(relation, cat);
-  final wide = rest != null && rest.length > 3;
+  final wide = rest != null && !_isCountOnly(rest);
   return wide ? '${cat ?? ''} $rest' : relation.trim();
 }
 

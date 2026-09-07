@@ -501,15 +501,15 @@ class _EntryRow extends StatelessWidget {
     final cat = SsRelationCategory.categoryOf(entry.relation);
     final rest = _promptRest(entry.relation, cat);
     final full = entry.relation.trim();
-    // Free-form long prompts (rest != null && length > 3) span the full
-    // width beneath the chip — 0015 encourage / 0006 apparent / 0036
-    // literature all fall in this bucket.
-    final wide = rest != null && rest.length > 3;
-    // Everything else puts the WHOLE relation in the chip. It used to show
-    // only the base code, which silently swallowed the detail on 275 rows:
-    // 意２ drew as 意, 法２ as 法, 類 の名詞 as 類. The client reported the
-    // counts as missing for four rounds while the data held them all along —
-    // they were reading the screen and the checks were reading the JSON.
+    // What follows the code sits BESIDE the chip, in black — 意 ape, 類 の名詞,
+    // セ 素数. The chip is a coloured box in white text, and the client asked
+    // sixteen times over on 2026-09-07 for that detail to read black
+    // (「ape を黒字に」「素数 を黒字に」…). Putting it outside also closes the
+    // gap they kept reporting in 類　の名詞, since the space becomes layout.
+    //
+    // A bare count stays in the chip: 意２ reads as one label, and splitting
+    // it would leave a lone ２ floating beside the box.
+    final wide = rest != null && !_isCountOnly(rest);
     final chipLabel = wide ? (cat ?? full) : full;
 
     if (wide) {
@@ -708,6 +708,11 @@ class _EntryRow extends StatelessWidget {
   /// are grammar notes quoting Japanese (「賛成する」は自動詞), and the client
   /// asked for mincho only inside 意味の覚え方. Leaving an entry unmarked is
   /// therefore always safe, never a half-applied rule.
+  /// A count marker and nothing else — ２, ２～３, ３以上, (2), １～２.
+  static final RegExp _countOnly =
+      RegExp(r'^[０-９0-9()（）～~〜、,，・]+(?:以上)?$');
+  static bool _isCountOnly(String rest) => _countOnly.hasMatch(rest.trim());
+
   static final RegExp _quoteRe = RegExp(r'「[^」]*」');
 
   /// Put a line break in front of the note, so it starts its own line.
