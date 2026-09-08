@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "source": "Second Stage 直し 9. 8.xlsx (client 2026-09-08)",
+  "note": "Field-level row corrections. Keys are the row's answer/relation as they stand AFTER apply_ss_overrides. See apply_ss_text_edits.py.",
+  "entries": [
+    {
+      "word_id": 250,
+      "match_relation": "セ　彼の学説はデータと一貫性がある。",
+      "tts_enabled": false,
+      "why": "「セ　の音声をトル」— sheet says 252 cohere; 252 is stick and has no セ row, cohere is 250"
+    },
+    {
+      "word_id": 310,
+      "match_answer": "= The flood inflicted damage on the crops.",
+      "relation": "セ　The flood damaged the crops.\n=",
+      "why": "「crops の後、改行し、黒字で＝を入れる」— the prompt alone did not say what to answer"
+    },
+    {
+      "word_id": 773,
+      "match_answer": "lead > led > led",
+      "relation": "活",
+      "why": "「問題の　活　の「と過去形と同音」をトル」",
+      "tts_enabled": true
+    },
+    {
+      "word_id": 773,
+      "match_answer": "鉛、えんぴつの芯",
+      "relation": "同音",
+      "answer": "lead[led]　鉛、えんぴつの芯",
+      "why": "「解答の同音　で「過去形と同音」を取って lead[led] と入れてください」"
+    },
+    {
+      "word_id": 1485,
+      "match_answer": "consumption tax",
+      "answer_meaning": null,
+      "why": "「解答の最後の　消費税　をトル」— the prompt already reads セ 消費税"
+    },
+    {
+      "word_id": 1673,
+      "match_answer": "transform your dream into reality",
+      "answer": "transform your dream into reality\n= turn your dream into reality",
+      "answer_meaning": "transform(/turn) A into B　A を B に変える",
+      "why": "「turn your dream into reality にイコールをつけて赤字に」— moved into the answer, which is the red run"
+    },
+    {
+      "word_id": 1817,
+      "match_answer": "result in health problems",
+      "answer_meaning": "result in は左 ⇨ 右、result from は左 ⇦ 右　Eating too much sugar can result in health problems.\n= Health problems can result from eating too much sugar.",
+      "why": "「イコール以下改行」"
+    },
+    {
+      "word_id": 1778,
+      "match_answer": "depend on other countries for oil",
+      "answer_meaning": "倒置に注意 one of the countries on which we depend (　　) oil\n空所には on ではなく for",
+      "why": "「空所には　から改行」"
+    },
+    {
+      "word_id": 1822,
+      "match_answer": "assent, agree",
+      "answer_meaning": "assent は非常にフォーマル\nagree は一般的\nconsent はフォーマル",
+      "why": "「agreeは　から改行、consentは　から改行」"
+    },
+    {
+      "word_id": 2120,
+      "match_answer": "前置詞　besides this",
+      "answer": "前置詞",
+      "answer_meaning": "besides this　= in addition to this",
+      "why": "「besides this から改行、黒字、小さく」— moved to the meaning line, which is where 黒字・小さく lives"
+    },
+    {
+      "word_id": 2120,
+      "match_answer": "副詞　besides",
+      "answer": "副詞",
+      "answer_meaning": "besides　= in addition",
+      "why": "「besides から改行、黒字、小さく」"
+    },
+    {
+      "word_id": 410,
+      "match_relation": "名 行為",
+      "match_answer": "prayer",
+      "answer_meaning": "祈り　発音はプレア",
+      "why": "「文字の追加をお願いします。祈り⇨祈り　発音はプレア」— same shape as 0916 tear's 発音はティア"
+    },
+    {
+      "word_id": 410,
+      "match_relation": "名 人",
+      "match_answer": "prayer",
+      "answer_meaning": "祈る人　発音はプレイア",
+      "why": "「祈る人⇨祈る人　発音はプレイア」"
+    }
+  ]
+}

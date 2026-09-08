@@ -21,6 +21,7 @@ STEPS = [
     # second_stage.json
     ('import_second_stage.py',    'rebuild Second Stage from the client sheet'),
     ('apply_ss_overrides.py',     'per-word corrections (incl. the 08-19 review)'),
+    ('apply_ss_text_edits.py',    'field-level row corrections (09-08 review)'),
     ('apply_mnemonic_echo.py',    'which run of each ゴロ echoes the English'),
     ('apply_ss_pronunciation.py', 'per-row reading where the spelling misleads'),
     ('apply_ss_notes.py',        'where a meaning turns into a smaller aside'),
@@ -29,7 +30,8 @@ STEPS = [
     ('apply_word_overrides.py',   'headword POS / meaning corrections'),
     ('apply_mnemonic_overrides.py', 'headword mnemonic corrections'),
     ('apply_hide_headword.py',    'words whose meaning SS must not show'),
-    # videos.json
+    # media
+    ('import_ss_audio.py',        'client recordings, level-matched, per SS row'),
     ('import_videos.py',          'video manifest incl. footage aspect ratio'),
 ]
 

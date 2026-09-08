@@ -78,7 +78,7 @@
     },
     {
       "word_id": 773,
-      "answer": "鉛、えんぴつの芯",
+      "answer": "lead[led]　鉛、えんぴつの芯",
       "pronunciation": "led",
       "why": "同音 lead[led] — 綴りは lead でも読みは led"
     },
@@ -93,6 +93,12 @@
       "answer": "軽い誤り、経過、失効、下落",
       "pronunciation": "lapse",
       "why": "日本語の発音を削除し lapse を発音させる"
+    },
+    {
+      "word_id": 1221,
+      "answer": "血族、同族",
+      "pronunciation": "kin",
+      "why": "「中国語の音声をトル、kin を発音させる」(2026-09-08)"
     }
   ]
 }

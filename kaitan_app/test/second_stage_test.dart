@@ -157,13 +157,15 @@ void main() {
     }
   });
 
-  test('mnemonic_break marks a ゴロ that has nothing to emphasise', () async {
+  test('mnemonic_break marks a ゴロ, and 1560 sets its quote in ゴチ', () async {
     final repo = await SecondStageRepository.loadFromAsset();
-    // 1560 collapse: 「滑り落ちる」が語源 is etymology, not a pun, so no run
-    // echoes the English — but the client wants the ゴロ treatment anyway.
+    // 1560 collapse: 「滑り落ちる」が語源 is etymology, not a pun, so it was
+    // first recorded as a break with nothing to emphasise — which renders the
+    // whole quote 明朝. On 2026-09-08 the client asked for 「滑り落ちる」をゴチに,
+    // so the quote is now marked as the echoing run and comes out gothic bold.
     final lapse = repo.all.firstWhere(
         (e) => e.wordId == 1560 && e.relation.startsWith('意 ２～３ lapse'));
-    expect(lapse.mnemonicEcho, isEmpty);
+    expect(lapse.mnemonicEcho, ['滑り落ちる']);
     expect(lapse.mnemonicBreak, isTrue);
     expect(lapse.answerMeaning, '「滑り落ちる」が語源');
   });

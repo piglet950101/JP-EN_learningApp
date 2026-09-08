@@ -37,9 +37,20 @@ SHEET = PROJECT / 'Second Stage 直し 9. 4.xlsx'
 # and a revision hiding in there still supersedes everything before it —
 # 1221 akin went 意 kin, then 意２ kin on 09-02, then back to 意 kin on 09-07.
 SHEETS = ((PROJECT / 'Second Stage 直し 9. 6.xlsx', '09-06'),
-          (PROJECT / 'Second Stage 直し 9. 7.xlsx', '09-07'))
+          (PROJECT / 'Second Stage 直し 9. 7.xlsx', '09-07'),
+          (PROJECT / 'Second Stage 直し 9. 8.xlsx', '09-08'))
 # 「意２kin を 意 kin に」 — the target sits between を and に.
 FREEFORM = re.compile(r'を\s*(意[^\s　]*(?:[\s　]+[^\s　]+)?)[\s　]*に')
+# A count marker and nothing else — ２, ２～３, ３以上, １～２.
+COUNT_ONLY = re.compile(r'[０-９0-9()（）～~〜、,，・]+(?:以上)?')
+
+# Instructions the client has since withdrawn in a later sheet, where the
+# replacement is not itself an 意 instruction and so cannot supersede the
+# earlier one on its own. Recorded rather than deleted, so the reason
+# survives: without this the audit reports them open every single round.
+SUPERSEDED = {
+    1186: ('09-08', '意2 withdrawn — 「見出し語の下の意味を削除する」 instead'),
+}
 
 # Block numbers the client has corrected; the earlier number and the later one
 # describe the same word and must be merged before ordering by date.
@@ -96,8 +107,11 @@ def main() -> None:
             if not row[1] or not str(row[1]).strip():
                 continue
             wid = int(row[1])
-            # a dedicated 意 column, when the sheet still has one
-            if len(row) > 3 and row[3] is not None and str(row[3]).strip()                     and str(row[3]).strip()[0] in '０１２３４５６７８９0123456789':
+            # A dedicated 意 column, when the sheet still has one. It must be
+            # a bare count and nothing else: the 09-07 and 09-08 sheets put
+            # free-form text in the same position, and 0773 lead's entry opens
+            # 「１．問題の 活 の…」, which a leading-digit test read as 意１.
+            if len(row) > 3 and row[3] is not None                     and COUNT_ONLY.fullmatch(str(row[3]).strip()):
                 add(wid, date, '意' + str(row[3]).strip())
             # otherwise dig the target out of the free-form text
             for cell in row[3:]:
@@ -106,6 +120,12 @@ def main() -> None:
                 m = FREEFORM.search(str(cell))
                 if m:
                     add(wid, date, m.group(1).strip())
+
+    retired = []
+    for wid, (date, why) in SUPERSEDED.items():
+        if wid in history:
+            del history[wid]
+            retired.append((wid, date, why))
 
     ok, mismatch, missing = 0, [], []
     for wid, seq in sorted(history.items()):
@@ -125,6 +145,8 @@ def main() -> None:
     print(f'  matches latest    : {ok}')
     print(f'  mismatch          : {len(mismatch)}')
     print(f'  no 意 row exists  : {len(missing)}')
+    for wid, date, why in retired:
+        print(f'  superseded {wid} ({date}): {why}')
     for wid, word, want, date, got, seq in mismatch:
         print(f'  MISMATCH {wid} {word}: want({date})={want!r} got={got}')
         print(f'           history={seq}')

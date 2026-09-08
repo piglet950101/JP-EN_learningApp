@@ -93,6 +93,11 @@ class SecondStageEntry {
   /// How this row's answer should be READ, when the spelling misleads the
   /// engine (0242 wind → ワインド). Null means read the answer itself.
   final String? pronunciationHint;
+  /// Client-recorded files for this row, played in order and preferred over
+  /// every synthesised variant. A conjugation row holds one file per part
+  /// (0773 lead > led > led plays lead, led, led — the client's own
+  /// instruction on 2026-09-08: 「１音の場合は同じものを３回使ってください」).
+  final List<String> audio;
   final String? notes;
 
   const SecondStageEntry({
@@ -108,6 +113,7 @@ class SecondStageEntry {
     this.mnemonicBreak = false,
     this.noteFrom,
     this.pronunciationHint,
+    this.audio = const [],
     required this.notes,
   });
 
@@ -129,6 +135,11 @@ class SecondStageEntry {
       mnemonicBreak: (j['mnemonic_break'] ?? false) as bool,
       noteFrom: j['note_from'] as String?,
       pronunciationHint: j['pronunciation_hint'] as String?,
+      audio: (j['audio'] as List?)
+              ?.map((e) => e.toString())
+              .where((e) => e.isNotEmpty)
+              .toList(growable: false) ??
+          const [],
       notes: j['notes'] as String?,
     );
   }

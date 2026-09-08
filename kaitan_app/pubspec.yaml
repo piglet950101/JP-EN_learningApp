@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # of the product and file versions while build-number is used as the build suffix.
 # Bump the +N build number on EVERY client delivery — some Android builds
 # refuse a same-versionCode sideload update (AQUOS SH-M15, 2026-08-12).
-version: 1.0.15+16
+version: 1.0.16+17
 
 environment:
   sdk: ^3.12.0
@@ -83,6 +83,10 @@ flutter:
     - assets/content/
     - assets/images/
     - assets/audio/
+    # Asset directory entries are NOT recursive: without this line the Second
+    # Stage recordings under audio/ss/ are silently left out of the build.
+    - assets/audio/ss/
+    - assets/fonts/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -109,3 +113,23 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+  # Japanese faces, subset and instanced by tool/build_fonts.py. Bundled
+  # rather than named by platform alias because the SS renderer distinguishes
+  # ゴチ / ゴチ太字 / 明朝, and a device's own Japanese fallback chain honours
+  # neither the serif request nor the weight (see that script's docstring).
+  fonts:
+    - family: KaitanSans
+      fonts:
+        - asset: assets/fonts/KaitanSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/KaitanSans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/KaitanSans-Black.ttf
+          weight: 900
+    - family: KaitanSerif
+      fonts:
+        - asset: assets/fonts/KaitanSerif-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/KaitanSerif-Bold.ttf
+          weight: 700

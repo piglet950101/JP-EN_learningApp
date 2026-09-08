@@ -32,9 +32,10 @@ class _NoopTts implements TtsService {
   @override
   Future<void> speak(String text, {String? pronunciationHint, int? wordId}) async {}
   @override
-  Future<void> speakAnswer(String raw, {String? pronunciationHint}) async {}
+  Future<void> speakAnswer(String raw,
+      {String? pronunciationHint, List<String> audio = const []}) async {}
   @override
-  Future<void> speakSequence(List<String> answers) async {}
+  Future<void> speakSequence(List<SpeakItem> items) async {}
 }
 
 ProviderContainer _container({Word? onlyWord}) {

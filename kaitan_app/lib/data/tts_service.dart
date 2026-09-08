@@ -17,6 +17,28 @@ import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
+/// One utterance in an auto-played sequence.
+///
+/// This type exists because `speakSequence` used to take bare `List<String>`
+/// answers, which silently dropped the pronunciation hint that the per-row
+/// speaker button was passing. The engine then received raw Japanese and read
+/// it with whatever voice its script suggested — Chinese for pure kanji
+/// (0544 母音, 1317 金庫), Japanese where kana appeared (2107 典型的に) —
+/// which is exactly what the client reported on 2026-09-08:
+/// 「…の発音は入っているようですが、中国語の音声が邪魔してボタンを押さないと
+/// 聞こえません」. The audio *was* there; only the button path could reach it.
+class SpeakItem {
+  const SpeakItem(this.text, {this.pronunciationHint, this.audio = const []});
+
+  final String text;
+
+  /// How the row must be READ, overriding what is shown.
+  final String? pronunciationHint;
+
+  /// Recorded files for this row, played in order and preferred over TTS.
+  final List<String> audio;
+}
+
 abstract class TtsService {
   Future<void> init();
   Future<void> speak(String text, {String? pronunciationHint, int? wordId});
@@ -31,11 +53,13 @@ abstract class TtsService {
   /// what is shown. Needed where the spelling misleads the engine — 0242 wind
   /// is ワインド not ウインド, 0916 tear is ティア, 0410 prayer is プレア in one
   /// row and プレイア in the next.
-  Future<void> speakAnswer(String raw, {String? pronunciationHint});
+  Future<void> speakAnswer(String raw,
+      {String? pronunciationHint, List<String> audio = const []});
 
-  /// Speak several SS answers back-to-back with a short pause between,
-  /// used by the ⑦' auto-play when the answer view opens.
-  Future<void> speakSequence(List<String> answers);
+  /// Speak several SS rows back-to-back with a short pause between, used by
+  /// the ⑦' auto-play when the answer view opens. Takes [SpeakItem]s rather
+  /// than strings so each row keeps its pronunciation hint and recorded audio.
+  Future<void> speakSequence(List<SpeakItem> items);
 }
 
 class FlutterTtsService implements TtsService {
@@ -99,9 +123,13 @@ class FlutterTtsService implements TtsService {
   }
 
   @override
-  Future<void> speakAnswer(String raw, {String? pronunciationHint}) async {
+  Future<void> speakAnswer(String raw,
+      {String? pronunciationHint, List<String> audio = const []}) async {
     if (!_ready) await init();
     await _tts.stop();
+    await _player.stop();
+    // A recording of the row beats every synthesised variant.
+    if (audio.isNotEmpty && await _playAll(audio)) return;
     final hint = pronunciationHint?.trim() ?? '';
     if (hint.isNotEmpty) {
       // Kana is read by the Japanese voice, which is the only way to force an
@@ -124,12 +152,33 @@ class FlutterTtsService implements TtsService {
   }
 
   @override
-  Future<void> speakSequence(List<String> answers) async {
+  Future<void> speakSequence(List<SpeakItem> items) async {
     if (!_ready) await init();
-    for (var i = 0; i < answers.length; i++) {
+    for (var i = 0; i < items.length; i++) {
       if (i > 0) await Future<void>.delayed(const Duration(milliseconds: 550));
-      await speakAnswer(answers[i]);
+      await speakAnswer(items[i].text,
+          pronunciationHint: items[i].pronunciationHint,
+          audio: items[i].audio);
     }
+  }
+
+  /// Play recorded files in order, waiting for each. Returns false if nothing
+  /// could be played, so the caller can fall back to TTS.
+  Future<bool> _playAll(List<String> assets) async {
+    var played = false;
+    for (var i = 0; i < assets.length; i++) {
+      if (i > 0) await Future<void>.delayed(const Duration(milliseconds: 250));
+      try {
+        final done = _player.onPlayerComplete.first;
+        await _player.play(AssetSource(assets[i]));
+        await done.timeout(const Duration(seconds: 8), onTimeout: () {});
+        played = true;
+      } catch (_) {
+        // A missing or unreadable asset falls through to the next one; if
+        // none plays at all the caller speaks the row instead.
+      }
+    }
+    return played;
   }
 
   Future<void> _speakOneAndWait(String s) async {

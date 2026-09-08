@@ -45,8 +45,9 @@
     },
     {
       "word_id": 1673,
-      "answer": "transform your dream into reality",
-      "note_from": "transform(/turn)"
+      "answer": "transform your dream into reality\n= turn your dream into reality",
+      "note_from": "transform(/turn)",
+      "why": "answer gained the red = alternative on 2026-09-08; key follows it"
     },
     {
       "word_id": 1817,
@@ -96,7 +97,26 @@
     {
       "word_id": 2140,
       "answer": "cop",
-      "note_from": "（サツ"
+      "note_from": "「capture",
+      "why": "「「capture の capがcopになった」⇨ 黒字、小さく」(2026-09-08)"
+    },
+    {
+      "word_id": 2068,
+      "answer": "purse",
+      "note_from": "英では",
+      "why": "「英では　から改行　黒字、小さく」(2026-09-08)"
+    },
+    {
+      "word_id": 2120,
+      "answer": "前置詞",
+      "note_from": "besides this",
+      "why": "「besides this から改行、黒字、小さく」(2026-09-08)"
+    },
+    {
+      "word_id": 2120,
+      "answer": "副詞",
+      "note_from": "besides",
+      "why": "「besides から改行、黒字、小さく」(2026-09-08)"
     }
   ]
 }

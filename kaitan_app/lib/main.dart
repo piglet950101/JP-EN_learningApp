@@ -24,7 +24,10 @@ class KaitanApp extends ConsumerWidget {
           surface: Colors.white,
         ),
         scaffoldBackgroundColor: Colors.white,
-        fontFamily: 'Yu Gothic',
+        // Bundled (tool/build_fonts.py). 'Yu Gothic' was a Windows font
+        // name that resolves to nothing on Android, so the whole app used
+        // whatever the device happened to pick for Japanese.
+        fontFamily: 'KaitanSans',
       ),
       routerConfig: ref.watch(routerProvider),
       debugShowCheckedModeBanner: false,

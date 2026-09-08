@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "source": "client mp3/ delivery, 2026-09-08 (「音声ファイルです。音量などの調整もお願いします。」)",
+  "note": "Which recording belongs to which Second Stage row, in playback order. A conjugation row lists one file per part — the client's own instruction where he recorded singles: 「１音の場合は同じものを３回使ってください」. Files are level-matched on import; see import_ss_audio.py.",
+  "missing": "All delivered as of 2026-09-08. The 3連 run-throughs (242, 773, 1829) are held in reserve: each of those rows plays one take per part instead.",
+  "entries": [
+    {
+      "word_id": 242,
+      "match_answer": "wind > wound > wound",
+      "files": [
+        "242 wind[waind].mp3",
+        "242 wound 過去.mp3",
+        "242 wound 過去分詞.mp3"
+      ],
+      "why": "「１語ずつのと、一気に全部を読むのが入っています」— the singles map onto the three parts, and wind[waind] finally settles ウインド× / ワインド〇"
+    },
+    {
+      "word_id": 410,
+      "match_relation": "名 行為",
+      "match_answer": "prayer",
+      "files": [
+        "410 prayer（祈り）.mp3"
+      ],
+      "why": "祈り の prayer はプレア"
+    },
+    {
+      "word_id": 410,
+      "match_relation": "名 人",
+      "match_answer": "prayer",
+      "files": [
+        "410 prayer（祈る人）.mp3"
+      ],
+      "why": "祈る人 の prayer はプレイア"
+    },
+    {
+      "word_id": 773,
+      "match_answer": "lead > led > led",
+      "files": [
+        "773  lead.mp3",
+        "773 led 過去形.mp3",
+        "773 led 過去分詞.mp3"
+      ],
+      "why": "「活　の lead > led > led に音声を入れる」— one take per part; the 過去分詞 file arrived in the second delivery"
+    },
+    {
+      "word_id": 773,
+      "match_answer": "lead[led]　鉛、えんぴつの芯",
+      "files": [
+        "773 led 過去形.mp3"
+      ],
+      "why": "同音 row — spelt lead, read led"
+    },
+    {
+      "word_id": 916,
+      "match_relation": "名 の意味と発音",
+      "match_answer": "涙　tear",
+      "files": [
+        "916 tear ティア.mp3"
+      ],
+      "why": "「発音を差し替えてください。ティアの発音ファイルを作りました」"
+    },
+    {
+      "word_id": 1829,
+      "match_answer": "upset > upset > upset",
+      "files": [
+        "1829 upset １音.mp3",
+        "1829 upset １音.mp3",
+        "1829 upset １音.mp3"
+      ],
+      "why": "「３連のものと、１音のものを用意しました。１音の場合は同じものを３回使ってください」"
+    },
+    {
+      "word_id": 1901,
+      "match_relation": "複",
+      "match_answer": "axes",
+      "files": [
+        "1910. axes（axisの複数形）.mp3"
+      ],
+      "why": "アクスィーズ = axis の複数形. The file is labelled 1910, but 1910 is occur; 1901's 複 row reads 発音はアクスィーズ, so it belongs here"
+    },
+    {
+      "word_id": 1901,
+      "match_relation": "意 ax, axe",
+      "match_answer": "斧",
+      "files": [
+        "1901 ax.mp3",
+        "1901. axes(axの複数形).mp3"
+      ],
+      "why": "ax then its plural アクスィス — the row itself reads 複数形は axes　発音はアクスィズ"
+    },
+    {
+      "word_id": 1901,
+      "match_relation": "意 axiom",
+      "match_answer": "公理",
+      "files": [
+        "1901 axiom.mp3"
+      ],
+      "why": "「ax と axiom も入ってなかったようなので」"
+    }
+  ]
+}

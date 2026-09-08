@@ -23,6 +23,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../data/second_stage.dart';
 import '../../../data/word.dart';
+import '../../../data/tts_service.dart';
+import 'ss_meaning_text.dart';
 import '../../session/domain/engine.dart';
 import '../../session/presentation/session_controller.dart';
 
@@ -130,9 +132,13 @@ class _SsAnswerViewState extends ConsumerState<SsAnswerView> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted || _autoPlayed) return;
       _autoPlayed = true;
+      // Each row carries its own hint and recordings through to the engine.
+      // Mapping to bare answers here is what made the auto-play read Japanese
+      // and Chinese aloud while the speaker button read English correctly.
       final speakable = widget.entries
           .where((e) => e.ttsEnabled && e.answer.trim().isNotEmpty)
-          .map((e) => e.answer)
+          .map((e) => SpeakItem(e.answer,
+              pronunciationHint: e.pronunciationHint, audio: e.audio))
           .toList();
       if (speakable.isNotEmpty) {
         ref.read(ttsProvider).speakSequence(speakable);
@@ -175,6 +181,7 @@ class _SsAnswerViewState extends ConsumerState<SsAnswerView> {
                         ? () => ref.read(ttsProvider).speakAnswer(
                               entries[i].answer,
                               pronunciationHint: entries[i].pronunciationHint,
+                              audio: entries[i].audio,
                             )
                         : null,
                   ),
@@ -522,7 +529,7 @@ class _EntryRow extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 _CategoryChip(cat: cat, label: chipLabel, visible: showLabel),
-                const SizedBox(width: 10),
+                SizedBox(width: _continuesCode.hasMatch(rest) ? 2 : 10),
                 Expanded(
                   child: Text(
                     showLabel ? rest : '',
@@ -609,7 +616,7 @@ class _EntryRow extends StatelessWidget {
                   padding:
                       EdgeInsets.only(top: hideAnswerText ? 0 : 2),
                   child: Text.rich(
-                    _mnemonicSpans(
+                    buildMeaningSpans(
                       _splitNote(
                           _breakForReading(entry.answerMeaning!,
                               breakBeforeQuote:
@@ -623,7 +630,7 @@ class _EntryRow extends StatelessWidget {
                         // ゴチ — the meaning itself keeps the gothic face it
                         // has always had (client 2026-08-24 ①②). Only part of
                         // a 「…」 mnemonic turns mincho; see _mnemonicSpans.
-                        fontFamily: 'sans-serif',
+                        fontFamily: 'KaitanSans',
                         fontSize: hideAnswerText ? 22 : 15,
                         fontWeight: hideAnswerText
                             ? FontWeight.w800
@@ -713,7 +720,12 @@ class _EntryRow extends StatelessWidget {
       RegExp(r'^[０-９0-9()（）～~〜、,，・]+(?:以上)?$');
   static bool _isCountOnly(String rest) => _countOnly.hasMatch(rest.trim());
 
-  static final RegExp _quoteRe = RegExp(r'「[^」]*」');
+  /// A detail that opens with a particle continues the chip's code as one
+  /// phrase — 0491 quality reads 他　の名詞, "the noun of the 他 sense", and
+  /// the client asked on 2026-09-08 for it to read 他の名詞. The gap after the
+  /// chip closes up for those 36 rows; every other detail keeps the normal
+  /// separation.
+  static final RegExp _continuesCode = RegExp(r'^[のをにとがはへや]');
 
   /// Put a line break in front of the note, so it starts its own line.
   static String _splitNote(String text, String? noteFrom) {
@@ -721,101 +733,6 @@ class _EntryRow extends StatelessWidget {
     final i = text.indexOf(noteFrom);
     if (i <= 0) return text;
     return '${text.substring(0, i).trimRight()}\n${text.substring(i)}';
-  }
-
-  static InlineSpan _mnemonicSpans(String text,
-      {required TextStyle base,
-      List<String> echo = const [],
-      bool asMnemonic = false,
-      String? noteFrom}) {
-    // A supplementary note runs to the end of the line, set like a ゴロ.
-    if (noteFrom != null && noteFrom.isNotEmpty) {
-      final i = text.indexOf(noteFrom);
-      if (i >= 0) {
-        final quoted = base.copyWith(
-          color: Colors.black,
-          fontSize:
-              ((base.fontSize ?? 15) * 0.72).roundToDouble().clamp(11.0, 40.0),
-        );
-        return TextSpan(children: [
-          if (i > 0) TextSpan(text: text.substring(0, i), style: base),
-          TextSpan(text: text.substring(i), style: quoted),
-        ]);
-      }
-    }
-    // No echo AND not flagged means the 「…」 is a grammar note, which keeps
-    // the surrounding style. Flagged with no echo means a ゴロ with nothing to
-    // emphasise inside it — the whole quote goes mincho.
-    if (echo.isEmpty && !asMnemonic) return TextSpan(text: text, style: base);
-    // Client 2026-08-26 ③: a ゴロ is 「基本的に黒字で、小さいフォント」. That
-    // applies to the whole quoted run — the echoing part included — so it is
-    // set on the shared style here and the face/weight split happens below.
-    // (These two attributes were in the 08-19 build and I dropped them when
-    // rewriting for the 08-24 mincho rule.)
-    final quoted = base.copyWith(
-      color: Colors.black,
-      // A ratio, not a fixed -2. Against a 15px meaning the old rule gave
-      // 13px — a 13% drop the client kept reporting as not applied.
-      fontSize: ((base.fontSize ?? 15) * 0.72).roundToDouble().clamp(11.0, 40.0),
-    );
-    final mincho = quoted.copyWith(fontFamily: 'serif');
-    final echoStyle = quoted.copyWith(fontWeight: FontWeight.w900);
-
-    final children = <InlineSpan>[];
-    var cursor = 0;
-    for (final q in _quoteRe.allMatches(text)) {
-      if (q.start > cursor) {
-        children.add(
-            TextSpan(text: text.substring(cursor, q.start), style: base));
-      }
-      children.addAll(_insideQuote(text.substring(q.start, q.end),
-          mincho: mincho, echoStyle: echoStyle, echo: echo));
-      cursor = q.end;
-    }
-    if (cursor < text.length) {
-      children.add(TextSpan(text: text.substring(cursor), style: base));
-    }
-    if (children.isEmpty) return TextSpan(text: text, style: base);
-    return TextSpan(children: children);
-  }
-
-  /// One 「…」 run: mincho throughout, except the echoing parts.
-  static List<InlineSpan> _insideQuote(String quoted,
-      {required TextStyle mincho,
-      required TextStyle echoStyle,
-      required List<String> echo}) {
-    // Collect the ranges to emphasise, longest first so that a short echo
-    // that happens to be a substring of a longer one cannot split it.
-    final hits = <List<int>>[];
-    final needles = [...echo]..sort((a, b) => b.length.compareTo(a.length));
-    for (final n in needles) {
-      if (n.isEmpty) continue;
-      var from = 0;
-      while (true) {
-        final i = quoted.indexOf(n, from);
-        if (i < 0) break;
-        if (!hits.any((h) => i < h[1] && h[0] < i + n.length)) {
-          hits.add([i, i + n.length]);
-        }
-        from = i + n.length;
-      }
-    }
-    hits.sort((a, b) => a[0].compareTo(b[0]));
-
-    final out = <InlineSpan>[];
-    var cursor = 0;
-    for (final h in hits) {
-      if (h[0] > cursor) {
-        out.add(TextSpan(text: quoted.substring(cursor, h[0]), style: mincho));
-      }
-      out.add(TextSpan(
-          text: quoted.substring(h[0], h[1]), style: echoStyle));
-      cursor = h[1];
-    }
-    if (cursor < quoted.length) {
-      out.add(TextSpan(text: quoted.substring(cursor), style: mincho));
-    }
-    return out;
   }
 
   /// Strip the base code from the front of the relation string, along with

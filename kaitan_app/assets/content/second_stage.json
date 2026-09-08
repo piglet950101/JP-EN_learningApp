@@ -2515,7 +2515,12 @@
       "answer_meaning": null,
       "tts_enabled": true,
       "notes": null,
-      "pronunciation_hint": "ワインド　ワウンド　ワウンド"
+      "pronunciation_hint": "ワインド　ワウンド　ワウンド",
+      "audio": [
+        "audio/ss/0242_00.mp3",
+        "audio/ss/0242_01.mp3",
+        "audio/ss/0242_02.mp3"
+      ]
     },
     {
       "id": 221,
@@ -2591,7 +2596,7 @@
       "base_category": "セ",
       "answer": "His theory coheres with the data.",
       "answer_meaning": null,
-      "tts_enabled": true,
+      "tts_enabled": false,
       "notes": null
     },
     {
@@ -3049,7 +3054,7 @@
       "id": 269,
       "word_id": 310,
       "block": 7,
-      "relation": "セ　The flood damaged the crops.",
+      "relation": "セ　The flood damaged the crops.\n=",
       "base_category": "セ",
       "answer": "= The flood inflicted damage on the crops.",
       "answer_meaning": "The flood did damage to the crops. も可",
@@ -4085,9 +4090,12 @@
       "relation": "名 行為",
       "base_category": "名",
       "answer": "prayer",
-      "answer_meaning": "祈り",
+      "answer_meaning": "祈り　発音はプレア",
       "tts_enabled": true,
-      "notes": null
+      "notes": null,
+      "audio": [
+        "audio/ss/0410_03.mp3"
+      ]
     },
     {
       "id": 363,
@@ -4096,10 +4104,13 @@
       "relation": "名 人",
       "base_category": "名",
       "answer": "prayer",
-      "answer_meaning": "祈る人",
+      "answer_meaning": "祈る人　発音はプレイア",
       "tts_enabled": true,
       "notes": null,
-      "pronunciation_hint": "プレイア"
+      "pronunciation_hint": "プレイア",
+      "audio": [
+        "audio/ss/0410_04.mp3"
+      ]
     },
     {
       "id": 364,
@@ -7629,12 +7640,17 @@
       "id": 680,
       "word_id": 773,
       "block": 17,
-      "relation": "活　と過去形と同音",
+      "relation": "活",
       "base_category": "活",
       "answer": "lead > led > led",
       "answer_meaning": null,
-      "tts_enabled": false,
-      "notes": null
+      "tts_enabled": true,
+      "notes": null,
+      "audio": [
+        "audio/ss/0773_05.mp3",
+        "audio/ss/0773_06.mp3",
+        "audio/ss/0773_07.mp3"
+      ]
     },
     {
       "id": 681,
@@ -7662,13 +7678,16 @@
       "id": 683,
       "word_id": 773,
       "block": 17,
-      "relation": "同音　過去形と同音",
+      "relation": "同音",
       "base_category": "同音",
-      "answer": "鉛、えんぴつの芯",
+      "answer": "lead[led]　鉛、えんぴつの芯",
       "answer_meaning": null,
       "tts_enabled": true,
       "notes": null,
-      "pronunciation_hint": "led"
+      "pronunciation_hint": "led",
+      "audio": [
+        "audio/ss/0773_06.mp3"
+      ]
     },
     {
       "id": 684,
@@ -8933,7 +8952,10 @@
       "answer_meaning": "発音はティア",
       "tts_enabled": true,
       "notes": null,
-      "pronunciation_hint": "ティア"
+      "pronunciation_hint": "ティア",
+      "audio": [
+        "audio/ss/0916_08.mp3"
+      ]
     },
     {
       "id": 798,
@@ -11880,7 +11902,8 @@
       "notes": null,
       "mnemonic_echo": [
         "金"
-      ]
+      ],
+      "pronunciation_hint": "kin"
     },
     {
       "id": 1064,
@@ -14257,6 +14280,9 @@
       "answer_meaning": "楕円「オバおるオフィス、Oval Office」",
       "tts_enabled": true,
       "notes": null,
+      "mnemonic_echo": [
+        "オバおる"
+      ],
       "note_from": "「オバおる"
     },
     {
@@ -14735,7 +14761,7 @@
       "relation": "セ　消費税",
       "base_category": "セ",
       "answer": "consumption tax",
-      "answer_meaning": "消費税",
+      "answer_meaning": null,
       "tts_enabled": true,
       "notes": null
     },
@@ -15118,7 +15144,7 @@
       "tts_enabled": true,
       "notes": null,
       "mnemonic_echo": [
-        "あ～う"
+        "あ～うる"
       ]
     },
     {
@@ -15307,6 +15333,9 @@
       "answer_meaning": "「滑り落ちる」が語源",
       "tts_enabled": true,
       "notes": null,
+      "mnemonic_echo": [
+        "滑り落ちる"
+      ],
       "mnemonic_break": true,
       "pronunciation_hint": "lapse"
     },
@@ -16490,8 +16519,8 @@
       "block": 35,
       "relation": "セ２　あなたの夢を現実に変える",
       "base_category": "セ",
-      "answer": "transform your dream into reality",
-      "answer_meaning": "turn your dream into reality　transform(/turn) A into B　A を B に変える",
+      "answer": "transform your dream into reality\n= turn your dream into reality",
+      "answer_meaning": "transform(/turn) A into B　A を B に変える",
       "tts_enabled": false,
       "notes": null,
       "note_from": "transform(/turn)"
@@ -17656,7 +17685,7 @@
       "relation": "セ　他国に石油を頼る",
       "base_category": "セ",
       "answer": "depend on other countries for oil",
-      "answer_meaning": "倒置に注意 one of the countries on which we depend (　　) oil　空所には on ではなく for",
+      "answer_meaning": "倒置に注意 one of the countries on which we depend (　　) oil\n空所には on ではなく for",
       "tts_enabled": false,
       "notes": null,
       "note_from": "one of"
@@ -17987,7 +18016,7 @@
       "relation": "セ　結局健康の問題になる",
       "base_category": "セ",
       "answer": "result in health problems",
-      "answer_meaning": "result in は左 ⇨ 右、result from は左 ⇦ 右　Eating too much sugar can result in health problems. = Health problems can result from eating too much sugar.",
+      "answer_meaning": "result in は左 ⇨ 右、result from は左 ⇦ 右　Eating too much sugar can result in health problems.\n= Health problems can result from eating too much sugar.",
       "tts_enabled": false,
       "notes": null,
       "note_from": "Eating too much"
@@ -18021,7 +18050,7 @@
       "relation": "類",
       "base_category": "類",
       "answer": "assent, agree",
-      "answer_meaning": "assent は非常にフォーマル　agree は一般的　consent はフォーマル",
+      "answer_meaning": "assent は非常にフォーマル\nagree は一般的\nconsent はフォーマル",
       "tts_enabled": true,
       "notes": null,
       "note_from": "assent は"
@@ -18067,8 +18096,13 @@
       "base_category": "活",
       "answer": "upset > upset > upset",
       "answer_meaning": null,
-      "tts_enabled": false,
-      "notes": null
+      "tts_enabled": true,
+      "notes": null,
+      "audio": [
+        "audio/ss/1829_09.mp3",
+        "audio/ss/1829_09.mp3",
+        "audio/ss/1829_09.mp3"
+      ]
     },
     {
       "id": 1618,
@@ -18943,8 +18977,11 @@
       "base_category": "複",
       "answer": "axes",
       "answer_meaning": "オアシス型　発音はアクスィーズ",
-      "tts_enabled": false,
-      "notes": null
+      "tts_enabled": true,
+      "notes": null,
+      "audio": [
+        "audio/ss/1901_10.mp3"
+      ]
     },
     {
       "id": 1697,
@@ -18954,8 +18991,12 @@
       "base_category": "意",
       "answer": "斧",
       "answer_meaning": "複数形は axes　発音はアクスィズ",
-      "tts_enabled": false,
-      "notes": null
+      "tts_enabled": true,
+      "notes": null,
+      "audio": [
+        "audio/ss/1901_11.mp3",
+        "audio/ss/1901_12.mp3"
+      ]
     },
     {
       "id": 1698,
@@ -18965,8 +19006,11 @@
       "base_category": "意",
       "answer": "公理",
       "answer_meaning": "軸となるもの",
-      "tts_enabled": false,
-      "notes": null
+      "tts_enabled": true,
+      "notes": null,
+      "audio": [
+        "audio/ss/1901_13.mp3"
+      ]
     },
     {
       "id": 1699,
@@ -18990,7 +19034,7 @@
       "tts_enabled": false,
       "notes": null,
       "mnemonic_echo": [
-        "鉄アレー"
+        "アレー"
       ]
     },
     {
@@ -20755,7 +20799,8 @@
       "answer": "purse",
       "answer_meaning": "女性用のハンドバッグ英では女性用の財布",
       "tts_enabled": false,
-      "notes": null
+      "notes": null,
+      "note_from": "英では"
     },
     {
       "id": 1857,
@@ -21291,10 +21336,11 @@
       "block": 45,
       "relation": "品２",
       "base_category": "品",
-      "answer": "前置詞　besides this",
-      "answer_meaning": "= in addition to this",
+      "answer": "前置詞",
+      "answer_meaning": "besides this　= in addition to this",
       "tts_enabled": false,
-      "notes": null
+      "notes": null,
+      "note_from": "besides this"
     },
     {
       "id": 1905,
@@ -21302,10 +21348,11 @@
       "block": 45,
       "relation": "品２",
       "base_category": "品",
-      "answer": "副詞　besides",
-      "answer_meaning": "= in addition",
+      "answer": "副詞",
+      "answer_meaning": "besides　= in addition",
       "tts_enabled": false,
-      "notes": null
+      "notes": null,
+      "note_from": "besides"
     },
     {
       "id": 1906,
@@ -21608,7 +21655,7 @@
         "cap",
         "cop"
       ],
-      "note_from": "（サツ"
+      "note_from": "「capture"
     },
     {
       "id": 1932,
