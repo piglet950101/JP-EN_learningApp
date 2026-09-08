@@ -40,7 +40,10 @@ DEST = ROOT / 'assets' / 'audio' / 'ss'
 SS = ROOT / 'assets' / 'content' / 'second_stage.json'
 MAP = Path(__file__).with_name('ss_audio.json')
 
-TARGET_MEAN_DB = -20.0   # RMS, comfortable against the TTS voice
+TARGET_MEAN_DB = -24.0   # RMS. -20 was louder than the TTS beside it —
+                         # 「ボリュームも大きいようです」, 09-09, on 0410,
+                         # 0916 and 1901. This sits inside the range the
+                         # takes arrived in (-22.8 to -27.5).
 PEAK_CEILING = 0.84      # linear, ≈ -1.5 dBFS
 MAX_GAIN_DB = 12.0       # a quiet file is lifted, never amplified into noise
 
@@ -96,6 +99,7 @@ def main() -> int:
 
     cache: dict[str, str] = {}   # source filename -> bundled asset path
     warnings: list[str] = []
+    dropped: list[str] = []      # rows whose reading hint the recording replaces
     attached = 0
     for e in spec:
         wid = e['word_id']
@@ -136,6 +140,13 @@ def main() -> int:
         # A row with a recording must show its speaker button; 0773's 活 row
         # was tts_enabled=false because it had nothing worth synthesising.
         hits[0]['tts_enabled'] = True
+        # A recording supersedes any instruction about how to READ the row, so
+        # the hint comes off. Leaving it on meant a playback that fell back to
+        # TTS spoke katakana over the top of his own voice — 0242 「英語では
+        # なく、カタカナ読みになっています」, 0916 「発音が二重になっています」.
+        # It also removes the second utterance in 0773's 同音 row entirely.
+        if hits[0].pop('pronunciation_hint', None) is not None:
+            dropped.append(f'{wid} {hits[0].get("relation", "")!r}')
         attached += 1
 
     SS.write_text(json.dumps(doc, ensure_ascii=False, indent=2),
@@ -143,6 +154,8 @@ def main() -> int:
     unused = sorted({p.name for p in SRC.iterdir() if p.suffix.lower() == '.mp3'}
                     - set(cache))
     print(f'ss audio: {len(cache)} files bundled, {attached}/{len(spec)} rows')
+    for dsc in dropped:
+        print(f'  reading hint dropped (recording wins): {dsc}')
     for u in unused:
         print(f'  not used: {u}')
     for w in warnings:

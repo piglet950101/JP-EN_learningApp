@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "client 2026-08-26 — how a row's answer must be READ",
-  "note": "Kana is spoken by the Japanese voice, which is the only way to force an English spelling to a given sound. Latin text is read as-is. Absent entries read their own answer.",
+  "note": "Kana is spoken by the Japanese voice, which is the only way to force an English spelling to a given sound. Latin text is read as-is. Absent entries read their own answer. A row that gains a recording has its hint removed on import — the recording supersedes any instruction on how to read it.",
   "entries": [
     {
       "word_id": 242,
@@ -75,12 +75,6 @@
       "answer": "産業、勤勉\nindustrial",
       "pronunciation": "industrial",
       "why": "industrial を発音させる／産業、勤勉 の発音はトル"
-    },
-    {
-      "word_id": 773,
-      "answer": "lead[led]　鉛、えんぴつの芯",
-      "pronunciation": "led",
-      "why": "同音 lead[led] — 綴りは lead でも読みは led"
     },
     {
       "word_id": 600,

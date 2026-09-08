@@ -128,18 +128,29 @@ class FlutterTtsService implements TtsService {
     if (!_ready) await init();
     await _tts.stop();
     await _player.stop();
-    // A recording of the row beats every synthesised variant.
-    if (audio.isNotEmpty && await _playAll(audio)) return;
+    // A recording of the row beats every synthesised variant — and a row that
+    // declares one never falls back to speaking itself, even if playback
+    // fails. Several of these rows answer in Japanese (1901 axis 斧/公理,
+    // 0916 涙　tear), and the English engine hands those to a Chinese voice.
+    // Silence is the better failure: 「中国語の音声が入るようです」 has now
+    // been filed three review rounds running.
+    if (audio.isNotEmpty) {
+      await _playAll(audio);
+      return;
+    }
     final hint = pronunciationHint?.trim() ?? '';
     if (hint.isNotEmpty) {
       // Kana is read by the Japanese voice, which is the only way to force an
       // English spelling to a specific sound; anything else is read as-is.
+      // Waiting for the utterance matters in a sequence: _tts.speak() returns
+      // as soon as the phrase is QUEUED, so a hint row used to hand straight
+      // back to speakSequence and the next row began 550ms later, over the top.
       if (_kanaRe.hasMatch(hint)) {
         await _tts.setLanguage('ja-JP');
-        await _tts.speak(hint);
+        await _speakOneAndWait(hint);
         await _tts.setLanguage(_defaultLang);
       } else {
-        await _tts.speak(hint);
+        await _speakOneAndWait(hint);
       }
       return;
     }
@@ -162,20 +173,41 @@ class FlutterTtsService implements TtsService {
     }
   }
 
-  /// Play recorded files in order, waiting for each. Returns false if nothing
-  /// could be played, so the caller can fall back to TTS.
+  /// Play recorded files in order, waiting for each. Returns false only when
+  /// nothing could be STARTED, so the caller can fall back to TTS.
+  ///
+  /// The verdict deliberately depends on `play()` alone, never on the wait
+  /// that follows. Setting it after awaiting the completion event — as this
+  /// did until 2026-09-09 — meant any failure of that future was caught here,
+  /// reported as "nothing played", and sent the caller on to synthesise the
+  /// row as well, on top of a recording that was still sounding. That is the
+  /// doubled audio the client reported across six rows:
+  ///   0773 「同音の発音が２回あります。最初の音声は不要です」
+  ///   0410 「カタカナの発音も同時に聞こえます」
+  ///   0916 「涙 の発音が二重になっています」
+  ///   1901 「中国語の音声が入るようです」 — 斧/公理 read by the CJK voice
   Future<bool> _playAll(List<String> assets) async {
     var played = false;
     for (var i = 0; i < assets.length; i++) {
       if (i > 0) await Future<void>.delayed(const Duration(milliseconds: 250));
+      Future<void> done;
       try {
-        final done = _player.onPlayerComplete.first;
+        // Stop first: replaying the SAME asset back-to-back is the case that
+        // exposed this, 1829 upset being one take played three times.
+        await _player.stop();
+        done = _player.onPlayerComplete.first;
         await _player.play(AssetSource(assets[i]));
-        await done.timeout(const Duration(seconds: 8), onTimeout: () {});
         played = true;
       } catch (_) {
-        // A missing or unreadable asset falls through to the next one; if
-        // none plays at all the caller speaks the row instead.
+        continue; // could not start this one; the next may still work
+      }
+      // Best-effort wait. It must never change the verdict above, and if the
+      // completion event cannot be observed we still hold the line so the
+      // next file does not start on top of this one.
+      try {
+        await done.timeout(const Duration(seconds: 8), onTimeout: () {});
+      } catch (_) {
+        await Future<void>.delayed(const Duration(milliseconds: 1500));
       }
     }
     return played;

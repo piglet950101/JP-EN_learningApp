@@ -2515,11 +2515,8 @@
       "answer_meaning": null,
       "tts_enabled": true,
       "notes": null,
-      "pronunciation_hint": "ワインド　ワウンド　ワウンド",
       "audio": [
-        "audio/ss/0242_00.mp3",
-        "audio/ss/0242_01.mp3",
-        "audio/ss/0242_02.mp3"
+        "audio/ss/0242_00.mp3"
       ]
     },
     {
@@ -3056,7 +3053,7 @@
       "block": 7,
       "relation": "セ　The flood damaged the crops.\n=",
       "base_category": "セ",
-      "answer": "= The flood inflicted damage on the crops.",
+      "answer": "The flood inflicted damage on the crops.",
       "answer_meaning": "The flood did damage to the crops. も可",
       "tts_enabled": false,
       "notes": null,
@@ -4094,7 +4091,7 @@
       "tts_enabled": true,
       "notes": null,
       "audio": [
-        "audio/ss/0410_03.mp3"
+        "audio/ss/0410_01.mp3"
       ]
     },
     {
@@ -4107,9 +4104,8 @@
       "answer_meaning": "祈る人　発音はプレイア",
       "tts_enabled": true,
       "notes": null,
-      "pronunciation_hint": "プレイア",
       "audio": [
-        "audio/ss/0410_04.mp3"
+        "audio/ss/0410_02.mp3"
       ]
     },
     {
@@ -7647,9 +7643,7 @@
       "tts_enabled": true,
       "notes": null,
       "audio": [
-        "audio/ss/0773_05.mp3",
-        "audio/ss/0773_06.mp3",
-        "audio/ss/0773_07.mp3"
+        "audio/ss/0773_03.mp3"
       ]
     },
     {
@@ -7678,15 +7672,14 @@
       "id": 683,
       "word_id": 773,
       "block": 17,
-      "relation": "同音",
+      "relation": "同音　過去形と同音",
       "base_category": "同音",
-      "answer": "lead[led]　鉛、えんぴつの芯",
+      "answer": "lead[led]\n鉛、えんぴつの芯",
       "answer_meaning": null,
       "tts_enabled": true,
       "notes": null,
-      "pronunciation_hint": "led",
       "audio": [
-        "audio/ss/0773_06.mp3"
+        "audio/ss/0773_04.mp3"
       ]
     },
     {
@@ -8952,9 +8945,8 @@
       "answer_meaning": "発音はティア",
       "tts_enabled": true,
       "notes": null,
-      "pronunciation_hint": "ティア",
       "audio": [
-        "audio/ss/0916_08.mp3"
+        "audio/ss/0916_05.mp3"
       ]
     },
     {
@@ -18099,9 +18091,9 @@
       "tts_enabled": true,
       "notes": null,
       "audio": [
-        "audio/ss/1829_09.mp3",
-        "audio/ss/1829_09.mp3",
-        "audio/ss/1829_09.mp3"
+        "audio/ss/1829_06.mp3",
+        "audio/ss/1829_06.mp3",
+        "audio/ss/1829_06.mp3"
       ]
     },
     {
@@ -18980,7 +18972,7 @@
       "tts_enabled": true,
       "notes": null,
       "audio": [
-        "audio/ss/1901_10.mp3"
+        "audio/ss/1901_07.mp3"
       ]
     },
     {
@@ -18994,8 +18986,8 @@
       "tts_enabled": true,
       "notes": null,
       "audio": [
-        "audio/ss/1901_11.mp3",
-        "audio/ss/1901_12.mp3"
+        "audio/ss/1901_08.mp3",
+        "audio/ss/1901_09.mp3"
       ]
     },
     {
@@ -19009,7 +19001,7 @@
       "tts_enabled": true,
       "notes": null,
       "audio": [
-        "audio/ss/1901_13.mp3"
+        "audio/ss/1901_10.mp3"
       ]
     },
     {

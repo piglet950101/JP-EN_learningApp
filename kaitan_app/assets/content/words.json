@@ -47659,7 +47659,8 @@
         }
       ],
       "image_filename": "1181.webp",
-      "pronunciation_hint": null
+      "pronunciation_hint": null,
+      "hide_meaning_in_ss": true
     },
     {
       "id": 1182,

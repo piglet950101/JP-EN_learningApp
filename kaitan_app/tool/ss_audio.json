@@ -1,18 +1,16 @@
 {
   "schema_version": 1,
   "source": "client mp3/ delivery, 2026-09-08 (「音声ファイルです。音量などの調整もお願いします。」)",
-  "note": "Which recording belongs to which Second Stage row, in playback order. A conjugation row lists one file per part — the client's own instruction where he recorded singles: 「１音の場合は同じものを３回使ってください」. Files are level-matched on import; see import_ss_audio.py.",
+  "note": "Which recording belongs to which Second Stage row, in playback order. A conjugation row lists one file per part — the client's own instruction where he recorded singles: 「１音の場合は同じものを３回使ってください」. A conjugation row uses his run-through where he made one; 1829 upset repeats the single take, which is what he asked for. Files are level-matched on import; see import_ss_audio.py.",
   "missing": "All delivered as of 2026-09-08. The 3連 run-throughs (242, 773, 1829) are held in reserve: each of those rows plays one take per part instead.",
   "entries": [
     {
       "word_id": 242,
       "match_answer": "wind > wound > wound",
       "files": [
-        "242 wind[waind].mp3",
-        "242 wound 過去.mp3",
-        "242 wound 過去分詞.mp3"
+        "242  wind wound wound.mp3"
       ],
-      "why": "「１語ずつのと、一気に全部を読むのが入っています」— the singles map onto the three parts, and wind[waind] finally settles ウインド× / ワインド〇"
+      "why": "the 一気に全部を読む take. Stitching the three singles with gaps is what he called 不自然 on 0773 (09-09)"
     },
     {
       "word_id": 410,
@@ -36,15 +34,13 @@
       "word_id": 773,
       "match_answer": "lead > led > led",
       "files": [
-        "773  lead.mp3",
-        "773 led 過去形.mp3",
-        "773 led 過去分詞.mp3"
+        "773 lead led led.mp3"
       ],
-      "why": "「活　の lead > led > led に音声を入れる」— one take per part; the 過去分詞 file arrived in the second delivery"
+      "why": "09-09 「活　の lead > led > led の音声が不自然です」— use his run-through"
     },
     {
       "word_id": 773,
-      "match_answer": "lead[led]　鉛、えんぴつの芯",
+      "match_answer": "lead[led]\n鉛、えんぴつの芯",
       "files": [
         "773 led 過去形.mp3"
       ],

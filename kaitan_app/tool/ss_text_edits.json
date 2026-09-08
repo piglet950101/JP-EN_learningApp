@@ -13,7 +13,8 @@
       "word_id": 310,
       "match_answer": "= The flood inflicted damage on the crops.",
       "relation": "セ　The flood damaged the crops.\n=",
-      "why": "「crops の後、改行し、黒字で＝を入れる」— the prompt alone did not say what to answer"
+      "why": "09-08 「crops の後、改行し、黒字で＝を入れる」 on the prompt; 09-09 「問題の方はOKです。解答の赤字のイコールを取ってください」",
+      "answer": "The flood inflicted damage on the crops."
     },
     {
       "word_id": 773,
@@ -25,9 +26,9 @@
     {
       "word_id": 773,
       "match_answer": "鉛、えんぴつの芯",
-      "relation": "同音",
-      "answer": "lead[led]　鉛、えんぴつの芯",
-      "why": "「解答の同音　で「過去形と同音」を取って lead[led] と入れてください」"
+      "relation": "同音　過去形と同音",
+      "answer": "lead[led]\n鉛、えんぴつの芯",
+      "why": "09-09 「問題の　同音に「過去形と同音」をつける」 and 「解答の同音　の「鉛、えんぴつの芯」は改行し、ゴチで太字に」"
     },
     {
       "word_id": 1485,

@@ -47,8 +47,8 @@ void main() {
     expect(echo.fontWeight, FontWeight.w900);
     expect(echo.fontFamily, 'KaitanSans');
     expect(echo.color, Colors.black);
-    // 「基本的に黒字で、小さいフォント」 (client 2026-08-26 ③) — a ratio, so a
-    // 15px meaning drops to 11px rather than the 13px the old -2 rule gave.
+    // 「基本的に黒字で、小さいフォント」 (client 2026-08-26 ③), as a ratio so it
+    // holds at the 22px size too. Exact value pinned in its own test below.
     expect(echo.fontSize, lessThan(15));
 
     expect(_styleOf(span, 'は不透明').fontFamily, 'KaitanSerif');
@@ -104,6 +104,17 @@ void main() {
         base: _base, echo: const ['Cu', 'Cyprus']);
     final runs = _runs(span);
     expect(runs.any((r) => r.text == 'Cyprus'), isTrue);
+  });
+
+  test('the ゴロ is smaller than the meaning, but not at the floor', () {
+    // 0.72 put a 15px meaning on the 11px clamp floor, and the client filed it
+    // as too small once notes and ゴロ started composing (2026-09-09, naming
+    // 1560 and 1778). 13px is the -2 he asked for originally.
+    final span = buildMeaningSpans('楕円「オバおるオフィス」',
+        base: _base, echo: const ['オバおる']);
+    expect(_styleOf(span, '楕円').fontSize, 15);
+    expect(_styleOf(span, 'オバおる').fontSize, 13);
+    expect(_styleOf(span, 'オフィス').fontSize, 13);
   });
 
   test('SpeakItem carries the hint and the recordings', () {

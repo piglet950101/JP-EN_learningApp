@@ -90,7 +90,7 @@ class SsQuestionView extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(12)),
               ),
               child: const Text('意味・答え',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800)),
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
             ),
           ),
         ),
@@ -224,7 +224,7 @@ class _SsAnswerViewState extends ConsumerState<SsAnswerView> {
                     ),
                     child: const Text('OK',
                         style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.w800)),
+                            fontSize: 22, fontWeight: FontWeight.w700)),
                   ),
                 ),
               ),
@@ -387,7 +387,7 @@ class _Headword extends StatelessWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 36,
-              fontWeight: FontWeight.w900,
+              fontWeight: FontWeight.w700,
               color: Color(0xFF2b6cb0),
             ),
           ),
@@ -517,6 +517,12 @@ class _EntryRow extends StatelessWidget {
     // A bare count stays in the chip: 意２ reads as one label, and splitting
     // it would leave a lone ２ floating beside the box.
     final wide = rest != null && !_isCountOnly(rest);
+    // 0491 quality reads 他　の名詞 — "the noun of the 他 sense". Asked for
+    // twice (09-08, then again unchanged on 09-09), the code has to read as
+    // part of the phrase rather than as a coloured box sitting apart from
+    // black text, so it joins the text and the chip keeps only its slot.
+    // Alignment with the neighbouring rows is why the slot stays.
+    final inlineCode = wide && _continuesCode.hasMatch(rest);
     final chipLabel = wide ? (cat ?? full) : full;
 
     if (wide) {
@@ -528,11 +534,14 @@ class _EntryRow extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                _CategoryChip(cat: cat, label: chipLabel, visible: showLabel),
-                SizedBox(width: _continuesCode.hasMatch(rest) ? 2 : 10),
+                _CategoryChip(
+                    cat: cat,
+                    label: chipLabel,
+                    visible: showLabel && !inlineCode),
+                const SizedBox(width: 10),
                 Expanded(
                   child: Text(
-                    showLabel ? rest : '',
+                    showLabel ? (inlineCode ? full : rest) : '',
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
@@ -606,7 +615,7 @@ class _EntryRow extends StatelessWidget {
                   _breakForReading(entry.answer),
                   style: const TextStyle(
                     fontSize: 22,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                     color: Color(0xFFC53030),
                     height: 1.25,
                   ),
@@ -633,7 +642,7 @@ class _EntryRow extends StatelessWidget {
                         fontFamily: 'KaitanSans',
                         fontSize: hideAnswerText ? 22 : 15,
                         fontWeight: hideAnswerText
-                            ? FontWeight.w800
+                            ? FontWeight.w700
                             : FontWeight.w400,
                         color: hideAnswerText
                             ? const Color(0xFFC53030)
@@ -785,7 +794,7 @@ class _CategoryChip extends StatelessWidget {
         label,
         style: const TextStyle(
           fontSize: 16,
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.w700,
           color: Colors.white,
           height: 1.0,
         ),

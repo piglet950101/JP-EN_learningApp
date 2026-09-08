@@ -50,6 +50,7 @@ COUNT_ONLY = re.compile(r'[０-９0-9()（）～~〜、,，・]+(?:以上)?')
 # survives: without this the audit reports them open every single round.
 SUPERSEDED = {
     1186: ('09-08', '意2 withdrawn — 「見出し語の下の意味を削除する」 instead'),
+    1125: ('09-09', '意2 withdrawn — 「dismayは意味１つで大丈夫です」'),
 }
 
 # Block numbers the client has corrected; the earlier number and the later one

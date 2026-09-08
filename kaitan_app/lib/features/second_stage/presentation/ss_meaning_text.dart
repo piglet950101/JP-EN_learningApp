@@ -40,9 +40,13 @@ InlineSpan buildMeaningSpans(String text,
   // treatment serves a supplementary note running to the end of the line.
   final quoted = base.copyWith(
     color: Colors.black,
-    // A ratio, not a fixed -2. Against a 15px meaning the old rule gave
-    // 13px — a 13% drop the client kept reporting as not applied.
-    fontSize: ((base.fontSize ?? 15) * 0.72).roundToDouble().clamp(11.0, 40.0),
+    // A ratio, not a fixed -2, so it holds at the 22px size too. 0.72 put a
+    // 15px meaning on the 11px floor, and once the note and the ゴロ started
+    // composing whole quotes dropped to it that had been full size before —
+    // 「最近変更した部分を中心として文字が小さく感じられる」, client
+    // 2026-09-09, naming 1560 滑り落ちる and 1778 one of 以下. 0.85 lands 15px
+    // on 13px, which is the -2 he asked for in the first place.
+    fontSize: ((base.fontSize ?? 15) * 0.85).roundToDouble().clamp(11.0, 40.0),
   );
 
   // A note and a 「…」 ゴロ can share one line: 2003 sigh reads
