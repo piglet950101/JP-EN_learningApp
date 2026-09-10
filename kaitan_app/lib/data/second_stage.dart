@@ -98,6 +98,17 @@ class SecondStageEntry {
   /// (0773 lead > led > led plays lead, led, led — the client's own
   /// instruction on 2026-09-08: 「１音の場合は同じものを３回使ってください」).
   final List<String> audio;
+  /// Put the WHOLE prompt inside the coloured chip instead of showing the
+  /// code as a chip with the rest in black beside it. The client's rule, on
+  /// 2026-09-10: 「短ければ全部を記号にして［名の反対語］としてもよい」, and
+  /// 「長いものは一部だけを記号にして［名］の反対語」. He pointed at 0260
+  /// explorer as the model — its prompt reads 他 の名詞, and 他 is not one of
+  /// the base codes, so that row had always drawn as a single chip by
+  /// accident. This makes it deliberate and puts 反 の名詞 and friends
+  /// alongside it. Recorded per row rather than guessed from length: the
+  /// same shape covers セ　平均余命 and 名 レシート, where the detail is
+  /// content that has to stay black and readable.
+  final bool chipWhole;
   final String? notes;
 
   const SecondStageEntry({
@@ -114,6 +125,7 @@ class SecondStageEntry {
     this.noteFrom,
     this.pronunciationHint,
     this.audio = const [],
+    this.chipWhole = false,
     required this.notes,
   });
 
@@ -140,6 +152,7 @@ class SecondStageEntry {
               .where((e) => e.isNotEmpty)
               .toList(growable: false) ??
           const [],
+      chipWhole: (j['chip_whole'] ?? false) as bool,
       notes: j['notes'] as String?,
     );
   }

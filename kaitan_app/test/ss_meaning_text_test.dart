@@ -107,14 +107,25 @@ void main() {
   });
 
   test('the ゴロ is smaller than the meaning, but not at the floor', () {
-    // 0.72 put a 15px meaning on the 11px clamp floor, and the client filed it
-    // as too small once notes and ゴロ started composing (2026-09-09, naming
-    // 1560 and 1778). 13px is the -2 he asked for originally.
+    // Bracketed by the client over two rounds: 11px (0.72) was 「小さく感じ
+    // られる」 on 09-09; 13px (0.85) was the size it started at, so 09-10 read
+    // as no change — 「以前と同じ大きさに戻っている」. 12px is the step between.
     final span = buildMeaningSpans('楕円「オバおるオフィス」',
         base: _base, echo: const ['オバおる']);
     expect(_styleOf(span, '楕円').fontSize, 15);
-    expect(_styleOf(span, 'オバおる').fontSize, 13);
-    expect(_styleOf(span, 'オフィス').fontSize, 13);
+    expect(_styleOf(span, 'オバおる').fontSize, 12);
+    expect(_styleOf(span, 'オフィス').fontSize, 12);
+  });
+
+  test('the note is 細字 — lighter than the ゴロ it sits beside', () {
+    // Client 2026-09-10 separated the two: the ゴロ 「小さく」, the note
+    // 「細字で小さく」. Same size and colour, different weight.
+    final span = buildMeaningSpans('死体「こうプスッと刺した死体」= body',
+        base: _base, echo: const ['こうプスッ'], noteFrom: '= body');
+    final note = _styleOf(span, '= body');
+    expect(note.fontWeight, FontWeight.w300);
+    expect(note.fontSize, _styleOf(span, 'こうプスッ').fontSize);
+    expect(_styleOf(span, 'こうプスッ').fontWeight, FontWeight.w900);
   });
 
   test('SpeakItem carries the hint and the recordings', () {

@@ -51,13 +51,16 @@ LICENCE_URL = RAW + '/notosansjp/OFL.txt'
 # The faces the Dart code names, and the weights it asks for. Flutter resolves
 # an unbundled weight to the nearest bundled one, so w500/w600/w800 land on
 # these sensibly. 900 exists because the ゴロ echo is set in w900 and has to be
-# visibly heavier than the w700 used for ordinary headings.
+# visibly heavier than the w700 used for ordinary headings. 300 exists because
+# the client separated the supplementary note from the ゴロ on 2026-09-10 —
+# 「細字で小さく」 on nine rows — and w400 is not thin enough to read as 細字
+# beside a ゴロ that is set at the same size and colour.
 FACES = {
-    'KaitanSans': ('sans', [400, 700, 900]),
+    'KaitanSans': ('sans', [300, 400, 700, 900]),
     'KaitanSerif': ('serif', [400, 700]),
 }
 
-STYLE_NAMES = {400: 'Regular', 700: 'Bold', 900: 'Black'}
+STYLE_NAMES = {300: 'Light', 400: 'Regular', 700: 'Bold', 900: 'Black'}
 
 # Always keep these regardless of content: ASCII, the full kana blocks, the
 # punctuation the renderer itself injects, and the marker glyphs used in

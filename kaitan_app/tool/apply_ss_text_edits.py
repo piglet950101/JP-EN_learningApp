@@ -7,7 +7,8 @@ how rows get dropped by accident, so those edits live here instead: each entry
 names one row and only the fields that change.
 
 A row is matched on word_id plus `answer` and/or `relation` (whichever the
-entry gives, both must match when both are given). Anything that fails to
+entry gives, both must match when both are given). `delete: true` removes the
+matched row outright; otherwise the named fields are written. Anything that fails to
 match is reported rather than skipped silently — a stale key means the client's
 correction is not in the build, and that has cost review rounds before.
 
@@ -24,7 +25,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SS = ROOT / 'assets' / 'content' / 'second_stage.json'
 EDITS = Path(__file__).with_name('ss_text_edits.json')
 
-FIELDS = ('relation', 'answer', 'answer_meaning', 'tts_enabled')
+FIELDS = ('relation', 'answer', 'answer_meaning', 'tts_enabled',
+          'pronunciation_hint', 'chip_whole')
 
 
 def main() -> None:
@@ -60,6 +62,13 @@ def main() -> None:
             continue
 
         row = hits[0]
+        if e.get('delete'):
+            # Deleting is spelled out rather than done by restating the word's
+            # other rows through ss_overrides, where an empty list already
+            # means "drop every row for this word" and is easy to trip over.
+            doc['entries'].remove(row)
+            applied += 1
+            continue
         changed = False
         for field in FIELDS:
             if field not in e:

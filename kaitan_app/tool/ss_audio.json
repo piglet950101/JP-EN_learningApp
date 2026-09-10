@@ -48,7 +48,7 @@
     },
     {
       "word_id": 916,
-      "match_relation": "名 の意味と発音",
+      "match_relation": "名としての意味と発音",
       "match_answer": "涙　tear",
       "files": [
         "916 tear ティア.mp3"
@@ -92,6 +92,41 @@
         "1901 axiom.mp3"
       ],
       "why": "「ax と axiom も入ってなかったようなので」"
+    },
+    {
+      "word_id": 350,
+      "match_answer": "bases",
+      "files": [
+        "bases .mp3"
+      ],
+      "dir": "mp3_9.10",
+      "why": "「bases の音声を差し替え。ベイスィーズに聞こえるようにします」(09-10)"
+    },
+    {
+      "word_id": 1469,
+      "match_answer": "excess",
+      "files": [
+        "excess.mp3"
+      ],
+      "dir": "mp3_9.10",
+      "why": "「excess のアクセントが違うので、音声を差し替えてください」(09-10)"
+    },
+    {
+      "word_id": 1527,
+      "match_answer": "err",
+      "files": [
+        "err.mp3"
+      ],
+      "dir": "mp3_9.10",
+      "why": "「2つめの発音が方言になっているので差し替えてください」— 自 err の行 (09-10)"
+    }
+  ],
+  "headword_overrides": [
+    {
+      "word_id": 824,
+      "file": "minute.mp3",
+      "dir": "mp3_9.10",
+      "why": "「問題の発音を差し替えてください」(09-10) — this is the headword audio on the question screen, not a Second Stage row, so it replaces assets/audio/0824.mp3 from the First Stage manifest."
     }
   ]
 }

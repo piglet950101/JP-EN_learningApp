@@ -35,7 +35,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = ROOT.parent
-SRC = PROJECT_ROOT / 'mp3'
+SRC = PROJECT_ROOT / 'mp3'          # default; an entry may name another
+AUDIO = ROOT / 'assets' / 'audio'   # First Stage files + their manifest
 DEST = ROOT / 'assets' / 'audio' / 'ss'
 SS = ROOT / 'assets' / 'content' / 'second_stage.json'
 MAP = Path(__file__).with_name('ss_audio.json')
@@ -120,7 +121,7 @@ def main() -> int:
             if name in cache:
                 assets.append(cache[name])
                 continue
-            src = SRC / name
+            src = (PROJECT_ROOT / e.get('dir', 'mp3')) / name
             if not src.is_file():
                 warnings.append(f'{wid}: missing source file {name!r}')
                 continue
@@ -151,7 +152,30 @@ def main() -> int:
 
     SS.write_text(json.dumps(doc, ensure_ascii=False, indent=2),
                   encoding='utf-8')
-    unused = sorted({p.name for p in SRC.iterdir() if p.suffix.lower() == '.mp3'}
+    # Headword audio. 0824 minute's 「問題の発音」 is the First Stage recording
+    # on the question screen, not a Second Stage row, so it replaces the file
+    # import_audio.py laid down. Re-running THAT script restores the original;
+    # run build_content.py after it to put these back.
+    for h in json.loads(MAP.read_text(encoding='utf-8')).get(
+            'headword_overrides', []):
+        src = (PROJECT_ROOT / h.get('dir', 'mp3')) / h['file']
+        if not src.is_file():
+            warnings.append(f'headword {h["word_id"]}: missing {h["file"]!r}')
+            continue
+        dst = AUDIO / f'{h["word_id"]:04d}.mp3'
+        if not normalise(exe, src, dst):
+            warnings.append(f'headword {h["word_id"]}: ffmpeg failed')
+            continue
+        man = AUDIO / 'manifest.json'
+        if man.is_file():
+            mj = json.loads(man.read_text(encoding='utf-8'))
+            mj.setdefault('entries', {})[str(h['word_id'])] = {
+                'file': dst.name, 'word': '', 'source_ext': 'mp3'}
+            man.write_text(json.dumps(mj, ensure_ascii=False, indent=2),
+                           encoding='utf-8')
+        print(f'  headword {h["word_id"]}: {h["file"]} -> {dst.name}')
+
+    unused = sorted({q.name for q in SRC.iterdir() if q.suffix.lower() == '.mp3'}
                     - set(cache))
     print(f'ss audio: {len(cache)} files bundled, {attached}/{len(spec)} rows')
     for dsc in dropped:

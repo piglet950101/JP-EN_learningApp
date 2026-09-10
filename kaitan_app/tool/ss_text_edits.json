@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "source": "Second Stage 直し 9. 8.xlsx (client 2026-09-08)",
+  "source": "Second Stage 直し 9. 8.xlsx (client 2026-09-08) + 9. 9.xlsx + 9. 10.xlsx",
   "note": "Field-level row corrections. Keys are the row's answer/relation as they stand AFTER apply_ss_overrides. See apply_ss_text_edits.py.",
   "entries": [
     {
@@ -88,6 +88,403 @@
       "match_answer": "prayer",
       "answer_meaning": "祈る人　発音はプレイア",
       "why": "「祈る人⇨祈る人　発音はプレイア」"
+    },
+    {
+      "word_id": 181,
+      "why": "「全体を記号にする」— 0260 explorer と同じ見え方に (09-10)",
+      "match_relation": "類　の名詞",
+      "relation": "類の名詞",
+      "chip_whole": true
+    },
+    {
+      "word_id": 270,
+      "why": "「全体を記号にする」— 0260 explorer と同じ見え方に (09-10)",
+      "match_relation": "反　の名詞",
+      "relation": "反の名詞",
+      "chip_whole": true
+    },
+    {
+      "word_id": 499,
+      "why": "「全体を記号にする」— 0260 explorer と同じ見え方に (09-10)",
+      "match_relation": "名 の類義語",
+      "relation": "名の類義語",
+      "chip_whole": true
+    },
+    {
+      "word_id": 533,
+      "why": "「全体を記号にする」— 0260 explorer と同じ見え方に (09-10)",
+      "match_relation": "形 の反対語",
+      "relation": "形の反対語",
+      "chip_whole": true
+    },
+    {
+      "word_id": 633,
+      "why": "「全体を記号にする」— 0260 explorer と同じ見え方に (09-10)",
+      "match_relation": "反 の名詞",
+      "relation": "反の名詞",
+      "chip_whole": true
+    },
+    {
+      "word_id": 658,
+      "why": "「全体を記号にする」— 0260 explorer と同じ見え方に (09-10)",
+      "match_relation": "名 の複数形",
+      "relation": "名の複数形",
+      "chip_whole": true
+    },
+    {
+      "word_id": 663,
+      "why": "「全体を記号にする」— 0260 explorer と同じ見え方に (09-10)",
+      "match_relation": "名 の複数形",
+      "relation": "名の複数形",
+      "chip_whole": true
+    },
+    {
+      "word_id": 667,
+      "why": "「全体を記号にする」— 0260 explorer と同じ見え方に (09-10)",
+      "match_relation": "類 の形容詞",
+      "relation": "類の形容詞",
+      "chip_whole": true
+    },
+    {
+      "word_id": 715,
+      "why": "「全体を記号にする」— 0260 explorer と同じ見え方に (09-10)",
+      "match_relation": "類の名詞",
+      "relation": "類の名詞",
+      "chip_whole": true
+    },
+    {
+      "word_id": 715,
+      "why": "「全体を記号にする」— 0260 explorer と同じ見え方に (09-10)",
+      "match_relation": "類の他動詞",
+      "relation": "類の他動詞",
+      "chip_whole": true
+    },
+    {
+      "word_id": 1107,
+      "why": "「全体を記号にする」— 0260 explorer と同じ見え方に (09-10)",
+      "match_relation": "反 の名詞",
+      "relation": "反の名詞",
+      "chip_whole": true
+    },
+    {
+      "word_id": 1658,
+      "why": "「全体を記号にする」— 0260 explorer と同じ見え方に (09-10)",
+      "match_relation": "反　の名詞",
+      "relation": "反の名詞",
+      "chip_whole": true
+    },
+    {
+      "word_id": 1856,
+      "why": "「全体を記号にする」— 0260 explorer と同じ見え方に (09-10)",
+      "match_relation": "反　の名詞",
+      "relation": "反の名詞",
+      "chip_whole": true
+    },
+    {
+      "word_id": 1915,
+      "why": "「全体を記号にする」— 0260 explorer と同じ見え方に (09-10)",
+      "match_relation": "反　の名詞",
+      "relation": "反の名詞",
+      "chip_whole": true
+    },
+    {
+      "word_id": 1954,
+      "why": "「全体を記号にする」— 0260 explorer と同じ見え方に (09-10)",
+      "match_relation": "名　の他動詞",
+      "relation": "名の他動詞",
+      "chip_whole": true
+    },
+    {
+      "word_id": 1987,
+      "why": "「全体を記号にする」— 0260 explorer と同じ見え方に (09-10)",
+      "match_relation": "形　の名詞",
+      "relation": "形の名詞",
+      "chip_whole": true
+    },
+    {
+      "word_id": 491,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "他　の名詞",
+      "relation": "他の名詞"
+    },
+    {
+      "word_id": 745,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "他の語法　２",
+      "relation": "他の語法２"
+    },
+    {
+      "word_id": 64,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "副詞とその意味",
+      "relation": "副とその意味"
+    },
+    {
+      "word_id": 171,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "副詞とその書き換え",
+      "relation": "副とその書き換え"
+    },
+    {
+      "word_id": 732,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "副詞とその書き換え",
+      "relation": "副とその書き換え"
+    },
+    {
+      "word_id": 819,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "副詞とその書き換え",
+      "relation": "副とその書き換え"
+    },
+    {
+      "word_id": 945,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "副詞とその書き換え",
+      "relation": "副とその書き換え"
+    },
+    {
+      "word_id": 528,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "形容詞とその意味",
+      "relation": "形とその意味"
+    },
+    {
+      "word_id": 538,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "名詞とその意味を２つ",
+      "relation": "名とその意味を２つ"
+    },
+    {
+      "word_id": 607,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "名詞とその意味を２～３",
+      "relation": "名とその意味を２～３"
+    },
+    {
+      "word_id": 874,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "名詞とその意味を３つ",
+      "relation": "名とその意味３"
+    },
+    {
+      "word_id": 839,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "同音異義語とその意味２つ",
+      "relation": "同とその意味２"
+    },
+    {
+      "word_id": 1079,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "同音異義語とその意味",
+      "relation": "同音とその意味"
+    },
+    {
+      "word_id": 954,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "形容詞とその反対語",
+      "relation": "形とその反対語"
+    },
+    {
+      "word_id": 955,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "形容詞とその反対語",
+      "relation": "形とその反対語"
+    },
+    {
+      "word_id": 1749,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "類義語とその形容詞",
+      "relation": "類とその形容詞"
+    },
+    {
+      "word_id": 916,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "名 の意味と発音",
+      "relation": "名としての意味と発音"
+    },
+    {
+      "word_id": 1223,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "形　とその意味",
+      "relation": "形とその意味"
+    },
+    {
+      "word_id": 1347,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "名　とその意味３つ以上",
+      "relation": "名とその意味３つ以上"
+    },
+    {
+      "word_id": 1348,
+      "why": "「〜の部分を記号にして」(09-10)",
+      "match_relation": "名　とその意味２つ以上",
+      "relation": "名とその意味２つ以上"
+    },
+    {
+      "word_id": 296,
+      "why": "「名 柱、地位、郵便　の下に赤で追加　他 投函する、投稿する」",
+      "match_answer": "名 柱、地位、郵便",
+      "answer": "名 柱、地位、郵便\n他 投函する、投稿する"
+    },
+    {
+      "word_id": 1775,
+      "why": "「現在形で使わない　→　現在時制で使わない」",
+      "match_answer": "現在形で使わない",
+      "answer": "現在時制で使わない"
+    },
+    {
+      "word_id": 2102,
+      "why": "「sum to → sum up to」",
+      "match_answer": "amount to one billion yen",
+      "answer_meaning": "= add up to = sum up to = total"
+    },
+    {
+      "word_id": 2092,
+      "why": "「compare A with (/to)) B → …(/to) B」「A とBを比べる → AをBと比べる」",
+      "match_answer": "compare yourself with(/to) others",
+      "answer_meaning": "compare A with(/to) B AをBと比べる"
+    },
+    {
+      "word_id": 1584,
+      "why": "「解答　イコールから改行」",
+      "match_answer": "cure his cancer = cure him of cancer",
+      "answer": "cure his cancer\n= cure him of cancer"
+    },
+    {
+      "word_id": 2131,
+      "why": "「「～に関して自分に　から改行してください」",
+      "match_answer": "avail oneself of the service",
+      "answer_meaning": "avail oneself of ～を利用する\n「～に関して自分に利益を与える」"
+    },
+    {
+      "word_id": 745,
+      "why": "「解答の tell 人　から改行」",
+      "match_answer": "enjoy ~ing 型、tell 人 to do 型",
+      "answer": "enjoy ~ing 型、\ntell 人 to do 型"
+    },
+    {
+      "word_id": 746,
+      "why": "「解答の tell 人　から改行」",
+      "match_answer": "enjoy ~ing 型、tell 人 to do 型",
+      "answer": "enjoy ~ing 型、\ntell 人 to do 型"
+    },
+    {
+      "word_id": 724,
+      "why": "「不規則変化で　スラッシュの後を改行」",
+      "match_answer": "bid > bid > bid / bid > bade >  bidden",
+      "answer": "bid > bid > bid /\nbid > bade > bidden"
+    },
+    {
+      "word_id": 1055,
+      "why": "「解答の一番下の　クビになるのを恐れる　を取ってください」",
+      "match_answer": "be afraid of getting fired",
+      "delete": true
+    },
+    {
+      "word_id": 1144,
+      "why": "「解答の一番下の　新出単語を画像と関連づける　を取ってください」",
+      "match_answer": "relate new words to pictures",
+      "delete": true
+    },
+    {
+      "word_id": 1145,
+      "why": "「セ　の音声を取ってください」",
+      "match_answer": "translate English into Japanese",
+      "tts_enabled": false
+    },
+    {
+      "word_id": 363,
+      "why": "「解答に音声を追加してください」(09-10)",
+      "match_answer": "Don't mention it.",
+      "tts_enabled": true
+    },
+    {
+      "word_id": 661,
+      "why": "「解答に音声を追加してください」(09-10)",
+      "match_answer": "chronicle",
+      "tts_enabled": true
+    },
+    {
+      "word_id": 705,
+      "why": "「解答に音声を追加してください」(09-10)",
+      "match_answer": "the latter",
+      "tts_enabled": true
+    },
+    {
+      "word_id": 1031,
+      "why": "「解答に音声を追加してください」(09-10)",
+      "match_answer": "in detail",
+      "tts_enabled": true
+    },
+    {
+      "word_id": 1038,
+      "why": "「解答に音声を追加してください」(09-10)",
+      "match_answer": "dispense with",
+      "tts_enabled": true
+    },
+    {
+      "word_id": 1268,
+      "why": "「解答に音声を追加してください」(09-10)",
+      "match_answer": "on average",
+      "tts_enabled": true
+    },
+    {
+      "word_id": 1583,
+      "why": "「解答に音声を追加してください」(09-10)",
+      "match_answer": "manage to do",
+      "tts_enabled": true
+    },
+    {
+      "word_id": 1917,
+      "why": "「解答に音声を追加してください」(09-10)",
+      "match_answer": "saucer",
+      "tts_enabled": true
+    },
+    {
+      "word_id": 2077,
+      "why": "「解答に音声を追加してください」(09-10)",
+      "match_answer": "two dozen casualties",
+      "tts_enabled": true
+    },
+    {
+      "word_id": 2157,
+      "why": "「解答に音声を追加してください」(09-10)",
+      "match_answer": "trade friction",
+      "tts_enabled": true
+    },
+    {
+      "word_id": 346,
+      "why": "「音声を追加」— 解答が日本語なので room を読ませる",
+      "match_answer": "余地、スペース",
+      "tts_enabled": true,
+      "pronunciation_hint": "room"
+    },
+    {
+      "word_id": 1904,
+      "why": "「音声を追加」— 解答が日本語なので array を読ませる",
+      "match_answer": "名 陳列　他 整列させる",
+      "tts_enabled": true,
+      "pronunciation_hint": "array"
+    },
+    {
+      "word_id": 2008,
+      "why": "「音声を追加」— 解答が日本語なので bliss を読ませる",
+      "match_answer": "天上の喜び",
+      "tts_enabled": true,
+      "pronunciation_hint": "bliss"
+    },
+    {
+      "word_id": 1942,
+      "why": "「euthanasia にも音声をつけてください」",
+      "match_answer": "mercy killing",
+      "pronunciation_hint": "mercy killing, euthanasia"
+    },
+    {
+      "word_id": 2137,
+      "why": "「oblivion にも音声をつけてください」",
+      "match_answer": "oblivious",
+      "pronunciation_hint": "oblivious, oblivion"
     }
   ]
 }

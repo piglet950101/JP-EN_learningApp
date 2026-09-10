@@ -2209,9 +2209,15 @@
     ],
     "179": [
       {
-        "relation": "類名",
+        "relation": "類",
         "answer": "sweat",
         "answer_meaning": "汗をかく、汗",
+        "tts_enabled": true
+      },
+      {
+        "relation": "名",
+        "answer": "perspiration",
+        "answer_meaning": "発汗",
         "tts_enabled": true
       }
     ],

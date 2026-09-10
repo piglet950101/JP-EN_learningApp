@@ -40,13 +40,13 @@ InlineSpan buildMeaningSpans(String text,
   // treatment serves a supplementary note running to the end of the line.
   final quoted = base.copyWith(
     color: Colors.black,
-    // A ratio, not a fixed -2, so it holds at the 22px size too. 0.72 put a
-    // 15px meaning on the 11px floor, and once the note and the ゴロ started
-    // composing whole quotes dropped to it that had been full size before —
-    // 「最近変更した部分を中心として文字が小さく感じられる」, client
-    // 2026-09-09, naming 1560 滑り落ちる and 1778 one of 以下. 0.85 lands 15px
-    // on 13px, which is the -2 he asked for in the first place.
-    fontSize: ((base.fontSize ?? 15) * 0.85).roundToDouble().clamp(11.0, 40.0),
+    // A ratio, not a fixed -2, so it holds at the 22px size too.
+    //   0.72 → 11px, the clamp floor: 「小さく感じられる」 (09-09).
+    //   0.85 → 13px, which is exactly the -2 this began as, so it read as no
+    //          change at all: 「以前と同じ大きさに戻っているようなので、小さめ
+    //          にお願いしたい」 (09-10).
+    //   0.8  → 12px, the step between the two he has now bracketed.
+    fontSize: ((base.fontSize ?? 15) * 0.8).roundToDouble().clamp(11.0, 40.0),
   );
 
   // A note and a 「…」 ゴロ can share one line: 2003 sigh reads
@@ -66,13 +66,20 @@ InlineSpan buildMeaningSpans(String text,
     }
   }
 
+  // 細字. The note and the ゴロ were set identically — same colour, same size,
+  // same weight — until the client separated them on 2026-09-10: the ゴロ
+  // 「小さく」, the note 「細字で小さく」 (1338 cf., 2003 rhinoceros の略,
+  // 2098 = body, 2137 oblivion 忘却, 2140 （サツ、デカの感覚）…). w300 is a
+  // real bundled face, so it is a weight the device actually honours.
+  final note = quoted.copyWith(fontWeight: FontWeight.w300);
+
   final children = <InlineSpan>[
     if (head.isNotEmpty)
       ..._styleRun(head,
           plain: base, quoted: quoted, echo: echo, asMnemonic: asMnemonic),
     if (tail != null && tail.isNotEmpty)
       ..._styleRun(tail,
-          plain: quoted, quoted: quoted, echo: echo, asMnemonic: asMnemonic),
+          plain: note, quoted: quoted, echo: echo, asMnemonic: asMnemonic),
   ];
   if (children.isEmpty) return TextSpan(text: text, style: base);
   if (children.length == 1) return children.first;

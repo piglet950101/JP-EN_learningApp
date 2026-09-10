@@ -516,13 +516,11 @@ class _EntryRow extends StatelessWidget {
     //
     // A bare count stays in the chip: 意２ reads as one label, and splitting
     // it would leave a lone ２ floating beside the box.
-    final wide = rest != null && !_isCountOnly(rest);
-    // 0491 quality reads 他　の名詞 — "the noun of the 他 sense". Asked for
-    // twice (09-08, then again unchanged on 09-09), the code has to read as
-    // part of the phrase rather than as a coloured box sitting apart from
-    // black text, so it joins the text and the chip keeps only its slot.
-    // Alignment with the neighbouring rows is why the slot stays.
-    final inlineCode = wide && _continuesCode.hasMatch(rest);
+    // A prompt goes into the chip whole when it is a bare code, when the
+    // detail is only a count (意２, 意２～４), or when the client has marked
+    // the row — see SecondStageEntry.chipWhole. Otherwise the code is the
+    // chip and the detail sits beside it in black.
+    final wide = rest != null && !_isCountOnly(rest) && !entry.chipWhole;
     final chipLabel = wide ? (cat ?? full) : full;
 
     if (wide) {
@@ -534,14 +532,11 @@ class _EntryRow extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                _CategoryChip(
-                    cat: cat,
-                    label: chipLabel,
-                    visible: showLabel && !inlineCode),
+                _CategoryChip(cat: cat, label: chipLabel, visible: showLabel),
                 const SizedBox(width: 10),
                 Expanded(
                   child: Text(
-                    showLabel ? (inlineCode ? full : rest) : '',
+                    showLabel ? rest : '',
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
@@ -728,13 +723,6 @@ class _EntryRow extends StatelessWidget {
   static final RegExp _countOnly =
       RegExp(r'^[０-９0-9()（）～~〜、,，・]+(?:以上)?$');
   static bool _isCountOnly(String rest) => _countOnly.hasMatch(rest.trim());
-
-  /// A detail that opens with a particle continues the chip's code as one
-  /// phrase — 0491 quality reads 他　の名詞, "the noun of the 他 sense", and
-  /// the client asked on 2026-09-08 for it to read 他の名詞. The gap after the
-  /// chip closes up for those 36 rows; every other detail keeps the normal
-  /// separation.
-  static final RegExp _continuesCode = RegExp(r'^[のをにとがはへや]');
 
   /// Put a line break in front of the note, so it starts its own line.
   static String _splitNote(String text, String? noteFrom) {
