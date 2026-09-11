@@ -6,7 +6,7 @@
   ],
   "count": 1974,
   "stats": {
-    "unique_word_ids": 1311,
+    "unique_word_ids": 1297,
     "by_block": {
       "1": 31,
       "2": 38,
@@ -8397,7 +8397,7 @@
       "relation": "同とその意味２",
       "base_category": null,
       "answer": "whether",
-      "answer_meaning": "～かどうかということ、～であろうがなかろうが",
+      "answer_meaning": "～かどうかということ、\n～であろうがなかろうが",
       "tts_enabled": true,
       "notes": null
     },
@@ -10236,6 +10236,17 @@
       "notes": null
     },
     {
+      "id": 913,
+      "word_id": 1055,
+      "block": 22,
+      "relation": "セ　クビになるのを恐れる",
+      "base_category": "セ",
+      "answer": "be afraid of getting fired",
+      "answer_meaning": null,
+      "tts_enabled": false,
+      "notes": null
+    },
+    {
       "id": 914,
       "word_id": 1056,
       "block": 22,
@@ -11029,6 +11040,17 @@
       "answer": "relationship",
       "answer_meaning": "（個人的）関係",
       "tts_enabled": true,
+      "notes": null
+    },
+    {
+      "id": 986,
+      "word_id": 1144,
+      "block": 24,
+      "relation": "セ　新出単語を画像と関連づける",
+      "base_category": "セ",
+      "answer": "relate new words to pictures",
+      "answer_meaning": null,
+      "tts_enabled": false,
       "notes": null
     },
     {

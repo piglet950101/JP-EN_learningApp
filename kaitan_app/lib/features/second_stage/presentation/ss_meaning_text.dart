@@ -8,6 +8,9 @@ import 'package:flutter/material.dart';
 
 final RegExp _quoteRe = RegExp(r'「[^」]*」');
 
+/// The size of a ゴロ and of a supplementary note, everywhere in Second Stage.
+const double _goroFontSize = 12.0;
+
 /// Style a meaning line, splitting any 「…」 mnemonic three ways.
 ///
 /// Client 2026-08-24 ③, replacing the 08-19 rule. Taking 0007 opaque, whose
@@ -38,15 +41,23 @@ InlineSpan buildMeaningSpans(String text,
     String? noteFrom}) {
   // Client 2026-08-26 ③: a ゴロ is 「基本的に黒字で、小さいフォント」. The same
   // treatment serves a supplementary note running to the end of the line.
+  // A ゴロ is one size everywhere, and NOT a ratio of the row it sits on.
+  //
+  // Pattern A rows — where the prompt repeats the answer, so the red answer is
+  // hidden and the meaning stands in for it — set their base to 22px. A ratio
+  // then rendered their ゴロ at 18px while every other ゴロ in the app sat at
+  // 12px, and three rounds of tuning the ratio (0.72 → 0.85 → 0.8) moved both
+  // populations together, so the gap never closed. That is the whole of what
+  // the client kept re-reporting: his 2026-09-11 list is 59 ゴロ rows, every
+  // one of them 18px, and not one of the 47 rows already at 12px is on it.
+  //   「（少し）小さく … 他の単語で使われているフォントのサイズに合わせてください」
+  //
+  // The weight is pinned for the same reason: inheriting it left a ゴロ bold
+  // on a Pattern A row (base w700) and regular everywhere else.
   final quoted = base.copyWith(
     color: Colors.black,
-    // A ratio, not a fixed -2, so it holds at the 22px size too.
-    //   0.72 → 11px, the clamp floor: 「小さく感じられる」 (09-09).
-    //   0.85 → 13px, which is exactly the -2 this began as, so it read as no
-    //          change at all: 「以前と同じ大きさに戻っているようなので、小さめ
-    //          にお願いしたい」 (09-10).
-    //   0.8  → 12px, the step between the two he has now bracketed.
-    fontSize: ((base.fontSize ?? 15) * 0.8).roundToDouble().clamp(11.0, 40.0),
+    fontSize: _goroFontSize,
+    fontWeight: FontWeight.w400,
   );
 
   // A note and a 「…」 ゴロ can share one line: 2003 sigh reads

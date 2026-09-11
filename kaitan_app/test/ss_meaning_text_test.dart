@@ -106,6 +106,26 @@ void main() {
     expect(runs.any((r) => r.text == 'Cyprus'), isTrue);
   });
 
+  test('a Pattern A row sizes its ゴロ the same as every other row', () {
+    // The defect this pins: the ゴロ size used to be a ratio of the row's own
+    // base, and a row whose prompt repeats its answer hides the answer and
+    // sets the meaning at 22px — so its ゴロ came out at 18px while every
+    // other ゴロ in the app sat at 12px. Three rounds of tuning the ratio
+    // moved both together and never closed the gap; the client's 09-11 list
+    // was 59 rows, all of them the 22px-base ones. No case in this file ever
+    // passed a base of 22, which is why it survived.
+    const wide = TextStyle(
+        fontFamily: 'KaitanSans', fontSize: 22, fontWeight: FontWeight.w700);
+    final a = buildMeaningSpans('楕円「オバおるオフィス」',
+        base: wide, echo: const ['オバおる']);
+    final b = buildMeaningSpans('楕円「オバおるオフィス」',
+        base: _base, echo: const ['オバおる']);
+    expect(_styleOf(a, 'オバおる').fontSize, _styleOf(b, 'オバおる').fontSize);
+    expect(_styleOf(a, 'オフィス').fontSize, 12);
+    // ...and does not inherit the heading weight either.
+    expect(_styleOf(a, 'オフィス').fontWeight, FontWeight.w400);
+  });
+
   test('the ゴロ is smaller than the meaning, but not at the floor', () {
     // Bracketed by the client over two rounds: 11px (0.72) was 「小さく感じ
     // られる」 on 09-09; 13px (0.85) was the size it started at, so 09-10 read

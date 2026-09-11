@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "source": "Second Stage 直し 9. 8.xlsx (client 2026-09-08) + 9. 9.xlsx + 9. 10.xlsx",
+  "source": "Second Stage 直し 9. 8.xlsx (client 2026-09-08) + 9. 9.xlsx + 9. 10.xlsx + 9. 11.xlsx",
   "note": "Field-level row corrections. Keys are the row's answer/relation as they stand AFTER apply_ss_overrides. See apply_ss_text_edits.py.",
   "entries": [
     {
@@ -377,15 +377,15 @@
     },
     {
       "word_id": 1055,
-      "why": "「解答の一番下の　クビになるのを恐れる　を取ってください」",
+      "why": "09-10 「解答の一番下の　クビになるのを恐れる　を取ってください」 was the duplicated gloss, not the row — it repeats the prompt セ　クビになるのを恐れる. Restored 09-11.",
       "match_answer": "be afraid of getting fired",
-      "delete": true
+      "answer_meaning": null
     },
     {
       "word_id": 1144,
-      "why": "「解答の一番下の　新出単語を画像と関連づける　を取ってください」",
+      "why": "09-10 「解答の一番下の　新出単語を画像と関連づける　を取って」 was the duplicated gloss, not the row — it repeats the prompt セ　新出単語を画像と関連づける. Restored 09-11.",
       "match_answer": "relate new words to pictures",
-      "delete": true
+      "answer_meaning": null
     },
     {
       "word_id": 1145,
@@ -485,6 +485,12 @@
       "why": "「oblivion にも音声をつけてください」",
       "match_answer": "oblivious",
       "pronunciation_hint": "oblivious, oblivion"
+    },
+    {
+      "word_id": 839,
+      "match_answer": "whether",
+      "answer_meaning": "～かどうかということ、\n～であろうがなかろうが",
+      "why": "「whether の２つめの意味の　～　から改行」(09-11)"
     }
   ]
 }

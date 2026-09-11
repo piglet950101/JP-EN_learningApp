@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # of the product and file versions while build-number is used as the build suffix.
 # Bump the +N build number on EVERY client delivery — some Android builds
 # refuse a same-versionCode sideload update (AQUOS SH-M15, 2026-08-12).
-version: 1.0.18+19
+version: 1.0.19+20
 
 environment:
   sdk: ^3.12.0
@@ -121,6 +121,12 @@ flutter:
   fonts:
     - family: KaitanSans
       fonts:
+        # 細字. Built on 09-10 and shipped in the APK, but never listed here,
+        # so it was absent from the FontManifest and FontWeight.w300 could not
+        # select it — the note fell back to Regular and only looked lighter on
+        # the rows whose base happened to be w700.
+        - asset: assets/fonts/KaitanSans-Light.ttf
+          weight: 300
         - asset: assets/fonts/KaitanSans-Regular.ttf
           weight: 400
         - asset: assets/fonts/KaitanSans-Bold.ttf
