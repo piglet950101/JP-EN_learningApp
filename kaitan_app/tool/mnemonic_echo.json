@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "source": "client 2026-08-24 ③ — the part of a ゴロ that echoes the English",
+  "source": "client 2026-08-24 ③ — the part of a ゴロ that echoes the English + 9.11 追記 (1370)",
   "note": "Absent entries render entirely gothic, i.e. unchanged.",
   "entries": [
     {
@@ -309,15 +309,17 @@
       "word_id": 1370,
       "answer": "aggravate",
       "echo": [
-        "あぐら、べーっ"
-      ]
+        "あぐら、べーっと"
+      ],
+      "why": "「と　も太字ゴチに」(2026-09-11) — aggravate の -te まで含めて太字ゴチ"
     },
     {
       "word_id": 1370,
       "answer": "exacerbate",
       "echo": [
-        "やくざするべ"
-      ]
+        "やくざするべと"
+      ],
+      "why": "「と　も太字ゴチに」(2026-09-11) — exacerbate の -te まで含めて太字ゴチ"
     },
     {
       "word_id": 1383,
