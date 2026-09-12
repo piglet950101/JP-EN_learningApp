@@ -126,9 +126,15 @@ class StartScreen extends ConsumerWidget {
                     // ── Stage choices ──────────────────────────────────
                     Column(
                       children: [
+                        // Second Stage and ビデオ解説 already switch their
+                        // subtitle on the licence; First Stage was the one card
+                        // still claiming the full 2,201 words to a trial user
+                        // (菊地様 2026-09-12).
                         _StageCard(
                           label: 'First Stage',
-                          subtitle: '2,201語の見出し語を絶対記憶に',
+                          subtitle: isUnlocked
+                              ? '2,201語の見出し語を絶対記憶に'
+                              : '体験版：ブロック1〜2のみ学習可能',
                           enabled: true,
                           onTap: () => context.push('/range'),
                         ),
@@ -202,6 +208,14 @@ class StartScreen extends ConsumerWidget {
                           locked: false,
                           onTap: () => context.push('/videos'),
                         ),
+                        // Where a buyer redeems their code. Until now this
+                        // screen was reachable from exactly one place in the
+                        // whole app — tapping a LOCKED video card — which is
+                        // not somewhere anyone would think to look after
+                        // paying: 「購入後のアンロックコードの記入画面はどこに
+                        // あるか分かりません」(菊地様 2026-09-12). Shown only
+                        // while locked; once unlocked there is nothing to enter.
+                        if (!isUnlocked) const _UnlockLink(),
                       ],
                     ),
                     // ── Bottom note ────────────────────────────────────
@@ -230,6 +244,55 @@ class StartScreen extends ConsumerWidget {
       laps <= 5 ? 0 : (laps >= 10 ? 5 : laps - 5);
   static int _silvers(int laps) =>
       laps <= 0 ? 0 : (laps >= 10 ? 0 : (laps <= 5 ? laps : 10 - laps));
+}
+
+/// Entry point to the unlock-code screen, sitting under the stage cards.
+/// Deliberately quieter than a _StageCard — it is a one-time action, not a
+/// place the user returns to.
+class _UnlockLink extends StatelessWidget {
+  const _UnlockLink();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 24),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(20),
+          onTap: () => context.push('/unlock'),
+          child: Ink(
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: 0.85),
+              borderRadius: BorderRadius.circular(20),
+              border:
+                  Border.all(color: const Color(0xFF2b6cb0), width: 1.5),
+            ),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 18, vertical: 11),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.vpn_key_rounded,
+                      size: 18, color: Color(0xFF2b6cb0)),
+                  SizedBox(width: 8),
+                  Text(
+                    'アンロックコードをお持ちの方',
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF2b6cb0),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class _StageCard extends StatelessWidget {
