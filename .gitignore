@@ -1,4 +1,4 @@
-# Workspace-root .gitignore: everything is ignored EXCEPT the code and docs.
+# Workspace-root .gitignore: everything is ignored EXCEPT the app source.
 # The nested kaitan_app/.gitignore still governs the Flutter project's own
 # per-file ignores; this file only controls what is visible at the root.
 
@@ -9,4 +9,7 @@
 !/.gitignore
 !/README.md
 !/kaitan_app/
-!/docs/
+# docs/ is deliberately NOT re-included. It holds internal specifications,
+# the implementation plan and 見積書_快単_Phase2.docx — pricing and payment
+# terms. None of it is needed to build or ship the app, and this repository
+# is public.
