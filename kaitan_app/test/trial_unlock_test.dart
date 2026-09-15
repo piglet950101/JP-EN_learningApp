@@ -5,8 +5,11 @@
 //   code (10 B)   = payload || HMAC-SHA256(key, payload)[:5]
 //   string        = base32(code).strip('=')   → 16 chars, dashed as XXXX-…
 //
-// We can't call the Python generator from a Dart test, so we hand-generate
-// codes using the exposed secret key XOR fragments (matches Dart layout).
+// The key is read from UnlockSecrets at run time rather than pasted in. It
+// used to be pasted in — the v1 XOR fragments were copied into this file, a
+// third published copy alongside _secret.dart and generate_codes.py, in a
+// public repository. Deriving it instead means this file carries no secret
+// and keeps working across a key rotation.
 
 import 'dart:convert';
 import 'dart:typed_data';
@@ -14,33 +17,9 @@ import 'dart:typed_data';
 import 'package:crypto/crypto.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+// ignore: implementation_imports — the test needs the key the app compiles in.
+import 'package:kaitan/data/trial/_secret.dart';
 import 'package:kaitan/data/trial/unlock_verifier.dart';
-
-const String _fragA =
-    '5c81a70bc94f2d0387b5610cbe9e8d5a3fa8c40b7d1e6a9002f38b57ec4d1a29';
-const String _fragB =
-    'a34f92c611080d7b9c40db26feb17109b7423e6c5f1a290187db4e1075acbf12';
-const String _fragC =
-    '9b204ec7ee9b3e784fa5b6d21c4f5f18e29b3705a6217a37c68b4bde01e0d16b';
-
-Uint8List _hex(String s) {
-  final out = Uint8List(s.length ~/ 2);
-  for (var i = 0; i < out.length; i++) {
-    out[i] = int.parse(s.substring(i * 2, i * 2 + 2), radix: 16);
-  }
-  return out;
-}
-
-Uint8List _secretV1() {
-  final a = _hex(_fragA);
-  final b = _hex(_fragB);
-  final c = _hex(_fragC);
-  final out = Uint8List(a.length);
-  for (var i = 0; i < a.length; i++) {
-    out[i] = a[i] ^ b[i] ^ c[i];
-  }
-  return out;
-}
 
 /// Base32 alphabet (RFC 4648).
 const String _alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
@@ -70,14 +49,15 @@ String _formatCode(String s) {
   return chunks.join('-');
 }
 
-String makeCode(int purchaseId, {int keyVersion = 1}) {
+String makeCode(int purchaseId, {int? keyVersion}) {
+  final version = keyVersion ?? UnlockSecrets.currentVersion;
   final payload = Uint8List(5)
     ..[0] = (purchaseId >> 24) & 0xff
     ..[1] = (purchaseId >> 16) & 0xff
     ..[2] = (purchaseId >> 8) & 0xff
     ..[3] = purchaseId & 0xff
-    ..[4] = keyVersion & 0xff;
-  final key = _secretV1();
+    ..[4] = version & 0xff;
+  final key = UnlockSecrets.keyForVersion(version);
   final mac = Hmac(sha256, key).convert(payload).bytes.sublist(0, 5);
   final all = Uint8List.fromList([...payload, ...mac]);
   return _formatCode(_base32NoPad(all));
@@ -91,7 +71,7 @@ void main() {
     final d = verifier.verify(code);
     expect(d.ok, isTrue, reason: 'code=$code, reason=${d.reason}');
     expect(d.purchaseId, 1);
-    expect(d.keyVersion, 1);
+    expect(d.keyVersion, UnlockSecrets.currentVersion);
   });
 
   test('sample purchase ids all round-trip', () {
@@ -123,7 +103,9 @@ void main() {
   });
 
   test('rejects unknown key version', () {
-    // Build a valid-length code with key_version=99 (deliberately fake).
+    // A version the build does not carry. This is the mechanism that makes a
+    // rotation bite: every code minted under v1 now lands here, because the
+    // v1 key was public and had to be retired (2026-09-15).
     final payload = Uint8List(5)
       ..[0] = 0
       ..[1] = 0

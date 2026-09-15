@@ -14,10 +14,11 @@ Code layout (must match lib/data/trial/unlock_verifier.dart):
     mac     = HMAC-SHA256(SECRET, payload)[:5]
     code    = base32(payload || mac).strip('=') formatted XXXX-XXXX-XXXX-XXXX
 
-The 32-byte secret must be the byte-for-byte match of what the app derives
-from `lib/data/trial/_secret.dart`. Store the secret at
-`~/.kaitan/codegen.key` in raw hex; if missing, this script prints the
-XOR combination that reproduces the current v1 app key and exits.
+The 32-byte secret must be the byte-for-byte match of what the app compiles
+in. It lives at `~/.kaitan/codegen.key` in raw hex and is deliberately NOT in
+this repository: the v1 key used to be hardcoded here as FRAG_A/B/C, the
+repository is public, and anyone could read it and mint unlimited codes. Run
+`python tool/make_secret.py` to produce the matching `_secret.dart`.
 """
 
 from __future__ import annotations
@@ -36,25 +37,23 @@ from pathlib import Path
 STATE = Path(__file__).with_name("codes_state.json")
 KEY_PATH = Path(os.path.expanduser("~/.kaitan/codegen.key"))
 
-# The current v1 secret in the app is derived from the XOR of these three
-# fragments. We reproduce it here so `--print-secret` (below) is authoritative.
-FRAG_A = "5c81a70bc94f2d0387b5610cbe9e8d5a3fa8c40b7d1e6a9002f38b57ec4d1a29"
-FRAG_B = "a34f92c611080d7b9c40db26feb17109b7423e6c5f1a290187db4e1075acbf12"
-FRAG_C = "9b204ec7ee9b3e784fa5b6d21c4f5f18e29b3705a6217a37c68b4bde01e0d16b"
-
-
-def _derive_v1() -> bytes:
-    a = bytes.fromhex(FRAG_A)
-    b = bytes.fromhex(FRAG_B)
-    c = bytes.fromhex(FRAG_C)
-    return bytes(x ^ y ^ z for x, y, z in zip(a, b, c))
-
-
 def _load_secret() -> bytes:
-    """Prefer ~/.kaitan/codegen.key (raw hex). Fall back to derived v1 key."""
-    if KEY_PATH.exists():
-        return bytes.fromhex(KEY_PATH.read_text().strip())
-    return _derive_v1()
+    """Read ~/.kaitan/codegen.key (raw hex). No fallback, by design.
+
+    There used to be a fallback to a key hardcoded in this file. That is what
+    published the v1 key. A missing key file must now be a hard error, not a
+    quiet substitution — signing codes with the wrong key produces codes that
+    look fine and never work.
+    """
+    if not KEY_PATH.exists():
+        raise SystemExit(
+            f"no signing key at {KEY_PATH}. "
+            "Run `python tool/make_secret.py --init` (first time) or copy the "
+            "key file from whoever holds it.")
+    key = bytes.fromhex(KEY_PATH.read_text(encoding="utf-8").strip())
+    if len(key) != 32:
+        raise SystemExit(f"key must be 32 bytes, got {len(key)}")
+    return key
 
 
 def _base32(bs: bytes) -> str:
@@ -87,8 +86,8 @@ def main() -> None:
     p = argparse.ArgumentParser(description="Generate Kaitan unlock codes.")
     p.add_argument("--count", type=int, default=10,
                    help="How many codes to generate this run.")
-    p.add_argument("--key-version", type=int, default=1,
-                   help="Which app key version to sign with (default 1).")
+    p.add_argument("--key-version", type=int, default=2,
+                   help="Which app key version to sign with (default 2). v1 was rotated out on 2026-09-15 and no longer verifies.")
     p.add_argument("--out", type=Path, default=None,
                    help="CSV output path (default: codes_<UTC>.csv).")
     p.add_argument("--print-secret", action="store_true",
