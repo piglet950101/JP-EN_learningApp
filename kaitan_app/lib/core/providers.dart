@@ -3,6 +3,8 @@
 
 import 'dart:convert';
 
+import 'dart:io' show Platform;
+
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -11,6 +13,7 @@ import '../data/progress/progress_db.dart';
 import '../data/progress/progress_repository.dart';
 import '../data/second_stage.dart';
 import '../data/trial/unlock_verifier.dart';
+import '../data/trial/purchase_service.dart';
 import '../data/video.dart';
 import '../features/range_select/range_screen.dart';
 import '../features/session/presentation/session_screen.dart';
@@ -121,6 +124,22 @@ final unlockedProvider = FutureProvider<bool>((ref) async {
 
 final unlockVerifierProvider =
     Provider<UnlockVerifier>((ref) => const UnlockVerifier());
+
+/// Whether to offer the in-app purchase alongside the code field.
+///
+/// iOS only. Apple 3.1.4 lets a physical product unlock app features ONLY if
+/// an in-app purchase option exists too; Google Play explicitly permits a
+/// consumption-only app, so Android keeps the code-only flow the client
+/// already has and was told would not change.
+///
+/// A provider rather than a bare Platform check so tests can drive both.
+final showIapProvider = Provider<bool>((ref) => Platform.isIOS);
+
+final purchaseServiceProvider = Provider<PurchaseService>((ref) {
+  final s = PurchaseService();
+  ref.onDispose(s.dispose);
+  return s;
+});
 
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
