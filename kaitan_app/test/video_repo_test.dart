@@ -4,12 +4,34 @@
 // URL must be a real player.vimeo.com URL, otherwise the WebView will
 // show a broken video.
 
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:kaitan/data/video.dart';
 
 void main() {
   late VideoRepository repo;
+
+  /// assets/content/videos.json is gitignored and supplied out of band: for an
+  /// unlisted Vimeo video the share hash IS the access control, so it must not
+  /// sit in the repository. Without it loadFromAsset() returns an empty repo
+  /// and the count assertions below fail.
+  ///
+  /// That failure has to stay distinguishable from a real one. A green suite is
+  /// what proves the right signing key is compiled in, and someone who reads a
+  /// red run as "my key is wrong" is one step from `make_secret.py --init`,
+  /// which mints a new key and silently invalidates every code printed on the
+  /// physical cards. So when the asset is simply absent these tests skip and
+  /// say why, rather than going red.
+  ///
+  /// Checked on disk rather than through the loaded repo because `skip:` is
+  /// evaluated when tests are collected, before any setUpAll has run.
+  final bundled = File('assets/content/videos.json').existsSync();
+  final skipReason = bundled
+      ? null
+      : 'assets/content/videos.json is not present -- it is supplied out of '
+          'band. This is NOT a signing-key problem.';
 
   setUpAll(() async {
     TestWidgetsFlutterBinding.ensureInitialized();
@@ -21,12 +43,12 @@ void main() {
     for (var b = 1; b <= 46; b++) {
       expect(repo.byBlock(b), isNotNull, reason: 'block $b missing');
     }
-  });
+  }, skip: skipReason);
 
   test('block 47 (医系) has no video', () {
     expect(repo.byBlock(47), isNull);
     expect(repo.hasVideoForBlock(47), isFalse);
-  });
+  }, skip: skipReason);
 
   test('every entry has non-empty vimeo_id, hash, and embed URL', () {
     for (final v in repo.all) {
@@ -36,14 +58,14 @@ void main() {
           startsWith('https://player.vimeo.com/video/${v.vimeoId}?h=${v.vimeoHash}'),
           reason: 'block ${v.block} embed URL malformed');
     }
-  });
+  }, skip: skipReason);
 
   test('vol assignments: blocks 1-23 → vol.1, 24-46 → vol.2', () {
     for (final v in repo.all) {
       final expectedVol = v.block <= 23 ? 1 : 2;
       expect(v.vol, expectedVol, reason: 'block ${v.block} vol mismatch');
     }
-  });
+  }, skip: skipReason);
 
 
   // ── Footage shape (client's vertical videos, due 2026-08-29) ────────
@@ -98,7 +120,7 @@ void main() {
     for (final v in repo.all) {
       expect(v.aspect, greaterThan(0), reason: 'block ${v.block}');
     }
-  });
+  }, skip: skipReason);
 
   test('all 46 blocks are vertical footage (delivered 2026-08-27)', () {
     // 湯原様 re-shot every block 9:16 and swapped them in place, so the
@@ -111,5 +133,5 @@ void main() {
       expect(v.aspect, closeTo(9 / 16, 1e-9), reason: 'block ${v.block}');
     }
     expect(repo.all.length, 46);
-  });
+  }, skip: skipReason);
 }
