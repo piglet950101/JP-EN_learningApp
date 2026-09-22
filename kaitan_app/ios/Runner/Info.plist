@@ -66,5 +66,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<!-- The app's only cryptography is HMAC-SHA256, used to verify an unlock
+	     code offline (lib/data/trial/unlock_verifier.dart). That is
+	     authentication: it proves a code was issued by us, it conceals
+	     nothing. Apple's exemption covers encryption limited to
+	     authentication, and HMAC-SHA256 is a published standard, not a
+	     proprietary algorithm.
+
+	     Declaring it here rather than leaving it unset matters: without this
+	     key every upload stops at "Missing Compliance" until someone clicks
+	     through the questionnaire by hand, which is both a delay on every
+	     build and a place to answer wrongly. -->
 </dict>
 </plist>
