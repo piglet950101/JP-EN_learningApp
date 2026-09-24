@@ -219,15 +219,33 @@ class StartScreen extends ConsumerWidget {
                       ],
                     ),
                     // ── Bottom note ────────────────────────────────────
-                    const Padding(
-                      padding: EdgeInsets.only(top: 16, bottom: 8),
-                      child: Text(
-                        '快単パーフェクト © 一般社団法人KAI',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 11,
-                          color: Color(0xFF718096),
-                        ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 16, bottom: 8),
+                      child: Column(
+                        children: [
+                          const Text(
+                            '快単パーフェクト © 一般社団法人KAI',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: Color(0xFF718096),
+                            ),
+                          ),
+                          // Guideline 5.1.1(i): the privacy policy must be
+                          // reachable from inside the app, and this is the
+                          // one screen every user sees.
+                          TextButton(
+                            onPressed: () => context.push('/privacy'),
+                            child: const Text(
+                              'プライバシーポリシー',
+                              style: TextStyle(
+                                fontSize: 11,
+                                color: Color(0xFF718096),
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],

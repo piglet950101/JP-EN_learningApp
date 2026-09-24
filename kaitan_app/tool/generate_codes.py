@@ -35,6 +35,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 STATE = Path(__file__).with_name("codes_state.json")
+
+# First purchase_id of the standalone series (codes sold without the set).
+# Must equal kStandaloneSeriesFirstId in lib/data/trial/code_series.dart;
+# test/store_release_test.dart checks the two agree.
+STANDALONE_FIRST_ID = 1_000_000
 KEY_PATH = Path(os.path.expanduser("~/.kaitan/codegen.key"))
 
 def _load_secret() -> bytes:
@@ -90,6 +95,13 @@ def main() -> None:
                    help="Which app key version to sign with (default 2). v1 was rotated out on 2026-09-15 and no longer verifies.")
     p.add_argument("--out", type=Path, default=None,
                    help="CSV output path (default: codes_<UTC>.csv).")
+    p.add_argument("--standalone", action="store_true",
+                   help="Issue from the standalone series: codes sold on their "
+                        "own, WITHOUT the physical set. The iOS build rejects "
+                        "these (App Review 3.1.1 bans a license-key unlock; "
+                        "3.1.4 covers only codes that come with the set). "
+                        "Numbered from STANDALONE_FIRST_ID, which must match "
+                        "kStandaloneSeriesFirstId in lib/data/trial/code_series.dart.")
     p.add_argument("--print-secret", action="store_true",
                    help="Print the derived v1 hex key + exit "
                         "(no codes are generated).")
@@ -108,17 +120,27 @@ def main() -> None:
     with out_path.open("w", newline="", encoding="utf-8") as fp:
         w = csv.writer(fp)
         w.writerow(["code", "purchase_id", "generated_at_utc", "key_version"])
+        counter = "next_standalone_id" if args.standalone else "next_id"
+        state.setdefault("next_standalone_id", STANDALONE_FIRST_ID)
+        first = state[counter]
         for _ in range(args.count):
-            pid = state["next_id"]
+            pid = state[counter]
+            if not args.standalone and pid >= STANDALONE_FIRST_ID:
+                sys.exit("set series has run into the standalone range; "
+                         "stop and renumber before issuing more")
             code = generate_one(pid, args.key_version, secret)
             w.writerow([code, pid, now, args.key_version])
-            state["history"].append({"pid": pid, "at": now, "kv": args.key_version})
-            state["next_id"] += 1
+            entry = {"pid": pid, "at": now, "kv": args.key_version}
+            if args.standalone:
+                entry["series"] = "standalone"
+            state["history"].append(entry)
+            state[counter] += 1
 
     save_state(state)
+    series = "standalone (NOT accepted on iOS)" if args.standalone else "set"
     print(f"wrote {args.count} codes → {out_path.name}")
-    print(f"purchase_id range this batch: "
-          f"{state['next_id'] - args.count}..{state['next_id'] - 1}")
+    print(f"series: {series}")
+    print(f"purchase_id range this batch: {first}..{state[counter] - 1}")
 
 
 if __name__ == "__main__":

@@ -16,6 +16,7 @@ import 'package:go_router/go_router.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
 import '../../../core/providers.dart';
+import '../../../data/trial/code_series.dart';
 import '../../../data/trial/purchase_service.dart';
 
 class UnlockScreen extends ConsumerStatefulWidget {
@@ -138,10 +139,12 @@ class _UnlockScreenState extends ConsumerState<UnlockScreen> {
     });
     final decision =
         ref.read(unlockVerifierProvider).verify(_controller.text);
-    if (!decision.ok) {
+    final rejection = unlockRejection(decision,
+        standaloneAccepted: ref.read(standaloneCodesAcceptedProvider));
+    if (rejection != null) {
       setState(() {
         _busy = false;
-        _errorMsg = 'コードを確認してください。';
+        _errorMsg = rejection;
       });
       return;
     }
@@ -183,9 +186,13 @@ class _UnlockScreenState extends ConsumerState<UnlockScreen> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const SizedBox(height: 16),
-        const Text(
-          'ご購入時にお渡ししたアンロックコードを入力してください。',
-          style: TextStyle(fontSize: 14, color: Colors.black87),
+        Text(
+          // A build that takes only set codes says so: the physical set is
+          // what its code field rests on (Guideline 3.1.4).
+          ref.watch(standaloneCodesAcceptedProvider)
+              ? 'ご購入時にお渡ししたアンロックコードを入力してください。'
+              : '教材セットに付属のアンロックコードを入力してください。',
+          style: const TextStyle(fontSize: 14, color: Colors.black87),
         ),
         const SizedBox(height: 24),
         TextField(

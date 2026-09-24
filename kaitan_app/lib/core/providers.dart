@@ -14,6 +14,7 @@ import '../data/progress/progress_repository.dart';
 import '../data/second_stage.dart';
 import '../data/trial/unlock_verifier.dart';
 import '../data/trial/purchase_service.dart';
+import '../features/legal/privacy_policy_screen.dart';
 import '../data/video.dart';
 import '../features/range_select/range_screen.dart';
 import '../features/session/presentation/session_screen.dart';
@@ -135,6 +136,18 @@ final unlockVerifierProvider =
 /// A provider rather than a bare Platform check so tests can drive both.
 final showIapProvider = Provider<bool>((ref) => Platform.isIOS);
 
+/// Whether this build accepts codes sold on their own, without the
+/// physical study set (the standalone series in code_series.dart).
+///
+/// False on iOS. There a code field is allowed only under Guideline
+/// 3.1.4, for codes that come with a physical product; a code sold alone
+/// is the license-key unlock that 3.1.1 bans. Google Play permits a
+/// consumption-only app, so Android accepts both series.
+///
+/// A provider rather than a bare Platform check so tests can drive both.
+final standaloneCodesAcceptedProvider =
+    Provider<bool>((ref) => !Platform.isIOS);
+
 final purchaseServiceProvider = Provider<PurchaseService>((ref) {
   final s = PurchaseService();
   ref.onDispose(s.dispose);
@@ -152,6 +165,8 @@ final routerProvider = Provider<GoRouter>((ref) {
       }),
       GoRoute(path: '/session', builder: (c, s) => const SessionScreen()),
       GoRoute(path: '/unlock', builder: (c, s) => const UnlockScreen()),
+      GoRoute(
+          path: '/privacy', builder: (c, s) => const PrivacyPolicyScreen()),
       GoRoute(path: '/videos', builder: (c, s) => const VideoListScreen()),
       GoRoute(path: '/videos/:block', builder: (c, s) {
         final block = int.parse(s.pathParameters['block']!);
