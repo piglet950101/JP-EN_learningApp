@@ -34,6 +34,7 @@ class _UnlockScreenState extends ConsumerState<UnlockScreen> {
 
   // In-app purchase (iOS only — see showIapProvider).
   ProductDetails? _product;
+  bool _productChecked = false;
   StreamSubscription<PurchaseUpdate>? _purchaseSub;
 
   @override
@@ -48,16 +49,19 @@ class _UnlockScreenState extends ConsumerState<UnlockScreen> {
     svc.start();
     _purchaseSub = svc.updates.listen(_onPurchaseUpdate);
     final p = await svc.loadProduct();
-    if (mounted) setState(() => _product = p);
+    if (mounted) {
+      setState(() {
+        _product = p;
+        _productChecked = true;
+      });
+    }
   }
 
   Future<void> _onPurchaseUpdate(PurchaseUpdate u) async {
     switch (u.outcome) {
       case PurchaseOutcome.unlocked:
-        await ref
-            .read(progressRepoProvider)
-            .recordUnlock(codeHash: u.receiptHash ?? 'iap');
-        ref.invalidate(unlockedProvider);
+        // Already saved by the purchase service, before the transaction was
+        // finished. This screen only shows the result.
         if (!mounted) return;
         setState(() {
           _busy = false;
@@ -167,7 +171,7 @@ class _UnlockScreenState extends ConsumerState<UnlockScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('アンロックコード入力'),
+        title: Text(ref.watch(showIapProvider) ? '全機能の解放' : 'アンロックコード入力'),
         backgroundColor: Colors.white,
         foregroundColor: const Color(0xFF2b6cb0),
         elevation: 0,
@@ -241,7 +245,7 @@ class _UnlockScreenState extends ConsumerState<UnlockScreen> {
                         TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
           ),
         ),
-        if (ref.watch(showIapProvider) && _product != null) ...[
+        if (ref.watch(showIapProvider)) ...[
           const SizedBox(height: 28),
           Row(children: const [
             Expanded(child: Divider()),
@@ -253,30 +257,38 @@ class _UnlockScreenState extends ConsumerState<UnlockScreen> {
             Expanded(child: Divider()),
           ]),
           const SizedBox(height: 16),
-          // Apple 3.1.4: the code above is only permitted because this exists.
-          // The price comes from StoreKit, already localised and
-          // tax-inclusive — never hardcode it.
-          SizedBox(
-            height: 52,
-            child: OutlinedButton(
-              onPressed: _busy ? null : _buy,
-              style: OutlinedButton.styleFrom(
-                side: const BorderSide(color: Color(0xFF2b6cb0), width: 1.5),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12)),
+          // Guideline 3.1.4: the code above is permitted only because this
+          // purchase exists. The price comes from StoreKit, already
+          // localised and tax-inclusive; never hardcode it.
+          if (_product != null)
+            SizedBox(
+              height: 52,
+              child: OutlinedButton(
+                onPressed: _busy ? null : _buy,
+                style: OutlinedButton.styleFrom(
+                  side: const BorderSide(color: Color(0xFF2b6cb0), width: 1.5),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
+                ),
+                child: Text(
+                  'アプリ内で購入して全機能を解放　${_product!.price}',
+                  style: const TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF2b6cb0)),
+                ),
               ),
-              child: Text(
-                'アプリ内で購入して全機能を解放　${_product!.price}',
-                style: const TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xFF2b6cb0)),
-              ),
+            )
+          else if (_productChecked)
+            const Text(
+              'ただいま購入の準備ができません。通信状況をご確認のうえ、'
+              'しばらくしてから再度お試しください。',
+              style: TextStyle(fontSize: 12, color: Colors.black54),
+              textAlign: TextAlign.center,
             ),
-          ),
           const SizedBox(height: 4),
-          // Required by Apple for non-consumables; an app without a restore
-          // control is rejected even when buying works.
+          // Required for non-consumables, and shown even when the product
+          // could not be loaded: restoring does not depend on it.
           TextButton(
             onPressed: _busy ? null : _restore,
             child: const Text('以前に購入された方はこちら（購入の復元）',
@@ -284,9 +296,11 @@ class _UnlockScreenState extends ConsumerState<UnlockScreen> {
           ),
         ],
         const Spacer(),
-        const Text(
-          '（コードをお持ちでない場合は、体験版として各ステージのブロック1〜2をご利用いただけます。）',
-          style: TextStyle(fontSize: 11, color: Colors.black45),
+        Text(
+          ref.watch(showIapProvider)
+              ? '（購入やコード入力をしなくても、体験版として各ステージのブロック1〜2をご利用いただけます。）'
+              : '（コードをお持ちでない場合は、体験版として各ステージのブロック1〜2をご利用いただけます。）',
+          style: const TextStyle(fontSize: 11, color: Colors.black45),
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 16),

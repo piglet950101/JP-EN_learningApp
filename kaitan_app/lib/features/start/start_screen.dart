@@ -267,11 +267,15 @@ class StartScreen extends ConsumerWidget {
 /// Entry point to the unlock-code screen, sitting under the stage cards.
 /// Deliberately quieter than a _StageCard — it is a one-time action, not a
 /// place the user returns to.
-class _UnlockLink extends StatelessWidget {
+class _UnlockLink extends ConsumerWidget {
   const _UnlockLink();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // On iOS the same screen also sells the unlock in-app, and the label
+    // says so: a reviewer who only ever sees "enter a code" cannot find the
+    // purchase that Guideline 3.1.4 depends on.
+    final iap = ref.watch(showIapProvider);
     return Padding(
       padding: const EdgeInsets.only(top: 24),
       child: Material(
@@ -286,18 +290,19 @@ class _UnlockLink extends StatelessWidget {
               border:
                   Border.all(color: const Color(0xFF2b6cb0), width: 1.5),
             ),
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 18, vertical: 11),
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 18, vertical: 11),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.vpn_key_rounded,
-                      size: 18, color: Color(0xFF2b6cb0)),
-                  SizedBox(width: 8),
+                  Icon(iap ? Icons.lock_open_rounded : Icons.vpn_key_rounded,
+                      size: 18, color: const Color(0xFF2b6cb0)),
+                  const SizedBox(width: 8),
                   Text(
-                    'アンロックコードをお持ちの方',
-                    style: TextStyle(
+                    iap ? '全機能を解放する（購入・コード入力）' : 'アンロックコードをお持ちの方',
+                    style: const TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w700,
                       color: Color(0xFF2b6cb0),

@@ -131,9 +131,14 @@ LazyDatabase _openDefault() {
   return LazyDatabase(() async {
     final dir = await getApplicationDocumentsDirectory();
     final file = File(p.join(dir.path, 'progress.db'));
-    final db = NativeDatabase.createInBackground(file);
-    // After createInBackground so the file exists to carry the flag.
+    // Create the file before flagging it. createInBackground only starts
+    // the worker isolate; SQLite creates the file later, on first use, after
+    // this opener has returned. Flagging a file that does not exist yet does
+    // nothing, which left a fresh install backed up until its next cold
+    // start: exactly the window in which a buyer enters a code. A zero-byte
+    // file is a valid empty SQLite database.
+    if (!await file.exists()) await file.create(recursive: true);
     await _excludeFromBackup(file);
-    return db;
+    return NativeDatabase.createInBackground(file);
   });
 }

@@ -3,7 +3,8 @@
 
 import 'dart:convert';
 
-import 'dart:io' show Platform;
+import 'package:flutter/foundation.dart'
+    show TargetPlatform, defaultTargetPlatform;
 
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -134,7 +135,8 @@ final unlockVerifierProvider =
 /// already has and was told would not change.
 ///
 /// A provider rather than a bare Platform check so tests can drive both.
-final showIapProvider = Provider<bool>((ref) => Platform.isIOS);
+final showIapProvider =
+    Provider<bool>((ref) => defaultTargetPlatform == TargetPlatform.iOS);
 
 /// Whether this build accepts codes sold on their own, without the
 /// physical study set (the standalone series in code_series.dart).
@@ -146,10 +148,13 @@ final showIapProvider = Provider<bool>((ref) => Platform.isIOS);
 ///
 /// A provider rather than a bare Platform check so tests can drive both.
 final standaloneCodesAcceptedProvider =
-    Provider<bool>((ref) => !Platform.isIOS);
+    Provider<bool>((ref) => defaultTargetPlatform != TargetPlatform.iOS);
 
 final purchaseServiceProvider = Provider<PurchaseService>((ref) {
-  final s = PurchaseService();
+  final s = PurchaseService(onUnlocked: (marker) async {
+    await ref.read(progressRepoProvider).recordUnlock(codeHash: marker);
+    ref.invalidate(unlockedProvider);
+  });
   ref.onDispose(s.dispose);
   return s;
 });

@@ -10,11 +10,25 @@ void main() {
   runApp(const ProviderScope(child: KaitanApp()));
 }
 
-class KaitanApp extends ConsumerWidget {
+class KaitanApp extends ConsumerStatefulWidget {
   const KaitanApp({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<KaitanApp> createState() => _KaitanAppState();
+}
+
+class _KaitanAppState extends ConsumerState<KaitanApp> {
+  @override
+  void initState() {
+    super.initState();
+    // Listen for App Store transactions from launch, as StoreKit expects: a
+    // purchase can complete while no purchase screen is open, and the
+    // service saves the unlock itself.
+    if (ref.read(showIapProvider)) ref.read(purchaseServiceProvider).start();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return MaterialApp.router(
       title: '快単パーフェクト',
       theme: ThemeData(

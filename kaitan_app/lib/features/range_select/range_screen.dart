@@ -218,21 +218,23 @@ class _RangeScreenState extends ConsumerState<RangeScreen> {
 
 // ─── Sub-widgets ──────────────────────────────────────────────────────
 
-class _TrialRangeBanner extends StatelessWidget {
+class _TrialRangeBanner extends ConsumerWidget {
   const _TrialRangeBanner();
   @override
-  Widget build(BuildContext context) => Container(
+  Widget build(BuildContext context, WidgetRef ref) => Container(
         color: const Color(0xFFE6F4FF),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         child: Row(
-          children: const [
-            Icon(Icons.info_outline_rounded,
+          children: [
+            const Icon(Icons.info_outline_rounded,
                 color: Color(0xFF2b6cb0), size: 20),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Expanded(
               child: Text(
-                kTrialBannerLearn,
-                style: TextStyle(fontSize: 13, color: Color(0xFF1A365D)),
+                ref.watch(showIapProvider)
+                    ? kTrialBannerLearnIap
+                    : kTrialBannerLearn,
+                style: const TextStyle(fontSize: 13, color: Color(0xFF1A365D)),
               ),
             ),
           ],

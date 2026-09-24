@@ -102,32 +102,28 @@ def main() -> None:
                         "3.1.4 covers only codes that come with the set). "
                         "Numbered from STANDALONE_FIRST_ID, which must match "
                         "kStandaloneSeriesFirstId in lib/data/trial/code_series.dart.")
-    p.add_argument("--print-secret", action="store_true",
-                   help="Print the derived v1 hex key + exit "
-                        "(no codes are generated).")
     args = p.parse_args()
-
-    if args.print_secret:
-        print(_derive_v1().hex())
-        return
 
     secret = _load_secret()
     state = load_state()
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+    counter = "next_standalone_id" if args.standalone else "next_id"
+    state.setdefault("next_standalone_id", STANDALONE_FIRST_ID)
+    first = state[counter]
+    # Checked before anything is written: a CSV of valid codes that the state
+    # file never recorded would be issued twice by the next run.
+    if not args.standalone and first + args.count - 1 >= STANDALONE_FIRST_ID:
+        sys.exit("this batch would run the set series into the standalone "
+                 "range; stop and renumber before issuing more")
 
     out_path = args.out or Path(f"codes_{now.replace(':', '-')}.csv")
 
     with out_path.open("w", newline="", encoding="utf-8") as fp:
         w = csv.writer(fp)
         w.writerow(["code", "purchase_id", "generated_at_utc", "key_version"])
-        counter = "next_standalone_id" if args.standalone else "next_id"
-        state.setdefault("next_standalone_id", STANDALONE_FIRST_ID)
-        first = state[counter]
         for _ in range(args.count):
             pid = state[counter]
-            if not args.standalone and pid >= STANDALONE_FIRST_ID:
-                sys.exit("set series has run into the standalone range; "
-                         "stop and renumber before issuing more")
             code = generate_one(pid, args.key_version, secret)
             w.writerow([code, pid, now, args.key_version])
             entry = {"pid": pid, "at": now, "kv": args.key_version}

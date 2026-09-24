@@ -93,7 +93,6 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
     final c = WebViewController.fromPlatformCreationParams(params)
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(const Color(0xFF000000))
-      ..setUserAgent(_mobileUa)
       ..setNavigationDelegate(NavigationDelegate(
         onWebResourceError: (err) {
           // Ignore sub-resource errors — only mark the whole load as failed
@@ -111,6 +110,9 @@ class _VideoDetailScreenState extends ConsumerState<VideoDetailScreen> {
     if (c.platform is AndroidWebViewController) {
       (c.platform as AndroidWebViewController)
           .setMediaPlaybackRequiresUserGesture(false);
+      // The Chrome user agent works around the Android WebView only. On iOS
+      // it would tell Vimeo that WebKit is Android Chrome.
+      c.setUserAgent(_mobileUa);
     }
     c.loadRequest(
       Uri.parse(_fullEmbedUrl(embedUrl)),

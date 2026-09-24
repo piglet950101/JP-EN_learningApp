@@ -1,31 +1,38 @@
 // Store-release guards: the things App Review and Play review check that no
 // other test in the project would notice breaking.
 //
-//   * Guideline 5.1.1(i): the privacy policy is reachable inside the app.
-//   * Guideline 3.1.1 / 3.1.4: an iOS build accepts only codes that come with
-//     the physical set; codes sold on their own are refused there.
+//   * Guideline 5.1.1(i): the privacy policy is reachable inside the app, and
+//     states retention and deletion.
+//   * Guidelines 3.1.1 / 3.1.4: an iOS build accepts only codes that come with
+//     the physical set, and tells a user without a code that the full app can
+//     be bought in-app.
 //   * Guideline 2.3.10: nothing an iOS user can read names another platform.
 //   * Anti-steering (both stores): nothing in the app leads to a purchase
 //     outside it.
-//   * iPhone only for this release: no iPad screenshots were prepared, and
-//     the layout has never been checked on an iPad.
+//   * Upload validation: the iOS privacy manifest exists and is in the bundle.
+//   * The policy's promise that data stays on the device holds on Android 12+.
+//   * iPhone only for this release.
 
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:kaitan/core/providers.dart';
+import 'package:kaitan/core/trial_policy.dart';
 import 'package:kaitan/data/progress/progress_repository.dart';
 import 'package:kaitan/data/trial/code_series.dart';
+import 'package:kaitan/data/trial/purchase_service.dart';
 import 'package:kaitan/data/trial/unlock_verifier.dart';
 import 'package:kaitan/features/legal/privacy_policy_screen.dart';
 import 'package:kaitan/features/legal/privacy_policy_text.dart';
 import 'package:kaitan/features/start/start_screen.dart';
 import 'package:kaitan/features/trial/presentation/unlock_screen.dart';
 
+import 'support/fake_iap.dart';
 import 'trial_unlock_test.dart' show makeCode;
 
 String _wholePolicy() => [
@@ -35,31 +42,33 @@ String _wholePolicy() => [
       kPrivacyPolicyEnacted,
     ].join('\n');
 
-Widget _unlockScreen({required bool standaloneAccepted}) => ProviderScope(
+List<Override> _startOverrides({required bool unlocked}) => [
+      unlockedProvider.overrideWith((ref) async => unlocked),
+      lapCountProvider(kStageFirst).overrideWith((ref) async => 0),
+      lapCountProvider(kStageSecond).overrideWith((ref) async => 0),
+    ];
+
+Widget _unlockScreen({required bool iap}) => ProviderScope(
       overrides: [
-        showIapProvider.overrideWithValue(false),
-        standaloneCodesAcceptedProvider.overrideWithValue(standaloneAccepted),
+        showIapProvider.overrideWithValue(iap),
+        standaloneCodesAcceptedProvider.overrideWithValue(!iap),
+        purchaseServiceProvider.overrideWithValue(PurchaseService(iap: FakeIap())),
       ],
       child: const MaterialApp(home: UnlockScreen()),
     );
 
 void main() {
   group('privacy policy (Guideline 5.1.1(i))', () {
-    testWidgets('the start screen links to it, and the link opens it',
+    testWidgets('the start screen links to it through the app\'s own router',
         (tester) async {
-      final router = GoRouter(routes: [
-        GoRoute(path: '/', builder: (c, s) => const StartScreen()),
-        GoRoute(
-            path: '/privacy',
-            builder: (c, s) => const PrivacyPolicyScreen()),
-      ]);
+      // The real routerProvider, not a stand-in: removing the /privacy route
+      // from the app must make this fail.
       await tester.pumpWidget(ProviderScope(
-        overrides: [
-          unlockedProvider.overrideWith((ref) async => true),
-          lapCountProvider(kStageFirst).overrideWith((ref) async => 0),
-          lapCountProvider(kStageSecond).overrideWith((ref) async => 0),
-        ],
-        child: MaterialApp.router(routerConfig: router),
+        overrides: _startOverrides(unlocked: true),
+        child: Consumer(
+          builder: (context, ref, _) =>
+              MaterialApp.router(routerConfig: ref.watch(routerProvider)),
+        ),
       ));
       await tester.pumpAndSettle();
 
@@ -72,14 +81,9 @@ void main() {
       expect(find.textContaining('一般社団法人KAI'), findsWidgets);
     });
 
-    testWidgets('the policy is reachable for a trial user too',
-        (tester) async {
+    testWidgets('the link is there for a trial user too', (tester) async {
       await tester.pumpWidget(ProviderScope(
-        overrides: [
-          unlockedProvider.overrideWith((ref) async => false),
-          lapCountProvider(kStageFirst).overrideWith((ref) async => 0),
-          lapCountProvider(kStageSecond).overrideWith((ref) async => 0),
-        ],
+        overrides: _startOverrides(unlocked: false),
         child: const MaterialApp(home: StartScreen()),
       ));
       await tester.pumpAndSettle();
@@ -92,9 +96,13 @@ void main() {
       expect(p, contains('一般社団法人KAI'));
     });
 
+    test('states retention and how the data is deleted', () {
+      final p = _wholePolicy();
+      expect(p, contains('保存期間'));
+      expect(p, contains('削除'));
+    });
+
     test('contains no link out of the app', () {
-      // A bundled policy exists partly so it cannot become a route to the
-      // website, and from there to a page that sells codes.
       final p = _wholePolicy();
       for (final s in ['http', 'www.', '.jp', '.com', '@']) {
         expect(p, isNot(contains(s)), reason: 'found "$s"');
@@ -116,6 +124,30 @@ void main() {
       for (final s in ['円', '価格', 'ショップ', '販売', 'お求め']) {
         expect(p, isNot(contains(s)), reason: 'found "$s"');
       }
+    });
+  });
+
+  group('platform defaults', () {
+    // The providers read defaultTargetPlatform, so these exercise the real
+    // defaults rather than an override.
+    ProviderContainer containerFor(TargetPlatform p) {
+      debugDefaultTargetPlatformOverride = p;
+      addTearDown(() => debugDefaultTargetPlatformOverride = null);
+      final c = ProviderContainer();
+      addTearDown(c.dispose);
+      return c;
+    }
+
+    test('iOS offers the purchase and refuses standalone codes', () {
+      final c = containerFor(TargetPlatform.iOS);
+      expect(c.read(showIapProvider), isTrue);
+      expect(c.read(standaloneCodesAcceptedProvider), isFalse);
+    });
+
+    test('Android offers no purchase and accepts standalone codes', () {
+      final c = containerFor(TargetPlatform.android);
+      expect(c.read(showIapProvider), isFalse);
+      expect(c.read(standaloneCodesAcceptedProvider), isTrue);
     });
   });
 
@@ -172,7 +204,7 @@ void main() {
   group('unlock screen', () {
     testWidgets('a set-only build says where its codes come from',
         (tester) async {
-      await tester.pumpWidget(_unlockScreen(standaloneAccepted: false));
+      await tester.pumpWidget(_unlockScreen(iap: true));
       await tester.pump();
       expect(find.text('教材セットに付属のアンロックコードを入力してください。'),
           findsOneWidget);
@@ -181,15 +213,16 @@ void main() {
 
     testWidgets('a build that takes both keeps the general wording',
         (tester) async {
-      await tester.pumpWidget(_unlockScreen(standaloneAccepted: true));
+      await tester.pumpWidget(_unlockScreen(iap: false));
       await tester.pump();
       expect(find.text('ご購入時にお渡ししたアンロックコードを入力してください。'),
           findsOneWidget);
+      expect(find.text('アンロックコード入力'), findsOneWidget);
     });
 
     testWidgets('a standalone code is refused on a set-only build',
         (tester) async {
-      await tester.pumpWidget(_unlockScreen(standaloneAccepted: false));
+      await tester.pumpWidget(_unlockScreen(iap: true));
       await tester.pump();
       await tester.enterText(
           find.byType(TextField), makeCode(kStandaloneSeriesFirstId + 7));
@@ -197,11 +230,76 @@ void main() {
       await tester.pump();
       expect(find.text(kCodeNotForThisDeviceMessage), findsOneWidget);
     });
+
+    testWidgets('iOS: the purchase is named, and restore survives a product '
+        'that failed to load', (tester) async {
+      await tester.pumpWidget(_unlockScreen(iap: true));
+      await tester.pumpAndSettle();
+      expect(find.text('全機能の解放'), findsOneWidget);
+      expect(find.textContaining('購入の復元'), findsOneWidget);
+      expect(find.textContaining('購入の準備ができません'), findsOneWidget);
+      expect(find.textContaining('購入やコード入力をしなくても'), findsOneWidget);
+    });
+  });
+
+  group('iOS wording outside the unlock screen', () {
+    testWidgets('the start screen offers the purchase, not only a code',
+        (tester) async {
+      await tester.pumpWidget(ProviderScope(
+        overrides: [
+          ..._startOverrides(unlocked: false),
+          showIapProvider.overrideWithValue(true),
+        ],
+        child: const MaterialApp(home: StartScreen()),
+      ));
+      await tester.pumpAndSettle();
+      expect(find.text('全機能を解放する（購入・コード入力）'), findsOneWidget);
+      expect(find.text('アンロックコードをお持ちの方'), findsNothing);
+    });
+
+    test('the iOS trial banners name the in-app purchase', () {
+      expect(kTrialBannerLearnIap, contains('アプリ内購入'));
+      expect(kTrialBannerVideoIap, contains('アプリ内購入'));
+      // Android wording is unchanged.
+      expect(kTrialBannerLearn, isNot(contains('購入')));
+      expect(kTrialBannerVideo, isNot(contains('購入')));
+    });
+  });
+
+  group('platform manifests', () {
+    test('iOS privacy manifest exists, declares the SQLite APIs, and ships',
+        () {
+      // App Store Connect refuses an upload (ITMS-91053) that uses
+      // required-reason APIs without declaring them. The bundled SQLite calls
+      // stat* (file timestamps) and statfs* (disk space).
+      final m = File('ios/Runner/PrivacyInfo.xcprivacy').readAsStringSync();
+      expect(m, contains('NSPrivacyAccessedAPICategoryFileTimestamp'));
+      expect(m, contains('NSPrivacyAccessedAPICategoryDiskSpace'));
+      expect(m, matches(RegExp(r'<key>NSPrivacyTracking</key>\s*<false/>')));
+      // A manifest that is not in the Resources phase is not in the app.
+      final pbx =
+          File('ios/Runner.xcodeproj/project.pbxproj').readAsStringSync();
+      expect(pbx, contains('PrivacyInfo.xcprivacy in Resources */,'));
+    });
+
+    test('Android excludes everything from backup AND device transfer', () {
+      final manifest =
+          File('android/app/src/main/AndroidManifest.xml').readAsStringSync();
+      expect(manifest,
+          contains('android:dataExtractionRules="@xml/data_extraction_rules"'));
+      final rules = File('android/app/src/main/res/xml/data_extraction_rules.xml')
+          .readAsStringSync();
+      for (final section in ['cloud-backup', 'device-transfer']) {
+        final body = RegExp('<$section>(.*?)</$section>', dotAll: true)
+            .firstMatch(rules)
+            ?.group(1);
+        expect(body, isNotNull, reason: '<$section> missing');
+        expect(body, contains('<exclude domain="root" path="." />'));
+      }
+    });
   });
 
   test('iPhone only: no build configuration targets iPad', () {
-    // Turning iPad on commits the listing to a 13-inch iPad screenshot set and
-    // puts an untested layout in front of App Review. Do it deliberately.
     final pbx =
         File('ios/Runner.xcodeproj/project.pbxproj').readAsStringSync();
     expect(pbx, isNot(contains('TARGETED_DEVICE_FAMILY = "1,2"')));

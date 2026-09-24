@@ -19,3 +19,11 @@ const String kTrialBannerLearn =
     '体験版：ブロック1〜2のみ学習できます。コード入力で全ブロックが解放されます。';
 const String kTrialBannerVideo =
     '体験版：ブロック1〜2のみ視聴できます。コード入力で全ブロックが解放されます。';
+
+/// iOS variants. There the full app can also be bought in-app, and a
+/// reviewer who is only ever told to enter a code reads the app as a
+/// license-key unlock (Guideline 3.1.1) and cannot find the purchase.
+const String kTrialBannerLearnIap =
+    '体験版：ブロック1〜2のみ学習できます。アプリ内購入またはコード入力で全ブロックが解放されます。';
+const String kTrialBannerVideoIap =
+    '体験版：ブロック1〜2のみ視聴できます。アプリ内購入またはコード入力で全ブロックが解放されます。';

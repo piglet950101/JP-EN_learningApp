@@ -26,7 +26,8 @@
 // A deterrent price nobody could buy is the gaming reviewers look for.
 
 import 'dart:async';
-import 'dart:io' show Platform;
+import 'package:flutter/foundation.dart'
+    show TargetPlatform, defaultTargetPlatform;
 
 import 'package:in_app_purchase/in_app_purchase.dart';
 
@@ -66,10 +67,20 @@ class PurchaseUpdate {
 }
 
 class PurchaseService {
-  PurchaseService({InAppPurchase? iap})
+  PurchaseService({InAppPurchase? iap, this.onUnlocked})
       : _iap = iap ?? InAppPurchase.instance;
 
   final InAppPurchase _iap;
+
+  /// Saves the unlock for a purchased or restored transaction.
+  ///
+  /// Called BEFORE the transaction is finished, and from the service rather
+  /// than a screen: a purchase can complete when no purchase screen is open
+  /// (Ask to Buy approved later, a slow payment, a transaction left over from
+  /// the last run), and StoreKit never redelivers a finished transaction.
+  /// Throwing leaves the transaction unfinished, so it is delivered again on
+  /// the next launch.
+  final Future<void> Function(String marker)? onUnlocked;
   StreamSubscription<List<PurchaseDetails>>? _sub;
   final _controller = StreamController<PurchaseUpdate>.broadcast();
 
@@ -95,7 +106,7 @@ class PurchaseService {
   /// Whether the store is reachable at all. False on a device with purchases
   /// disabled, and false on Android where we never offer the button.
   Future<bool> isAvailable() async {
-    if (!Platform.isIOS) return false;
+    if (defaultTargetPlatform != TargetPlatform.iOS) return false;
     try {
       return await _iap.isAvailable();
     } catch (_) {
@@ -135,6 +146,7 @@ class PurchaseService {
 
   Future<void> _onPurchases(List<PurchaseDetails> purchases) async {
     for (final p in purchases) {
+      var finish = true;
       switch (p.status) {
         case PurchaseStatus.pending:
           _controller.add(const PurchaseUpdate(PurchaseOutcome.pending));
@@ -142,10 +154,19 @@ class PurchaseService {
 
         case PurchaseStatus.purchased:
         case PurchaseStatus.restored:
-          _controller.add(PurchaseUpdate(
-            PurchaseOutcome.unlocked,
-            receiptHash: _marker(p),
-          ));
+          if (p.productID != kUnlockProductId) break;
+          final marker = _marker(p);
+          try {
+            await onUnlocked?.call(marker);
+          } catch (_) {
+            // Not saved. Leave the transaction unfinished: StoreKit delivers
+            // it again on the next launch, and that is the retry.
+            finish = false;
+            _controller.add(const PurchaseUpdate(PurchaseOutcome.failed));
+            break;
+          }
+          _controller.add(
+              PurchaseUpdate(PurchaseOutcome.unlocked, receiptHash: marker));
           break;
 
         case PurchaseStatus.canceled:
@@ -161,7 +182,7 @@ class PurchaseService {
       // launch, forever. This is outside the switch deliberately: it applies
       // to errors and cancellations too, and skipping it is the single most
       // common way an IAP integration breaks in the field.
-      if (p.pendingCompletePurchase) {
+      if (finish && p.pendingCompletePurchase) {
         try {
           await _iap.completePurchase(p);
         } catch (_) {

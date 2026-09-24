@@ -88,20 +88,23 @@ class VideoListScreen extends ConsumerWidget {
   }
 }
 
-class _TrialBanner extends StatelessWidget {
+class _TrialBanner extends ConsumerWidget {
   const _TrialBanner();
   @override
-  Widget build(BuildContext context) => Container(
+  Widget build(BuildContext context, WidgetRef ref) => Container(
         color: const Color(0xFFE6F4FF),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         child: Row(
-          children: const [
-            Icon(Icons.info_outline_rounded, color: Color(0xFF2b6cb0), size: 20),
-            SizedBox(width: 10),
+          children: [
+            const Icon(Icons.info_outline_rounded,
+                color: Color(0xFF2b6cb0), size: 20),
+            const SizedBox(width: 10),
             Expanded(
               child: Text(
-                kTrialBannerVideo,
-                style: TextStyle(fontSize: 13, color: Color(0xFF1A365D)),
+                ref.watch(showIapProvider)
+                    ? kTrialBannerVideoIap
+                    : kTrialBannerVideo,
+                style: const TextStyle(fontSize: 13, color: Color(0xFF1A365D)),
               ),
             ),
           ],
