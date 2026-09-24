@@ -237,7 +237,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('全機能の解放'), findsOneWidget);
       expect(find.textContaining('購入の復元'), findsOneWidget);
-      expect(find.textContaining('購入の準備ができません'), findsOneWidget);
+      expect(find.textContaining('アプリ内での購入をご利用いただけません'), findsOneWidget);
       expect(find.textContaining('購入やコード入力をしなくても'), findsOneWidget);
     });
   });
@@ -255,6 +255,44 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('全機能を解放する（購入・コード入力）'), findsOneWidget);
       expect(find.text('アンロックコードをお持ちの方'), findsNothing);
+    });
+
+    testWidgets('the iOS label adds no overflow on a narrow screen or at a '
+        'large text size', (tester) async {
+      // 320pt is an iPhone SE (1st gen) or any iPhone with Display Zoom;
+      // 21/17 is iOS's largest standard text size before accessibility sizes.
+      // Compared against the Android label on the same screen, so anything
+      // the rest of the start screen does at these sizes cancels out.
+      Future<int> overflowsWith({required bool iap}) async {
+        var count = 0;
+        final previous = FlutterError.onError;
+        FlutterError.onError = (d) {
+          if (d.exceptionAsString().contains('overflowed')) count++;
+        };
+        await tester.pumpWidget(ProviderScope(
+          key: UniqueKey(),
+          overrides: [
+            ..._startOverrides(unlocked: false),
+            showIapProvider.overrideWithValue(iap),
+          ],
+          child: const MaterialApp(home: StartScreen()),
+        ));
+        await tester.pumpAndSettle();
+        FlutterError.onError = previous;
+        return count;
+      }
+
+      addTearDown(tester.view.reset);
+      addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+      for (final (width, scale) in [(320.0, 1.0), (375.0, 21 / 17)]) {
+        tester.view.physicalSize = Size(width, 900);
+        tester.view.devicePixelRatio = 1;
+        tester.platformDispatcher.textScaleFactorTestValue = scale;
+        final android = await overflowsWith(iap: false);
+        final ios = await overflowsWith(iap: true);
+        expect(ios, android,
+            reason: 'the iOS label overflows at ${width}pt, text scale $scale');
+      }
     });
 
     test('the iOS trial banners name the in-app purchase', () {
@@ -297,6 +335,21 @@ void main() {
         expect(body, contains('<exclude domain="root" path="." />'));
       }
     });
+  });
+
+  test('iOS 15 minimum: the purchase plugin is StoreKit 2 only', () {
+    // in_app_purchase_storekit registers its StoreKit 2 API only on iOS 15+.
+    // Below that the purchase can never load, and Guideline 3.1.4 needs it.
+    final pbx =
+        File('ios/Runner.xcodeproj/project.pbxproj').readAsStringSync();
+    final targets = RegExp(r'IPHONEOS_DEPLOYMENT_TARGET = ([\d.]+);')
+        .allMatches(pbx)
+        .map((m) => double.parse(m.group(1)!))
+        .toList();
+    expect(targets, isNotEmpty);
+    for (final t in targets) {
+      expect(t, greaterThanOrEqualTo(15.0));
+    }
   });
 
   test('iPhone only: no build configuration targets iPad', () {

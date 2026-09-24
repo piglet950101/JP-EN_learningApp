@@ -281,8 +281,8 @@ class _UnlockScreenState extends ConsumerState<UnlockScreen> {
             )
           else if (_productChecked)
             const Text(
-              'ただいま購入の準備ができません。通信状況をご確認のうえ、'
-              'しばらくしてから再度お試しください。',
+              '現在、アプリ内での購入をご利用いただけません。'
+              '通信状況や端末の購入制限の設定をご確認ください。',
               style: TextStyle(fontSize: 12, color: Colors.black54),
               textAlign: TextAlign.center,
             ),

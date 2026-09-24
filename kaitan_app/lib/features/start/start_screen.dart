@@ -300,12 +300,15 @@ class _UnlockLink extends ConsumerWidget {
                   Icon(iap ? Icons.lock_open_rounded : Icons.vpn_key_rounded,
                       size: 18, color: const Color(0xFF2b6cb0)),
                   const SizedBox(width: 8),
-                  Text(
-                    iap ? '全機能を解放する（購入・コード入力）' : 'アンロックコードをお持ちの方',
-                    style: const TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w700,
-                      color: Color(0xFF2b6cb0),
+                  Flexible(
+                    child: Text(
+                      iap ? '全機能を解放する（購入・コード入力）' : 'アンロックコードをお持ちの方',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w700,
+                        color: Color(0xFF2b6cb0),
+                      ),
                     ),
                   ),
                 ],

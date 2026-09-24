@@ -32,19 +32,24 @@ class FakeIap implements InAppPurchase {
   dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 
+/// A transaction as the shipped StoreKit 2 plugin delivers it: the
+/// transaction's JSON in localVerificationData, and pendingCompletePurchase
+/// true for `purchased` only (SK2PurchaseDetails in in_app_purchase_storekit).
 PurchaseDetails fakePurchase(PurchaseStatus status,
-    {String productId = 'jp.or.kai.kaitan.unlock_all', String id = 'tx-1'}) {
+    {String productId = 'jp.or.kai.kaitan.unlock_all',
+    String id = 'tx-1',
+    String json = '{"productId":"jp.or.kai.kaitan.unlock_all"}'}) {
   return PurchaseDetails(
     purchaseID: id,
     productID: productId,
     verificationData: PurchaseVerificationData(
-      localVerificationData: '',
+      localVerificationData: json,
       serverVerificationData: '',
-      source: 'test',
+      source: 'app_store',
     ),
     transactionDate: '0',
     status: status,
-  )..pendingCompletePurchase = true;
+  )..pendingCompletePurchase = status == PurchaseStatus.purchased;
 }
 
 /// Lets queued stream events and the awaits they trigger run to completion.

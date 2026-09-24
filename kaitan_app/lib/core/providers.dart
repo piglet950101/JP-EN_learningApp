@@ -9,6 +9,7 @@ import 'package:flutter/foundation.dart'
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:in_app_purchase/in_app_purchase.dart' show InAppPurchase;
 
 import '../data/progress/progress_db.dart';
 import '../data/progress/progress_repository.dart';
@@ -150,11 +151,19 @@ final showIapProvider =
 final standaloneCodesAcceptedProvider =
     Provider<bool>((ref) => defaultTargetPlatform != TargetPlatform.iOS);
 
+/// The store connection. A provider so tests can put a fake store behind the
+/// real purchase wiring below.
+final inAppPurchaseProvider =
+    Provider<InAppPurchase>((ref) => InAppPurchase.instance);
+
 final purchaseServiceProvider = Provider<PurchaseService>((ref) {
-  final s = PurchaseService(onUnlocked: (marker) async {
-    await ref.read(progressRepoProvider).recordUnlock(codeHash: marker);
-    ref.invalidate(unlockedProvider);
-  });
+  final s = PurchaseService(
+    iap: ref.watch(inAppPurchaseProvider),
+    onUnlocked: (marker) async {
+      await ref.read(progressRepoProvider).recordUnlock(codeHash: marker);
+      ref.invalidate(unlockedProvider);
+    },
+  );
   ref.onDispose(s.dispose);
   return s;
 });

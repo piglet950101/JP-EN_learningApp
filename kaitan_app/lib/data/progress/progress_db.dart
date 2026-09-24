@@ -105,8 +105,11 @@ class ProgressDb extends _$ProgressDb {
 
 /// Keeps progress.db out of the device backup.
 ///
-/// Android does this declaratively (allowBackup="false"), added after a
-/// reinstall on 菊地様's phone came back already unlocked while 落合様's did
+/// Android does this declaratively: allowBackup="false" for Android 11 and
+/// earlier, and res/xml/data_extraction_rules.xml for Android 12+, where
+/// allowBackup alone does not stop device-to-device transfer on some
+/// devices. The rule was first added after
+/// a reinstall on 菊地様's phone came back already unlocked while 落合様's did
 /// not — Auto Backup had restored the unlock flag with the rest of the file.
 /// iOS backs up everything under Documents/ to iCloud by default, so the same
 /// file would travel the same way; there the exclusion is a per-file resource

@@ -26,6 +26,7 @@
 // A deterrent price nobody could buy is the gaming reviewers look for.
 
 import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/foundation.dart'
     show TargetPlatform, defaultTargetPlatform;
 
@@ -35,9 +36,9 @@ import 'package:in_app_purchase/in_app_purchase.dart';
 ///
 /// This exact string has to be created in App Store Connect as a
 /// NON-CONSUMABLE in-app purchase before any build can sell anything. Until
-/// it exists, [PurchaseService.loadProduct] returns null and the UI simply
-/// hides the button — which is the state today, since KAI's Apple
-/// organisation enrolment is still pending.
+/// it exists, [PurchaseService.loadProduct] returns null: the unlock screen
+/// shows no buy button and says in-app purchase is unavailable, while still
+/// offering 購入の復元. Attach it to the first version submitted.
 const String kUnlockProductId = 'jp.or.kai.kaitan.unlock_all';
 
 /// What a purchase attempt did, in terms the UI can act on.
@@ -155,6 +156,10 @@ class PurchaseService {
         case PurchaseStatus.purchased:
         case PurchaseStatus.restored:
           if (p.productID != kUnlockProductId) break;
+          // A refund or a Family Sharing removal arrives as an update to the
+          // same transaction, carrying a revocation date. It is finished
+          // like any other, but it must not unlock anything.
+          if (_isRevoked(p)) break;
           final marker = _marker(p);
           try {
             await onUnlocked?.call(marker);
@@ -195,6 +200,17 @@ class PurchaseService {
   /// A short, non-reversible marker for the audit column. The unlock itself
   /// is local and permanent either way, so this is for support questions
   /// ("which purchase unlocked this device?"), not for verification.
+  /// StoreKit 2 carries the transaction's JSON in localVerificationData; a
+  /// revoked transaction has a "revocationDate" there.
+  static bool _isRevoked(PurchaseDetails p) {
+    try {
+      final j = jsonDecode(p.verificationData.localVerificationData);
+      return j is Map && j['revocationDate'] != null;
+    } catch (_) {
+      return false;
+    }
+  }
+
   static String _marker(PurchaseDetails p) {
     final id = p.purchaseID ?? p.productID;
     final h = id.hashCode.toUnsigned(32).toRadixString(16).padLeft(8, '0');
