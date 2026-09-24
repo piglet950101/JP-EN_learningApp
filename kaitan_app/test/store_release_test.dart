@@ -320,6 +320,17 @@ void main() {
       expect(pbx, contains('PrivacyInfo.xcprivacy in Resources */,'));
     });
 
+    test('Android declares no billing permission (it sells nothing)', () {
+      // in_app_purchase injects com.android.vending.BILLING; the purchase is
+      // iOS only, so the Android manifest strips it to match the Play answers.
+      final manifest =
+          File('android/app/src/main/AndroidManifest.xml').readAsStringSync();
+      expect(
+          manifest,
+          contains('<uses-permission android:name="com.android.vending.BILLING" '
+              'tools:node="remove" />'));
+    });
+
     test('Android excludes everything from backup AND device transfer', () {
       final manifest =
           File('android/app/src/main/AndroidManifest.xml').readAsStringSync();
