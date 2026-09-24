@@ -130,17 +130,19 @@ class SessionController extends Notifier<SessionState> {
     if (blocks.isNotEmpty) {
       await repo.markBlocksCompleted(stage, blocks);
     }
-    // Bump lap_count when ALL 46 blocks are completed (Q-3 confirmed).
+    // A lap is every block the stage offers: 1-46 in First Stage, 1-47 in
+    // Second Stage. Counting all 47 for both meant First Stage could never
+    // complete a lap, because block 47 is not offered there.
+    final lap = lapBlocks(secondStage: stage == kStageSecond);
     final statuses = await repo.blockStatuses(stage);
-    final completed = statuses.values.where((s) => s == 'completed').length;
-    if (completed >= kAllBlocks.length) {
+    if (lap.every((b) => statuses[b.no] == 'completed')) {
       await repo.incrementLap(stage);
       // After bumping lap, reset block_state so the user can start a new lap.
       await repo.resetBlocks(
         stage,
-        kAllBlocks.map((b) => b.no),
+        lap.map((b) => b.no),
         (no) {
-          final b = kAllBlocks.firstWhere((x) => x.no == no);
+          final b = lap.firstWhere((x) => x.no == no);
           return [for (var id = b.firstId; id <= b.lastId; id++) id];
         },
       );

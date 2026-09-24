@@ -70,3 +70,11 @@ const List<Block> kAllBlocks = [
 
 List<Block> blocksOfVol(int vol) =>
     kAllBlocks.where((b) => b.vol == vol).toList();
+
+/// The blocks that make up one lap of a stage.
+///
+/// First Stage offers blocks 1-46; the vol.3 medical block (47) is studied
+/// from Second Stage only. A First Stage lap must not wait for a block the
+/// stage never offers, or its lap count can never go up.
+List<Block> lapBlocks({required bool secondStage}) =>
+    secondStage ? kAllBlocks : kAllBlocks.where((b) => b.vol != 3).toList();

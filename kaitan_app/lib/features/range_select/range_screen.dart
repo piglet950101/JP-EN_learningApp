@@ -174,15 +174,16 @@ class _RangeScreenState extends ConsumerState<RangeScreen> {
                         const SizedBox(height: 8),
                         _VolHeader(
                           title: '快単 vol.3 医系（第47ブロック）',
-                          onSelectAll: () => _selectVol(3),
+                          onSelectAll: () =>
+                              _selectVol(3, enabledBlocks: trialBlocks),
                         ),
                         _BlockGrid(
                           vol: 3,
                           selected: _selected,
                           statuses: statuses,
-                          // Medical block is FS-content in the SS screen;
-                          // treat it as always enabled.
-                          enabledBlocks: null,
+                          // No Second Stage questions, so only the trial
+                          // gate applies: locked like every block past 2.
+                          enabledBlocks: trialBlocks,
                           onTap: _toggle,
                         ),
                       ],

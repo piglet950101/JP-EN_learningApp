@@ -84,12 +84,12 @@ void main() {
 
     final repo = c.read(progressRepoProvider);
 
-    // Shortcut: just mark all 46 blocks completed via the repo, then advance
-    // through a tiny final session — the controller's completion path checks
-    // statuses and bumps the lap.
+    // Pre-mark First Stage blocks 2-46, then finish block 1 in a tiny
+    // session. Block 47 is deliberately NOT marked: First Stage never offers
+    // it, so a lap that waited for it could never complete.
     await repo.markBlocksCompleted(
       kStageFirst,
-      kAllBlocks.skip(1).map((b) => b.no), // 45 blocks pre-marked
+      kAllBlocks.where((b) => b.no >= 2 && b.no <= 46).map((b) => b.no),
     );
 
     final ctrl = c.read(sessionControllerProvider.notifier);
