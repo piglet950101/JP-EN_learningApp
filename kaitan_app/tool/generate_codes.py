@@ -134,7 +134,7 @@ def main() -> None:
 
     save_state(state)
     series = "standalone (NOT accepted on iOS)" if args.standalone else "set"
-    print(f"wrote {args.count} codes → {out_path.name}")
+    print(f"wrote {args.count} codes -> {out_path.name}")
     print(f"series: {series}")
     print(f"purchase_id range this batch: {first}..{state[counter] - 1}")
 
