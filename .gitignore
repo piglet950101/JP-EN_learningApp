@@ -10,3 +10,6 @@
 !/README.md
 !/kaitan_app/
 !/docs/
+# Shopify unlock-code delivery (Google Apps Script). Holds no codes, tokens or
+# secrets: those live only in the client's Google account.
+!/shopify_code_delivery/
